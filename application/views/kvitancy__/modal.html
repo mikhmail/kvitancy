@@ -1,0 +1,1163 @@
+
+<!DOCTYPE html> 
+<html lang="en-US">
+<head>
+  <title>CodeIgniter Admin Project</title>
+  <meta charset="utf-8">
+  <link href="http://ciadm/assets/css/admin/global.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="navbar navbar-fixed-top">
+	  <div class="navbar-inner">
+	    <div class="container">
+	      <a class="brand">Project Name</a>
+	      <ul class="nav">
+	        
+			
+			
+			
+			<li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Настройки <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+
+			  <li >
+	          <a href="http://ciadm/admin/users">Пользователи</a>
+	        </li>
+	        
+			<li >
+	          <a href="http://ciadm/admin/groups_dostupa">Роли</a>
+	        </li>
+			
+			<li >
+	          <a href="http://ciadm/admin/aparaty">Аппараты</a>
+	        </li>
+	        
+			<li >
+	          <a href="http://ciadm/admin/proizvoditel">Производители</a>
+	        </li>
+			
+			<li >
+	          <a href="http://ciadm/admin/sost_remonta">Состояния</a>
+	        </li>
+			
+			<li >
+	          <a href="http://ciadm/admin/vid_remonta">Виды ремонта</a>
+	        </li>
+			
+			
+			<li >
+	          <a href="http://ciadm/admin/service_centers">Приёмки</a>
+	        </li>
+			
+			<li >
+	          <a href="http://ciadm/admin/gorod">Города</a>
+	        </li>
+			
+			<li >
+	          <a href="http://ciadm/admin/clients">Клиенты</a>
+	        </li>
+			
+			<li >
+	          <a href="http://ciadm/admin/comments">Комментарии</a>
+	        </li>
+			
+			
+			<li >
+	          <a href="http://ciadm/admin/kvitancy">Сохранки</a>
+	        </li>
+			
+			  
+	          </ul>
+	        </li>
+			
+			
+			
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Система <b class="caret"></b></a>
+	          <ul class="dropdown-menu">
+	            <li>
+	              <a href="http://ciadm/admin/logout">Выход</a>
+	            </li>
+				<li>
+	              <a href="http://ciadm/admin/cache_delete">Очистить кеш</a>
+	            </li>
+	          </ul>
+	        </li>
+	      </ul>
+	    </div>
+	  </div>
+	</div>	
+
+    <div class="container top">
+
+      <ul class="breadcrumb">
+        <li>
+          <a href="http://ciadm/kvitancy">
+            Kvitancy          </a> 
+          <span class="divider">/</span>
+        </li>
+       <a href="http://ciadm/kvitancy/1">
+            1          </a>
+      </ul>
+
+      <div class="page-header users-header">
+        <h2>
+          1 
+          <a  href="#" class="btn btn-success" id="new-order-button">Добавить</a>
+        </h2>
+		
+		
+		
+      </div>
+      
+      <div class="row">
+        <div class="span12 columns">
+          <div class="well">
+           <p>Найдено 1057 квитанций</p>
+		   
+		   <p>Квитанции на звонок/согласование:
+		   				 
+						<a href="http://ciadm/kvitancy/view/8868/">8868</a>
+									 
+						<a href="http://ciadm/kvitancy/view/8903/">8903</a>
+									 
+						<a href="http://ciadm/kvitancy/view/8925/">8925</a>
+					</p>
+		   
+		   
+            <form action="http://ciadm/kvitancy" method="post" accept-charset="utf-8" class="form-inline reset-margin" id="myform"><label for="id_kvitancy">№квит:</label><input type="text" name="id_kvitancy" value=""  /><br><label for="search_string">Поиск:</label><input type="text" name="search_string" value=""  /><br><label>Дата: </label><select name="date" class="span2">
+<option value="date_priemka" selected="selected">Приемка</option>
+<option value="date_vydachi">Выдачи</option>
+<option value="date_okonchan">Окон.ремонта</option>
+</select><label>C: </label><input type="date" name="start_date" value="2014-01-31"  /><label>По: </label><input type="date" name="end_date" value="2014-09-23"  /><br><label>Приемка: </label><select name="id_sc" class="span2">
+<option value="" selected="selected">Выбрать</option>
+<option value="1">ТЕХНОДОКТОР</option>
+<option value="2">НБ-Сервис</option>
+</select><br><label>Механик: </label><select name="id_mechanic" class="span2">
+<option value="" selected="selected">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13">and</option>
+</select><br><label>Бренд: </label><select name="id_proizvod" class="span2">
+<option value="" selected="selected">Выбрать</option>
+<option value="1">0 по умолчанию</option>
+<option value="3">Acer</option>
+<option value="4">Asus</option>
+<option value="5">Lenovo</option>
+<option value="6">Samsung</option>
+<option value="7">Dell</option>
+<option value="8">Hewlett Packard</option>
+<option value="9">Sony</option>
+<option value="10">Apple</option>
+<option value="11">Fujitsu</option>
+<option value="12">Packard Bell</option>
+<option value="13">LG</option>
+<option value="14">Panasonic</option>
+<option value="15">HTC</option>
+<option value="16">Fly</option>
+<option value="17">Nokia</option>
+<option value="18">Canon</option>
+<option value="19">Epson</option>
+<option value="20">Xerox</option>
+<option value="21">Hitachi</option>
+<option value="22">Philips</option>
+<option value="23">Sony Ericsson</option>
+<option value="24">BenQ</option>
+<option value="25">View Sonic</option>
+<option value="26">Microsoft</option>
+<option value="27">IBM</option>
+<option value="28">CompaQ</option>
+<option value="29">E-Machines</option>
+<option value="30">RoverBook</option>
+<option value="31">Кор</option>
+<option value="32">Cisco</option>
+<option value="33">TP Link</option>
+<option value="34">Другое</option>
+<option value="35">Toshiba</option>
+<option value="36">MSI</option>
+<option value="37">D-Link</option>
+<option value="38">китайского производства</option>
+<option value="39">Nikon</option>
+<option value="40">Cisco Linksys</option>
+<option value="41">Assistant</option>
+<option value="42">Wexler</option>
+<option value="43">Motorola</option>
+<option value="44">Olympus</option>
+<option value="45">Archos</option>
+<option value="46">Transcend</option>
+<option value="47">Orion</option>
+<option value="48">Gateway</option>
+<option value="49">BBK</option>
+<option value="50">Sanyo</option>
+<option value="51">Prology</option>
+<option value="52">Gigabyte</option>
+<option value="53">Prestigio</option>
+<option value="54">HUAWEI</option>
+<option value="55">Pioneer</option>
+<option value="56">Sharp</option>
+<option value="57">Sennheiser</option>
+<option value="58">Koss</option>
+<option value="59">Bosch</option>
+<option value="60">Casio</option>
+<option value="61">Pentax</option>
+<option value="62">Kenwood</option>
+<option value="63">Pocketbook</option>
+<option value="64">Texet</option>
+<option value="65">Amazon</option>
+<option value="66">Kodak</option>
+<option value="67">APC</option>
+<option value="68">Electrolux</option>
+<option value="69">Lavazza</option>
+<option value="70">Gsmart</option>
+<option value="71">Kindle</option>
+<option value="72">Braun</option>
+<option value="73">Nexus</option>
+<option value="74">Tefal</option>
+<option value="75">Nespresso</option>
+<option value="76">Delonghi</option>
+<option value="77">Atlas</option>
+<option value="78">Saeco</option>
+<option value="79">Apache</option>
+<option value="80">тарнг</option>
+<option value="81">THOMSON</option>
+<option value="82">globex</option>
+<option value="83">Francis Francis</option>
+<option value="84">Krups</option>
+<option value="85">Goclever</option>
+<option value="86">AEG</option>
+<option value="87">Candy</option>
+<option value="88">Melitta</option>
+<option value="89">Alienware</option>
+<option value="90">Piano</option>
+<option value="91">Zelmer</option>
+<option value="92">Digma</option>
+<option value="93">Pixus</option>
+<option value="94">Impression</option>
+<option value="95">Cooler Master</option>
+<option value="96">Elite</option>
+<option value="97">Jura</option>
+<option value="98">Dex</option>
+<option value="99">Logitech</option>
+<option value="100">Q3</option>
+<option value="101">LogigPower</option>
+<option value="102">Flootach 32</option>
+<option value="103">Flytouch</option>
+<option value="104">Kub</option>
+<option value="105">Jawbone</option>
+<option value="106">Steelseries</option>
+<option value="107">Moulinex</option>
+<option value="108">Marshall</option>
+<option value="109">Fujifilm</option>
+<option value="110">FranciseFrancise</option>
+<option value="111">NooK</option>
+<option value="112">DNS</option>
+<option value="113">T30</option>
+<option value="114">Must</option>
+<option value="115">MiD</option>
+<option value="116">Yamaha</option>
+<option value="117">iriver</option>
+<option value="118">Hyundai</option>
+<option value="120">Cowon</option>
+<option value="121">BlackBerry</option>
+<option value="122">GigaWorks</option>
+<option value="123">Luxeon</option>
+<option value="124">Mustek</option>
+<option value="125">Onda</option>
+<option value="126">ainol</option>
+<option value="127">Luk</option>
+<option value="128">Swiss Quality</option>
+<option value="129">UFO</option>
+<option value="130">NEC</option>
+<option value="131">illy</option>
+<option value="132">Plenue</option>
+<option value="133">Сoolpad</option>
+<option value="134">Step</option>
+<option value="135">Rowento</option>
+<option value="136">JVC</option>
+<option value="137">AirON</option>
+<option value="138">Momster</option>
+<option value="139">Ipad</option>
+<option value="140">Gaggia</option>
+<option value="141">Plantronics</option>
+<option value="142">Deso</option>
+<option value="143">Sinnheiser</option>
+<option value="144">Lacie</option>
+<option value="145">Navo</option>
+<option value="146">Medion</option>
+<option value="147">Сompag</option>
+<option value="148">Ergo</option>
+<option value="149">Nyundli</option>
+<option value="150">Xperia</option>
+<option value="151">Daikin Industries</option>
+<option value="152">Belinea</option>
+<option value="153">Beats</option>
+<option value="154">Alcatel</option>
+<option value="155">Seagate</option>
+<option value="156">Sealife</option>
+<option value="157">APS</option>
+<option value="158">3q</option>
+<option value="159">LuxPad</option>
+<option value="160">TDK</option>
+<option value="161">Vitesse</option>
+<option value="162">Nescafe</option>
+<option value="163">mytab</option>
+<option value="164">Razer</option>
+<option value="165">WD</option>
+<option value="166">Aoson</option>
+<option value="167">нет названия</option>
+<option value="168">siemens</option>
+<option value="169">Chieftec</option>
+<option value="170">Gopro</option>
+<option value="171">Delux</option>
+<option value="172">Gorenje</option>
+<option value="173">SVEN</option>
+<option value="174">AKG</option>
+<option value="175">Scarlett</option>
+<option value="176">TrinkPad</option>
+<option value="177">Phaser</option>
+<option value="178">qumo</option>
+<option value="179">ZTPad</option>
+<option value="180">Solis</option>
+<option value="181">Simonelli</option>
+<option value="182">3Com</option>
+<option value="183">saturn</option>
+<option value="184">monsterbeats</option>
+<option value="185">Villa</option>
+<option value="186">СANYON</option>
+<option value="187">Zelos</option>
+<option value="188">Zopo</option>
+<option value="189">LARETTI</option>
+<option value="190">Everex</option>
+<option value="191">SCULLCANDY</option>
+<option value="192">Екомтех</option>
+<option value="193">Supremo</option>
+<option value="194">IconBit</option>
+<option value="195">Pipo</option>
+<option value="196">Eureka</option>
+<option value="197">Emtec</option>
+<option value="198">Сoffee Center</option>
+<option value="199">Hannspree</option>
+<option value="200">Rowena</option>
+<option value="201">iura</option>
+<option value="202">Dicple</option>
+<option value="203">Konica Minolta</option>
+<option value="204">Creative Professinal</option>
+<option value="205">Bistro</option>
+<option value="206">Grado</option>
+<option value="207">Cuisinart</option>
+<option value="208">urbanears</option>
+<option value="209">JBL</option>
+<option value="210">Reellex</option>
+<option value="211">Plaer</option>
+<option value="212">Leica</option>
+<option value="213">Proview</option>
+<option value="214">ICOO</option>
+<option value="215">MYSTERY</option>
+<option value="216">Caffytaly</option>
+<option value="217">Jeka</option>
+<option value="218">Joom</option>
+<option value="219">Vertice</option>
+<option value="220">SUPRA</option>
+</select><br><label>Аппарат: </label><select name="id_aparat" class="span2">
+<option value="" selected="selected">Выбрать</option>
+<option value="1">0 по-умолчанию</option>
+<option value="7">Ноутбук</option>
+<option value="8">Мобильный телефон</option>
+<option value="10">Принтер</option>
+<option value="11">Маршрутизатор</option>
+<option value="12">Системный блок</option>
+<option value="13">Монитор</option>
+<option value="14">Накопитель</option>
+<option value="17">Периферия</option>
+<option value="18">Картридж</option>
+<option value="19">Другое</option>
+<option value="20">Фотоаппарат</option>
+<option value="21">Электронная книга</option>
+<option value="22">Планшет</option>
+<option value="23">Материнская плата</option>
+<option value="24">Блок питания</option>
+<option value="25">МР3 плеер</option>
+<option value="26">Карман для HDD</option>
+<option value="27">Телевизор</option>
+<option value="28">Сабвуфер</option>
+<option value="29">Наушники</option>
+<option value="30">DVD-плеер</option>
+<option value="31">Моноблок</option>
+<option value="32">Кофеварка</option>
+<option value="33">Ультрабук</option>
+<option value="34">Сканер</option>
+<option value="35">Аккумулятор</option>
+<option value="36">Видеокарта</option>
+<option value="37">Утюг</option>
+<option value="38">Хлебопечка</option>
+<option value="39">Видеокамера</option>
+<option value="40">Мясорубка</option>
+<option value="41">Блендер</option>
+<option value="42">MP3-плеер</option>
+<option value="43">ИБП</option>
+<option value="44">СВЧ</option>
+<option value="45">Фен</option>
+<option value="46">Соковыжималка</option>
+<option value="47">Кухонный комбайн</option>
+<option value="48">Кофемолка</option>
+<option value="49">Рамка</option>
+<option value="51">Пароварка</option>
+<option value="52">Мультиварка</option>
+<option value="54">Видеоплеер</option>
+<option value="56">Колонка</option>
+<option value="57">Пылесос</option>
+<option value="58">Ресивер</option>
+<option value="59">МФУ</option>
+<option value="60">Объектив</option>
+<option value="61">Зарядное устройство</option>
+<option value="63">Диктофон</option>
+<option value="64">Магнитофон</option>
+<option value="65">Гарнитура</option>
+<option value="66">GPS-Навигатор</option>
+<option value="67">Электро щепцы</option>
+<option value="68">Электро щипцы</option>
+<option value="69">Музыкальный центр</option>
+<option value="70">Очиститель воздуха</option>
+<option value="71">Фоторамка</option>
+<option value="72">Плата</option>
+<option value="73">Пульт</option>
+<option value="75">Мишка</option>
+<option value="76">Докстанция</option>
+<option value="77">Винчестер</option>
+<option value="78">Стабилизатор напряжения</option>
+<option value="79">Медиаплеер</option>
+<option value="80">Кофемашина</option>
+<option value="81">Домашний кинотеатр</option>
+<option value="82">Тостер</option>
+<option value="83">переводчик</option>
+<option value="84">Звуковая карта</option>
+<option value="85">Проектор?</option>
+<option value="87">Электрочайник</option>
+</select><br><label>Состояние: </label><select name="id_sost" class="span2">
+<option value="" selected="selected">Выбрать</option>
+<option value="1">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select><br><label>Сортировать как: </label><select name="order_type" class="span2">
+<option value="Asc">С начала</option>
+<option value="Desc" selected="selected">С конца</option>
+</select><label>Вид ремонта: </label><select name="id_remonta" class="span2">
+<option value="">Выбрать</option>
+<option value="1">гарантийный</option>
+<option value="2" selected="selected">негарантийный</option>
+<option value="3">предпродажный</option>
+<option value="4">выезд(гарантийный)</option>
+<option value="5">выезд(негарантийный)</option>
+</select><br><input type="submit" name="mysubmit" value="Поиск" class="btn btn-primary"  /></form>
+          </div>
+
+          <table class="table-bordered table-hover">
+            <thead>
+              <tr class="header">
+                <th class="">#</th>
+				<th class="">Приемка</th>
+				<th class="">Выдача</th>
+				<th class="">Сервис</th>
+				
+				
+                <th class="">ФИО</th>
+				<th class="">Аппарат</th>
+				
+				<th class="">Неисправность</th>
+				<th class="">Статус</th>
+				<th class="">Механик</th>
+				
+				<th class="">Управление</th>
+				
+				
+				
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="error" id = 8932><td>8932</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Олейник Екатерина 0678542654</td><td>Фотоаппарат Olympus 780</td><td>чёрный дисплей,фотографирует, но фотографии черные, диагностика</td><td><select name="8932" id=status_8932 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8932" id=meh_8932 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8932" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8932" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8932" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8932></ul>				
+				<textarea rows="3" name="comment_8932">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8932" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8931><td>8931</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Бажора Виталий 0672967616</td><td>Фотоаппарат Panasonic TM80</td><td>не работает, не включается</td><td><select name="8931" id=status_8931 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8931" id=meh_8931 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8931" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8931" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8931" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8931></ul>				
+				<textarea rows="3" name="comment_8931">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8931" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8930><td>8930</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Воробьева Александра 0674438708</td><td>Кофеварка Saeco HD8525109</td><td>Горит индикатор очистки.Чистили не помогло.</td><td><select name="8930" id=status_8930 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8930" id=meh_8930 class="span2">
+<option value="">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13" selected="selected">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8930" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8930" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8930" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8930></ul>				
+				<textarea rows="3" name="comment_8930">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8930" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8928><td>8928</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Димяненко Татьяна 0935203377</td><td>Планшет Wexler Book T7008</td><td>не держит АКБ</td><td><select name="8928" id=status_8928 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8928" id=meh_8928 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8928" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8928" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8928" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8928></ul>				
+				<textarea rows="3" name="comment_8928">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8928" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8927><td>8927</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Троицкий Константин 0669592513</td><td>Планшет Asus nexus 7 K009</td><td>замена разъема питания</td><td><select name="8927" id=status_8927 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8927" id=meh_8927 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8927" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8927" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8927" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8927></ul>				
+				<textarea rows="3" name="comment_8927">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8927" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8925><td>8925</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Соловей Александр 0975228528</td><td>Кофемолка Bosch FD8609</td><td>Не работает.</td><td><select name="8925" id=status_8925 class="span2">
+<option value="">Выбрать</option>
+<option value="1">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10" selected="selected">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8925" id=meh_8925 class="span2">
+<option value="">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13" selected="selected">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8925" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8925" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8925" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8925></ul>				
+				<textarea rows="3" name="comment_8925">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8925" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8924><td>8924</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Лена Лена 0951306509</td><td>Кофемашина Krups Krups</td><td>Не работает, не делает кофе</td><td><select name="8924" id=status_8924 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8924" id=meh_8924 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8924" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8924" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8924" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8924></ul>				
+				<textarea rows="3" name="comment_8924">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8924" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8923><td>8923</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Лучкин Владимир 0503582267</td><td>Мобильный телефон Motorola ZN5</td><td>Не работает динамик</td><td><select name="8923" id=status_8923 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8923" id=meh_8923 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8923" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8923" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8923" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8923></ul>				
+				<textarea rows="3" name="comment_8923">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8923" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8922><td>8922</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Шома Андрей 0973418031</td><td>Наушники Sinnheiser IE 80</td><td>Установка нового джека.</td><td><select name="8922" id=status_8922 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8922" id=meh_8922 class="span2">
+<option value="">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13" selected="selected">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8922" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8922" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8922" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8922></ul>				
+				<textarea rows="3" name="comment_8922">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8922" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8921><td>8921</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Шома Андрей 0973418031</td><td>Наушники Sennheiser ie 80</td><td>НЕ работает, износился джек.</td><td><select name="8921" id=status_8921 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8921" id=meh_8921 class="span2">
+<option value="">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13" selected="selected">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8921" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8921" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8921" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8921></ul>				
+				<textarea rows="3" name="comment_8921">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8921" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8920><td>8920</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Ильченко Нина 0675946372</td><td>Мобильный телефон Apple A1428</td><td>Слабы сигнал сети в помещениях теряет связь. Проблемы с фотоаппаратом.</td><td><select name="8920" id=status_8920 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8920" id=meh_8920 class="span2">
+<option value="">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13" selected="selected">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8920" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8920" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8920" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8920></ul>				
+				<textarea rows="3" name="comment_8920">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8920" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8919><td>8919</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Грынь Антон 0931787884</td><td>Ноутбук DNS W253EGO</td><td>не работает , не заряжается</td><td><select name="8919" id=status_8919 class="span2">
+<option value="">Выбрать</option>
+<option value="1">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6" selected="selected">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8919" id=meh_8919 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8919" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8919" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8919" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8919></ul>				
+				<textarea rows="3" name="comment_8919">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8919" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8918><td>8918</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Цыценко Александр 0957783536</td><td>Планшет Asus ME 302</td><td>Замена модуля</td><td><select name="8918" id=status_8918 class="span2">
+<option value="">Выбрать</option>
+<option value="1">в работе</option>
+<option value="3" selected="selected">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8918" id=meh_8918 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8918" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8918" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8918" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8918></ul>				
+				<textarea rows="3" name="comment_8918">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8918" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8917><td>8917</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Музуренко Александр 0667582086</td><td>Планшет Asus TF700</td><td>не заряжается планшет и док станция</td><td><select name="8917" id=status_8917 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8917" id=meh_8917 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8917" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8917" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8917" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8917></ul>				
+				<textarea rows="3" name="comment_8917">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8917" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8916><td>8916</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Панченко Виктор 0676567463</td><td>Ноутбук Asus EeePC 900</td><td>Замена матрицы</td><td><select name="8916" id=status_8916 class="span2">
+<option value="">Выбрать</option>
+<option value="1">в работе</option>
+<option value="3" selected="selected">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8916" id=meh_8916 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8916" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8916" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8916" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8916></ul>				
+				<textarea rows="3" name="comment_8916">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8916" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8915><td>8915</td><td>2014-05-19</td><td>2014-05-19</td><td>ТЕХНОДОКТОР</td><td>Пономеренко Дарья 0667465708</td><td>Ноутбук Acer Aspire V5-571</td><td>Не работает лан выход, сломан разъем</td><td><select name="8915" id=status_8915 class="span2">
+<option value="">Выбрать</option>
+<option value="1">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8" selected="selected">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8915" id=meh_8915 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8915" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8915" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8915" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8915></ul>				
+				<textarea rows="3" name="comment_8915">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8915" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8914><td>8914</td><td>2014-05-19</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Навродский Руслан 0503578932</td><td>Кофемашина Saeco odea</td><td>выбивает ошибку, просит чистку</td><td><select name="8914" id=status_8914 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8914" id=meh_8914 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8914" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8914" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8914" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8914></ul>				
+				<textarea rows="3" name="comment_8914">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8914" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8913><td>8913</td><td>2014-05-17</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Воронович Сергей 0958888819</td><td>Кофеварка Nespresso VertuLine GCA1</td><td>Включили в розетку 220 , кофемашина американская 110 вольт использует. Не включается.</td><td><select name="8913" id=status_8913 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8913" id=meh_8913 class="span2">
+<option value="">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13" selected="selected">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8913" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8913" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8913" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8913></ul>				
+				<textarea rows="3" name="comment_8913">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8913" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8912><td>8912</td><td>2014-05-17</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Гороховец Виктор 0676014126</td><td>Кофеварка Saeco Super idea de luxe</td><td>При включении выходит вода сверху. Делает теплый кофе а не горячий. Заварной механизм не работает(сито).</td><td><select name="8912" id=status_8912 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8912" id=meh_8912 class="span2">
+<option value="">Выбрать</option>
+<option value="2">mikh</option>
+<option value="13" selected="selected">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8912" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8912" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8912" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8912></ul>				
+				<textarea rows="3" name="comment_8912">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8912" value="Добавить комментарий"/>
+</td></tr><tr class="error" id = 8911><td>8911</td><td>2014-05-17</td><td>0000-00-00</td><td>ТЕХНОДОКТОР</td><td>Григорский Олег 0502719260</td><td>Планшет Archos 9080</td><td>не видется компютером как флеш накопитель, диагностика</td><td><select name="8911" id=status_8911 class="span2">
+<option value="">Выбрать</option>
+<option value="1" selected="selected">в работе</option>
+<option value="3">заказана деталь</option>
+<option value="4">Без ремонта</option>
+<option value="5">не ставить.</option>
+<option value="6">ГОТОВ</option>
+<option value="7">Выдан с ремонтом</option>
+<option value="8">выдан без ремонта</option>
+<option value="9">выдан акт списания</option>
+<option value="10">Согласовать!</option>
+<option value="17">наТЕСТе</option>
+</select></td><td><select name="8911" id=meh_8911 class="span2">
+<option value="">Выбрать</option>
+<option value="2" selected="selected">mikh</option>
+<option value="13">and</option>
+</select></td><td class="crud-actions">
+                  <a href="http://ciadm/kvitancy/update/8911" class="btn btn-info">Изменить</a>  
+                  <a href="http://ciadm/kvitancy/printing/8911" class="btn btn-danger" target="_blank">Печать</a>
+				  <a href="http://ciadm/kvitancy/printing_check/8911" class="btn btn-danger" target="_blank">Печать чека</a>
+				  
+                </td></tr><tr><td colspan="10"><ul id=ul_8911></ul>				
+				<textarea rows="3" name="comment_8911">
+				
+				</textarea><br>
+				
+				<input type="button" name="comment" id="comment_8911" value="Добавить комментарий"/>
+</td></tr>      
+            </tbody>
+          </table>
+
+          <div class="pagination"><ul>&nbsp;<a href="http://ciadm/kvitancy/2">&gt;</a>&nbsp;&nbsp;<a href="http://ciadm/kvitancy/53">Last &rsaquo;</a></ul></div>		  
+
+      </div>
+    </div>
+	<!-- Модальное окно -->
+<div id="modal_form">
+	<span id="modal_close">X</span>
+		
+<div id="D1f189457bc33" class="b-dialog b-dialog_type_order b-dialog_state_animate" style="height: 694px; right: 0px; width:660px">
+    <div>
+        <h2 class="b-dialog__title">Новый заказ</h2>
+        <div class="b-dialog__content form-horizontal inline-form">
+            <div class="js-content">
+                <div class="form-group">
+                    <label class="control-label col-sm-2">Тип заказа</label>
+                    <div class="col-sm-10">
+                        <div class="ui-select h-d-b">
+                            <select class="js-change-order-type" data-bind="value : order_type">
+                                <option value="4106">Платный</option>
+                                <option value="4107">По гарантии</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2 h-required" for="js-o-name">Клиент</label>
+                    <div class="col-sm-10 h-p-0">
+                        <div class="col-sm-8">
+                            <input autocomplete="off" class="form-control pull-left" id="js-o-name" type="text" name="client_name" placeholder="Имя клиента" data-bind="value : client_name">
+                            <div class="b-dropdown b-dropdown_type_list" style="display: none; width: 367px; top: 30px;">
+                                <div class="b-dropdown__content"></div>
+                            </div>
+                            <div class="h-dictionary" data-opts-url="/settings/json/get-clients" data-opts-only="name,phone,email,address" data-opts-template="Orders/views/dictionaries/clients" data-opts-relate="js-o-name" data-opts-remote="true"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <input autocomplete="off" class="js-phone form-control" name="client_phone" type="text" placeholder="Телефон" data-bind="value : client_phone">
+                        </div>
+                        <div class="col-sm-7 h-mb-5">
+                            <input autocomplete="off" name="client_address" class="form-control" type="text" placeholder="Адрес" data-bind="value : client_address">
+                        </div>
+                        <div class="col-sm-5 h-mb-5">
+                            <input autocomplete="off" name="client_email" class="form-control" type="text" placeholder="Email" data-bind="value : client_email">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="js-o-kindof-good">Устройство</label>
+                    <div class="col-sm-10 h-p-0">
+                        <div class="col-sm-12">
+                            <input autocomplete="off" name="kindof_good" class="form-control pull-left" id="js-o-kindof-good" type="text" placeholder="Тип устройства" data-bind="value : kindof_good">
+                            <div class="b-dropdown b-dropdown_type_list" style="display: none; width: 566px; top: 30px;">
+                                <div class="b-dropdown__content"></div>
+                            </div>
+                            <div class="h-dictionary" data-opts-url="/settings/json/get-kindof-goods" data-opts-template="Orders/views/dictionaries/device" data-opts-relate="js-o-kindof-good"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <input autocomplete="off" name="serial" class="js-o-serial form-control" type="text" placeholder="Серийный номер" data-bind="value : serial">
+                        </div>
+                        <div class="col-sm-4">
+                            <input autocomplete="off" name="brand" id="js-o-brand" class="form-control pull-left" type="text" placeholder="Бренд" data-bind="value : brand">
+                            <div class="b-dropdown b-dropdown_type_list" style="display: none; width: 169px; top: 30px;">
+                                <div class="b-dropdown__content"></div>
+                            </div>
+                            <div class="h-dictionary" data-opts-url="/settings/json/get-brands" data-opts-template="Orders/views/dictionaries/brands" data-opts-relate="js-o-brand"></div>
+                        </div>
+                        <div class="col-sm-4">
+                            <input autocomplete="off" name="model" class="form-control" type="text" placeholder="Модель" data-bind="value : model">
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2 h-required" for="js-o-misfunction">Неисправность</label>
+                    <div class="col-sm-10">
+                        <input autocomplete="off" class="form-control pull-left" id="js-o-misfunction" type="text" name="misfunction" data-bind="value : misfunction">
+                        <div class="b-dropdown b-dropdown_type_list" style="display: none; width: 566px; top: 30px;">
+                            <div class="b-dropdown__content"></div>
+                        </div>
+                        <div class="h-dictionary" data-opts-url="/settings/json/get-malfunctions" data-opts-template="Orders/views/dictionaries/misfunction" data-opts-relate="js-o-misfunction"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="js-o-packagelist">Комплектация</label>
+                    <div class="col-sm-10">
+                        <input autocomplete="off" type="text" name="packagelist" id="js-o-packagelist" class="form-control pull-left" data-bind="value : packagelist">
+                        <div class="b-dropdown b-dropdown_type_list" style="display: none; width: 566px; top: 30px;">
+                            <div class="b-dropdown__content"></div>
+                        </div>
+                        <div class="h-tagify" data-opts-url="/settings/json/get-packagelist" data-opts-template="Orders/views/dictionaries/packagelist" data-opts-relate="js-o-packagelist"></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="l-o-appearance">Внешний вид</label>
+                    <div class="col-sm-10">
+                        <input autocomplete="off" id="l-o-appearance" class="form-control" type="text" name="appearance" data-bind="value : appearance">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="l-o-manager_notes">Заметки приемщика</label>
+                    <div class="col-sm-10">
+                        <textarea id="l-o-manager_notes" class="form-control" rows="3" data-bind="value : manager_notes" name="manager_notes"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="l-o-assigned_at">Время вызова мастера</label>
+                    <div class="h-datetime-field">
+                        <input id="l-o-assigned_at" class="form-control h-datepicker" readonly="" type="text" name="assigned_at" data-bind="value : assigned_at">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2 h-required" for="l-o-will-done-at">Будет готов</label>
+                    <div class="h-date-field">
+                        <input id="l-o-will-done-at" class="form-control h-datepicker" readonly="" type="text" name="will_done_at" data-bind="value : will_done_at">
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<div id="overlay"></div>
+	<div id="footer">
+		<hr>
+		<div class="inner">
+			<div class="container">
+				<p class="right"><a href="#">Back to top</a></p>
+				<p>
+				</p>
+			</div>
+		</div>
+	</div>
+	<script src="http://ciadm/assets/js/jquery-1.7.1.min.js"></script>
+	<script src="http://ciadm/assets/js/bootstrap.min.js"></script>
+	<script src="http://ciadm/assets/js/admin.min.js"></script>
+	<script src="http://ciadm/assets/js/func.js"></script>
+	
+</body>
+</html>

@@ -1,0 +1,100 @@
+<?php
+
+class Login extends CI_Controller {
+
+    /**
+    * Check if the user is logged in, if he's not, 
+    * send him to the login page
+    * @return void
+    */
+		// login cont and login view - one login app for login all users.
+		// in admin panal check func is_admin() for admin assecc...mikh!!!
+		
+	function index()
+	{	
+		
+		if($this->session->userdata('is_logged_in')){
+			//var_dump($this->session->userdata);die;
+			redirect('tickets');
+			//$this->load->view('about');	
+        }else{
+        	$this->load->view('login');	
+        }
+	}
+
+    
+	   /**
+    * encript the password 
+    * @return mixed
+    */	
+    function __encrip_password($password) {
+        return md5($password);
+    }	
+
+    /**
+    * check the username and the password with the database
+    * @return void
+    */
+	function validate_credentials()
+	{	//var_dump($this->input->post());die;
+		if ($user_name = $this->input->post('remember')) {
+			$remember = 'true';
+		}
+		
+		$this->load->model('Users_model');
+
+		$user_name = $this->input->post('user_name');
+		$password = $this->__encrip_password($this->input->post('password'));
+
+		$is_valid = $this->Users_model->validate($user_name, $password);
+		
+		
+		if($is_valid)
+		{  
+		$user_id = $this->Users_model->get_user_id_by_user_name($user_name);
+		
+		$user_arr = $this->Users_model->get_users_by_id($user_id);
+		
+		$id_group = $user_arr[0]["id_group"]; 
+		$id_sc = $user_arr[0]["id_sc"]; 
+		
+			$data = array(
+				'user_id' => $user_id,
+				'user_name' => $user_name,
+				'id_group' => $id_group,
+				'user_id_sc' => $id_sc,
+				'is_logged_in' => true
+			);
+			
+		if($remember)
+		{
+        $data['new_expiration'] = 60*60*24*30;//30 days
+        $this->session->sess_expiration = $data['new_expiration'];
+		}
+			//var_dump($data);die;
+			$this->session->set_userdata($data);
+			redirect('/');
+		}
+		else // incorrect username or password
+		{
+			$data['message_error'] = TRUE;
+			$this->load->view('user/login', $data);	
+		}
+	}	
+
+	function logout()
+	{
+		$this->session->sess_destroy();
+		redirect('/');
+	}
+	
+	function cache_delete()
+	{
+		$this->db->cache_delete_all();
+		$this->session->set_flashdata('flash_message', 'cache deleted');
+		redirect('/admin');
+	}
+	
+	
+
+}

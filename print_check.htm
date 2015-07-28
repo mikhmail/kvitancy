@@ -1,0 +1,318 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>Печать чека СЦ [name_sc]</title>
+
+	
+	<script type="text/javascript" src="js/jquery.js"></script>
+	
+
+	
+	<script type="text/javascript" src="js/jquery.field.js"></script>
+	<script type="text/javascript" src="js/jquery.calculation.js"></script>
+
+	<script type="text/javascript">
+	var bIsFirebugReady = (!!window.console && !!window.console.log);
+
+	$(document).ready(
+		function (){
+			// update the plug-in version
+			$("#idPluginVersion").text($.Calculation.version);
+
+/*			
+			$.Calculation.setDefaults({
+				onParseError: function(){
+					this.css("backgroundColor", "#cc0000")
+				}
+				, onParseClear: function (){
+					this.css("backgroundColor", "");
+				}
+			});
+*/
+			
+			// bind the recalc function to the quantity fields
+			$("input[id^=price_item_]").bind("keyup", recalc);
+			$("input[name^=qty_item_]").bind("keyup", recalc);
+			
+			// run the calculation function now
+			recalc();
+
+			// automatically update the "#totalSum" field every time
+			// the values are changes via the keyup event
+			$("input[name^=sum]").sum("keyup", "#totalSum");
+			
+			// automatically update the "#totalAvg" field every time
+			// the values are changes via the keyup event
+			$("input[name^=avg]").avg({
+				bind:"keyup"
+				, selector: "#totalAvg"
+				// if an invalid character is found, change the background color
+				, onParseError: function(){
+					this.css("backgroundColor", "#cc0000")
+				}
+				// if the error has been cleared, reset the bgcolor
+				, onParseClear: function (){
+					this.css("backgroundColor", "");
+				}
+			});
+
+			// automatically update the "#minNumber" field every time
+			// the values are changes via the keyup event
+			$("input[name^=min]").min("keyup", "#numberMin");
+
+			// automatically update the "#minNumber" field every time
+			// the values are changes via the keyup event
+			$("input[name^=max]").max("keyup", {
+				selector: "#numberMax"
+				, oncalc: function (value, options){
+					// you can use this to format the value
+					$(options.selector).val(value);
+				}
+			});
+
+			// this calculates the sum for some text nodes
+			$("#idTotalTextSum").click(
+				function (){
+					// get the sum of the elements
+					var sum = $(".textSum").sum();
+
+					// update the total
+					$("#totalTextSum").text("$" + sum.toString());
+				}
+			);
+
+			// this calculates the average for some text nodes
+			$("#idTotalTextAvg").click(
+				function (){
+					// get the average of the elements
+					var avg = $(".textAvg").avg();
+
+					// update the total
+					$("#totalTextAvg").text(avg.toString());
+				}
+			);
+		}
+	);
+	
+	function recalc(){
+		$("[id^=total_item]").calc(
+			// the equation to use for the calculation
+			"qty * price",
+			// define the variables used in the equation, these can be a jQuery object
+			{
+				qty: $("input[name^=qty_item_]"),
+				price: $("[id^=price_item_]")
+			},
+			// define the formatting callback, the results of the calculation are passed to this function
+			function (s){
+				// return the number as a dollar amount
+				return s.toFixed(2);
+			},
+			// define the finish callback, this runs after the calculation has been complete
+			function ($this){
+				// sum the total of the $("[id^=total_item]") selector
+				var sum = $this.sum();
+				
+				$("#grandTotal").text(
+					// round the results to 2 digits
+					sum.toFixed(2) + "грн."
+				);
+			}
+		);
+	}
+	
+	
+
+	
+	
+	</script>
+
+	<style type="text/css">
+		#testForm {
+			width: 800px;
+		}
+
+		code {
+			background-color: #e0e0e0;
+		}
+
+		#formContent p {
+			clear: both;
+			min-height: 20px;
+		}
+
+		#idCheckboxMsg{
+			color: red;
+			font-weight: bold;
+		}
+
+		#totalTextSum,
+		.textSum,
+		#totalTextAvg,
+		.textAvg {
+			border: 1px solid black;
+			padding: 2px;
+		}
+		
+		#panel {    
+			overflow: hidden;
+			
+			padding: 5px;
+			
+			}
+		.panel {
+			
+			}
+		.panel {
+			
+			}
+	</style>
+
+</head>
+<body>
+
+<table border="0" width="100%" id="table3">
+	<tr>
+		<td><font size="5">Сервісний Центр </font> <i><b><font size="5">[name_sc]</font></b></i><p>
+<font style="font-size: 12pt">[adres_sc] </font> <br>
+</p>
+<p>
+[phone_sc]</p>
+
+<p>&nbsp;</p>
+<p align="center">
+&nbsp;&nbsp;
+<b>ТОВАРНИЙ ЧЕК</b> 
+№ [nomer_kvitancy] від [date]</p>
+		<p>&nbsp;</td>
+	</tr>
+</table>
+			<hr />
+<table>
+			<table width="500">
+				<col style="width: 50px;" />
+				<col />
+				<col style="width: 60px;" />
+				<col style="width: 110px;" />
+				<tr>
+					
+					<th align="center">
+						Найменування
+					</th>
+					<th>
+						Кількість
+					</th>
+					<th>
+						Ціна
+					</th>
+					<th>
+						Сума
+					</th>
+				</tr>
+				
+				<tr>
+					
+					<td>
+						<input type="text" size="100" value="Ремонт [чего именно нужно написать,например, материнской платы] [id_aparat] [id_proizvod] [model]"</input>
+					</td>
+					<td align="center">
+						<input type="text" name="qty_item_1" id="qty_item_1" value="1" size="2" />
+					</td>
+					<td align="center">
+						<input   size="5"  id="price_item_1 type="text"></input>
+					</td>
+					<td align="center" id="total_item_1">
+						
+					</td>
+				</tr>
+		
+		
+				
+				
+				
+				
+				<tr>
+				
+				
+					
+					<td>
+						<input type="text" size="100"</input>
+					</td>
+					<td align="center">
+						<input type="text" name="qty_item_2" id="qty_item_2" size="2" />
+					</td>
+					<td align="center">
+						<input size="5" id="price_item_2 type="text"></input>
+					</td>
+					<td align="center" id="total_item_2">
+						
+					</td>
+		
+				</tr>
+				
+				
+				
+				<tr>
+					<td colspan="3" align="right">
+						<strong>Всього:</strong>
+					</td>
+					<td align="center" id="grandTotal">
+					</td>
+				</tr>
+			</table>
+	
+		<hr />
+	</fieldset>
+	
+	<table border="0" width="850" id="table2">
+	<tr>
+		<td>Гарантія
+		<input type="text" size="8" name="T6"> місяць(і)<span lang="ru">.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+		</span>&nbsp;Представник СЦ __________________ <br>
+		<br>
+		Виріб НЕ приймається по гарантії, на безкоштовний ремонт та претензії НЕ 
+		приймаються в наступних випадках: <br>
+		1.При порушенні гарантійних пломб, наклейок, стікерів, при виявленні 
+		слідів їх переклеювання або ремаркування; <br>
+		2.При наявності механічних, електротехнічних, хімічних пошкоджень 
+		поверхні виробу або його компонентів <br>
+		(видимі зміни кольору компонентів, здутості, сколи, вм'ятини), а також 
+		за наявності ушкоджень, <br>
+		викликаних використанням нестандартних витратних матеріалів і запчастин;
+		<br>
+		3.При пошкодженнях на корпусі виробу, які можуть бути витлумачені як 
+		сліди удару (сколи, подряпини тощо); <br>
+		4.&quot;Підірвані&quot; мікросхеми на платі, що є прямим наслідком порушення 
+		правил експлуатації <br>
+		неправильність підключення, подача неправильних напруг живлення, &quot;гаряче&quot; 
+		підключення, <br>
+		5.При наявності слідів стороннього втручання або виконання ремонту 
+		сторонніми особами; <br>
+		6.При попаданні всередину виробу сторонніх предметів, рідин, комах; <br>
+		7.При внесенні змін у конструкцію виробу. <br>
+		8.Якщо замовником не було продемонстровано працездатність всіх 
+		встановлених переферійних пристроїв апарату <br>
+		під час здачі в ремонт, а саме: батарея, блок живлення, блутуз, 
+		веб-камера, мікрофон, звукова система, тачпад,USB порты, <br>
+		DVD привод, WiFi модуль, клавіш, екрану, петель, роз'ємів і т.&nbsp;д. <br>
+		<br>
+		Гарантії НЕ підлягають послуги ремонту по усуненню пошкоджень нанесених 
+		механічним шляхом (ремонт тріснутого корпусу <br>
+		виробу, вирваних роз'ємів та штекерів живлення, навушників та інших 
+		розємів, відновлення шлейфів, заміна ламп в матриці, <br>
+		відновлення працездатності клавіатури, різноманітних кнопок тощо). <br>
+		<br>
+		Гарантії НЕ підлягають будь-які роботи по ремонту техніки, в якій 
+		виявлена волога обо рідина. <br>
+		<br>
+		Гарантія надається ТІЛЬКИ на виконанну роботу, а не весь пристрій 
+		вцілому. <br>
+		<br>
+		Техніку оглянув, перевірив та отримав.<span lang="ru"> </span>[fam] [imya] [otch]. 
+		Претензій не маю __________________________ </td>
+	</tr>
+</table>
+</body>
+</html>
