@@ -187,26 +187,6 @@ $row_global2 = array ();
 
 <div class="row-fluid">    
 	<ul class="nav nav-tabs">
-	<!--
-		<li class="dropdown">
-			<a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" id="sost_vremonte" name="128">
-			  Все что в ремонте <span class="caret"></span>
-			</a>
-			<ul class="dropdown-menu">
-				<li>
-					<a href="#" id="sost_vigano" name="256">Все что выдано</a>
-				</li>
-			</ul>
-		  </li>
-	-->
-	
-	<!--
-	 <?foreach ($sost as $array) {?>
-		<li class="<?if($array['id_sost'] == $id_sost_selected) echo 'active';?>">
-			<a href="#" id="sost_<?=$array['id_sost']?>" name="<?=$array['id_sost']?>"><?=$array['name_sost']?></a>
-		</li>
-	<?}?>
-	-->
 	
 				<li class="<?if ($id_sost_selected == 128) echo 'active';?>">
 					<a href="#" id="sost_128" name="128"><b>Все что в ремонте</b> <span class="label"><?=count($aparats)?></span></a>

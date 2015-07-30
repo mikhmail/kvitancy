@@ -46,7 +46,7 @@ class Tickets extends CI_Controller
 
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 3;
+        $config['num_links'] = 4;
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
@@ -54,7 +54,7 @@ class Tickets extends CI_Controller
         $config['cur_tag_open'] = '<li class="active"><a>';
         $config['cur_tag_close'] = '</a></li>';
         $config['uri_segment'] = 2;
-        $config['display_pages'] = FALSE;
+        $config['display_pages'] = TRUE;
 
         //limit end
         $page = $this->uri->segment(2);
@@ -210,11 +210,13 @@ class Tickets extends CI_Controller
             elseif ($this->uri->segment(2)) {
                 $id_sost = $this->session->userdata('id_sost');
             } else {
-                //if we have nothing inside session, so it's the default "Asc"
-                $id_sost = 128;
+                $id_sost = '128';
             }
-            //if ($id_sost == 128) $id_sost = array('1', '2', '3', '4', '6');
-            //if ($id_sost == 256) $id_sost = array('7', '8', '9');
+
+
+
+
+
 
             $data['id_sost_selected'] = $id_sost;
             if ($id_sost == 128) $id_sost = array('1', '2', '3', '4', '6', '10', '11');
@@ -493,22 +495,22 @@ class Tickets extends CI_Controller
         $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
         $data['aparats'] = $this->kvitancy_model->get_kvitancy(
-            $search_string = null,
-            $order = null,
-            $order_type = null,
-            $limit_start = null,
-            $limit_end = null,
-            $date = null,
-            $start_date = null,
-            $end_date = null,
-            $id_mechanic = null,
-            $id_aparat = null,
-            $id_proizvod = null,
-            $id_sost = array('1', '2', '3', '4', '6', '10', '11'),
-            $id_sc = $this->session->userdata('user_id_sc'),
-            $id_kvitancy = null,
-            $id_remonta = null,
-            $count = null
+        $search_string = null,
+        $order = null,
+        $order_type = null,
+        $limit_start = null,
+        $limit_end = null,
+        $date = null,
+        $start_date = null,
+        $end_date = null,
+        $id_mechanic = null,
+        $id_aparat = null,
+        $id_proizvod = null,
+        $id_sost = array('1', '2', '3', '4', '6', '10', '11'),
+        $id_sc,
+        $id_kvitancy = null,
+        $id_remonta = null,
+        $count = null
         );
 
         /*Что видит юзер id_group */
@@ -545,7 +547,7 @@ class Tickets extends CI_Controller
 
         /* END Что видит юзер id_group */
 
-
+        /*Загрузка шаблона*/
         $data['main_content'] = 'tickets/list';
         $this->load->view('includes/template', $data);
 

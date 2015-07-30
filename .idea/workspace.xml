@@ -5,7 +5,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/tickets.php" afterPath="$PROJECT_DIR$/application/controllers/tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/users_model.php" afterPath="$PROJECT_DIR$/application/models/users_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,10 +28,55 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tickets.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="542" column="81" selection-start="19125" selection-end="19125" vertical-scroll-proportion="1.6013986" vertical-offset="11008" max-vertical-offset="19932">
+            <state line="509" column="14" selection-start="16963" selection-end="16969" vertical-scroll-proportion="-135.51613" vertical-offset="6997" max-vertical-offset="19976">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="kvitancy_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="263" column="20" selection-start="6032" selection-end="6040" vertical-scroll-proportion="-10.612904" vertical-offset="5457" max-vertical-offset="8712">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/core/Model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="50" column="0" selection-start="1078" selection-end="1078" vertical-scroll-proportion="-9.935484" vertical-offset="792" max-vertical-offset="1364">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DB_active_rec.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/database/DB_active_rec.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="76" column="0" selection-start="2060" selection-end="2060" vertical-scroll-proportion="-6.0" vertical-offset="1486" max-vertical-offset="45100">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CodeIgniter.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="358" column="0" selection-start="10236" selection-end="10236" vertical-scroll-proportion="-6.354839" vertical-offset="7679" max-vertical-offset="8954">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Controller.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/system/core/Controller.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="57" column="0" selection-start="1434" selection-end="1434" vertical-scroll-proportion="-9.935484" vertical-offset="946" max-vertical-offset="1518">
               <folding />
             </state>
           </provider>
@@ -46,13 +91,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="62" selection-start="1917" selection-end="1917" vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="924">
+            <state line="32" column="0" selection-start="1943" selection-end="2025" vertical-scroll-proportion="0.69014084" vertical-offset="312" max-vertical-offset="946">
               <folding />
             </state>
           </provider>
@@ -61,7 +106,7 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="0" selection-start="3265" selection-end="3265" vertical-scroll-proportion="-4.419355" vertical-offset="1975" max-vertical-offset="9614">
+            <state line="191" column="114" selection-start="6226" selection-end="6234" vertical-scroll-proportion="-16.32258" vertical-offset="3696" max-vertical-offset="9174">
               <folding />
             </state>
           </provider>
@@ -70,16 +115,7 @@
       <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/js/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="16" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="8162">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajx.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="10" selection-start="140" selection-end="146" vertical-scroll-proportion="-2.8387096" vertical-offset="132" max-vertical-offset="9130">
+            <state line="24" column="16" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8162">
               <folding />
             </state>
           </provider>
@@ -101,10 +137,11 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/models/users_model.php" />
+        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
+        <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -322,7 +359,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1170" extended-state="1" />
+    <frame x="-9" y="-9" width="1938" height="1170" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -330,8 +367,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.111979164" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.39714286" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1140625" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37904763" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -361,10 +398,17 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="php">
+          <url>file://$PROJECT_DIR$/application/controllers/tickets.php</url>
+          <line>516</line>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+      </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="27" />
+      <option name="time" value="50" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -396,42 +440,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/js/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="16" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="8162">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="201" column="0" selection-start="6255" selection-end="6255" vertical-scroll-proportion="0.51941746" vertical-offset="4208" max-vertical-offset="4620">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="0" selection-start="3265" selection-end="3265" vertical-scroll-proportion="-4.419355" vertical-offset="1975" max-vertical-offset="9614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="366" column="22" selection-start="10450" selection-end="10451" vertical-scroll-proportion="0.534407" vertical-offset="7687" max-vertical-offset="8954">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="62" selection-start="1917" selection-end="1917" vertical-scroll-proportion="-12.222222" vertical-offset="0" max-vertical-offset="924">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
@@ -441,11 +454,70 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+    <entry file="file://$PROJECT_DIR$/system/core/Controller.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="542" column="81" selection-start="19125" selection-end="19125" vertical-scroll-proportion="1.6013986" vertical-offset="11008" max-vertical-offset="19932">
+        <state line="57" column="0" selection-start="1434" selection-end="1434" vertical-scroll-proportion="-9.935484" vertical-offset="946" max-vertical-offset="1518">
           <folding />
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/Model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="0" selection-start="1078" selection-end="1078" vertical-scroll-proportion="-9.935484" vertical-offset="792" max-vertical-offset="1364">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/database/DB_active_rec.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="76" column="0" selection-start="2060" selection-end="2060" vertical-scroll-proportion="-6.0" vertical-offset="1486" max-vertical-offset="45100">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="358" column="0" selection-start="10236" selection-end="10236" vertical-scroll-proportion="-6.354839" vertical-offset="7679" max-vertical-offset="8954">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="263" column="20" selection-start="6032" selection-end="6040" vertical-scroll-proportion="-10.612904" vertical-offset="5457" max-vertical-offset="8712">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/js/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="16" selection-start="528" selection-end="528" vertical-scroll-proportion="0.0" vertical-offset="264" max-vertical-offset="8162">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="191" column="114" selection-start="6226" selection-end="6234" vertical-scroll-proportion="-16.32258" vertical-offset="3696" max-vertical-offset="9174">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="509" column="14" selection-start="16963" selection-end="16969" vertical-scroll-proportion="-135.51613" vertical-offset="6997" max-vertical-offset="19976">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="1943" selection-end="2025" vertical-scroll-proportion="0.69014084" vertical-offset="312" max-vertical-offset="946">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>
