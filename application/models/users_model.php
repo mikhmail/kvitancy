@@ -136,6 +136,11 @@ class Users_model extends CI_Model {
 		if($groups_dostupa_id != null && $groups_dostupa_id != 0){
 			$this->db->where('membership.id_group', $groups_dostupa_id);
 		}
+
+        if($id_sc != null && $id_sc != 0){
+            $this->db->where('membership.id_sc', $id_sc);
+        }
+
 		if($search_string){
 			$this->db->like('user_name', $search_string);
 		}
