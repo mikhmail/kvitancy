@@ -519,6 +519,8 @@ class Tickets extends CI_Controller
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
                 $data['soglasovat'] = '';
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', '');
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
+
                 $data["id_sc_selected"] = '';
                 break;
 
@@ -527,6 +529,7 @@ class Tickets extends CI_Controller
                 $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
                 break;
 
@@ -535,6 +538,7 @@ class Tickets extends CI_Controller
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
                 $data['soglasovat'] = '';
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
                 break;
 
@@ -542,6 +546,7 @@ class Tickets extends CI_Controller
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
                 $data['soglasovat'] = '';
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
         }
 

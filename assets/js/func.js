@@ -33,7 +33,24 @@ var id = this.name;
 	delete status;
 	delete id;
 	});
-		
+
+// смена ответственный
+    $('select[id^=resp_]').change(function(){
+
+        var status = $('#'+this.id+' option:selected').val();
+        var id = this.name;
+        $.ajax({
+            url: "/ajx/change_resp/"+status+"/"+id+"",
+            success: function(data) {
+
+                $("#resp_"+id+"").fadeOut("slow");
+                $("#resp_"+id+"").fadeIn();
+            }
+        });
+        delete status;
+        delete id;
+    });
+
 // добавить комментарий	
 $('input[name=comment]').click(function(){
 var comment = $('textarea[name='+this.id+']').val();

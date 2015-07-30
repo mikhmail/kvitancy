@@ -91,7 +91,7 @@ echo '<br>';
 
 				//var_dump($meh);die;
 				echo form_label('Механик: ');
-								$options_id_meh = array('' => "Выбрать");
+								$options_id_meh = array('' => "-механик-");
 							
 									foreach ($meh as $array) {
 										$options_id_meh[$array['id']] = $array['user_name'];
@@ -263,6 +263,22 @@ $row_global2 = array ();
 					}?>		
 				
 					<?=form_dropdown($row['id_kvitancy'], $options_id_meh, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class="span2"')?>
+
+                    <?
+                    $options_id_responsible = array('' => "-ответственный-");
+
+                        foreach ($resp as $array) {
+                            $options_id_responsible[$array['id']] = $array['user_name'];
+                        }
+
+                   if ($row['id_responsible']) {
+                            $id_responsible_selected = $row['id_responsible'];
+                        }else{
+                            $id_responsible_selected='';
+                        }?>
+
+                    <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class="span2"')?>
+
 		</td>
 	</tr>
 	<tr>

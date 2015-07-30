@@ -28,64 +28,80 @@ class Ajx extends CI_Controller {
 				}
 
 	
-	function change_status ($id_sost, $id_kvitancy)
+	function change_status ($id_sost, $id_kvitancy, $update_user=NULL)
 	{
-	
+	$update_user=$this->session->userdata('user_id_sc');
 	
 	if ($id_sost == 1) {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
-					   'date_vydachi' => ''
+					   'date_vydachi' => '',
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}
 	elseif ($id_sost == 3) {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
-					   'date_vydachi' => ''
+					   'date_vydachi' => '',
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}
 	elseif ($id_sost == 4) {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => date("Y-m-j"),
-					   'date_vydachi' => ''
+					   'date_vydachi' => '',
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}
 	elseif ($id_sost == 6) {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => date("Y-m-j"),
-					   'date_vydachi' => ''
+					   'date_vydachi' => '',
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}
 	elseif ($id_sost == 7 or $id_sost == 8 or $id_sost == 9) {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
-					   'date_vydachi' => date("Y-m-j")
+					   'date_vydachi' => date("Y-m-j"),
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}						
 	elseif ($id_sost == 10) {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
-					   'date_vydachi' => ''
+					   'date_vydachi' => '',
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}							
 	elseif ($id_sost == 17) {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
-					   'date_vydachi' => ''
+					   'date_vydachi' => '',
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}
 	else {
 	$data = array(
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
-					   'date_vydachi' => ''
+					   'date_vydachi' => '',
+                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_user' => $update_user
 					   );
 	}	  
 		
@@ -101,6 +117,7 @@ class Ajx extends CI_Controller {
 	
 	function change_mechanic ($id_meh, $id_kvitancy, $update_user=NULL)
 	{
+    $update_user = $this->session->userdata('user_id_sc');
 		$data = array(
 					   'id_mechanic' => $id_meh,
 					   'update_time' => date("j-m-Y, H:i:s"),
@@ -111,8 +128,24 @@ class Ajx extends CI_Controller {
 		$this->db->where('id_kvitancy', $id_kvitancy);	
 		$ret = $this->db->update('kvitancy', $data);
 	}
-	
-	function add_comment ()
+
+
+    function change_resp ($id_responsible, $id_kvitancy, $update_user=NULL )
+    {
+     $update_user = $this->session->userdata('user_id_sc');
+        $data = array(
+            'id_responsible' => $id_responsible,
+            'update_time' => date("j-m-Y, H:i:s"),
+            'update_user' => $update_user
+        );
+
+
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $ret = $this->db->update('kvitancy', $data);
+    }
+
+
+    function add_comment ()
 	{	
 	//var_dump(($this->input->post('comment')));die;
 		$user_id = $this->session->userdata['user_id'];
