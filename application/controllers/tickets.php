@@ -43,7 +43,6 @@ class Tickets extends CI_Controller
 
         //pagination settings
         $config['per_page'] = 7;
-
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 4;
@@ -66,13 +65,37 @@ class Tickets extends CI_Controller
             $limit_end = 0;
         }
 
-        $data['order'] = 'id_kvitancy';
 
 
         // !--------------------------POST------------------------------------- //
         if ($this->input->post() OR $this->uri->segment(2)) {
 
-            $data['order'] = 'id_kvitancy';
+            if ($this->input->post()) {
+            /*Очистка масива для сесиии*/
+            $filter_session_data = array(
+                'search_string' => '',
+                'order' => '',
+                'order_type' => '',
+                'limit_start' => '',
+                'limit_end' => '',
+                'date' => '',
+                'start_date' => '',
+                'end_date' => '',
+                'id_mechanic' => '',
+                'id_aparat' => '',
+                'id_proizvod' => '',
+                'id_sost' => '',
+                'id_sc' => '',
+                'id_kvitancy' => '',
+                'id_remonta' => ''
+
+            );
+            }
+            //save session data into the session
+            if (isset($filter_session_data)) {
+                $this->session->set_userdata($filter_session_data);
+            }
+
 
             $search_string = $this->input->post("search_string");
             $order = 'id_kvitancy';
@@ -206,20 +229,15 @@ class Tickets extends CI_Controller
             // ID_SOST
             if ($this->input->post("id_sost")) {
                 $filter_session_data['id_sost'] = $id_sost;
-            } //we have something stored in the session?
-            elseif ($this->uri->segment(2)) {
-                $id_sost = $this->session->userdata('id_sost');
-            } else {
-                $id_sost = '128';
             }
+                    elseif ($this->uri->segment(2)) {
+                        $id_sost = $this->session->userdata('id_sost');
 
-
-
-
-
-
+                            } else {
+                                $id_sost = '';
+                            }
             $data['id_sost_selected'] = $id_sost;
-            if ($id_sost == 128) $id_sost = array('1', '2', '3', '4', '6', '10', '11');
+            if ($id_sost == '') $id_sost = array('1', '2', '3', '4', '6', '10', '11');
             // end ID_SOST
 
 
@@ -265,7 +283,8 @@ class Tickets extends CI_Controller
                 $filter_session_data['id_kvitancy'] = $id_kvitancy;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_kvitancy = $this->session->userdata('id_kvitancy');
+                //$id_kvitancy = $this->session->userdata('id_kvitancy');
+                $id_kvitancy = '';
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_kvitancy = '';
@@ -357,7 +376,7 @@ class Tickets extends CI_Controller
             $data["id_mechanic_selected"] = '';
             $data["id_proizvod_selected"] = '';
             $data["id_aparat_selected"] = '';
-            $data["id_sost_selected"] = 128;
+            $data["id_sost_selected"] = '';
             $data["id_kvitancy_selected"] = '';
             $data["id_remonta_selected"] = '';
             //end pre selected options
@@ -488,6 +507,7 @@ class Tickets extends CI_Controller
 
 
         //load the view
+        $data['order'] = 'id_kvitancy';
         $data['ap'] = $this->aparaty_model->get_aparaty();
         $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
         //$data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');

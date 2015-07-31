@@ -129,8 +129,8 @@ echo '<br>';
 
 //var_dump($meh);die;
 				echo form_label('Состояние: ');
-												$options_sost = array('' => "Выбрать");
-												$options_sost[128] = 'Все [что в ремонте]';
+												$options_sost = array('' => "Все [что в ремонте]");
+
 												
 												
 													foreach ($sost as $array) {
@@ -185,13 +185,13 @@ $row_global2 = array ();
 
 
 
-<div class="row-fluid">    
-	<ul class="nav nav-tabs">
-	
-				<li class="<?if ($id_sost_selected == 128) echo 'active';?>">
-					<a href="#" id="sost_128" name="128"><b>Все что в ремонте</b> <span class="label"><?=count($aparats)?></span></a>
+<div class="row-fluid">
+    <ul class="nav nav-tabs">
+
+				<li class="<?if ($id_sost_selected == false) echo 'active';?>">
+					<a href="#" id="sost_128" name=""><b>Все что в ремонте</b> <span class="label"><?=count($aparats)?></span></a>
 				</li>
-				
+
 				<?foreach ($row_global2 as $name_sost => $value) {?>
 
 				<li class="<?if($value[0]["id_sost"] == $id_sost_selected) echo 'active';?>">
@@ -209,7 +209,7 @@ $row_global2 = array ();
 			<ul style="text-align: left;">
 				<?foreach ($row_global1 as $aparat_name => $value) {
 					//if ($_SESSION["id_sc"] !=1) { $id_sc_now = $filter->select_id_sc($_SESSION["id_sc"]); } else {$id_sc_now = '';} //var_dump($value);die;?>
-					<li class="<?if($value[0]["id_aparat"] == $id_aparat_selected) echo 'active';?>">
+					<li style="<?if($value[0]["id_aparat"] == $id_aparat_selected) echo 'background-color: blue;';?>">
 					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><b><?=$aparat_name?></b> <span class="label"><?=count($value)?></span>
 					</a>
 				<?}?>
@@ -224,7 +224,7 @@ $row_global2 = array ();
 			<?}?>
 		
 		<?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
-<div class="row hero-unit">
+<div class="row">
 		 
 <?  foreach($kvitancys as $row)
               {
@@ -314,7 +314,7 @@ $row_global2 = array ();
 		<?}?>      
 
           
-		<?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>	  
+		<? echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
 </div>
 
 	
@@ -425,4 +425,4 @@ $row_global2 = array ();
 	<input type="button" name="new_kvit" value="Добавить" class="btn btn-primary">
 </form>
 </div>
-<div id="overlay"></div>	
+<div id="overlay"></div>
