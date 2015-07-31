@@ -42,7 +42,7 @@ class Tickets extends CI_Controller
     {
 
         //pagination settings
-        $config['per_page'] = 7;
+        $config['per_page'] = 20;
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 4;

@@ -205,11 +205,11 @@ $row_global2 = array ();
 
 
 <div class="row-fluid">   
-		<div style="float: left; width: 20%;">
-			<ul style="text-align: left;">
+		<div class="span2">
+			<ul class="nav nav-pills nav-stacked">
 				<?foreach ($row_global1 as $aparat_name => $value) {
 					//if ($_SESSION["id_sc"] !=1) { $id_sc_now = $filter->select_id_sc($_SESSION["id_sc"]); } else {$id_sc_now = '';} //var_dump($value);die;?>
-					<li style="<?if($value[0]["id_aparat"] == $id_aparat_selected) echo 'background-color: blue;';?>">
+					<li class="<?if($value[0]["id_aparat"] == $id_aparat_selected) echo 'active';?>">
 					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><b><?=$aparat_name?></b> <span class="label"><?=count($value)?></span>
 					</a>
 				<?}?>
@@ -217,13 +217,13 @@ $row_global2 = array ();
 		</div>
 
 <? if (count($kvitancys)>0) {?>		
-<div style="float: left; width: 80%;">
+<div class="span9">
 
  <?if(count($count_kvitancys)>0) {?>
-           <p>Найдено <?=$count_kvitancys?> квитанций</p>
+           <p>Найдено <?=$count_kvitancys?> аппаратов</p>
 			<?}?>
 		
-		<?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
+
 <div class="row">
 		 
 <?  foreach($kvitancys as $row)
@@ -231,27 +231,30 @@ $row_global2 = array ();
 			 ?>
 	
 		
-      
-			
-		<table class="table table-striped table-bordered table-condensed">
-		 <tr>
-				<td><?=$row['id_kvitancy']?></td>
-                <td><?=$row['date_priemka']?></td>
-                <td><?=$row['date_vydachi']?></td>
-                <td><?=$row['name_sc']?></td>
-                <td><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></td>
-				<td><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
-				<td><?=$row['neispravnost']?></td>
-				
-										
-			
+<a href="#" onclick="anichange(this); return false">
+<table class="table table-striped table-bordered table-condensed">
+    <tr>
+        <td class="span1"><?=$row['id_kvitancy']?></td>
+        <td class="span1"><?=$row['date_priemka']?></td>
+        <td class="span1"><?=$row['date_vydachi']?></td>
+        <td class="span1"><?=$row['name_sc']?></td>
+        <td class="span2"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></td>
+        <td class="span2"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
+        <td class="span2"><?=$row['neispravnost']?></td>
+    </tr>
+</table>
+</a>
+<div style="display: none;">
+<table>
+	<tr>
 			<td>
 					 <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info" target="_blank">Редактировать</a>
 					 <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать</a>
 					 <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать чека</a>
             </td>
 	</tr>
-	
+</table>
+<table>
 	<tr>
 		<td colspan="8">
 					<?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class="span2"')?>
@@ -305,12 +308,13 @@ $row_global2 = array ();
 			</td>
 	</tr>	
 </table>
-
+</div>
+<div>
 			<?}?>
 			
 	</div>		
 </div>
-</div> 			
+
 		<?}?>      
 
           

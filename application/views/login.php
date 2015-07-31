@@ -14,9 +14,12 @@
       echo form_input('user_name', '', 'placeholder="Username"');
       echo form_password('password', '', 'placeholder="Password"');?>
 	  
-	  <label for="remember">	  </label>
-	  <input tabindex="6" type="checkbox" name="remember" checked="checked"> Запомнить
-
+	 
+        <div class="checkbox">
+            <label>
+                <input name="remember" type="checkbox"> Запомнить меня
+            </label>
+        </div>
 	  
      <? if(isset($message_error) && $message_error){
           echo '<div class="alert alert-error">';
