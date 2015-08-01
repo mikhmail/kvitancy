@@ -8,11 +8,5 @@
 			</div>
 		</div>
 	</div>
-	<script src="<?php echo base_url(); ?>assets/js/jquery-1.7.1.min.js"></script>
-	<script src="<?php echo base_url(); ?>assets/js/bootstrap.js"></script>
-	
-	<script src="<?php echo base_url(); ?>assets/js/func.js"></script>
-
-	
 </body>
 </html>

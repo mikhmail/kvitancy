@@ -14,7 +14,7 @@
       echo form_input('user_name', '', 'placeholder="Username"');
       echo form_password('password', '', 'placeholder="Password"');?>
 	  
-	 
+
         <div class="checkbox">
             <label>
                 <input name="remember" type="checkbox"> Запомнить меня

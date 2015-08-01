@@ -65,7 +65,8 @@ class Login extends CI_Controller {
 				'user_id_sc' => $id_sc,
 				'is_logged_in' => true
 			);
-			
+
+        $remember = $this->input->post('remember');
 		if($remember)
 		{
         $data['new_expiration'] = 60*60*24*30;//30 days
