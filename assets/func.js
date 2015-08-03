@@ -80,11 +80,8 @@ $.post("/ajx/delete_comment", {id_comment:id_comment})
 
 // фильтр аппаратов	
 $('a[id^=aparat_]').click(function(){
-    $("#myform")[0].reset();
-$('input[name=id_kvitancy]').val('');
-$('input[name=search_string]').val('');
-$("select[name=id_sost] [value='']").attr("selected", "selected");
 
+    $('#myform').clear();
 	var id_aparat = this.name;
 	//alert (id_aparat);die;
 		
@@ -96,11 +93,7 @@ $("#myform").submit();
 
 // фильтр состояний	
 $('a[id^=sost_]').click(function(){
-
-    $("#myform")[0].reset();
-$('input[name=id_kvitancy]').val('');
-$("select[name=id_aparat] [value='']").attr("selected", "selected");
-
+    $('#myform').clear();
 	var id_sost = this.name;
 		 $("select[name=id_sost] option").each(function () {
             if ($(this).val() == id_sost ) $(this).attr("selected", "selected");
@@ -110,7 +103,7 @@ $("#myform").submit();
 
 // просмотр моей заявки
 $('a[id^=kvit_pokaz_my_]').click(function(){
-$("#myform")[0].reset();
+    $('#myform').clear();
 	var id_kvit = this.name;
 		$('input[name=id_kvitancy]').val(id_kvit);
 $("#myform").submit();
@@ -118,7 +111,7 @@ $("#myform").submit();
 
 // просмотр заявки позвонить
 $('a[id^=kvit_pokaz_call_]').click(function(){
-$("#myform")[0].reset();
+    $('#myform').clear();
 	var id_kvit = this.name;
 		$('input[name=id_kvitancy]').val(id_kvit);
 $("#myform").submit();
@@ -299,6 +292,19 @@ $( "#search_user" ).keyup(function() {
 /*
 Дальше отдельные функции
 */
+
+
+jQuery.fn.clear = function()
+{
+    var $form = $(this);
+
+    $form.find('input:text, input:password, input:file, textarea').val('');
+    $form.find('select option:selected').removeAttr('selected');
+    $form.find('input:checkbox, input:radio').removeAttr('checked');
+
+    return this;
+};
+
 
 function fill_user(thisValue) {
 			

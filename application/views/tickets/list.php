@@ -13,6 +13,7 @@
       </ul>
 
 
+
 <?php
 
 echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
@@ -133,7 +134,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
     <div class="span2">
         <?
         //echo form_label('Сортировать как: ');
-        $options_order_type = array('Asc' => 'С начала', 'Desc' => 'С конца');
+        $options_order_type = array('Desc' => 'С конца', 'Asc' => 'С начала');
         echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class=""');
         ?>
     </div>
@@ -154,14 +155,14 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
     <div class="span2">
         <?
         //echo form_label('Поиск:', 'search_string');
-        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск" title="Поиск по фамилии, модели, телефоне"');
+        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск" title="Поиск по фамилии, модели, телефоне" class="search-query"');
         ?>
     </div>
 
     <div class="span2">
         <?
         echo form_label('', 'mysubmit');
-        echo form_submit(array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Показать'));
+        echo form_submit(array('name' => 'mysubmit', 'class' => 'btn btn-info', 'value' => 'Показать'));
         ?>
     </div>
 </div>
@@ -221,43 +222,44 @@ $row_global2 = array ();
 
 <div class="page-header users-header">
 
-    <a  href="#" class="btn btn-success" id="new-order-button">+Новая квитанция</a>
+    <a  href="#" class="btn btn-success" id="new-order-button"><i class="icon-plus"></i>Новая квитанция</a>
 
 </div>
 
 <div class="row-fluid">
+
     <ul class="nav nav-tabs">
 
 				<li class="<?if ($id_sost_selected == false) echo 'active';?>">
-					<a href="#" id="sost_128" name=""><b>Все что в ремонте</b> <span class="badge badge-important pull-right"><?=count($aparats)?></span></a>
+					<a href="#" id="sost_128" name=""><b>Все что в ремонте</b><sup class="badge badge-important"><?=count($aparats)?></sup></a>
 				</li>
 
 				<?foreach ($row_global2 as $name_sost => $value) {?>
 
 				<li class="<?if($value[0]["id_sost"] == $id_sost_selected) echo 'active';?>">
-					<a href="#" id="sost_<?=$value[0]["id_sost"]?>" name="<?=$value[0]["id_sost"]?>"><?=$name_sost?> <span class="badge badge-important pull-right"> <?=count($value)?></span>
-					</a>
+					<a href="#" id="sost_<?=$value[0]["id_sost"]?>" name="<?=$value[0]["id_sost"]?>"><?=$name_sost?> <sup style="background-color:<?=$value[0]['background']?>" class="badge badge-important"> <?=count($value)?></sup></a>
 				</li>
 	<?}?>
 	</ul>
+
 </div>		  
        
 
 
 <div class="row-fluid">   
-		<div class="span2" id="sidebar">
-			<ul class="nav nav-list bs-docs-sidenav nav-collapse collapse">
+		<div class="span2">
+			<ul class="nav nav-tabs nav-stacked">
 				<?foreach ($row_global1 as $aparat_name => $value) {
 					//if ($_SESSION["id_sc"] !=1) { $id_sc_now = $filter->select_id_sc($_SESSION["id_sc"]); } else {$id_sc_now = '';} //var_dump($value);die;?>
 					<li class="<?if($value[0]["id_aparat"] == $id_aparat_selected) echo 'active';?>">
-					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><b><?=$aparat_name?></b> <span class="badge badge-info pull-right"><?=count($value)?></span>
+					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><?=$aparat_name?> <span class="badge badge-info pull-right"><?=count($value)?></span>
 					</a>
 				<?}?>
 			</ul>
 		</div>
 
 <? if (count($kvitancys)>0) {?>		
-<div class="span9">
+<div class="span10">
 
 		
 
@@ -272,100 +274,109 @@ $row_global2 = array ();
     <?}else{?>
         <div class="">По вашему запросу ничего не найдено</div>
     <?}?>
-<?  foreach($kvitancys as $row)
-              {
-			 ?>
-	
-		
-<a href="#" onclick="anichange(this); return false">
-<table class="table table-striped table-bordered table-condensed">
-    <tr class="success">
-        <td class="span1"><?=$row['id_kvitancy']?></td>
-        <td class="span1"><?=$row['date_priemka']?></td>
-        <td class="span1"><?=$row['date_vydachi']?></td>
-        <td class="span1"><?=$row['name_sc']?></td>
-        <td class="span2"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></td>
-        <td class="span2"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
-        <td class="span2"><?=$row['neispravnost']?></td>
-    </tr>
-</table>
-</a>
-<div style="display: none;">
-<table>
-	<tr>
-			<td>
-					 <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info" target="_blank">Редактировать</a>
-					 <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать</a>
-					 <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать чека</a>
-            </td>
-	</tr>
-</table>
-<table>
-	<tr>
-		<td colspan="8">
-					<?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class="span2"')?>
-				
-					<?if ($row['id_mechanic']) { 
-							$id_mechanic_selected = $row['id_mechanic'];
-							}else{
-								$id_mechanic_selected='';
-					}?>		
-				
-					<?=form_dropdown($row['id_kvitancy'], $options_id_meh, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class="span2"')?>
 
-                    <?
-                    $options_id_responsible = array('' => "-ответственный-");
 
-                        foreach ($resp as $array) {
-                            $options_id_responsible[$array['id']] = $array['user_name'];
-                        }
+<?  foreach($kvitancys as $row) { ?>
+    <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
 
-                   if ($row['id_responsible']) {
-                            $id_responsible_selected = $row['id_responsible'];
-                        }else{
-                            $id_responsible_selected='';
-                        }?>
+    <div class="tabbable"> <!-- Only required for left/right tabs -->
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">
+                    # <?=$row['id_kvitancy']?>
+                    <span style="background-color:<?=$row['background']?>" class="label">
+                        <?=$row['name_sost']?>
+                    </span>
+                </a></li>
+            <li><a href="#tab2_<?=$row['id_kvitancy']?>" data-toggle="tab">Опции</a></li>
+            <li><a href="#tab3_<?=$row['id_kvitancy']?>" data-toggle="tab">Комментарии <sup class="badge"><?=count($comments)?></sup></a></li>
 
-                    <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class="span2"')?>
+        </ul>
+        <div class="tab-content">
+            <div style="margin-bottom: 20px;" class="tab-pane active" id="tab1_<?=$row['id_kvitancy']?>">
 
-		</td>
-	</tr>
-	<tr>
-		<td colspan="8">
-			<? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
-			
-					<ul id="ul_<?=$row['id_kvitancy']?>">
-								<?foreach($comments as $rowc)
-						{?>
-							 
-							  <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka ' . $rowc['user_name'] . ' пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment']?></b></font>
+                <table class="table table-bordered table-condensed">
+                <tr>
 
-							 <? if ($rowc['id_user'] == $this->session->userdata['user_id'])
-								{?>
-									<input type="button" value="Удалить" id="dell_comment_<?=$rowc['id_comment']?>" name="<?=$rowc['id_comment']?>">
-								<?}?>
-								</li>
-						<?}?>
-					</ul>
-				
-				
-					<textarea rows="3" name="comment_<?=$row['id_kvitancy']?>"></textarea>
-				<input type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
-			</td>
-	</tr>	
-</table>
-</div>
-<div>
+                    <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
+                    <td class="span3"><?=$row['neispravnost']?></td>
+
+                    <td class="span2"><?=$row['date_priemka']?></td>
+                    <td class="span2"><?=$row['date_vydachi']?></td>
+                    <td class="span2"><?=$row['name_sc']?></td>
+                    <td class="span3"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></td>
+                </tr>
+                </table>
+
+            </div>
+            <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">
+                <?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class=""')?>
+
+                <?if ($row['id_mechanic']) {
+                    $id_mechanic_selected = $row['id_mechanic'];
+                }else{
+                    $id_mechanic_selected='';
+                }?>
+
+                <?=form_dropdown($row['id_kvitancy'], $options_id_meh, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class=""')?>
+
+                <?
+                $options_id_responsible = array('' => "Выбрать ответственного");
+
+                foreach ($resp as $array) {
+                    $options_id_responsible[$array['id']] = $array['user_name'];
+                }
+
+                if ($row['id_responsible']) {
+                    $id_responsible_selected = $row['id_responsible'];
+                }else{
+                    $id_responsible_selected='';
+                }?>
+
+                <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class=""')?>
+
+                <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info" target="_blank">Редактировать</a>
+                <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать</a>
+                <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать чека</a>
+            </div>
+
+            <div style="margin-bottom: 20px;" class="tab-pane" id="tab3_<?=$row['id_kvitancy']?>">
+                <ul id="ul_<?=$row['id_kvitancy']?>">
+                    <?foreach($comments as $rowc)
+                    {?>
+
+                        <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka ' . $rowc['user_name'] . ' пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment']?></b></font>
+
+                            <? if ($rowc['id_user'] == $this->session->userdata['user_id'])
+                            {?>
+                                <input type="button" value="Удалить" id="dell_comment_<?=$rowc['id_comment']?>" name="<?=$rowc['id_comment']?>">
+                            <?}?>
+                        </li>
+                    <?}?>
+                </ul>
+
+
+                <textarea rows="3" name="comment_<?=$row['id_kvitancy']?>"></textarea>
+                <input type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
+
+            </div>
+
+        </div>
+    </div>
+
+
+
+
 			<?}?>
-			
-	</div>		
+
 </div>
 
 		<?}else{?>
-            <div class="span9">По вашему запросу ничего не найдено</div>
+            <div class="span10">По вашему запросу ничего не найдено</div>
         <?}?>
           
 		<? echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
+
 </div>
 
 
@@ -385,9 +396,9 @@ $row_global2 = array ();
 
             <div class="controls controls-row">
                 <input class="span2" type="text" id="inputApparat" onkeyup="look_apparat(this.value);" placeholder="Поиск аппарата">
-                <span>или</span>
-                <?php echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="span2" id="id_aparat" required="required" title="Аппарат"');?>
-                <span>или</span>
+                <span> или </span>
+                <?php echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="" id="id_aparat" required="required" title="Аппарат"');?>
+                <span> или </span>
 
                 <a href="#" class="btn" onclick="anichange(this); return false">Добавить</a>
 					<span name="aparat_span" style="display: none;">
@@ -405,7 +416,7 @@ $row_global2 = array ();
             <div class="controls controls-row">
                 <input class="span2" type="text" id="inputProizvod" onkeyup="look_proizvod(this.value);" placeholder="Поиск бренда">
                 <span>или</span>
-                <?php echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="span2" id="id_proizvod" required="required" title="Бренд"');?>
+                <?php echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="" id="id_proizvod" required="required" title="Бренд"');?>
                 <span>или</span>
 
                 <a href="#" class="btn" onclick="anichange(this); return false">Добавить</a>
@@ -445,11 +456,11 @@ $row_global2 = array ();
             </div>
             <div class="span4">
                 <label for="id_remonta">Вид ремонта</label>
-                <?php  echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class="span2" id="id_remonta" title="Тип ремонта"');?>
+                <?php  echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class="" id="id_remonta" title="Тип ремонта"');?>
             </div>
             <div class="span4">
                 <label for="id_sc">Сервисный Центр</label>
-                <?php  echo form_dropdown('id_sc', $options_id_sc, '', 'class="span2" id="id_sc" required="required" title="Сервисный Центр"');?>
+                <?php  echo form_dropdown('id_sc', $options_id_sc, '', 'class="" id="id_sc" required="required" title="Сервисный Центр"');?>
             </div>
 
             <div class="span12">

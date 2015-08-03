@@ -41,17 +41,39 @@ class Tickets extends CI_Controller
     public function index()
     {
 
+
+
         //pagination settings
         $config['per_page'] = 20;
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 4;
+
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = '<li class="active"><a>';
         $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open']  = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $config['first_link']      = 'First';
+        $config['first_tag_open']  = '<li>';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link']      = 'Last';
+        $config['last_tag_open']  = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link']      = '»';
+        $config['next_tag_open']  = '<li>';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link']      = '«';
+        $config['prev_tag_open']  = '<li>';
+        $config['prev_tag_close'] = '</li>';
+
         $config['uri_segment'] = 2;
         $config['display_pages'] = TRUE;
 
@@ -777,7 +799,6 @@ class Tickets extends CI_Controller
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
         $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
-        //$data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
         $data['main_content'] = 'tickets/list';
         $this->load->view('includes/template', $data);
     }

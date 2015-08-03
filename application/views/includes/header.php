@@ -8,7 +8,7 @@
         <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="<?php echo base_url(); ?>assets/styles.css" rel="stylesheet" media="screen">
-        <script src="<?php echo base_url(); ?>assets/bootstrap-select.min.css"></script>
+
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
