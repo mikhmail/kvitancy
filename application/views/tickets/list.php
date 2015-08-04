@@ -2,7 +2,7 @@
 
       <ul class="breadcrumb">
         <li>
-          <a href="<?php echo site_url("kvitancy"); ?>">
+          <a href="<?php echo site_url("/"); ?>">
             <?php echo ucfirst($this->uri->segment(1));?>
           </a> 
           <span class="divider">/</span>
@@ -10,6 +10,8 @@
        <a href="<?php echo site_url('kvitancy/'. strtolower(ucfirst($this->uri->segment(2)))); ?>">
             <?php echo ucfirst($this->uri->segment(2));?>
           </a>
+
+          <li class="pull-right"><a  href="#" class="btn btn-success" id="new-order-button"><i class="icon-plus"></i>Новая квитанция</a></li>
       </ul>
 
 
@@ -25,37 +27,28 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
 
 <div class="row-fluid">
+
+
 <div class="span12">
+
 </div>
 
 <div class="span12">
 
-    <div class="span2">
+
 
             <?
             $options_date = array('date_priemka' => 'Дата приема', 'date_vydachi' => 'Дата выдачи', 'date_okonchan' => 'Дата окон.ремонта');
             echo form_dropdown('date', $options_date, $date_selected, 'class=""');
             ?>
-        </div>
-
-
-
-       <div class="span2">
-
                 <?
                 echo form_date('start_date', $start_date);
                 ?>
-        </div>
-
-
-        <div class="span2">
 
             <?
             echo form_date('end_date', $end_date);
             ?>
-        </div>
 
-        <div class="span2">
             <?
             $options_id_sc = array('' => "Выбрать сервис");
 
@@ -65,9 +58,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class=""');
 
             ?>
-        </div>
 
-        <div class="span2">
             <?
             $options_id_meh = array('' => "Выбрать механика");
 
@@ -76,14 +67,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             }
             echo form_dropdown('id_mechanic', $options_id_meh, $id_mechanic_selected, 'class=""');
             ?>
-        </div>
 
-
-</div>
-
-<div class="span12">
-
-    <div class="span2">
         <?
        // echo form_label('Аппарат: ');
         $options_ap = array('' => "Выбрать аппарат");
@@ -93,9 +77,9 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
         }
         echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class=""');
         ?>
-    </div>
 
-    <div class="span2">
+
+
         <?
         //echo form_label('Производитель: ');
         $options_proizvoditel = array('' => "Выбрать бренд");
@@ -106,9 +90,9 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
         echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class=""');
         ?>
-    </div>
 
-    <div class="span2">
+
+
         <?
         //echo form_label('Состояние: ');
         $options_sost = array('' => "Все [что в ремонте]");
@@ -118,9 +102,9 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
         echo form_dropdown('id_sost', $options_sost, $id_sost_selected, 'class=""');
 
         ?>
-    </div>
 
-    <div class="span2">
+
+
         <?
         //echo form_label('Вид ремонта: ');
         $options_id_remonta = array('' => "Выбрать вид ремонта");
@@ -130,41 +114,51 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
         echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class=""');
 
         ?>
-    </div>
-    <div class="span2">
+
         <?
         //echo form_label('Сортировать как: ');
         $options_order_type = array('Desc' => 'С конца', 'Asc' => 'С начала');
         echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class=""');
         ?>
-    </div>
+
+        <?
+        echo form_label('', 'mysubmit');
+        echo form_submit(array('name' => 'mysubmit', 'class' => 'btn btn-info', 'value' => 'Фильтровать'));
+        ?>
 
 </div>
 
 <div class="span12">
+</div>
 
+<div class="span10">
 
-    <div class="span2">
+    <div class="pull-left">
         <?
         //echo form_label('Введите номер: ');
         echo form_input('id_kvitancy', $id_kvitancy_selected, 'placeholder="Введите номер квитанции" class=""');
-
         ?>
-    </div>
 
-    <div class="span2">
-        <?
-        //echo form_label('Поиск:', 'search_string');
-        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск" title="Поиск по фамилии, модели, телефоне" class="search-query"');
-        ?>
-    </div>
-
-    <div class="span2">
         <?
         echo form_label('', 'mysubmit');
         echo form_submit(array('name' => 'mysubmit', 'class' => 'btn btn-info', 'value' => 'Показать'));
         ?>
     </div>
+
+    <div class="pull-right">
+        <?
+        //echo form_label('Поиск:', 'search_string');
+        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск по фамилии, модели, телефоне" title="Поиск по фамилии, модели, телефоне" class="search-query"');
+        ?>
+        <?
+        echo form_label('', 'mysubmit');
+        echo form_submit(array('name' => 'mysubmit', 'class' => 'btn btn-info', 'value' => 'Поиск'));
+        ?>
+    </div>
+
+
+
+
 </div>
 
 <?
@@ -222,7 +216,7 @@ $row_global2 = array ();
 
 <div class="page-header users-header">
 
-    <a  href="#" class="btn btn-success" id="new-order-button"><i class="icon-plus"></i>Новая квитанция</a>
+
 
 </div>
 
@@ -252,7 +246,7 @@ $row_global2 = array ();
 				<?foreach ($row_global1 as $aparat_name => $value) {
 					//if ($_SESSION["id_sc"] !=1) { $id_sc_now = $filter->select_id_sc($_SESSION["id_sc"]); } else {$id_sc_now = '';} //var_dump($value);die;?>
 					<li class="<?if($value[0]["id_aparat"] == $id_aparat_selected) echo 'active';?>">
-					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><?=$aparat_name?> <span class="badge badge-info pull-right"><?=count($value)?></span>
+					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><?=$aparat_name?> <span class="label pull-right"><?=count($value)?></span>
 					</a>
 				<?}?>
 			</ul>
@@ -261,15 +255,21 @@ $row_global2 = array ();
 <? if (count($kvitancys)>0) {?>		
 <div class="span10">
 
-		
 
-<div class="row">
+
+    <div class="row">
 
 
     <?if(count($count_kvitancys)>0) {?>
 
 
-            <div class="">Найдено <?=$count_kvitancys?> аппаратов</div>
+            <div class="span12">
+                <p>Найдено <?=$count_kvitancys?> аппаратов</p>
+
+
+            </div>
+
+
 
     <?}else{?>
         <div class="">По вашему запросу ничего не найдено</div>
@@ -349,15 +349,18 @@ $row_global2 = array ();
 
                             <? if ($rowc['id_user'] == $this->session->userdata['user_id'])
                             {?>
-                                <input type="button" value="Удалить" id="dell_comment_<?=$rowc['id_comment']?>" name="<?=$rowc['id_comment']?>">
+                                <input class="btn btn-danger btn-mini" type="button" value="Удалить" id="dell_comment_<?=$rowc['id_comment']?>" name="<?=$rowc['id_comment']?>">
                             <?}?>
                         </li>
                     <?}?>
                 </ul>
 
 
-                <textarea rows="3" name="comment_<?=$row['id_kvitancy']?>"></textarea>
-                <input type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
+                <input name="comment_<?=$row['id_kvitancy']?>"></input>
+                <input class="btn btn-info btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
+
+
+
 
             </div>
 

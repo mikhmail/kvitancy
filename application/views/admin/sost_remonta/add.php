@@ -53,12 +53,34 @@
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">Name</label>
+            <label for="inputError" class="control-label">Название</label>
             <div class="controls">
               <input type="text" id="" name="name" value="<?php echo set_value('name'); ?>" >
               
             </div>
           </div>
+
+            <div class="control-group">
+                <label for="inputError" class="control-label">Цвет</label>
+                <div class="controls">
+                    <input type="text" id="" name="background" value="<?php echo set_value('background'); ?>" >
+
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="inputError" class="control-label">Тип</label>
+                <div class="controls">
+                <select name="type">
+                    <option value="">Выбрать тип</option>
+
+                    <option value="1">В ремонте</option>
+                    <option value="0">Выдан</option>
+                </select>
+
+                </div>
+            </div>
+
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Сохранить</button>
             <button class="btn" type="reset">Отмена</button>

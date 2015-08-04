@@ -281,7 +281,12 @@ $( "#search_user" ).keyup(function() {
 // END of поиск пользователя при добавлении квинтации.	
 
 
-	
+    $("form#myform").find("select").filter('[value != ""]').each(function () {
+
+       $(this).attr("style","background: #F7F7F7;");
+
+    });
+
 
 //	
 //	

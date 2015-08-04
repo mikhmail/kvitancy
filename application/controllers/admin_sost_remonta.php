@@ -163,6 +163,10 @@ class Admin_sost_remonta extends CI_Controller {
 
             //form validation
             $this->form_validation->set_rules('name', 'name', 'required');
+            $this->form_validation->set_rules('background', 'background', 'required');
+            $this->form_validation->set_rules('type', 'type', 'required');
+
+
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             
 
@@ -171,6 +175,9 @@ class Admin_sost_remonta extends CI_Controller {
             {
                 $data_to_store = array(
                     'name_sost' => $this->input->post('name'),
+                    'background' => $this->input->post('background'),
+                    'type' => $this->input->post('type')
+
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->sost_remonta_model->store_sost_remonta($data_to_store)){
@@ -200,7 +207,11 @@ class Admin_sost_remonta extends CI_Controller {
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
             //form validation
+
+
             $this->form_validation->set_rules('name', 'name', 'required');
+            $this->form_validation->set_rules('background', 'background', 'required');
+            $this->form_validation->set_rules('type', 'type', 'required');
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             //if the form has passed through the validation
             if ($this->form_validation->run())
@@ -208,6 +219,8 @@ class Admin_sost_remonta extends CI_Controller {
     
                 $data_to_store = array(
                     'name_sost' => $this->input->post('name'),
+                    'background' => $this->input->post('background'),
+                    'type' => $this->input->post('type')
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->sost_remonta_model->update_sost_remonta($id, $data_to_store) == TRUE){
@@ -238,11 +251,43 @@ class Admin_sost_remonta extends CI_Controller {
     */
     public function delete()
     {
-        //product id 
+        $this->load->model('kvitancy_model');
         $id = $this->uri->segment(4);
-        $this->sost_remonta_model->delete_sost_remonta($id);
-        redirect('admin/sost_remonta');
-    }//edit
+
+
+
+        $check =  $this->kvitancy_model->get_kvitancy(
+
+            '',
+            '',
+            '',
+            '',
+           '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            $id,
+            '',
+            '',
+            '',
+            $count = null
+        );
+if( count($check) > 1 ) {
+
+    echo "<script language='JavaScript' type='text/javascript'>alert('Нельзя удалить статус: есть квитанции с таким статусом!')</script>";
+    echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/sost_remonta')</script>";
+
+
+}else {
+    $this->sost_remonta_model->delete_sost_remonta($id);
+
+
+    }
+
+   }//edit
 
 }
 ?>

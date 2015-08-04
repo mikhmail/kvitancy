@@ -57,9 +57,30 @@
             <label for="inputError" class="control-label">Description</label>
             <div class="controls">
               <input type="text" id="" name="name" value="<?php echo $manufacture[0]['name_sost']; ?>" >
-              <!--<span class="help-inline">Woohoo!</span>-->
             </div>
           </div>
+
+            <div class="control-group">
+                <label for="inputError" class="control-label">Цвет</label>
+                <div class="controls">
+                    <input type="text" id="" name="background" value="<?php echo  $manufacture[0]['background']; ?>" >
+
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="inputError" class="control-label">Тип</label>
+                <div class="controls">
+                    <select name="type">
+                        <option value="">Выбрать тип</option>
+
+                        <option value="1" <?php if($manufacture[0]['type'] == 1) echo 'selected'; ?>>В ремонте</option>
+                        <option value="0"  <?php if($manufacture[0]['type'] == 0) echo 'selected'; ?>>Выдан</option>
+                    </select>
+
+                </div>
+            </div>
+
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Сохранить</button>
             <button class="btn" type="reset">Отмена</button>

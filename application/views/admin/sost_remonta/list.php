@@ -14,8 +14,8 @@
 
       <div class="page-header users-header">
         <h2>
-          <?php echo ucfirst($this->uri->segment(2));?> 
-          <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success">Добавить</a>
+         Состояния ремонта
+          <a href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить</a>
         </h2>
       </div>
       
@@ -24,7 +24,7 @@
           <div class="well">
            
             <?php
-           
+           /*
             $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
            
             //save the columns names in a array that we will use as filter         
@@ -52,15 +52,19 @@
               echo form_submit($data_submit);
 
             echo form_close();
+           */
             ?>
 
           </div>
 
-          <table class="table table-striped table-bordered table-condensed">
+          <table class="table">
             <thead>
               <tr>
                 <th class="header">#</th>
                 <th class="yellow header headerSortDown">Название</th>
+                 <th>Цвет</th>
+                  <th>Опции</th>
+
               </tr>
             </thead>
             <tbody>
@@ -70,7 +74,9 @@
                 echo '<tr>';
                 echo '<td>'.$row['id_sost'].'</td>';
                 echo '<td>'.$row['name_sost'].'</td>';
-                echo '<td class="crud-actions">
+                echo '<td style="background: '.$row["background"].'; ">'.$row['background'].'</td>';
+
+                  echo '<td class="crud-actions">
                   <a href="'.site_url("admin").'/sost_remonta/update/'.$row['id_sost'].'" class="btn btn-info">Изменить</a>  
                   <a href="'.site_url("admin").'/sost_remonta/delete/'.$row['id_sost'].'" class="btn btn-danger">Удалить</a>
                 </td>';

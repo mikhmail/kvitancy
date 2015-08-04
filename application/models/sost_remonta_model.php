@@ -21,7 +21,25 @@ class sost_remonta_model extends CI_Model {
 		$this->db->where('id_sost', $id);
 		$query = $this->db->get();
 		return $query->result_array(); 
-    }    
+    }
+
+    public function get_sost_remonta_in_remont()
+    {
+        $this->db->select('id_sost');
+        $this->db->from('sost_remonta');
+        $this->db->where('type', 1); //type = 1 - in temont, 0 - vidan
+        $query = $this->db->get();
+
+        $sost = array();
+        foreach($query->result_array() as $key => $arr) {
+            foreach($arr as $value){
+                $sost[]= $value;
+            }
+
+        }
+
+        return $sost;
+    }
 
     /**
     * Fetch manufacturers data from the database

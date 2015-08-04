@@ -88,6 +88,7 @@ class Tickets extends CI_Controller
         }
 
 
+        $sost_in_remont = $this->sost_remonta_model->get_sost_remonta_in_remont();
 
         // !--------------------------POST------------------------------------- //
         if ($this->input->post() OR $this->uri->segment(2)) {
@@ -259,7 +260,7 @@ class Tickets extends CI_Controller
                                 $id_sost = '';
                             }
             $data['id_sost_selected'] = $id_sost;
-            if ($id_sost == '') $id_sost = array('1', '2', '3', '4', '6', '10', '11');
+            if ($id_sost == '') $id_sost = $sost_in_remont;
             // end ID_SOST
 
 
@@ -416,7 +417,7 @@ class Tickets extends CI_Controller
             $id_mechanic = null;
             $id_aparat = null;
             $id_proizvod = null;
-            $id_sost = array('1', '2', '3', '4', '6', '10', '11');
+            $id_sost = $sost_in_remont;
             $id_kvitancy = null;
             $id_remonta = null;
 
@@ -548,7 +549,7 @@ class Tickets extends CI_Controller
         $id_mechanic = null,
         $id_aparat = null,
         $id_proizvod = null,
-        $id_sost = array('1', '2', '3', '4', '6', '10', '11'),
+        $id_sost = $sost_in_remont,
         $id_sc,
         $id_kvitancy = null,
         $id_remonta = null,
@@ -800,6 +801,7 @@ class Tickets extends CI_Controller
         $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
         $data['main_content'] = 'tickets/list';
+        $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
         $this->load->view('includes/template', $data);
     }
 
