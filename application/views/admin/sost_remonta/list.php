@@ -58,7 +58,7 @@
 
           </div>
 -->
-          <table class="table">
+          <table class="table table-striped table-bordered table-condensed">
             <thead>
               <tr>
                 <th class="header">#</th>
