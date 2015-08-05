@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Adding <?php echo ucfirst($this->uri->segment(2));?>
+          Добавить пользователя
         </h2>
       </div>
  
@@ -45,7 +45,9 @@
       <?php
       //form data
       $attributes = array('class' => 'form-horizontal', 'id' => '');
-      $options_groups_dostupa = array('' => "Select");
+
+
+      $options_groups_dostupa = array('' => "Выбрать");
       foreach ($groups_dostupa as $row)
       {
         $options_groups_dostupa[$row['id']] = $row['name'];
@@ -66,35 +68,35 @@
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">first_name</label>
+            <label for="inputError" class="control-label">Имя</label>
             <div class="controls">
               <input type="text" id="" name="first_name" value="<?php echo set_value('first_name'); ?>" >
               <!--<span class="help-inline">Woohoo!</span>-->
             </div>
           </div>
           <div class="control-group">
-            <label for="inputError" class="control-label">last_name</label>
+            <label for="inputError" class="control-label">Фамилия</label>
             <div class="controls">
               <input type="text" id="" name="last_name" value="<?php echo set_value('last_name'); ?>">
               <!--<span class="help-inline">Cost Price</span>-->
             </div>
           </div>          
           <div class="control-group">
-            <label for="inputError" class="control-label">email_addres</label>
+            <label for="inputError" class="control-label">Email</label>
             <div class="controls">
               <input type="text" id="" name="email_addres" value="<?php echo set_value('email_addres'); ?>">
               <!--<span class="help-inline">Cost Price</span>-->
             </div>
           </div>
           <div class="control-group">
-            <label for="inputError" class="control-label">user_name</label>
+            <label for="inputError" class="control-label">Логин</label>
             <div class="controls">
               <input type="text" name="user_name" value="<?php echo set_value('user_name'); ?>">
               <!--<span class="help-inline">OOps</span>-->
             </div>
           </div>
 		  <div class="control-group">
-            <label for="inputError" class="control-label">password</label>
+            <label for="inputError" class="control-label">Пароль</label>
             <div class="controls">
               <input type="text" name="pass_word" value="<?php echo set_value('pass_word'); ?>">
               <!--<span class="help-inline">OOps</span>-->
@@ -114,6 +116,13 @@
               <?php echo form_dropdown('groups_dostupa_id', $options_groups_dostupa, set_value('groups_dostupa_id'), 'class="span2"');?>
             </div>
           </div>
+
+            <div class="control-group">
+                <label for="active" class="control-label">Активный</label>
+                <div class="controls">
+                    <?php echo form_dropdown('active', array('1' => "Да", '2' => "Нет"), '', 'class="span2"');?>
+                </div>
+            </div>
 		  
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Сохранить</button>

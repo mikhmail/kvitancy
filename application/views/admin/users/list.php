@@ -14,8 +14,8 @@
 
       <div class="page-header users-header">
         <h2>
-          <?php echo ucfirst($this->uri->segment(2));?> 
-          <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success">Добавить пользователя</a>
+          Пользователи
+          <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить пользователя</a>
         </h2>
       </div>
       
@@ -25,7 +25,7 @@
            
             <?php
            
-            $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
+            $attributes = array('class' => 'form-inline', 'id' => 'myform');
            
             $options_groups_dostupa = array(0 => "all");
             foreach ($groups_dostupa as $row)
@@ -41,24 +41,38 @@
               break;
             }
 
-            echo form_open('admin/users', $attributes);
-     
-              echo form_label('Поиск:', 'search_string');
-              echo form_input('search_string', $search_string_selected, 'style="width: 170px;
-height: 26px;"');
+            echo form_open('admin/users', $attributes);?>
 
-              echo form_label('Фильт по группе:', 'groups_dostupa_id');
-              echo form_dropdown('groups_dostupa_id', $options_groups_dostupa, $groups_dostupa_selected, 'class="span2"');
 
-              echo form_label('Фильтровать по:', 'order');
-              echo form_dropdown('order', $options_users, $order, 'class="span2"');
 
-              $data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
+              <label class="control-label" for="search_string">Поиск:</label>
+              <?echo form_input('search_string', $search_string_selected, 'class="search-query"');?>
 
-              $options_order_type = array('Asc' => 'Asc', 'Desc' => 'Desc');
-              echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span1"');
+              <label class="control-label" for="groups_dostupa_id">Фильтр по группе:</label>
+              <?echo form_dropdown('groups_dostupa_id', $options_groups_dostupa, $groups_dostupa_selected, 'class="span2"');?>
 
-              echo form_submit($data_submit);
+                  <label class="control-label" for="order">Фильтровать по:</label>
+                 <?echo form_dropdown('order', $options_users, $order, 'class="span2"');?>
+
+
+                      <?
+                      $options_order_type = array('Asc' => 'По возрастанию', 'Desc' => 'По убыванию');
+                      echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span2"');
+                      ?>
+
+
+
+                      <?
+                      $data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
+
+                      echo form_submit($data_submit);
+                      ?>
+
+
+
+
+            <?
+
 
             echo form_close();
             ?>

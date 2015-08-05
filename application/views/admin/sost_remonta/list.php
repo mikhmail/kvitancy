@@ -21,7 +21,8 @@
       
       <div class="row">
         <div class="span12 columns">
-          <div class="well">
+          <!--
+            <div class="well">
            
             <?php
            /*
@@ -56,13 +57,13 @@
             ?>
 
           </div>
-
+-->
           <table class="table">
             <thead>
               <tr>
                 <th class="header">#</th>
                 <th class="yellow header headerSortDown">Название</th>
-                 <th>Цвет</th>
+                 <th>Код цвета</th>
                   <th>Опции</th>
 
               </tr>
@@ -74,7 +75,7 @@
                 echo '<tr>';
                 echo '<td>'.$row['id_sost'].'</td>';
                 echo '<td>'.$row['name_sost'].'</td>';
-                echo '<td style="background: '.$row["background"].'; ">'.$row['background'].'</td>';
+                echo '<td><span style="background: '.$row["background"].'; " class="label">'.$row['background'].'</span></td>';
 
                   echo '<td class="crud-actions">
                   <a href="'.site_url("admin").'/sost_remonta/update/'.$row['id_sost'].'" class="btn btn-info">Изменить</a>  

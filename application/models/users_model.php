@@ -143,7 +143,10 @@ class Users_model extends CI_Model {
 
 		if($search_string){
 			$this->db->like('user_name', $search_string);
-		}
+            $this->db->or_like('first_name', $search_string);
+            $this->db->or_like('last_name', $search_string);
+
+        }
 
 		$this->db->join('groups_dostupa', 'membership.id_group = groups_dostupa.id', 'left');
 

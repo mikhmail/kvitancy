@@ -246,7 +246,7 @@ $row_global2 = array ();
 				<?foreach ($row_global1 as $aparat_name => $value) {
 					//if ($_SESSION["id_sc"] !=1) { $id_sc_now = $filter->select_id_sc($_SESSION["id_sc"]); } else {$id_sc_now = '';} //var_dump($value);die;?>
 					<li class="<?if($value[0]["id_aparat"] == $id_aparat_selected) echo 'active';?>">
-					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><?=$aparat_name?> <span class="label pull-right"><?=count($value)?></span>
+					<a href="#" id="aparat_<?=$value[0]["id_aparat"]?>" name="<?=$value[0]["id_aparat"]?>"><?=$aparat_name?> <span class="label label-info pull-right"><?=count($value)?></span>
 					</a>
 				<?}?>
 			</ul>

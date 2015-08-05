@@ -66,28 +66,28 @@
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">first_name</label>
+            <label for="inputError" class="control-label">Имя</label>
             <div class="controls">
               <input type="text" id="" name="first_name" value="<?php echo $product[0]['first_name']; ?>" >
               <!--<span class="help-inline">Woohoo!</span>-->
             </div>
           </div>
           <div class="control-group">
-            <label for="inputError" class="control-label">last_name</label>
+            <label for="inputError" class="control-label">Фамилия</label>
             <div class="controls">
               <input type="text" id="" name="last_name" value="<?php echo $product[0]['last_name']; ?>">
               <!--<span class="help-inline">email_addres</span>-->
             </div>
           </div>          
           <div class="control-group">
-            <label for="inputError" class="control-label">email_addres</label>
+            <label for="inputError" class="control-label">Email</label>
             <div class="controls">
               <input type="text" id="" name="email_addres" value="<?php echo $product[0]['email_addres'];?>">
               <!--<span class="help-inline">email_addres</span>-->
             </div>
           </div>
           <div class="control-group">
-            <label for="inputError" class="control-label">user_name</label>
+            <label for="inputError" class="control-label">Логин</label>
             <div class="controls">
               <input type="text" name="user_name" value="<?php echo $product[0]['user_name']; ?>">
               <!--<span class="help-inline">OOps</span>-->
@@ -108,7 +108,14 @@
               <?php echo form_dropdown('id_sc', $options_sc, $product[0]['id_sc'], 'class="span2"');?>
             </div>
           </div>
-		  
+
+            <div class="control-group">
+                <label for="active" class="control-label">Активный</label>
+                <div class="controls">
+                    <?php echo form_dropdown('active', array('1' => "Да", '2' => "Нет"), $product[0]['active'], 'class="span2"');?>
+                </div>
+            </div>
+
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Сохранить</button>
             <button class="btn" type="reset">Отмена</button>

@@ -32,16 +32,35 @@ class Admin_users extends CI_Controller {
         $order_type = $this->input->post('order_type'); 
 
         //pagination settings
-        $config['per_page'] = 5;
+        $config['per_page'] = 10;
         $config['base_url'] = base_url().'admin/users';
         $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 20;
+        $config['num_links'] = 4;
+
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = '<li class="active"><a>';
         $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open']  = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $config['first_link']      = 'First';
+        $config['first_tag_open']  = '<li>';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link']      = 'Last';
+        $config['last_tag_open']  = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link']      = '»';
+        $config['next_tag_open']  = '<li>';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link']      = '«';
+        $config['prev_tag_open']  = '<li>';
+        $config['prev_tag_close'] = '</li>';
 
         //limit end
         $page = $this->uri->segment(3);
@@ -112,7 +131,7 @@ class Admin_users extends CI_Controller {
 
             //fetch groups_dostupa data into arrays
             $data['groups_dostupa'] = $this->groups_dostupa_model->get_groups_dostupa();
-
+            $data['sc'] = $this->service_centers_model->get_service_centers();
             $data['count_users']= $this->users_model->count_users($groups_dostupa_id, $search_string, $order);
             $config['total_rows'] = $data['count_users'];
 
@@ -177,6 +196,7 @@ class Admin_users extends CI_Controller {
             $this->form_validation->set_rules('user_name', 'user_name', 'required');
             $this->form_validation->set_rules('groups_dostupa_id', 'groups_dostupa_id', 'required');
 			$this->form_validation->set_rules('id_sc', 'service center', 'required');
+            $this->form_validation->set_rules('active', 'active', 'required');
 			
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
 
@@ -190,7 +210,8 @@ class Admin_users extends CI_Controller {
                     'user_name' => $this->input->post('user_name'),          
                     'id_group' => $this->input->post('groups_dostupa_id'),
 					'id_sc' => $this->input->post('id_sc'),
-					'pass_word' => trim(md5($this->input->post('pass_word')))
+					'pass_word' => trim(md5($this->input->post('pass_word'))),
+                    'active' => $this->input->post('active')
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->users_model->store_users($data_to_store)){
@@ -229,7 +250,9 @@ class Admin_users extends CI_Controller {
             $this->form_validation->set_rules('user_name', 'user_name', 'required');
             $this->form_validation->set_rules('groups_dostupa_id', 'groups_dostupa_id', 'required');
 			$this->form_validation->set_rules('id_sc', 'service center', 'required');
-			
+            $this->form_validation->set_rules('active', 'active', 'required');
+
+
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             //if the form has passed through the validation
             if ($this->form_validation->run())
@@ -241,8 +264,10 @@ class Admin_users extends CI_Controller {
                     'email_addres' => $this->input->post('email_addres'),
                     'user_name' => $this->input->post('user_name'),          
                     'id_group' => $this->input->post('groups_dostupa_id'),
-					'id_sc' => $this->input->post('id_sc')
-					
+					'id_sc' => $this->input->post('id_sc'),
+                    'active' => $this->input->post('active'),
+
+
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->users_model->update_users($id, $data_to_store) == TRUE){
