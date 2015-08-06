@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление <?php echo ucfirst($this->uri->segment(2));?>
+          Обновление производителя "<?php echo $manufacture[0]['name_proizvod']; ?>"
         </h2>
       </div>
 

@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Adding <?php echo ucfirst($this->uri->segment(2));?>
+          Добавить город
         </h2>
       </div>
 
@@ -53,7 +53,7 @@
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">Name</label>
+            <label for="inputError" class="control-label">Название</label>
             <div class="controls">
               <input type="text" id="" name="name" value="<?php echo set_value('name'); ?>" >
               

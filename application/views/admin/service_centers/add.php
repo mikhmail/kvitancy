@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Adding <?php echo ucfirst($this->uri->segment(2));?>
+         Добавление сервисного центра
         </h2>
       </div>
 
@@ -79,17 +79,13 @@
             </div>
           </div>
 		  
-		  <?php
-          echo '<div class="control-group">';
-            echo '<label for="id_gorod" class="control-label">Город</label>';
-            echo '<div class="controls">';
-              
-              
-              echo form_dropdown('id_gorod', $options_manufacture, 'class="span2"');
+		  <div class="control-group">
+           <label for="id_gorod" class="control-label">Город</label>
+           <div class="controls">
+             <? echo form_dropdown('id_gorod', $options_manufacture, 'class=""'); ?>
+            </div>
+         </div>
 
-            echo '</div>';
-          echo '</div">';
-          ?>
 		  
 		  <div class="control-group">
             <label for="inputError" class="control-label">Почта</label>

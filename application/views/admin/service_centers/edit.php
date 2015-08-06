@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление <?php echo ucfirst($this->uri->segment(2));?>
+          Обновление сервисного центра <?php echo $manufacture[0]['name_sc']; ?>
         </h2>
       </div>
 
@@ -89,7 +89,7 @@
               echo form_dropdown('id_gorod', $options_manufacture, $manufacture[0]['id_gorod'], 'class="span2"');
 
             echo '</div>';
-          echo '</div">';
+          echo '</div>';
           ?>
 		  
 		  <div class="control-group">

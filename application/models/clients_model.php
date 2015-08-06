@@ -99,7 +99,7 @@ class Clients_model extends CI_Model {
     function store_clients($data)
     {
 		$insert = $this->db->insert('users', $data);
-	    return $insert;
+	    return $this->db->insert_id();
 	}
 
     /**

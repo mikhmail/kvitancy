@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление <?php echo ucfirst($this->uri->segment(2));?>
+          Обновление пользователя "<?php echo $product[0]['user_name']; ?>"
         </h2>
       </div>
 
@@ -103,11 +103,11 @@
           </div>
 		  
 		  <div class="control-group">
-            <label for="id_sc" class="control-label">Сервисный Центр</label>
-            <div class="controls">
-              <?php echo form_dropdown('id_sc', $options_sc, $product[0]['id_sc'], 'class="span2"');?>
+                <label for="id_sc" class="control-label">Сервисный Центр</label>
+                <div class="controls">
+                    <?php echo form_dropdown('id_sc', $options_sc, $product[0]['id_sc'], 'class="span2"');?>
+                </div>
             </div>
-          </div>
 
             <div class="control-group">
                 <label for="active" class="control-label">Активный</label>

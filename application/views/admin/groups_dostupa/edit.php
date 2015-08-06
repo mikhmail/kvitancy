@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление группы доступа.
+          Обновление группы доступа "<?php echo $groups_dostupa[0]['name']; ?>"
         </h2>
       </div>
 

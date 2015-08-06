@@ -14,8 +14,8 @@
 
       <div class="page-header users-header">
         <h2>
-          <?php echo ucfirst($this->uri->segment(2));?> 
-          <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success">Добавить</a>
+         Виды ремонта техники
+          <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить</a>
         </h2>
       </div>
       
@@ -36,18 +36,18 @@
               break;
             }
 
-            echo form_open('admin/vid_remonta', $attributes);
-     
-              echo form_label('Поиск:', 'search_string');
-              echo form_input('search_string', $search_string_selected);
+            echo form_open('admin/vid_remonta', $attributes); ?>
 
-              echo form_label('Сортировать по:', 'order');
-              echo form_dropdown('order', $options_manufacturers, $order, 'class="span2"');
+              <label class="control-label" for="search_string">Поиск:</label>
+              <?echo form_input('search_string', $search_string_selected, 'class="search-query"');?>
+
+              <label class="control-label" for="order">Сортировать по:</label>
+              <? echo form_dropdown('order', $options_manufacturers, $order, 'class="span2"');
 
               $data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
 
-              $options_order_type = array('Asc' => 'Asc', 'Desc' => 'Desc');
-              echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span1"');
+              $options_order_type = array('Asc' => 'По возрастанию', 'Desc' => 'По убыванию');
+              echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span2"');
 
               echo form_submit($data_submit);
 

@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление названия аппарата.
+          Обновление аппарата "<?php echo $manufacture[0]['aparat_name']; ?>"
         </h2>
       </div>
 

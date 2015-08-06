@@ -39,17 +39,38 @@ class Admin_clients extends CI_Controller {
         $order_type = $this->input->post('order_type'); 
 
         //pagination settings
-        $config['per_page'] = 50;
+        $config['per_page'] = 20;
 
         $config['base_url'] = base_url().'admin/clients';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
+        $config['use_page_numbers'] = TRUE;
+        $config['num_links'] = 4;
+
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = '<li class="active"><a>';
         $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open']  = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $config['first_link']      = 'First';
+        $config['first_tag_open']  = '<li>';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link']      = 'Last';
+        $config['last_tag_open']  = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link']      = '»';
+        $config['next_tag_open']  = '<li>';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link']      = '«';
+        $config['prev_tag_open']  = '<li>';
+        $config['prev_tag_close'] = '</li>';
 
         //limit end
         $page = $this->uri->segment(3);
@@ -169,8 +190,10 @@ class Admin_clients extends CI_Controller {
         {
 
             //form validation
-            $this->form_validation->set_rules('name_sc', 'adres_sc', 'rab_sc', 'required');
-			$this->form_validation->set_rules('id_gorod', 'id_gorod', 'required|numeric');
+            $this->form_validation->set_rules('fam', 'fam', 'required');
+            $this->form_validation->set_rules('imya', 'imya', 'required');
+            $this->form_validation->set_rules('phone', 'phone', 'required|numeric');
+            $this->form_validation->set_rules('id_sc', 'id_sc', 'required|numeric');
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             
 
@@ -178,12 +201,14 @@ class Admin_clients extends CI_Controller {
             if ($this->form_validation->run())
             {
                 $data_to_store = array(
-                    'name_sc' => $this->input->post('name_sc'),
-					'adres_sc' => $this->input->post('adres_sc'),
-					'rab_sc' => $this->input->post('rab_sc'),
-					'id_gorod' => $this->input->post('id_gorod'),
-					'mail_sc' => $this->input->post('mail_sc'),
-					'site' => $this->input->post('site')
+                    'fam' => $this->input->post('fam'),
+                    'imya' => $this->input->post('imya'),
+                    'otch' => $this->input->post('otch'),
+                    'id_group' => $this->input->post('id_group'),
+                    'mail' => $this->input->post('mail'),
+                    'phone' => $this->input->post('phone'),
+                    'adres' => $this->input->post('adres'),
+                    'id_sc' => $this->input->post('id_sc')
 					
 					
                 );
@@ -192,25 +217,19 @@ class Admin_clients extends CI_Controller {
 				
                 //if the insert has returned true then we show the flash message
 
-                if($this->clients_model->store_clients($data_to_store)){
+                if($id = $this->clients_model->store_clients($data_to_store)){
 
 				    $this->session->set_flashdata('flash_message', 'updated');
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-				/*                
-				$data['flash_message'] = TRUE; 
-                }else{
-                    $data['flash_message'] = FALSE; 
-				*/
-                
 
             }
-
+            redirect('admin/clients/update/'.$id.'');
         }
         //load the view
 		$data['gorod'] = $this->gorod_model->get_gorod();
-		
+        $data['sc'] = $this->service_centers_model->get_service_centers();
 		
         $data['main_content'] = 'admin/clients/add';
         $this->load->view('includes/template', $data);  
@@ -229,9 +248,12 @@ class Admin_clients extends CI_Controller {
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
             //form validation
-            $this->form_validation->set_rules('fam', 'imya', 'required');
-			$this->form_validation->set_rules('phone', 'phone', 'required|numeric');
-			
+            $this->form_validation->set_rules('fam', 'fam', 'required');
+            $this->form_validation->set_rules('imya', 'imya', 'required');
+            $this->form_validation->set_rules('phone', 'phone', 'required|numeric');
+            $this->form_validation->set_rules('id_sc', 'id_sc', 'required|numeric');
+
+
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
             //if the form has passed through the validation
             if ($this->form_validation->run())
@@ -244,10 +266,12 @@ class Admin_clients extends CI_Controller {
 					'id_group' => $this->input->post('id_group'),
 					'mail' => $this->input->post('mail'),
 					'phone' => $this->input->post('phone'),
-					'adres' => $this->input->post('adres')
-					
-					
-					
+					'adres' => $this->input->post('adres'),
+                    'id_sc' => $this->input->post('id_sc')
+
+
+
+
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->clients_model->update_clients($id, $data_to_store) == TRUE){
@@ -270,6 +294,7 @@ class Admin_clients extends CI_Controller {
 		
         //product data 
         $data['manufacture'] = $this->clients_model->get_clients_by_id($id);
+        $data['sc'] = $this->service_centers_model->get_service_centers();
         //load the view
         $data['main_content'] = 'admin/clients/edit';
         $this->load->view('includes/template', $data);            

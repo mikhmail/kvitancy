@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление <?php echo ucfirst($this->uri->segment(2));?>
+          Обновление "<?php echo $manufacture[0]['gorod']; ?>"
         </h2>
       </div>
 
@@ -54,7 +54,7 @@
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">Description</label>
+            <label for="inputError" class="control-label">Название</label>
             <div class="controls">
               <input type="text" id="" name="name" value="<?php echo $manufacture[0]['gorod']; ?>" >
               <!--<span class="help-inline">Woohoo!</span>-->

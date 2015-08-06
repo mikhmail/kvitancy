@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление <?php echo ucfirst($this->uri->segment(2));?>
+          Обновление клиента "<?php echo $manufacture[0]['fam']; ?>"
         </h2>
       </div>
 
@@ -52,7 +52,13 @@
       {
         $options_manufacture[$row['gorod_id']] = $row['gorod'];
       }
-	  
+
+      $options_sc = array('' => "Выбрать");
+      foreach ($sc as $row)
+      {
+          $options_sc[$row['id_sc']] = $row['name_sc'];
+      }
+
       //form validation
       echo validation_errors();
 
@@ -100,29 +106,14 @@
               <textarea id="" rows="2" name="adres"><?php echo $manufacture[0]['adres']; ?></textarea>
             </div>
           </div>
-		  
-		  
-		  
-		  <?php
-		  /*
-          echo '<div class="control-group">';
-            echo '<label for="id_group" class="control-label">Город</label>';
-            echo '<div class="controls">';
-              
-              
-              echo form_dropdown('id_group', $options_manufacture, $manufacture[0]['id_group'], 'class="span2"');
 
-            echo '</div>';
-          echo '</div">';
-		  */
-          ?>
-		  
-		  <div class="control-group">
-            <label for="inputError" class="control-label">Группа</label>
-            <div class="controls">
-              <input type="text" id="" name="id_group" value="<?php echo $manufacture[0]['id_group']; ?>" >
+            <div class="control-group">
+                <label for="id_sc" class="control-label">Сервисный Центр</label>
+                <div class="controls">
+                    <?php echo form_dropdown('id_sc', $options_sc, $manufacture[0]['id_sc'], 'class="span2"');?>
+                </div>
             </div>
-          </div>
+		  
 
 		  
 		  

@@ -2,15 +2,30 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/aparaty/add.php" afterPath="$PROJECT_DIR$/application/views/admin/aparaty/add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/clients/add.php" afterPath="$PROJECT_DIR$/application/views/admin/clients/add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/gorod/add.php" afterPath="$PROJECT_DIR$/application/views/admin/gorod/add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/service_centers/add.php" afterPath="$PROJECT_DIR$/application/views/admin/service_centers/add.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/vid_remonta/add.php" afterPath="$PROJECT_DIR$/application/views/admin/vid_remonta/add.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_aparaty.php" afterPath="$PROJECT_DIR$/application/controllers/admin_aparaty.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_proizvoditel.php" afterPath="$PROJECT_DIR$/application/controllers/admin_proizvoditel.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_clients.php" afterPath="$PROJECT_DIR$/application/controllers/admin_clients.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_comments.php" afterPath="$PROJECT_DIR$/application/controllers/admin_comments.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_kvitancy.php" afterPath="$PROJECT_DIR$/application/controllers/admin_kvitancy.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/clients_model.php" afterPath="$PROJECT_DIR$/application/models/clients_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/aparaty/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/aparaty/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/clients/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/clients/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/gorod/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/gorod/edit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/aparaty/list.php" afterPath="$PROJECT_DIR$/application/views/admin/aparaty/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/groups_dostupa/list.php" afterPath="$PROJECT_DIR$/application/views/admin/groups_dostupa/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/proizvoditel/list.php" afterPath="$PROJECT_DIR$/application/views/admin/proizvoditel/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/sost_remonta/list.php" afterPath="$PROJECT_DIR$/application/views/admin/sost_remonta/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/proizvoditel/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/proizvoditel/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/service_centers/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/service_centers/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/users/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/users/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/vid_remonta/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/vid_remonta/edit.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/clients/list.php" afterPath="$PROJECT_DIR$/application/views/admin/clients/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/comments/list.php" afterPath="$PROJECT_DIR$/application/views/admin/comments/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/gorod/list.php" afterPath="$PROJECT_DIR$/application/views/admin/gorod/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/kvitancy/list.php" afterPath="$PROJECT_DIR$/application/views/admin/kvitancy/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/service_centers/list.php" afterPath="$PROJECT_DIR$/application/views/admin/service_centers/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/vid_remonta/list.php" afterPath="$PROJECT_DIR$/application/views/admin/vid_remonta/list.php" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,46 +48,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/users/list.php">
+      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="99" selection-start="2143" selection-end="2201" vertical-scroll-proportion="-39.032257" vertical-offset="66" max-vertical-offset="3080">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/groups_dostupa/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="59" selection-start="1711" selection-end="1791" vertical-scroll-proportion="-12.774194" vertical-offset="660" max-vertical-offset="2024">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="61" column="71" selection-start="2136" selection-end="2194" vertical-scroll-proportion="-15.612904" vertical-offset="858" max-vertical-offset="2068">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/proizvoditel/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="103" selection-start="2012" selection-end="2012" vertical-scroll-proportion="-17.032259" vertical-offset="594" max-vertical-offset="2046">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="75" selection-start="2137" selection-end="2137" vertical-scroll-proportion="0.44332492" vertical-offset="352" max-vertical-offset="1540">
+            <state line="22" column="79" selection-start="706" selection-end="706" vertical-scroll-proportion="-4.419355" vertical-offset="347" max-vertical-offset="1694">
               <folding />
             </state>
           </provider>
@@ -81,43 +60,34 @@
       <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="66" selection-start="1763" selection-end="1763" vertical-scroll-proportion="-18.451612" vertical-offset="660" max-vertical-offset="1694">
+            <state line="22" column="77" selection-start="704" selection-end="704" vertical-scroll-proportion="-9.225806" vertical-offset="198" max-vertical-offset="1694">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="add.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/add.php">
+      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/proizvoditel/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="55" column="66" selection-start="1672" selection-end="1672" vertical-scroll-proportion="-36.903225" vertical-offset="66" max-vertical-offset="1672">
+            <state line="22" column="84" selection-start="711" selection-end="711" vertical-scroll-proportion="-11.354838" vertical-offset="132" max-vertical-offset="1694">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_aparaty.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin_aparaty.php">
+      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="44" selection-start="2065" selection-end="2065" vertical-scroll-proportion="-24.580645" vertical-offset="712" max-vertical-offset="6028">
+            <state line="22" column="82" selection-start="709" selection-end="709" vertical-scroll-proportion="-10.193548" vertical-offset="168" max-vertical-offset="2156">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="admin_proizvoditel.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin_proizvoditel.php">
+      <file leaf-file-name="edit.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/vid_remonta/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="31" selection-start="958" selection-end="958" vertical-scroll-proportion="-6.83871" vertical-offset="580" max-vertical-offset="6028">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="58" column="34" selection-start="1177" selection-end="2150" vertical-scroll-proportion="-9.225806" vertical-offset="990" max-vertical-offset="21032">
+            <state line="22" column="82" selection-start="709" selection-end="709" vertical-scroll-proportion="0.26862028" vertical-offset="264" max-vertical-offset="1694">
               <folding />
             </state>
           </provider>
@@ -136,7 +106,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/assets/js/func.js" />
@@ -151,24 +120,43 @@
         <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/application/models/sost_remonta_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_sost_remonta.php" />
         <option value="$PROJECT_DIR$/application/views/admin/sost_remonta/add.php" />
         <option value="$PROJECT_DIR$/application/models/users_model.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/users/edit.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_users.php" />
         <option value="$PROJECT_DIR$/application/views/admin/users/add.php" />
         <option value="$PROJECT_DIR$/application/views/admin/users/list.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/groups_dostupa/list.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php" />
         <option value="$PROJECT_DIR$/application/views/admin/aparaty/list.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/aparaty/edit.php" />
         <option value="$PROJECT_DIR$/application/views/admin/aparaty/add.php" />
-        <option value="$PROJECT_DIR$/application/controllers/admin_aparaty.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_proizvoditel.php" />
         <option value="$PROJECT_DIR$/application/views/admin/proizvoditel/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/sost_remonta/list.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/vid_remonta/list.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/vid_remonta/add.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/service_centers/list.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/service_centers/add.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/service_centers/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/gorod/list.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/gorod/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/gorod/add.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/clients/list.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/clients/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/clients/add.php" />
+        <option value="$PROJECT_DIR$/application/models/clients_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/comments/list.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin_comments.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin_clients.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin_aparaty.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin_kvitancy.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/kvitancy/list.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/users/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/aparaty/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/proizvoditel/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/vid_remonta/edit.php" />
       </list>
     </option>
   </component>
@@ -391,6 +379,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="vid_remonta" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="sost_remonta" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -567,114 +581,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="44" column="32" selection-start="1110" selection-end="1110" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="20526">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="61" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.0" vertical-offset="112" max-vertical-offset="1078" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="560" selection-end="560" vertical-scroll-proportion="0.0" vertical-offset="616" max-vertical-offset="9856" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="207" column="25" selection-start="6628" selection-end="6628" vertical-scroll-proportion="0.0" vertical-offset="4246" max-vertical-offset="9614">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="588" selection-end="588" vertical-scroll-proportion="0.0" vertical-offset="352" max-vertical-offset="1034" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="206" column="48" selection-start="7435" selection-end="7435" vertical-scroll-proportion="0.0" vertical-offset="4151" max-vertical-offset="19976">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="61" selection-start="2248" selection-end="2248" vertical-scroll-proportion="0.0" vertical-offset="519" max-vertical-offset="1078" />
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="0" selection-start="560" selection-end="560" vertical-scroll-proportion="0.0" vertical-offset="616" max-vertical-offset="9856" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="17" selection-start="7208" selection-end="7208" vertical-scroll-proportion="0.0" vertical-offset="4383" max-vertical-offset="9526">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="17" column="5" selection-start="340" selection-end="340" vertical-scroll-proportion="0.0" vertical-offset="167" max-vertical-offset="21296">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/includes/template.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="48" selection-end="48" vertical-scroll-proportion="0.10352941" vertical-offset="0" max-vertical-offset="425" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/Loader.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="418" column="0" selection-start="9232" selection-end="9232" vertical-scroll-proportion="0.44470587" vertical-offset="9007" max-vertical-offset="27566" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/index.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="201" column="0" selection-start="6255" selection-end="6255" vertical-scroll-proportion="0.51941746" vertical-offset="4208" max-vertical-offset="4620" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="57" column="0" selection-start="1434" selection-end="1434" vertical-scroll-proportion="-9.935484" vertical-offset="946" max-vertical-offset="1518">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/Model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="50" column="0" selection-start="1078" selection-end="1078" vertical-scroll-proportion="-9.935484" vertical-offset="792" max-vertical-offset="1364" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/database/DB_active_rec.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="76" column="0" selection-start="2060" selection-end="2060" vertical-scroll-proportion="-6.0" vertical-offset="1486" max-vertical-offset="45100" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="358" column="0" selection-start="10236" selection-end="10236" vertical-scroll-proportion="-6.354839" vertical-offset="7679" max-vertical-offset="8954" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="9" selection-start="1658" selection-end="1658" vertical-scroll-proportion="-22.0" vertical-offset="858" max-vertical-offset="2332" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/login.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="37" selection-start="669" selection-end="677" vertical-scroll-proportion="0.5945946" vertical-offset="0" max-vertical-offset="1034" />
@@ -744,11 +650,6 @@
         <state line="40" column="20" selection-start="984" selection-end="984" vertical-scroll-proportion="0.495" vertical-offset="484" max-vertical-offset="3344" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="77" column="98" selection-start="2776" selection-end="2776" vertical-scroll-proportion="0.8971684" vertical-offset="1092" max-vertical-offset="2156" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_sost_remonta.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="280" column="89" selection-start="10229" selection-end="10229" vertical-scroll-proportion="0.7325228" vertical-offset="5678" max-vertical-offset="6556" />
@@ -773,37 +674,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/users/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="49" column="52" selection-start="1474" selection-end="1474" vertical-scroll-proportion="0.3015873" vertical-offset="831" max-vertical-offset="3102">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_users.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="32" selection-start="944" selection-end="944" vertical-scroll-proportion="-3.0942929" vertical-offset="3242" max-vertical-offset="6952">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/users/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="113" column="26" selection-start="4025" selection-end="4340" vertical-scroll-proportion="0.53724056" vertical-offset="2046" max-vertical-offset="2926">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="248" column="154" selection-start="7421" selection-end="7421" vertical-scroll-proportion="0.6364764" vertical-offset="4943" max-vertical-offset="11044">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/users/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="99" selection-start="2143" selection-end="2201" vertical-scroll-proportion="-39.032257" vertical-offset="66" max-vertical-offset="3080">
           <folding />
         </state>
       </provider>
@@ -815,44 +688,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="66" selection-start="1769" selection-end="1769" vertical-scroll-proportion="1.0805861" vertical-offset="347" max-vertical-offset="1694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="66" selection-start="1763" selection-end="1763" vertical-scroll-proportion="-18.451612" vertical-offset="660" max-vertical-offset="1694">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="55" column="66" selection-start="1672" selection-end="1672" vertical-scroll-proportion="-36.903225" vertical-offset="66" max-vertical-offset="1672">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_kvitancy.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7018">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="58" column="34" selection-start="1177" selection-end="2150" vertical-scroll-proportion="-9.225806" vertical-offset="990" max-vertical-offset="21032">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_aparaty.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="44" selection-start="2065" selection-end="2065" vertical-scroll-proportion="-24.580645" vertical-offset="712" max-vertical-offset="6028">
           <folding />
         </state>
       </provider>
@@ -871,16 +709,212 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/list.php">
+    <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="61" column="71" selection-start="2136" selection-end="2194" vertical-scroll-proportion="-15.612904" vertical-offset="858" max-vertical-offset="2068">
+        <state line="60" column="75" selection-start="2137" selection-end="2137" vertical-scroll-proportion="-11.354838" vertical-offset="352" max-vertical-offset="1540">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/list.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="75" selection-start="2137" selection-end="2137" vertical-scroll-proportion="0.44332492" vertical-offset="352" max-vertical-offset="1540">
+        <state line="64" column="43" selection-start="1754" selection-end="1799" vertical-scroll-proportion="0.53521127" vertical-offset="990" max-vertical-offset="21032">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="50" column="92" selection-start="1706" selection-end="1786" vertical-scroll-proportion="-12.064516" vertical-offset="726" max-vertical-offset="2068">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/vid_remonta/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="66" selection-start="1682" selection-end="1682" vertical-scroll-proportion="-22.0" vertical-offset="528" max-vertical-offset="1672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/vid_remonta/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="92" selection-start="1814" selection-end="1894" vertical-scroll-proportion="-17.032259" vertical-offset="528" max-vertical-offset="2002">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/service_centers/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="80" selection-start="707" selection-end="707" vertical-scroll-proportion="0.34920636" vertical-offset="198" max-vertical-offset="2728">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/service_centers/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="84" selection-start="2720" selection-end="2720" vertical-scroll-proportion="0.5970696" vertical-offset="1359" max-vertical-offset="2618">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/gorod/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="55" column="61" selection-start="1662" selection-end="1662" vertical-scroll-proportion="0.83272284" vertical-offset="528" max-vertical-offset="1672">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/gorod/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="56" column="66" selection-start="1784" selection-end="1784" vertical-scroll-proportion="0.7789988" vertical-offset="594" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/gorod/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="94" selection-start="1806" selection-end="1994" vertical-scroll-proportion="-13.4838705" vertical-offset="660" max-vertical-offset="2024">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/service_centers/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="48" column="0" selection-start="1814" selection-end="1814" vertical-scroll-proportion="-19.161291" vertical-offset="462" max-vertical-offset="2464">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin_users.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="290" column="71" selection-start="12188" selection-end="12254" vertical-scroll-proportion="-18.193548" vertical-offset="5816" max-vertical-offset="6952">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/users/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="116" column="75" selection-start="3975" selection-end="3975" vertical-scroll-proportion="-8.885246" vertical-offset="2010" max-vertical-offset="3080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/users/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="15" selection-start="1601" selection-end="1733" vertical-scroll-proportion="-13.645162" vertical-offset="831" max-vertical-offset="3102">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/clients_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="38" selection-start="2331" selection-end="2331" vertical-scroll-proportion="0.2747253" vertical-offset="1997" max-vertical-offset="3080">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/clients/add.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="111" column="69" selection-start="3692" selection-end="3692" vertical-scroll-proportion="0.46275946" vertical-offset="2063" max-vertical-offset="2926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/clients/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="112" column="32" selection-start="1980" selection-end="4221" vertical-scroll-proportion="0.51648355" vertical-offset="2041" max-vertical-offset="2948">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/comments/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="53" column="97" selection-start="1679" selection-end="1679" vertical-scroll-proportion="0.37606838" vertical-offset="858" max-vertical-offset="2618">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin_comments.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="43" column="31" selection-start="1174" selection-end="1174" vertical-scroll-proportion="-2.580645" vertical-offset="866" max-vertical-offset="7480">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin_aparaty.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="31" selection-start="943" selection-end="943" vertical-scroll-proportion="0.099255584" vertical-offset="712" max-vertical-offset="6028">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin_clients.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="68" column="44" selection-start="1108" selection-end="2161" vertical-scroll-proportion="-11.806452" vertical-offset="1130" max-vertical-offset="7084">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin_kvitancy.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="75" column="0" selection-start="2288" selection-end="2288" vertical-scroll-proportion="-24.580645" vertical-offset="888" max-vertical-offset="7502">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/kvitancy/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="52" column="16" selection-start="1537" selection-end="1537" vertical-scroll-proportion="0.62393165" vertical-offset="633" max-vertical-offset="2772">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/clients/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="45" column="0" selection-start="1328" selection-end="1607" vertical-scroll-proportion="0.48351648" vertical-offset="594" max-vertical-offset="2860">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/users/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="75" selection-start="702" selection-end="702" vertical-scroll-proportion="0.4029304" vertical-offset="154" max-vertical-offset="2926">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="79" selection-start="706" selection-end="706" vertical-scroll-proportion="-4.419355" vertical-offset="347" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="77" selection-start="704" selection-end="704" vertical-scroll-proportion="-9.225806" vertical-offset="198" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/proizvoditel/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="84" selection-start="711" selection-end="711" vertical-scroll-proportion="-11.354838" vertical-offset="132" max-vertical-offset="1694">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="82" selection-start="709" selection-end="709" vertical-scroll-proportion="-10.193548" vertical-offset="168" max-vertical-offset="2156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/vid_remonta/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="82" selection-start="709" selection-end="709" vertical-scroll-proportion="0.26862028" vertical-offset="264" max-vertical-offset="1694">
           <folding />
         </state>
       </provider>
