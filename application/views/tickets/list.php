@@ -41,11 +41,12 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             $options_date = array('date_priemka' => 'Дата приема', 'date_vydachi' => 'Дата выдачи', 'date_okonchan' => 'Дата окон.ремонта');
             echo form_dropdown('date', $options_date, $date_selected, 'class=""');
             ?>
+    От:
                 <?
                 echo form_date('start_date', $start_date);
                 ?>
-
-            <?
+    До:
+             <?
             echo form_date('end_date', $end_date);
             ?>
 

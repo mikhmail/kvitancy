@@ -79,7 +79,7 @@ class Login extends CI_Controller {
 		else // incorrect username or password
 		{
 			$data['message_error'] = TRUE;
-			$this->load->view('user/login', $data);	
+			$this->load->view('login', $data);
 		}
 	}	
 

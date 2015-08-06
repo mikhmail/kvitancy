@@ -14,7 +14,7 @@
 
       <div class="page-header users-header">
         <h2>
-          <?php echo ucfirst($this->uri->segment(2));?> 
+         Комментарии
           
         </h2>
       </div>

@@ -3,13 +3,27 @@
   <head>
     <title>User Login</title>
     <meta charset="utf-8">
-    <link href="<?php echo base_url(); ?>assets/css/admin/global.css" rel="stylesheet" type="text/css">
+      <!-- Bootstrap -->
+      <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+      <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
+      <link href="<?php echo base_url(); ?>assets/styles.css" rel="stylesheet" media="screen">
+
+
+      <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+      <!--[if lt IE 9]>
+      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+      <![endif]-->
+
+      <script src="<?php echo base_url(); ?>assets/jquery-1.7.1.min.js"></script>
+
+      <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.js"></script>
+      <script src="<?php echo base_url(); ?>assets/func.js"></script>
   </head>
   <body>
     <div class="container login">
       <?php 
       $attributes = array('class' => 'form-signin');
-      echo form_open('login/validate_credentials', $attributes);
+      echo form_open(base_url(). 'login/validate_credentials', $attributes);
       echo '<h2 class="form-signin-heading">Login</h2>';
       echo form_input('user_name', '', 'placeholder="Username"');
       echo form_password('password', '', 'placeholder="Password"');?>

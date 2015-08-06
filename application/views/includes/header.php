@@ -3,6 +3,7 @@
 
 
     <head>
+        <meta charset="utf-8">
         <title>Admin Home Page</title>
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">

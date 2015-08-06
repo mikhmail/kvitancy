@@ -6,7 +6,7 @@ $('select[id^=status_]').change(function(){
 var status = $('#'+this.id+' option:selected').val();
 var id = this.name;
 		$.ajax({
-		  url: "/ajx/change_status/"+status+"/"+id+"",
+		  url: "ajx/change_status/"+status+"/"+id+"",
 		  success: function(data) {
 			
 			 $("#status_"+id+"").fadeOut("slow");
@@ -23,7 +23,7 @@ $('select[id^=meh_]').change(function(){
 var status = $('#'+this.id+' option:selected').val();
 var id = this.name;
 		$.ajax({
-		  url: "/ajx/change_mechanic/"+status+"/"+id+"",
+		  url: "ajx/change_mechanic/"+status+"/"+id+"",
 		  success: function(data) {
 			
 			 $("#meh_"+id+"").fadeOut("slow");
@@ -40,7 +40,7 @@ var id = this.name;
         var status = $('#'+this.id+' option:selected').val();
         var id = this.name;
         $.ajax({
-            url: "/ajx/change_resp/"+status+"/"+id+"",
+            url: "ajx/change_resp/"+status+"/"+id+"",
             success: function(data) {
 
                 $("#resp_"+id+"").fadeOut("slow");
@@ -58,7 +58,7 @@ var arr = this.id.split('_');
 var id = parseInt(arr[1]);
 //alert(id);
 
-$.post("/ajx/add_comment", {id:id, comment:comment})
+$.post("ajx/add_comment", {id:id, comment:comment})
 	.done(function(data) {
 	
 	$("#ul_"+id+"").append(data);
@@ -71,7 +71,7 @@ $.post("/ajx/add_comment", {id:id, comment:comment})
 $('input[id^=dell_comment]').click(function(){
 var id_comment = this.name;
 //alert (id_comment);die;
-$.post("/ajx/delete_comment", {id_comment:id_comment})
+$.post("ajx/delete_comment", {id_comment:id_comment})
 	.done(function(data) {
 	$("#li_"+id_comment+"").remove();
 		});
@@ -175,7 +175,7 @@ var adres = $.trim($('input[name=adres]').val());
 var where_id = $.trim($("#where_id option:selected").val());
 
 	
-$.post("/ajx/add_kvitancy", {		user_id:user_id,
+$.post("ajx/add_kvitancy", {		user_id:user_id,
 									id_aparat:id_aparat,
 									id_proizvod:id_proizvod,
 									model:model,
@@ -219,7 +219,7 @@ $.post("/ajx/add_kvitancy", {		user_id:user_id,
 $("#add_aparat").click(function(){
 		app = $("#add_aparat_name").val();
 			
-			$.post("/ajx/add_aparat", {aparat_name:app})
+			$.post("ajx/add_aparat", {aparat_name:app})
 			.done(function(data) {
 		//alert (data);
 		if (data.match(/^[-\+]?\d+/) === null) {
@@ -238,7 +238,7 @@ $("#add_aparat").click(function(){
 $("#add_proizvod").click(function(){
 		app = $("#add_proizvod_name").val();
 			
-			$.post("/ajx/add_proizvod", {proizvod_name:app})
+			$.post("ajx/add_proizvod", {proizvod_name:app})
 			.done(function(data) {
 		//alert (data);
 		if (data.match(/^[-\+]?\d+/) === null) {
@@ -265,7 +265,7 @@ $( "#search_user" ).keyup(function() {
 				$('#user_box').hide();
 					
                 } else {
-                        $.post("/ajx/search_user", {queryString: ""+inputString+""}, function(data){
+                        $.post("ajx/search_user", {queryString: ""+inputString+""}, function(data){
                                 if (data.length > 2 && data !=  0) {
 										
                                         $('#user_box').show();
@@ -345,7 +345,7 @@ function look_apparat(inputString) {
                 if(inputString.length > 10) {
                         $('#apparat_box').hide();
                 } else {
-                        $.post("/ajx/look_apparat", {queryString: ""+inputString+""}, function(data){
+                        $.post("ajx/look_apparat", {queryString: ""+inputString+""}, function(data){
                                 if(data.length > 2) {
                                         $('#apparat_box').show();
                                         $('#apparat_list').html(data);
@@ -372,7 +372,7 @@ function fill_apparat(thisValue) {
                 if(inputString.length > 10) {
                         $('#proizvod_box').hide();
                 } else {
-                        $.post("/ajx/look_proizvod", {queryString: ""+inputString+""}, function(data){
+                        $.post("ajx/look_proizvod", {queryString: ""+inputString+""}, function(data){
                                 if(data.length > 2) {
                                         $('#proizvod_box').show();
                                         $('#proizvod_list').html(data);
