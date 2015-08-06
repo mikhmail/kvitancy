@@ -236,9 +236,20 @@ $row_global2 = array ();
 	<?}?>
 	</ul>
 
-</div>		  
-       
+</div>
 
+<?if(count($count_kvitancys)>0) {?>
+
+
+    <div class="span12">
+        <p class="center">Найдено <?=$count_kvitancys?> аппаратов</p>
+    </div>
+
+
+
+<?}else{?>
+    <div class="span12">По вашему запросу ничего не найдено</div>
+<?}?>
 
 <div class="row-fluid">   
 		<div class="span2">
@@ -259,31 +270,43 @@ $row_global2 = array ();
 
     <div class="row">
 
-
-    <?if(count($count_kvitancys)>0) {?>
-
-
-            <div class="span12">
-                <p>Найдено <?=$count_kvitancys?> аппаратов</p>
-
-
-            </div>
-
-
-
-    <?}else{?>
-        <div class="">По вашему запросу ничего не найдено</div>
-    <?}?>
-
+        <table class="table table-bordered table-condensed">
 
 <?  foreach($kvitancys as $row) { ?>
     <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
+    <tr>
+    <td>
+        <a href="#" onclick="anichange(this); return false">
+            <table class="table table-bordered table-condensed">
+                <tr>
+                    <td class="span2">
+                        <span style="background-color:<?=$row['background']?>" class="label">
+                       # <?=$row['id_kvitancy']?>
+                    </span>
+                    </td>
+                    <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
+                    <td class="span3"><?=$row['neispravnost']?></td>
 
-    <div class="tabbable"> <!-- Only required for left/right tabs -->
+                    <td class="span2"><?=$row['date_priemka']?></td>
+                    <td class="span2">
+                        <?
+                        if ($row['date_vydachi'] == '0000-00-00') {?>
+                            <span style="background-color:#b94a48" class="label">
+                           <?echo floor((strtotime("now")-strtotime($row['date_priemka']))/86400) . ' дней';?>
+                        </span>
+                        <?}
+                        ?>
+                    </td>
+                    <td class="span2"><?=$row['name_sc']?></td>
+                    <td class="span3"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></td>
+                </tr>
+            </table>
+        </a>
+    <div style="display: none;"> <!-- Only required for left/right tabs -->
         <ul class="nav nav-tabs">
             <li class="active">
                 <a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">
-                    # <?=$row['id_kvitancy']?>
+
                     <span style="background-color:<?=$row['background']?>" class="label">
                         <?=$row['name_sost']?>
                     </span>
@@ -298,13 +321,34 @@ $row_global2 = array ();
                 <table class="table table-bordered table-condensed">
                 <tr>
 
-                    <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
-                    <td class="span3"><?=$row['neispravnost']?></td>
+                    <td>
+                        <ul>
+                            
+                            <li><b>Адрес клиента:</b> <?=$row['adres']?></li>
+                            <li><b>Вид ремонта:</b>
 
-                    <td class="span2"><?=$row['date_priemka']?></td>
-                    <td class="span2"><?=$row['date_vydachi']?></td>
-                    <td class="span2"><?=$row['name_sc']?></td>
-                    <td class="span3"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></td>
+                            <?
+                            foreach ( $remont as $a=>$rowidrem)
+                            {
+                                if($rowidrem['id_remonta'] == $row['id_remonta']) echo $rowidrem['name_remonta'];
+                            }
+                            ?>
+                            <li><b>Внешний вид аппарата:</b> <?=$row['vid']?></li>
+                            <li><b>Серийный номер аппарата:</b> <?=$row['ser_nomer']?></li>
+                            <li><b>Комплектность:</b> <?=$row['komplektnost']?></li>
+                            <li><b>Приёмка:</b>
+
+                                <?
+                                foreach ($sc as $a=>$rowsc)
+                                {
+                                    if($rowsc['id_sc'] == $row['id_sc']) echo $rowsc['name_sc'];
+                                }
+                                ?>
+                            </li>
+                            <li><b>Примечания:</b> <?=$row['primechaniya']?></li>
+
+                        </ul>
+                    </td>
                 </tr>
                 </table>
 
@@ -366,11 +410,13 @@ $row_global2 = array ();
 
         </div>
     </div>
-
-
+</td>
+</tr>
 
 
 			<?}?>
+
+        </table>
 
 </div>
 
