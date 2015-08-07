@@ -93,8 +93,9 @@ class Tickets extends CI_Controller
         // !--------------------------POST------------------------------------- //
         if ($this->input->post() OR $this->uri->segment(2)) {
 
-            if ($this->input->post()) {
             /*Очистка масива для сесиии*/
+            if ($this->input->post()) {
+
             $filter_session_data = array(
                 'search_string' => '',
                 'order' => '',
@@ -264,43 +265,6 @@ class Tickets extends CI_Controller
             // end ID_SOST
 
 
-            // ID_SC
-
-
-            if ($this->input->post("id_sc")) {
-                $filter_session_data['id_sc'] = $id_sc;
-            } //we have something stored in the session?
-            elseif ($this->uri->segment(2)) {
-                $id_sc = $this->session->userdata('id_sc');
-            } else {
-
-                /*WHAT USER SEE? */
-
-                switch ($this->session->userdata('id_group')) {
-                    case 1: // админ
-                        $id_sc = $this->input->post("id_sc");
-                        break;
-
-
-                    case 2: // приемщик
-                        $id_sc = $this->session->userdata('user_id_sc');
-                        break;
-
-
-                    case 3: // инженер
-                        $id_sc = $this->session->userdata('user_id_sc');
-                        break;
-
-                    default:
-                        $id_sc = $this->session->userdata('user_id_sc');
-                }
-
-                /*WHAT USER SEE? */
-
-            }
-            $data['id_sc_selected'] = $id_sc;
-            // end ID_SC
-
             // ID_KVITANCY
             if ($this->input->post("id_kvitancy")) {
                 $filter_session_data['id_kvitancy'] = $id_kvitancy;
@@ -327,6 +291,38 @@ class Tickets extends CI_Controller
             }
             $data['id_remonta_selected'] = $id_remonta;
             // end ID_REMONTA
+
+
+            // ID_SC
+            switch ($this->session->userdata('id_group')) {
+                case 1: // админ
+                    $id_sc = $this->input->post("id_sc");
+                    break;
+
+
+                case 2: // приемщик
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+
+                case 3: // инженер
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+                default:
+                    $id_sc = $this->session->userdata('user_id_sc');
+
+            }
+
+            if ($id_sc) {
+                $filter_session_data['id_sc'] = $id_sc;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_sc = $this->session->userdata('id_sc');
+            } else {  $id_sc = ''; }
+
+            $data['id_sc_selected'] = $id_sc;
+            // end ID_SC
 
 
             //save session data into the session

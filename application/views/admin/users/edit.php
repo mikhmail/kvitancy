@@ -94,6 +94,13 @@
             </div>
           </div>
 
+            <div class="control-group">
+                <label for="inputError" class="control-label">Пароль</label>
+                <div class="controls">
+                    <input type="password" name="pass_word" value="<?php echo $product[0]['pass_word']; ?>">
+                    <!--<span class="help-inline">OOps</span>-->
+                </div>
+            </div>
 		  
 		   <div class="control-group">
             <label for="groups_dostupa_id" class="control-label">Группа доступа</label>

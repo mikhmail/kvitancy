@@ -266,6 +266,8 @@ class Admin_users extends CI_Controller {
                     'id_group' => $this->input->post('groups_dostupa_id'),
 					'id_sc' => $this->input->post('id_sc'),
                     'active' => $this->input->post('active'),
+                    'pass_word' => trim(md5($this->input->post('pass_word')))
+
 
 
                 );
