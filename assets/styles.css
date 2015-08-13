@@ -254,14 +254,29 @@ body {
 }
 
 #ajaxloader  {
-    width: 800px;
-    height: 600px;
-	margin: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: grey;
+    opacity: .8;
+    display: none;
+    cursor: wait;
 }
 .ajax-loader {
-  position: absolute;
-  left: 50%;
-  top: 50%;
-  margin-left: -32px; /* -1 * image width / 2 */
-  margin-top: -32px; /* -1 * image height / 2 */
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -32px;
+    margin-top: -32px;
+    display: block;
+}
+
+.selected-values {
+    border-color: #2f96b4;
+    -webkit-box-shadow: 0 0 0 1px #2f96b4;
+    box-shadow: 0 0 0 1px #2f96b4;
+    margin: 2px;
 }

@@ -33,7 +33,7 @@ class Service_centers_model extends CI_Model {
     * @param int $limit_end
     * @return array
     */
-    public function get_service_centers($search_string=null, $order=null, $order_type='Asc', $limit_start=null, $limit_end=null)
+    public function get_service_centers($search_string=null, $order=null, $order_type='Asc', $limit_start=null, $limit_end=null, $id=null)
     {
 	    
 		$this->db->select('*');
@@ -42,13 +42,20 @@ class Service_centers_model extends CI_Model {
 		if($search_string){
 			$this->db->like('name_sc', $search_string);
 		}
-		$this->db->group_by('id_sc');
+
+        if($id) {
+            $this->db->where('id_sc', $id);
+        }
+
+
 
 		if($order){
 			$this->db->order_by($order, $order_type);
 		}else{
 		    $this->db->order_by('id_sc', $order_type);
 		}
+
+        $this->db->group_by('id_sc');
 
         if($limit_start && $limit_end){
           $this->db->limit($limit_start, $limit_end);	

@@ -98,6 +98,7 @@ $('a[id^=sost_]').click(function(){
 		 $("select[name=id_sost] option").each(function () {
             if ($(this).val() == id_sost ) $(this).attr("selected", "selected");
         });
+    //$('#ajaxloader').show();
 $("#myform").submit();
 });
 
@@ -258,14 +259,17 @@ $("#add_proizvod").click(function(){
 
 // поиск пользователя при добавлении квинтации.
 $( "#search_user" ).keyup(function() {
-			
+
+
+        var id_sc = $('#id_sc option:selected').val();
+
 		var inputString = $("#search_user").val()
 		if(inputString.length > 10) {
                         
 				$('#user_box').hide();
 					
                 } else {
-                        $.post("ajx/search_user", {queryString: ""+inputString+""}, function(data){
+                        $.post("ajx/search_user", {queryString: ""+inputString+"", id_sc: id_sc}, function(data){
                                 if (data.length > 2 && data !=  0) {
 										
                                         $('#user_box').show();
@@ -280,13 +284,14 @@ $( "#search_user" ).keyup(function() {
 });
 // END of поиск пользователя при добавлении квинтации.	
 
-
+// Подсветить все выбранные value
     $("form#myform").find("select").filter('[value != ""]').each(function () {
 
-       $(this).attr("style","background: #F7F7F7;");
+       $(this).attr("class","selected-values");
 
     });
 
+// END of Подсветить все выбранные value
 
 //	
 //	

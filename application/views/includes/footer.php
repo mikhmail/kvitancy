@@ -6,5 +6,6 @@
             </div>
 		</div>
 	</div>
+    <div id="ajaxloader"><img class="ajax-loader" src="/images/ajax-loader.gif"></div>
 </body>
 </html>

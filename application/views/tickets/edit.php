@@ -89,7 +89,7 @@
 		  
 		  
 		<div class="control-group">
-            <label for="id_aparat" class="control-label">Date of reception</label>
+            <label for="id_aparat" class="control-label">Дата приема</label>
            <div class="controls">
             <input type="date" id="" name="date_priemka" value="<?php echo $manufacture[0]['date_priemka']; ?>" disabled> 
             </div>
@@ -104,63 +104,63 @@
 		
 		
          <div class="control-group">
-            <label for="id_aparat" class="control-label">Device</label>
+            <label for="id_aparat" class="control-label">Аппарат</label>
            <div class="controls">
               <?php echo form_dropdown('id_aparat', $options_aparaty, $manufacture[0]['id_aparat'], 'class="span2"');?>
             </div>
          </div>
          
 		 <div class="control-group">
-            <label for="id_proizvod" class="control-label">Brand</label>
+            <label for="id_proizvod" class="control-label">Производитель</label>
            <div class="controls">
               <?php echo form_dropdown('id_proizvod', $options_proizvod, $manufacture[0]['id_proizvod'], 'class="span2"');?>
             </div>
          </div>
          
 		 <div class="control-group">
-            <label for="model" class="control-label">Model</label>
+            <label for="model" class="control-label">Модель</label>
             <div class="controls">
              <input type="text" id="" name="model" value="<?php echo $manufacture[0]['model']; ?>" >
             </div>
           </div>  
 		 
 		<div class="control-group">
-            <label for="ser_nomer" class="control-label">Serial №</label>
+            <label for="ser_nomer" class="control-label">Серийный №</label>
             <div class="controls">
              <input type="text" id="" name="ser_nomer" value="<?php echo $manufacture[0]['ser_nomer']; ?>" >
             </div>
           </div>
 		 
 		 <div class="control-group">
-            <label for="neispravnost" class="control-label">Defect</label>
+            <label for="neispravnost" class="control-label">Неисправность</label>
             <div class="controls">
               <textarea id="" rows="3" name="neispravnost"><?php echo $manufacture[0]['neispravnost']; ?></textarea>
             </div>
           </div>
 		 
 		<div class="control-group">
-            <label for="komplektnost" class="control-label">Equipment</label>
+            <label for="komplektnost" class="control-label">Комплектность</label>
             <div class="controls">
               <textarea id="" rows="4" name="komplektnost"><?php echo $manufacture[0]['komplektnost']; ?></textarea>
             </div>
           </div>
 		
 		<div class="control-group">
-            <label for="id_remonta" class="control-label">Type of repair</label>
+            <label for="id_remonta" class="control-label">Вид ремонта</label>
             <div class="controls">
               <?php echo form_dropdown('id_remonta', $options_remonta, $manufacture[0]['id_remonta'], 'class="span2"');?>
             </div>
           </div>
 		
 		<div class="control-group">
-            <label for="id_sc" class="control-label">Service Center</label>
+            <label for="id_sc" class="control-label">Сервисный Центр</label>
             <div class="controls">
               <?php echo form_dropdown('id_sc', $options_sc, $manufacture[0]['id_sc'], 'class="span2"');?>
             </div>
           </div>
 		
 		<div class="control-group">
-            <label for="primechaniya" class="control-label">Notation</label>
+            <label for="primechaniya" class="control-label">Примечание</label>
             <div class="controls">
               <textarea id="" rows="2" name="primechaniya"><?php echo $manufacture[0]['primechaniya']; ?></textarea>
             </div>
@@ -168,7 +168,7 @@
 		  
 		  
           <div class="form-actions">
-            <button class="btn btn-primary" type="submit">Save</button>
+            <button class="btn btn-primary" type="submit">Сохранить</button>
             <button class="btn" type="reset">Cancel</button>
           </div>
         </fieldset>

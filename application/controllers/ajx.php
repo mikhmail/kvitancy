@@ -339,15 +339,24 @@ function look_proizvod () {
 function search_user () {
     if ($this->input->post('queryString')) {
         $queryString = $this->input->post('queryString');
-		
+
+        $id_sc = $this->input->post('id_sc');
 
         // Если длинна строки больше чем 0? Там что то есть
         if(strlen($queryString) > 0) {
       
 		$this->db->select('*');
 		$this->db->from('users');
-		$this->db->like('fam', $queryString);
-		//$this->db->order_by('name_proizvod', 'Desc');
+
+            /*
+            if($id_sc) {
+                $this->db->where('id_sc', $id_sc);
+            }
+            */
+
+            $this->db->like('fam', $queryString);
+
+        //return($this->db->last_query());die;
 		$query = $this->db->get();
 		
 		$row = array();

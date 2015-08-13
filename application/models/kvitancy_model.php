@@ -56,7 +56,7 @@ class Kvitancy_model extends CI_Model {
     }    
 
 	
-	public function get_kvitancy_soglasovat()
+	public function get_kvitancy_soglasovat($id_sc=NULL)
     {	
 
 		$this->db->select('*');
@@ -66,7 +66,10 @@ class Kvitancy_model extends CI_Model {
 		
 		$this->db->from('kvitancy');
 		$this->db->where('id_sost', 10);
-		$query = $this->db->get();
+        if($id_sc)
+        $this->db->where('id_sc', $id_sc);
+
+        $query = $this->db->get();
 
 		return $query->result_array(); 
     }
@@ -186,31 +189,90 @@ public function get_kvitancy(
 							)
     {
 
-		$this->db->select('*');
+		$this->db->select('
+kvitancy.id_kvitancy,
+kvitancy.user_id,
+kvitancy.id_aparat,
+kvitancy.id_proizvod,
+kvitancy.model,
+kvitancy.ser_nomer,
+kvitancy.id_remonta,
+kvitancy.neispravnost,
+kvitancy.vid,
+kvitancy.komplektnost,
+kvitancy.date_priemka,
+kvitancy.date_okonchan,
+kvitancy.date_vydachi,
+kvitancy.id_sost,
+kvitancy.id_mechanic,
+kvitancy.id_sc,
+kvitancy.primechaniya,
+kvitancy.update_time,
+kvitancy.update_user,
+kvitancy.id_responsible,
+
+
+aparat.id_aparat,
+aparat.aparat_name,
+
+proizvod.id_proizvod,
+proizvod.name_proizvod,
+
+user.user_id,
+user.fam,
+user.imya,
+user.otch,
+user.phone,
+user.adres,
+user.gorod_id,
+
+sost.id_sost,
+sost.name_sost,
+sost.background,
+sost.type,
+
+service.id_sc,
+service.id_gorod,
+service.site,
+service.name_sc,
+service.adres_sc,
+service.phone_sc,
+service.kontakt_sc,
+service.mail_sc,
+service.rab_sc
+		');
 		
 		
 		$this->db->from('kvitancy');
 		
 		
 		
-		$this->db->join('aparaty', 'kvitancy.id_aparat = aparaty.id_aparat');
-		$this->db->join('proizvoditel', 'kvitancy.id_proizvod = proizvoditel.id_proizvod');
-		$this->db->join('users', 'kvitancy.user_id = users.user_id');
-		$this->db->join('sost_remonta', 'kvitancy.id_sost = sost_remonta.id_sost');
-		$this->db->join('service_centers', 'kvitancy.id_sc = service_centers.id_sc');
+		$this->db->join('aparaty aparat', 'kvitancy.id_aparat = aparat.id_aparat');
+		$this->db->join('proizvoditel proizvod', 'kvitancy.id_proizvod = proizvod.id_proizvod');
+		$this->db->join('users user', 'kvitancy.user_id = user.user_id');
+		$this->db->join('sost_remonta sost', 'kvitancy.id_sost = sost.id_sost');
+		$this->db->join('service_centers service', 'kvitancy.id_sc = service.id_sc');
 		//$this->db->join('membership', 'kvitancy.id_mechanic = membership.id');
 
 		
 		if($search_string){
-					$this->db->like('model', $search_string);
-					$this->db->or_like('phone', $search_string);
-					$this->db->or_like('fam', $search_string); 
-				
-						if ($id_sc != null){
-							$this->db->where('kvitancy.id_sc', $id_sc);
-						}
-						
-						$query = $this->db->get();
+
+            if ($id_sc != null){
+                $this->db->where('kvitancy.id_sc', $id_sc);
+            }
+
+            $where = "(kvitancy.model LIKE '%$search_string%' OR user.phone LIKE '%$search_string%' OR user.fam LIKE '%$search_string%')";
+
+            $this->db->where($where);
+
+					//$this->db->where('kvitancy.model LIKE', "%$search_string%");
+					//$this->db->or_where('user.phone LIKE', "%$search_string%");
+					//$this->db->or_where('user.fam LIKE', "%$search_string%");
+
+
+
+            $query = $this->db->get();
+            //return($this->db->last_query());die;
 							if ($query->num_rows() > 0) {
 								if ($count) {return $query->num_rows(); }
 									else 

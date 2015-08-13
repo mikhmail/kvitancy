@@ -528,7 +528,7 @@ class Tickets extends CI_Controller
         //load the view
         $data['order'] = 'id_kvitancy';
         $data['ap'] = $this->aparaty_model->get_aparaty();
-        $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
+
         //$data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
         $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
@@ -556,19 +556,20 @@ class Tickets extends CI_Controller
         switch ($this->session->userdata('id_group')) {
             case 1: // админ
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
-                $data['soglasovat'] = '';
+                $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', '');
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
-
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
                 $data["id_sc_selected"] = '';
                 break;
 
 
             case 2: // приемщик
-                $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
+                $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
                 break;
 
@@ -578,6 +579,7 @@ class Tickets extends CI_Controller
                 $data['soglasovat'] = '';
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
                 break;
 
@@ -586,6 +588,7 @@ class Tickets extends CI_Controller
                 $data['soglasovat'] = '';
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
         }
 
@@ -863,7 +866,30 @@ class Tickets extends CI_Controller
         $data['aparaty'] = $this->aparaty_model->get_aparaty();
         $data['proizvod'] = $this->proizvoditel_model->get_proizvoditel();
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
-        $data['sc'] = $this->service_centers_model->get_service_centers();
+        //$data['sc'] = $this->service_centers_model->get_service_centers();
+
+        switch ($this->session->userdata('id_group')) {
+            case 1: // админ
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
+                break;
+
+
+            case 2: // приемщик
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                break;
+
+
+            case 3: // инженер
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                break;
+
+            default: //мало ли кто еще :)
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+
+        }
+
+
+
 
 
         //product data 

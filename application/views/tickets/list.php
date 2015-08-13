@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-      <ul class="breadcrumb">
+      <ul class="breadcrumb" style="margin-bottom: 20px;">
         <li>
           <a href="<?php echo site_url("/"); ?>">
             <?php echo ucfirst($this->uri->segment(1));?>
@@ -28,12 +28,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
 <div class="row-fluid">
 
-
-<div class="span12">
-
-</div>
-
-<div class="span10" style="margin-bottom: 20px;">
+<div class="span12" style="margin-bottom: 20px;">
 
 
 
@@ -128,9 +123,10 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
         ?>
 
 </div>
+</div>
 
-
-<div class="span10" style="margin-bottom: 20px;">
+<div class="row-fluid">
+<div class="span12" style="margin-bottom: 20px;">
 
     <div class="pull-left">
         <?
@@ -154,17 +150,15 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
         echo form_submit(array('name' => 'mysubmit', 'class' => 'btn btn-info', 'value' => 'Поиск'));
         ?>
     </div>
-
-
-
-
+</div>
 </div>
 
 <?
 echo form_close();
 ?>
 
-<div class="span10">
+<div class="row-fluid">
+<div class="span12">
 
 <?php if (count($soglasovat) >=1) {?>
 <p><b>Позвонить клиенту:</b>
@@ -197,7 +191,7 @@ echo form_close();
 
 </div>
 
-
+</div>
 
 
 <div class="row-fluid">
@@ -237,11 +231,14 @@ echo form_close();
 
     </div>
 
-    <?if(count($count_kvitancys)>0) {?>
+    <?if(count($count_kvitancys)>=1) {?>
 
 
         <div class="span12">
-            <p class="center">Найдено <?=$count_kvitancys?> аппаратов</p>
+
+                <h2><small>Найдено <?=$count_kvitancys?> аппаратов</small></h2>
+
+
         </div>
 
 
@@ -355,7 +352,7 @@ echo form_close();
 
                                                 <td>
                                                     <ul>
-
+                                                        <li><b>Обновлено:</b> <?=$row['update_time']?> by <?=$row['update_user']?> </li>
                                                         <li><b>Адрес клиента:</b> <?=$row['adres']?></li>
                                                         <li><b>Вид ремонта:</b>
 
@@ -524,7 +521,7 @@ echo form_close();
                     </div>
                     <div class="span4">
 
-                        <?php  echo form_dropdown('id_sc', $options_id_sc, '', 'class="" id="id_sc" required="required" title="Сервисный Центр"');?>
+                        <?php  echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class="" id="id_sc" required="required" title="Сервисный Центр"');?>
                     </div>
                     <div class="span4">
 
@@ -565,3 +562,4 @@ echo form_close();
         </div>
         <div id="overlay"></div>
     </div>
+</div>
