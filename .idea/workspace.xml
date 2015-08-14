@@ -3,15 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/edit.php" afterPath="$PROJECT_DIR$/application/views/tickets/edit.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/includes/footer.php" afterPath="$PROJECT_DIR$/application/views/includes/footer.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/kvitancy_model.php" afterPath="$PROJECT_DIR$/application/models/kvitancy_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/service_centers_model.php" afterPath="$PROJECT_DIR$/application/models/service_centers_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/styles.css" afterPath="$PROJECT_DIR$/assets/styles.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/tickets.php" afterPath="$PROJECT_DIR$/application/controllers/tickets.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,7 +32,7 @@
       <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="2" selection-start="2759" selection-end="2759" vertical-scroll-proportion="0.69945353" vertical-offset="632" max-vertical-offset="1408">
+            <state line="57" column="74" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.7088235" vertical-offset="772" max-vertical-offset="1496">
               <folding />
             </state>
           </provider>
@@ -46,19 +41,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/tickets/edit.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="17" selection-start="2312" selection-end="2323" vertical-scroll-proportion="-3.819672" vertical-offset="1417" max-vertical-offset="4048">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="271" column="95" selection-start="7751" selection-end="7751" vertical-scroll-proportion="-13.933333" vertical-offset="5544" max-vertical-offset="8932">
+            <state line="210" column="4" selection-start="6283" selection-end="6283" vertical-scroll-proportion="0.0" vertical-offset="4331" max-vertical-offset="8932">
               <folding />
             </state>
           </provider>
@@ -76,7 +62,16 @@
       <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="887" column="0" selection-start="31737" selection-end="31737" vertical-scroll-proportion="-20.290323" vertical-offset="18885" max-vertical-offset="21516">
+            <state line="789" column="153" selection-start="27382" selection-end="27382" vertical-scroll-proportion="-2.8709676" vertical-offset="17269" max-vertical-offset="21582">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="167" column="47" selection-start="7411" selection-end="7411" vertical-scroll-proportion="-18.387096" vertical-offset="3104" max-vertical-offset="3806">
               <folding />
             </state>
           </provider>
@@ -85,7 +80,7 @@
       <file leaf-file-name="kvitancy_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="274" column="46" selection-start="6014" selection-end="6052" vertical-scroll-proportion="-20.258064" vertical-offset="5400" max-vertical-offset="10076">
+            <state line="86" column="0" selection-start="1833" selection-end="1833" vertical-scroll-proportion="-3.5409837" vertical-offset="1676" max-vertical-offset="10142">
               <folding />
             </state>
           </provider>
@@ -103,7 +98,7 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="528" column="26" selection-start="22597" selection-end="22597" vertical-scroll-proportion="-18.290323" vertical-offset="11049" max-vertical-offset="12540">
+            <state line="164" column="0" selection-start="4745" selection-end="4745" vertical-scroll-proportion="-3.8387096" vertical-offset="3489" max-vertical-offset="12540">
               <folding>
                 <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -181,12 +176,12 @@
         <option value="$PROJECT_DIR$/application/controllers/admin_users.php" />
         <option value="$PROJECT_DIR$/assets/styles.css" />
         <option value="$PROJECT_DIR$/application/views/includes/footer.php" />
-        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
         <option value="$PROJECT_DIR$/application/models/service_centers_model.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
-        <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/edit.php" />
+        <option value="$PROJECT_DIR$/assets/func.js" />
+        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
@@ -207,10 +202,8 @@
     </include_path>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-9" />
-    <option name="y" value="-9" />
-    <option name="width" value="1938" />
-    <option name="height" value="1170" />
+    <option name="width" value="1920" />
+    <option name="height" value="1152" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -381,7 +374,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -475,7 +468,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1170" extended-state="0" />
+    <frame x="0" y="0" width="1920" height="1152" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -483,8 +476,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1734375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24666667" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14195584" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28391472" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34285715" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -517,15 +510,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="109" />
+      <option name="time" value="132" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_sost_remonta.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="280" column="89" selection-start="10229" selection-end="10229" vertical-scroll-proportion="0.7325228" vertical-offset="5678" max-vertical-offset="6556" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="6" selection-start="578" selection-end="578" vertical-scroll-proportion="0.6229508" vertical-offset="0" max-vertical-offset="2156" />
@@ -831,20 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="271" column="95" selection-start="7751" selection-end="7751" vertical-scroll-proportion="-13.933333" vertical-offset="5544" max-vertical-offset="8932">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="274" column="46" selection-start="6014" selection-end="6052" vertical-scroll-proportion="-20.258064" vertical-offset="5400" max-vertical-offset="10076">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="358" column="8" selection-start="11356" selection-end="11356" vertical-scroll-proportion="-16.741936" vertical-offset="7357" max-vertical-offset="10054">
@@ -852,9 +826,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="210" column="4" selection-start="6283" selection-end="6283" vertical-scroll-proportion="0.0" vertical-offset="4331" max-vertical-offset="8932">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="528" column="26" selection-start="22597" selection-end="22597" vertical-scroll-proportion="-18.290323" vertical-offset="11049" max-vertical-offset="12540">
+        <state line="164" column="0" selection-start="4745" selection-end="4745" vertical-scroll-proportion="-3.8387096" vertical-offset="3489" max-vertical-offset="12540">
           <folding>
             <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
@@ -875,23 +856,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="167" column="47" selection-start="7411" selection-end="7411" vertical-scroll-proportion="-18.387096" vertical-offset="3104" max-vertical-offset="3806">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="17" selection-start="2312" selection-end="2323" vertical-scroll-proportion="-3.819672" vertical-offset="1417" max-vertical-offset="4048">
+        <state line="82" column="23" selection-start="2476" selection-end="2476" vertical-scroll-proportion="-0.7808642" vertical-offset="2310" max-vertical-offset="4048">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="887" column="0" selection-start="31737" selection-end="31737" vertical-scroll-proportion="-20.290323" vertical-offset="18885" max-vertical-offset="21516">
+        <state line="789" column="153" selection-start="27382" selection-end="27382" vertical-scroll-proportion="-2.8709676" vertical-offset="17269" max-vertical-offset="21582">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="86" column="0" selection-start="1833" selection-end="1833" vertical-scroll-proportion="-3.5409837" vertical-offset="1676" max-vertical-offset="10142">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="2" selection-start="2759" selection-end="2759" vertical-scroll-proportion="0.69945353" vertical-offset="632" max-vertical-offset="1408">
+        <state line="57" column="74" selection-start="2989" selection-end="2989" vertical-scroll-proportion="0.7088235" vertical-offset="772" max-vertical-offset="1496">
           <folding />
         </state>
       </provider>

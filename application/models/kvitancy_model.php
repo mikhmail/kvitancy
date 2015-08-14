@@ -59,7 +59,7 @@ class Kvitancy_model extends CI_Model {
 	public function get_kvitancy_soglasovat($id_sc=NULL)
     {	
 
-		$this->db->select('*');
+		$this->db->select('kvitancy.id_kvitancy, kvitancy.model, aparaty.aparat_name, proizvoditel.name_proizvod');
 		
 		$this->db->join('aparaty', 'kvitancy.id_aparat = aparaty.id_aparat');
 		$this->db->join('proizvoditel', 'kvitancy.id_proizvod = proizvoditel.id_proizvod');
@@ -74,17 +74,20 @@ class Kvitancy_model extends CI_Model {
 		return $query->result_array(); 
     }
 
-	public function get_my_kvitancy ($user_id)
+	public function get_my_kvitancy ($user_id, $id_sc=null)
     {	
 
-		$this->db->select('*');
+		$this->db->select('kvitancy.id_kvitancy, kvitancy.model, aparaty.aparat_name, proizvoditel.name_proizvod');
 		
 		$this->db->join('aparaty', 'kvitancy.id_aparat = aparaty.id_aparat');
 		$this->db->join('proizvoditel', 'kvitancy.id_proizvod = proizvoditel.id_proizvod');
 		
 		$this->db->from('kvitancy');
 		$this->db->where('id_responsible', $user_id);
-		$query = $this->db->get();
+        if($id_sc) $this->db->where('id_sc', $id_sc);
+
+        $query = $this->db->get();
+        //return($this->db->last_query());die;
 
 		return $query->result_array(); 
     }

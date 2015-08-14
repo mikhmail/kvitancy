@@ -207,8 +207,8 @@ $.post("ajx/add_kvitancy", {		user_id:user_id,
 								$('#overlay').fadeOut(300); // скрываем подложку
 							}
 						);
-			//window.open("/kvitancy/view/"+id_kvitancy+"");
-			window.location = "/tickets/view/"+id_kvitancy+"";
+			window.open("/tickets/printing/"+id_kvitancy+"");
+	//window.location = "/tickets/printing/"+id_kvitancy+"";
 	
 		});	
 });

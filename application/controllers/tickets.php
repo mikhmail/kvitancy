@@ -566,7 +566,7 @@ class Tickets extends CI_Controller
 
             case 2: // приемщик
                 $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
+                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
@@ -575,7 +575,7 @@ class Tickets extends CI_Controller
 
 
             case 3: // инженер
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
+                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
                 $data['soglasovat'] = '';
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
@@ -584,7 +584,7 @@ class Tickets extends CI_Controller
                 break;
 
             default: //мало ли кто еще :)
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
+                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
                 $data['soglasovat'] = '';
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
@@ -777,17 +777,17 @@ class Tickets extends CI_Controller
 
             case 2: // приемщик
                 $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
+                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
                 break;
 
 
             case 3: // инженер
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
+                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
                 $data['soglasovat'] = '';
                 break;
 
             default: //мало ли кто еще :)
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
+                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
                 $data['soglasovat'] = '';
         }
 
@@ -919,7 +919,7 @@ class Tickets extends CI_Controller
     {
         //product id 
         $id = $this->uri->segment(3);
-
+        if ($id) {
         //if we are updating, and the data did not pass trough the validation
         //the code below wel reload the current data
 
@@ -939,6 +939,9 @@ class Tickets extends CI_Controller
         $data['main_content'] = 'tickets/printing';
         $this->load->view('includes/print', $data);
 
+        } else {
+            die();
+        }
     }
 
 
