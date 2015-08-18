@@ -58,6 +58,7 @@ class Kvitancy_model extends CI_Model {
 	
 	public function get_kvitancy_soglasovat($id_sc=NULL)
     {	
+        $call = $this->sost_remonta_model->get_sost_remonta_call();
 
 		$this->db->select('kvitancy.id_kvitancy, kvitancy.model, aparaty.aparat_name, proizvoditel.name_proizvod');
 		
@@ -65,10 +66,10 @@ class Kvitancy_model extends CI_Model {
 		$this->db->join('proizvoditel', 'kvitancy.id_proizvod = proizvoditel.id_proizvod');
 		
 		$this->db->from('kvitancy');
-		$this->db->where_in('id_sost', array(9, 10));
+		$this->db->where_in('kvitancy.id_sost',  $call);
 
 
-        if($id_sc) $this->db->where('id_sc', $id_sc);
+        if($id_sc) $this->db->where('kvitancy.id_sc', $id_sc);
 
         $query = $this->db->get();
 

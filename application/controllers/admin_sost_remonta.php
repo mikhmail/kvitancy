@@ -202,6 +202,11 @@ class Admin_sost_remonta extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
+        if ($this->input->post('call2client')) {
+            $call2client = 1;
+        }else{
+            $call2client = 0;
+        }
   
         //if save button was clicked, get the data sent via post
         if ($this->input->server('REQUEST_METHOD') === 'POST')
@@ -216,11 +221,14 @@ class Admin_sost_remonta extends CI_Controller {
             //if the form has passed through the validation
             if ($this->form_validation->run())
             {
-    
+
+
                 $data_to_store = array(
                     'name_sost' => $this->input->post('name'),
                     'background' => $this->input->post('background'),
-                    'type' => $this->input->post('type')
+                    'type' => $this->input->post('type'),
+                    'call2client' => $call2client
+
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->sost_remonta_model->update_sost_remonta($id, $data_to_store) == TRUE){

@@ -41,16 +41,29 @@ class sost_remonta_model extends CI_Model {
         return $sost;
     }
 
-    /**
-    * Fetch manufacturers data from the database
-    * possibility to mix search, filter and order
-    * @param string $search_string 
-    * @param strong $order
-    * @param string $order_type 
-    * @param int $limit_start
-    * @param int $limit_end
-    * @return array
-    */
+    public function get_sost_remonta_call()
+    {
+        $this->db->select('id_sost');
+        $this->db->from('sost_remonta');
+        $this->db->where('type', 1); //type = 1 - in temont, 0 - vidan
+        $this->db->where('call2client', 1); //call = 1 - pozvonit, 0 - net
+
+        $query = $this->db->get();
+
+        $sost = array();
+        foreach($query->result_array() as $key => $arr) {
+            foreach($arr as $value){
+                $sost[]= $value;
+            }
+
+        }
+
+        return $sost;
+    }
+
+
+
+
     public function get_sost_remonta($search_string=null, $order=null, $order_type='Asc', $limit_start=null, $limit_end=null)
     {
 	    

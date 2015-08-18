@@ -2,12 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css" afterPath="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_sost_remonta.php" afterPath="$PROJECT_DIR$/application/controllers/admin_sost_remonta.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" afterPath="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/kvitancy_model.php" afterPath="$PROJECT_DIR$/application/models/kvitancy_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/tickets.php" afterPath="$PROJECT_DIR$/application/controllers/tickets.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/sost_remonta_model.php" afterPath="$PROJECT_DIR$/application/models/sost_remonta_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
@@ -31,10 +29,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="59" column="0" selection-start="3028" selection-end="3028" vertical-scroll-proportion="0.6866883" vertical-offset="875" max-vertical-offset="1562">
+            <state line="60" column="74" selection-start="3103" selection-end="3103" vertical-scroll-proportion="-15.344828" vertical-offset="875" max-vertical-offset="1562">
               <folding />
             </state>
           </provider>
@@ -43,121 +41,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users_model.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
+      <file leaf-file-name="admin_sost_remonta.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/admin_sost_remonta.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="123" column="5" selection-start="3166" selection-end="3166" vertical-scroll-proportion="6.387097" vertical-offset="2904" max-vertical-offset="5368">
+            <state line="207" column="28" selection-start="7732" selection-end="7732" vertical-scroll-proportion="0.43926787" vertical-offset="4290" max-vertical-offset="6732">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/func.js">
+      <file leaf-file-name="sost_remonta_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/sost_remonta_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="210" column="4" selection-start="6283" selection-end="6283" vertical-scroll-proportion="0.0" vertical-offset="4331" max-vertical-offset="8932">
+            <state line="134" column="43" selection-start="3186" selection-end="3191" vertical-scroll-proportion="-7.7419353" vertical-offset="2708" max-vertical-offset="3630">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="styles.css" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/styles.css">
+      <file leaf-file-name="edit.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="18" selection-start="2684" selection-end="2684" vertical-scroll-proportion="31.3" vertical-offset="4063" max-vertical-offset="6314">
+            <state line="88" column="83" selection-start="3207" selection-end="3218" vertical-scroll-proportion="-12.0" vertical-offset="1564" max-vertical-offset="2420">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="571" column="106" selection-start="19657" selection-end="19664" vertical-scroll-proportion="-13.548388" vertical-offset="12142" max-vertical-offset="21648">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="routes.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="167" column="47" selection-start="7411" selection-end="7411" vertical-scroll-proportion="-18.387096" vertical-offset="3104" max-vertical-offset="3806">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kvitancy_model.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="50" selection-start="2072" selection-end="2072" vertical-scroll-proportion="-68.129036" vertical-offset="0" max-vertical-offset="10164">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajx.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="134" column="53" selection-start="3510" selection-end="3510" vertical-scroll-proportion="209.83871" vertical-offset="9453" max-vertical-offset="10054">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="377" column="0" selection-start="14814" selection-end="14814" vertical-scroll-proportion="-6.451613" vertical-offset="8094" max-vertical-offset="13156">
-              <folding>
-                <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#sup#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#td#5;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#6;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <marker date="1439888429966" expanded="true" signature="15384:15703" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="16301:16605" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="17424:17598" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="17473:17598" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="17526:17598" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="19646:20064" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="19798:20064" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="19837:20064" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="19877:20064" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="20351:20579" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="20686:20827" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="20686:20827" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="20761:20796" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="20761:20796" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="20895:21083" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="21385:21614" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="21709:21851" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="21709:21851" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="21785:21820" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="21785:21820" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="22508:22664" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="22548:22664" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="22802:23056" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="23402:23494" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="23442:23494" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="23688:23740" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="23918:24071" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="24334:24437" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="24379:24410" placeholder="..." />
-                <marker date="1439888429966" expanded="true" signature="24379:24410" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -175,8 +81,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/admin_sost_remonta.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/sost_remonta/add.php" />
         <option value="$PROJECT_DIR$/application/models/users_model.php" />
         <option value="$PROJECT_DIR$/application/views/admin/users/add.php" />
         <option value="$PROJECT_DIR$/application/views/admin/users/list.php" />
@@ -206,7 +110,6 @@
         <option value="$PROJECT_DIR$/application/views/admin/groups_dostupa/edit.php" />
         <option value="$PROJECT_DIR$/application/views/admin/aparaty/edit.php" />
         <option value="$PROJECT_DIR$/application/views/admin/proizvoditel/edit.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" />
         <option value="$PROJECT_DIR$/application/views/admin/vid_remonta/edit.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/фф" />
         <option value="$PROJECT_DIR$/application/views/includes/header.php" />
@@ -220,12 +123,15 @@
         <option value="$PROJECT_DIR$/application/models/service_centers_model.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/edit.php" />
         <option value="$PROJECT_DIR$/assets/func.js" />
-        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
         <option value="$PROJECT_DIR$/bootstrap/css/bootstrap.min.css" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/application/models/sost_remonta_model.php" />
+        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
+        <option value="$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php" />
+        <option value="$PROJECT_DIR$/application/controllers/admin_sost_remonta.php" />
       </list>
     </option>
   </component>
@@ -299,52 +205,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="bootstrap" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="css" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -513,24 +373,10 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="146" />
+      <option name="time" value="147" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/views/admin/aparaty/add.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="55" column="66" selection-start="1672" selection-end="1672" vertical-scroll-proportion="-36.903225" vertical-offset="66" max-vertical-offset="1672">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_proizvoditel.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="31" selection-start="958" selection-end="958" vertical-scroll-proportion="-6.83871" vertical-offset="580" max-vertical-offset="6028">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/proizvoditel/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="103" selection-start="2012" selection-end="2012" vertical-scroll-proportion="-17.032259" vertical-offset="594" max-vertical-offset="2046">
@@ -699,13 +545,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="82" selection-start="709" selection-end="709" vertical-scroll-proportion="-10.193548" vertical-offset="168" max-vertical-offset="2156">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/vid_remonta/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="22" column="82" selection-start="709" selection-end="709" vertical-scroll-proportion="0.26862028" vertical-offset="264" max-vertical-offset="1694">
@@ -839,74 +678,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="50" selection-start="2072" selection-end="2072" vertical-scroll-proportion="-68.129036" vertical-offset="0" max-vertical-offset="10164">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="571" column="106" selection-start="19657" selection-end="19664" vertical-scroll-proportion="-13.548388" vertical-offset="12142" max-vertical-offset="21648">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="377" column="0" selection-start="14814" selection-end="14814" vertical-scroll-proportion="-6.451613" vertical-offset="8094" max-vertical-offset="13156">
-          <folding>
-            <element signature="n#style#0;n#ul#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#sup#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#td#5;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#6;n#form#0;n#div#2;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <marker date="1439888429966" expanded="true" signature="15384:15703" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="16301:16605" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="17424:17598" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="17473:17598" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="17526:17598" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="19646:20064" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="19798:20064" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="19837:20064" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="19877:20064" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="20351:20579" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="20686:20827" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="20686:20827" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="20761:20796" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="20761:20796" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="20895:21083" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="21385:21614" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="21709:21851" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="21709:21851" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="21785:21820" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="21785:21820" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="22508:22664" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="22548:22664" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="22802:23056" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="23402:23494" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="23442:23494" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="23688:23740" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="23918:24071" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="24334:24437" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="24379:24410" placeholder="..." />
-            <marker date="1439888429966" expanded="true" signature="24379:24410" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="134" column="53" selection-start="3510" selection-end="3510" vertical-scroll-proportion="209.83871" vertical-offset="9453" max-vertical-offset="10054">
@@ -916,12 +687,54 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="59" column="0" selection-start="3028" selection-end="3028" vertical-scroll-proportion="0.6866883" vertical-offset="875" max-vertical-offset="1562">
+        <state line="60" column="74" selection-start="3103" selection-end="3103" vertical-scroll-proportion="-15.344828" vertical-offset="875" max-vertical-offset="1562">
           <folding />
         </state>
       </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="73" column="0" selection-start="1425" selection-end="1425" vertical-scroll-proportion="0.33224756" vertical-offset="1402" max-vertical-offset="10186">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="377" column="0" selection-start="14814" selection-end="14814" vertical-scroll-proportion="0.34941763" vertical-offset="8084" max-vertical-offset="13156">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="90" column="78" selection-start="2531" selection-end="2587" vertical-scroll-proportion="0.6589018" vertical-offset="1584" max-vertical-offset="21648">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/sost_remonta/edit.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="88" column="83" selection-start="3207" selection-end="3218" vertical-scroll-proportion="-12.0" vertical-offset="1564" max-vertical-offset="2420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/sost_remonta_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="134" column="43" selection-start="3186" selection-end="3191" vertical-scroll-proportion="-7.7419353" vertical-offset="2708" max-vertical-offset="3630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin_sost_remonta.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="207" column="28" selection-start="7732" selection-end="7732" vertical-scroll-proportion="0.43926787" vertical-offset="4290" max-vertical-offset="6732">
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

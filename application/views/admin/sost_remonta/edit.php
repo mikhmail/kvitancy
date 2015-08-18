@@ -54,7 +54,7 @@
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">Description</label>
+            <label for="inputError" class="control-label">Название</label>
             <div class="controls">
               <input type="text" id="" name="name" value="<?php echo $manufacture[0]['name_sost']; ?>" >
             </div>
@@ -80,6 +80,18 @@
 
                 </div>
             </div>
+
+          <?php if($manufacture[0]['type'] == 1){?>
+            <div class="control-group">
+                <label class="control-label" for="optionsCheckbox2">Позвонить клиенту</label>
+                <div class="controls">
+                    <label>
+                        <input type="checkbox" class="uniform_on" name="call2client" <? if ($manufacture[0]['call2client']) echo 'checked'; ?>>
+                       Включение поля позволит видеть заявки с этим статусом вверху страници.
+                    </label>
+                </div>
+            </div>
+          <?}?>
 
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Сохранить</button>
