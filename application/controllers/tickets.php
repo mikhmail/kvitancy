@@ -533,23 +533,26 @@ class Tickets extends CI_Controller
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
         $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
+
+        $data['users'] = $this->users_model->get_users('', '', '', '', '', '');
+
         $data['aparats'] = $this->kvitancy_model->get_kvitancy(
-        $search_string = null,
-        $order = null,
-        $order_type = null,
-        $limit_start = null,
-        $limit_end = null,
-        $date = null,
-        $start_date = null,
-        $end_date = null,
-        $id_mechanic = null,
-        $id_aparat = null,
-        $id_proizvod = null,
-        $id_sost = $sost_in_remont,
-        $id_sc,
-        $id_kvitancy = null,
-        $id_remonta = null,
-        $count = null
+                            $search_string = null,
+                            $order = null,
+                            $order_type = null,
+                            $limit_start = null,
+                            $limit_end = null,
+                            $date = null,
+                            $start_date = null,
+                            $end_date = null,
+                            $id_mechanic = null,
+                            $id_aparat = null,
+                            $id_proizvod = null,
+                            $id_sost = $sost_in_remont,
+                            $id_sc,
+                            $id_kvitancy = null,
+                            $id_remonta = null,
+                            $count = null
         );
 
         /*Что видит юзер id_group */

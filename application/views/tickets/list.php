@@ -268,6 +268,23 @@ echo form_close();
 
             <table class="table table-bordered table-condensed">
 
+                <tr>
+                    <td>
+                        <table class="table table-bordered table-condensed">
+                            <tr class="chart-bottom-heading">
+                                <th class="span1"><span style="padding:0px 20px;">#</span></th>
+                                <th class="span2 chart-bottom-heading">Статус</th>
+                                <th class="span3">Аппарат</th>
+                                <th class="span3">Неисправность</th>
+                                <th class="span2">Дата приема в ремонт</th>
+                                <th class="span2">В ремонте/Выдан</th>
+                                <th class="span2">Сервис</th>
+                                <th class="span3">Клиент</th>
+                            </tr>
+                         </table>
+                    </td>
+                </tr>
+
                 <?  foreach($kvitancys as $row) { ?>
                     <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
                     <tr>
@@ -276,9 +293,11 @@ echo form_close();
                                 <table class="table table-bordered table-condensed">
                                     <tr>
                                         <td class="span1">
-                        <span style="background-color:<?=$row['background']?>" class="label">
-                       # <?=$row['id_kvitancy']?>
-                    </span>
+
+                                            <span class="label label-info pull-right"># <?=$row['id_kvitancy']?></span>
+                                        </td>
+                                        <td class="span2">
+                                            <div style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></div>
                                         </td>
                                         <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
                                         <td class="span3"><?=$row['neispravnost']?></td>
@@ -300,7 +319,7 @@ echo form_close();
                                     </tr>
                                 </table>
                             </a>
-                            <div style="display: none; margin-bottom: 20px;"> <!-- Only required for left/right tabs -->
+                            <div style="display: none; margin-bottom: 20px;">
                                 <ul class="nav nav-tabs">
                                     <li class="active">
                                         <a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">
@@ -352,7 +371,16 @@ echo form_close();
 
                                                 <td>
                                                     <ul>
-                                                        <li><b>Обновлено:</b> <?=$row['update_time']?> by <?=$row['update_user']?> </li>
+
+                                                        <li><b>Обновлено:</b> <?=$row['update_time']?> by
+
+                                                            <?
+                                                            foreach ($users as $user) {
+                                                                if ($user['id'] == $row['update_user']) echo $user['user_name'];
+                                                            }
+                                                            ?>
+
+                                                        </li>
                                                         <li><b>Адрес клиента:</b> <?=$row['adres']?></li>
                                                         <li><b>Вид ремонта:</b>
 

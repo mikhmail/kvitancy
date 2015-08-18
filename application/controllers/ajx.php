@@ -30,7 +30,7 @@ class Ajx extends CI_Controller {
 	
 	function change_status ($id_sost, $id_kvitancy, $update_user=NULL)
 	{
-	$update_user=$this->session->userdata('user_id_sc');
+	$update_user=$this->session->userdata('user_id');
 	
 	if ($id_sost == 1) {
 	$data = array(
@@ -117,7 +117,7 @@ class Ajx extends CI_Controller {
 	
 	function change_mechanic ($id_meh, $id_kvitancy, $update_user=NULL)
 	{
-    $update_user = $this->session->userdata('user_id_sc');
+    $update_user = $this->session->userdata('user_id');
 		$data = array(
 					   'id_mechanic' => $id_meh,
 					   'update_time' => date("j-m-Y, H:i:s"),
@@ -132,7 +132,7 @@ class Ajx extends CI_Controller {
 
     function change_resp ($id_responsible, $id_kvitancy, $update_user=NULL )
     {
-     $update_user = $this->session->userdata('user_id_sc');
+     $update_user = $this->session->userdata('user_id');
         $data = array(
             'id_responsible' => $id_responsible,
             'update_time' => date("j-m-Y, H:i:s"),
