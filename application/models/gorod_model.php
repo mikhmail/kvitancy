@@ -40,7 +40,7 @@ class gorod_model extends CI_Model {
 		$this->db->from('goroda');
 
 		if($search_string){
-			$this->db->like('goroda', $search_string);
+			$this->db->like('gorod', $search_string);
 		}
 		$this->db->group_by('gorod_id');
 
@@ -74,7 +74,7 @@ class gorod_model extends CI_Model {
 		$this->db->select('*');
 		$this->db->from('goroda');
 		if($search_string){
-			$this->db->like('goroda', $search_string);
+			$this->db->like('gorod', $search_string);
 		}
 		if($order){
 			$this->db->order_by($order, 'Asc');
