@@ -1,12 +1,12 @@
 <?php
-class Admin_sost_remonta extends CI_Controller {
+class Admin_status extends CI_Controller {
 
     /**
     * name of the folder responsible for the views 
     * which are manipulated by this controller
     * @constant string
     */
-    const VIEW_FOLDER = 'admin/sost_remonta';
+    const VIEW_FOLDER = 'admin/status';
  
     /**
     * Responsable for auto load the model
@@ -36,7 +36,7 @@ class Admin_sost_remonta extends CI_Controller {
         //pagination settings
         $config['per_page'] = 50;
 
-        $config['base_url'] = base_url().'admin/sost_remonta';
+        $config['base_url'] = base_url().'admin/status';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
         $config['full_tag_open'] = '<ul>';
@@ -150,7 +150,7 @@ class Admin_sost_remonta extends CI_Controller {
         $this->pagination->initialize($config);   
 
         //load the view
-        $data['main_content'] = 'admin/sost_remonta/list';
+        $data['main_content'] = 'admin/status/list';
         $this->load->view('includes/template', $data);  
 
     }//index
@@ -190,7 +190,7 @@ class Admin_sost_remonta extends CI_Controller {
 
         }
         //load the view
-        $data['main_content'] = 'admin/sost_remonta/add';
+        $data['main_content'] = 'admin/status/add';
         $this->load->view('includes/template', $data);  
     }       
 
@@ -236,7 +236,7 @@ class Admin_sost_remonta extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('admin/sost_remonta/update/'.$id.'');
+                redirect('admin/status/update/'.$id.'');
 
             }//validation run
 
@@ -248,7 +248,7 @@ class Admin_sost_remonta extends CI_Controller {
         //product data 
         $data['manufacture'] = $this->sost_remonta_model->get_sost_remonta_by_id($id);
         //load the view
-        $data['main_content'] = 'admin/sost_remonta/edit';
+        $data['main_content'] = 'admin/status/edit';
         $this->load->view('includes/template', $data);            
 
     }//update
@@ -286,7 +286,7 @@ class Admin_sost_remonta extends CI_Controller {
 if( count($check) > 1 ) {
 
     echo "<script language='JavaScript' type='text/javascript'>alert('Нельзя удалить статус: есть квитанции с таким статусом!')</script>";
-    echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/sost_remonta')</script>";
+    echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/status')</script>";
 
 
 }else {

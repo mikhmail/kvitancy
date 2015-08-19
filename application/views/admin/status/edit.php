@@ -50,7 +50,7 @@
       //form validation
       echo validation_errors();
 
-      echo form_open('admin/sost_remonta/update/'.$this->uri->segment(4).'', $attributes);
+      echo form_open('admin/status/update/'.$this->uri->segment(4).'', $attributes);
       ?>
         <fieldset>
           <div class="control-group">

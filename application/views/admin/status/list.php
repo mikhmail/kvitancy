@@ -77,9 +77,9 @@
                 echo '<td>'.$row['name_sost'].'</td>';
                 echo '<td><span style="background: '.$row["background"].'; " class="label">'.$row['background'].'</span></td>';
 
-                  echo '<td class="crud-actions">
-                  <a href="'.site_url("admin").'/sost_remonta/update/'.$row['id_sost'].'" class="btn btn-info">Изменить</a>  
-                  <a href="'.site_url("admin").'/sost_remonta/delete/'.$row['id_sost'].'" class="btn btn-danger">Удалить</a>
+                  echo '<td class="span3">
+                  <a href="'.site_url("admin").'/status/update/'.$row['id_sost'].'" class="btn btn-info">Изменить</a>  
+                  <a href="'.site_url("admin").'/status/delete/'.$row['id_sost'].'" class="btn btn-danger">Удалить</a>
                 </td>';
                 echo '</tr>';
               }

@@ -154,12 +154,12 @@ $route['admin/comments/update/(:any)'] = 'admin_comments/update/$1';
 $route['admin/comments/delete/(:any)'] = 'admin_comments/delete/$1';
 $route['admin/comments/(:any)'] = 'admin_comments/index/$1'; //$1 = page number
 
-$route['admin/sost_remonta'] = 'admin_sost_remonta/index';
-$route['admin/sost_remonta/add'] = 'admin_sost_remonta/add';
-$route['admin/sost_remonta/update'] = 'admin_sost_remonta/update';
-$route['admin/sost_remonta/update/(:any)'] = 'admin_sost_remonta/update/$1';
-$route['admin/sost_remonta/delete/(:any)'] = 'admin_sost_remonta/delete/$1';
-$route['admin/sost_remonta/(:any)'] = 'admin_sost_remonta/index/$1'; //$1 = page number
+$route['admin/status'] = 'admin_status/index';
+$route['admin/status/add'] = 'admin_status/add';
+$route['admin/status/update'] = 'admin_status/update';
+$route['admin/status/update/(:any)'] = 'admin_status/update/$1';
+$route['admin/status/delete/(:any)'] = 'admin_status/delete/$1';
+$route['admin/status/(:any)'] = 'admin_status/index/$1'; //$1 = page number
 
 
 

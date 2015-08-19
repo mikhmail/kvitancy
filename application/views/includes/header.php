@@ -33,7 +33,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </a>
-                <a class="brand" href="#">Admin Panel</a>
+                <a class="brand" href="#">Mikh's Panel</a>
                 <div class="nav-collapse collapse">
                     <ul class="nav pull-right">
                         <li class="dropdown">
@@ -81,8 +81,8 @@
                                         <a href="<?php echo base_url(); ?>admin/brands">Производители</a>
                                     </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'sost_remonta'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/sost_remonta">Состояния ремонта</a>
+                                    <li <?php if($this->uri->segment(2) == 'status'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>admin/status">Состояния ремонта</a>
                                     </li>
 
                                     <li <?php if($this->uri->segment(2) == 'vid_remonta'){echo 'class="active"';}?>>
