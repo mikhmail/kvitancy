@@ -61,12 +61,12 @@ $route['admin/users/update/(:any)'] = 'admin_users/update/$1';
 $route['admin/users/delete/(:any)'] = 'admin_users/delete/$1';
 $route['admin/users/(:any)'] = 'admin_users/index/$1'; //$1 = page number
 
-$route['admin/groups_dostupa'] = 'admin_groups_dostupa/index';
-$route['admin/groups_dostupa/add'] = 'admin_groups_dostupa/add';
-$route['admin/groups_dostupa/update'] = 'admin_groups_dostupa/update';
-$route['admin/groups_dostupa/update/(:any)'] = 'admin_groups_dostupa/update/$1';
-$route['admin/groups_dostupa/delete/(:any)'] = 'admin_groups_dostupa/delete/$1';
-$route['admin/groups_dostupa/(:any)'] = 'admin_groups_dostupa/index/$1'; //$1 = page number
+$route['admin/groups'] = 'admin_groups/index';
+$route['admin/groups/add'] = 'admin_groups/add';
+$route['admin/groups/update'] = 'admin_groups/update';
+$route['admin/groups/update/(:any)'] = 'admin_groups/update/$1';
+$route['admin/groups/delete/(:any)'] = 'admin_groups/delete/$1';
+$route['admin/groups/(:any)'] = 'admin_groups/index/$1'; //$1 = page number
 
 $route['admin/proizvoditel'] = 'admin_proizvoditel/index';
 $route['admin/proizvoditel/add'] = 'admin_proizvoditel/add';
