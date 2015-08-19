@@ -50,11 +50,11 @@
       //form validation
       echo validation_errors();
 
-      echo form_open('admin/proizvoditel/update/'.$this->uri->segment(4).'', $attributes);
+      echo form_open('admin/brands/update/'.$this->uri->segment(4).'', $attributes);
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">Description</label>
+            <label for="inputError" class="control-label">Название</label>
             <div class="controls">
               <input type="text" id="" name="name" value="<?php echo $manufacture[0]['name_proizvod']; ?>" >
               <!--<span class="help-inline">Woohoo!</span>-->

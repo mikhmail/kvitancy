@@ -68,12 +68,12 @@ $route['admin/groups/update/(:any)'] = 'admin_groups/update/$1';
 $route['admin/groups/delete/(:any)'] = 'admin_groups/delete/$1';
 $route['admin/groups/(:any)'] = 'admin_groups/index/$1'; //$1 = page number
 
-$route['admin/proizvoditel'] = 'admin_proizvoditel/index';
-$route['admin/proizvoditel/add'] = 'admin_proizvoditel/add';
-$route['admin/proizvoditel/update'] = 'admin_proizvoditel/update';
-$route['admin/proizvoditel/update/(:any)'] = 'admin_proizvoditel/update/$1';
-$route['admin/proizvoditel/delete/(:any)'] = 'admin_proizvoditel/delete/$1';
-$route['admin/proizvoditel/(:any)'] = 'admin_proizvoditel/index/$1'; //$1 = page number
+$route['admin/brands'] = 'admin_brands/index';
+$route['admin/brands/add'] = 'admin_brands/add';
+$route['admin/brands/update'] = 'admin_brands/update';
+$route['admin/brands/update/(:any)'] = 'admin_brands/update/$1';
+$route['admin/brands/delete/(:any)'] = 'admin_brands/delete/$1';
+$route['admin/brands/(:any)'] = 'admin_brands/index/$1'; //$1 = page number
 
 $route['admin/devices'] = 'admin_devices/index';
 $route['admin/devices/add'] = 'admin_devices/add';

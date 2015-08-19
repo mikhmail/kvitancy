@@ -36,7 +36,7 @@
               break;
             }
 
-            echo form_open('admin/groups_dostupa', $attributes);?>
+            echo form_open('admin/groups', $attributes);?>
 
               <label class="control-label" for="search_string">Поиск:</label>
               <?echo form_input('search_string', $search_string_selected, 'class="search-query"');?>

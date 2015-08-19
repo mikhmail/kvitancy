@@ -36,7 +36,7 @@
               break;
             }
 
-            echo form_open('admin/proizvoditel', $attributes);?>
+            echo form_open('admin/brands', $attributes);?>
 
               <label class="control-label" for="search_string">Поиск:</label>
               <?echo form_input('search_string', $search_string_selected, 'class="search-query"');?>
@@ -73,8 +73,8 @@
                 echo '<td>'.$row['id_proizvod'].'</td>';
                 echo '<td>'.$row['name_proizvod'].'</td>';
                 echo '<td class="crud-actions">
-                  <a href="'.site_url("admin").'/proizvoditel/update/'.$row['id_proizvod'].'" class="btn btn-info">Изменить</a>  
-                  <a href="'.site_url("admin").'/proizvoditel/delete/'.$row['id_proizvod'].'" class="btn btn-danger">Удалить</a>
+                  <a href="'.site_url("admin").'/brands/update/'.$row['id_proizvod'].'" class="btn btn-info">Изменить</a>  
+                  <a href="'.site_url("admin").'/brands/delete/'.$row['id_proizvod'].'" class="btn btn-danger">Удалить</a>
                 </td>';
                 echo '</tr>';
               }

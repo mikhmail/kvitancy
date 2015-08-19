@@ -1,12 +1,12 @@
 <?php
-class Admin_proizvoditel extends CI_Controller {
+class Admin_brands extends CI_Controller {
 
     /**
     * name of the folder responsible for the views 
     * which are manipulated by this controller
     * @constant string
     */
-    const VIEW_FOLDER = 'admin/proizvoditel';
+    const VIEW_FOLDER = 'admin/brands';
  
     /**
     * Responsable for auto load the model
@@ -36,7 +36,7 @@ class Admin_proizvoditel extends CI_Controller {
         //pagination settings
         $config['per_page'] = 20;
 
-        $config['base_url'] = base_url().'admin/proizvoditel';
+        $config['base_url'] = base_url().'admin/brands';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
         $config['use_page_numbers'] = TRUE;
@@ -171,7 +171,7 @@ class Admin_proizvoditel extends CI_Controller {
         $this->pagination->initialize($config);   
 
         //load the view
-        $data['main_content'] = 'admin/proizvoditel/list';
+        $data['main_content'] = 'admin/brands/list';
         $this->load->view('includes/template', $data);  
 
     }//index
@@ -204,7 +204,7 @@ class Admin_proizvoditel extends CI_Controller {
 
         }
         //load the view
-        $data['main_content'] = 'admin/proizvoditel/add';
+        $data['main_content'] = 'admin/brands/add';
         $this->load->view('includes/template', $data);  
     }       
 
@@ -236,7 +236,7 @@ class Admin_proizvoditel extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('admin/proizvoditel/update/'.$id.'');
+                redirect('admin/brands/update/'.$id.'');
 
             }//validation run
 
@@ -248,7 +248,7 @@ class Admin_proizvoditel extends CI_Controller {
         //product data 
         $data['manufacture'] = $this->proizvoditel_model->get_proizvoditel_by_id($id);
         //load the view
-        $data['main_content'] = 'admin/proizvoditel/edit';
+        $data['main_content'] = 'admin/brands/edit';
         $this->load->view('includes/template', $data);            
 
     }//update
@@ -262,7 +262,7 @@ class Admin_proizvoditel extends CI_Controller {
         //product id 
         $id = $this->uri->segment(4);
         $this->proizvoditel_model->delete_proizvoditel($id);
-        redirect('admin/proizvoditel');
+        redirect('admin/brands');
     }//edit
 
 }

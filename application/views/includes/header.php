@@ -77,8 +77,8 @@
                                         <a href="<?php echo base_url(); ?>admin/devices">Аппараты</a>
                                     </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'proizvoditel'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/proizvoditel">Производители</a>
+                                    <li <?php if($this->uri->segment(2) == 'brands'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>admin/brands">Производители</a>
                                     </li>
 
                                     <li <?php if($this->uri->segment(2) == 'sost_remonta'){echo 'class="active"';}?>>

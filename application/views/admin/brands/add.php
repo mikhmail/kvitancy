@@ -20,7 +20,7 @@
       
       <div class="page-header">
         <h2>
-          Adding <?php echo ucfirst($this->uri->segment(2));?>
+          Добавление производителя
         </h2>
       </div>
 
@@ -49,11 +49,11 @@
       //form validation
       echo validation_errors();
       
-      echo form_open('admin/proizvoditel/add', $attributes);
+      echo form_open('admin/brands/add', $attributes);
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">Name</label>
+            <label for="inputError" class="control-label">Название</label>
             <div class="controls">
               <input type="text" id="" name="name" value="<?php echo set_value('name'); ?>" >
               
