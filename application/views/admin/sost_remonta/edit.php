@@ -74,8 +74,8 @@
                     <select name="type">
                         <option value="">Выбрать тип</option>
 
-                        <option value="1" <?php if($manufacture[0]['type'] == 1) echo 'selected'; ?>>В ремонте</option>
-                        <option value="0"  <?php if($manufacture[0]['type'] == 0) echo 'selected'; ?>>Выдан</option>
+                        <option value="1" <?php if($manufacture[0]['type'] == 1) echo 'selected'; ?>>Аппарат находится в сервисе</option>
+                        <option value="0"  <?php if($manufacture[0]['type'] == 0) echo 'selected'; ?>>Аппарат выдан</option>
                     </select>
 
                 </div>

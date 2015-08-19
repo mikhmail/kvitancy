@@ -74,8 +74,8 @@
                 <select name="type">
                     <option value="">Выбрать тип</option>
 
-                    <option value="1">В ремонте</option>
-                    <option value="0">Выдан</option>
+                    <option value="1">Аппарат находится в сервисе</option>
+                    <option value="0">Аппарат выдан</option>
                 </select>
 
                 </div>
