@@ -1,12 +1,12 @@
 <?php
-class Admin_aparaty extends CI_Controller {
+class Admin_devices extends CI_Controller {
 
     /**
     * name of the folder responsible for the views 
     * which are manipulated by this controller
     * @constant string
     */
-    const VIEW_FOLDER = 'admin/aparaty';
+    const VIEW_FOLDER = 'admin/devices';
  
     /**
     * Responsable for auto load the model
@@ -36,7 +36,7 @@ class Admin_aparaty extends CI_Controller {
         //pagination settings
         $config['per_page'] = 20;
 
-        $config['base_url'] = base_url().'admin/aparaty';
+        $config['base_url'] = base_url().'admin/devices';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
         $config['use_page_numbers'] = TRUE;
@@ -171,7 +171,7 @@ class Admin_aparaty extends CI_Controller {
         $this->pagination->initialize($config);   
 
         //load the view
-        $data['main_content'] = 'admin/aparaty/list';
+        $data['main_content'] = 'admin/devices/list';
         $this->load->view('includes/template', $data);  
 
     }//index
@@ -204,7 +204,7 @@ class Admin_aparaty extends CI_Controller {
 
         }
         //load the view
-        $data['main_content'] = 'admin/aparaty/add';
+        $data['main_content'] = 'admin/devices/add';
         $this->load->view('includes/template', $data);  
     }       
 
@@ -236,7 +236,7 @@ class Admin_aparaty extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('admin/aparaty/update/'.$id.'');
+                redirect('admin/devices/update/'.$id.'');
 
             }//validation run
 
@@ -248,7 +248,7 @@ class Admin_aparaty extends CI_Controller {
         //product data 
         $data['manufacture'] = $this->aparaty_model->get_aparaty_by_id($id);
         //load the view
-        $data['main_content'] = 'admin/aparaty/edit';
+        $data['main_content'] = 'admin/devices/edit';
         $this->load->view('includes/template', $data);            
 
     }//update
@@ -262,7 +262,7 @@ class Admin_aparaty extends CI_Controller {
         //product id 
         $id = $this->uri->segment(4);
         $this->aparaty_model->delete_aparaty($id);
-        redirect('admin/aparaty');
+        redirect('admin/devices');
     }//edit
 
 }

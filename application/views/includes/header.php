@@ -73,8 +73,8 @@
                                         <a href="<?php echo base_url(); ?>admin/groups">Роли</a>
                                     </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'aparaty'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/aparaty">Аппараты</a>
+                                    <li <?php if($this->uri->segment(2) == 'devices'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>admin/devices">Аппараты</a>
                                     </li>
 
                                     <li <?php if($this->uri->segment(2) == 'proizvoditel'){echo 'class="active"';}?>>

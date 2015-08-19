@@ -49,7 +49,7 @@
       //form validation
       echo validation_errors();
       
-      echo form_open('admin/aparaty/add', $attributes);
+      echo form_open('admin/devices/add', $attributes);
       ?>
         <fieldset>
           <div class="control-group">

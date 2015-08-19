@@ -75,12 +75,12 @@ $route['admin/proizvoditel/update/(:any)'] = 'admin_proizvoditel/update/$1';
 $route['admin/proizvoditel/delete/(:any)'] = 'admin_proizvoditel/delete/$1';
 $route['admin/proizvoditel/(:any)'] = 'admin_proizvoditel/index/$1'; //$1 = page number
 
-$route['admin/aparaty'] = 'admin_aparaty/index';
-$route['admin/aparaty/add'] = 'admin_aparaty/add';
-$route['admin/aparaty/update'] = 'admin_aparaty/update';
-$route['admin/aparaty/update/(:any)'] = 'admin_aparaty/update/$1';
-$route['admin/aparaty/delete/(:any)'] = 'admin_aparaty/delete/$1';
-$route['admin/aparaty/(:any)'] = 'admin_aparaty/index/$1'; //$1 = page number
+$route['admin/devices'] = 'admin_devices/index';
+$route['admin/devices/add'] = 'admin_devices/add';
+$route['admin/devices/update'] = 'admin_devices/update';
+$route['admin/devices/update/(:any)'] = 'admin_devices/update/$1';
+$route['admin/devices/delete/(:any)'] = 'admin_devices/delete/$1';
+$route['admin/devices/(:any)'] = 'admin_devices/index/$1'; //$1 = page number
 
 $route['admin/kvitancy'] = 'admin_kvitancy/index';
 $route['admin/kvitancy/add'] = 'admin_kvitancy/add';
