@@ -107,8 +107,8 @@
                                     </li>
 
 
-                                    <li <?php if($this->uri->segment(2) == 'kvitancy'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/kvitancy">Заявки-Админ</a>
+                                    <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>admin/tickets">Заявки-Админ</a>
                                     </li>
 
 

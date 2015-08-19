@@ -82,14 +82,14 @@ $route['admin/devices/update/(:any)'] = 'admin_devices/update/$1';
 $route['admin/devices/delete/(:any)'] = 'admin_devices/delete/$1';
 $route['admin/devices/(:any)'] = 'admin_devices/index/$1'; //$1 = page number
 
-$route['admin/kvitancy'] = 'admin_kvitancy/index';
-$route['admin/kvitancy/add'] = 'admin_kvitancy/add';
-$route['admin/kvitancy/update'] = 'admin_kvitancy/update';
-$route['admin/kvitancy/update/(:any)'] = 'admin_kvitancy/update/$1';
-$route['admin/kvitancy/delete/(:any)'] = 'admin_kvitancy/delete/$1';
-$route['admin/kvitancy/(:any)'] = 'admin_kvitancy/index/$1'; //$1 = page number
+$route['admin/tickets'] = 'admin_tickets/index';
+$route['admin/tickets/add'] = 'admin_tickets/add';
+$route['admin/tickets/update'] = 'admin_tickets/update';
+$route['admin/tickets/update/(:any)'] = 'admin_tickets/update/$1';
+$route['admin/tickets/delete/(:any)'] = 'admin_tickets/delete/$1';
+$route['admin/tickets/(:any)'] = 'admin_tickets/index/$1'; //$1 = page number
 
-
+/*
 $route['kvitancy'] = 'kvitancy/index';
 $route['kvitancy/add'] = 'kvitancy/add';
 $route['kvitancy/update'] = 'kvitancy/update';
@@ -98,10 +98,8 @@ $route['kvitancy/delete/(:any)'] = 'kvitancy/delete/$1';
 $route['kvitancy/printing/(:any)'] = 'kvitancy/printing/$1';
 $route['kvitancy/printing_check/(:any)'] = 'kvitancy/printing_check/$1';
 $route['kvitancy/view/(:any)'] = 'kvitancy/view/$1';
-
-
 $route['kvitancy/(:any)'] = 'kvitancy/index/$1'; //$1 = page number
-
+*/
 
 $route['tickets'] = 'tickets/index';
 $route['tickets/add'] = 'tickets/add';

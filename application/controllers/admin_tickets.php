@@ -1,12 +1,12 @@
 <?php
-class Admin_kvitancy extends CI_Controller {
+class Admin_tickets extends CI_Controller {
 
     /**
     * name of the folder responsible for the views 
     * which are manipulated by this controller
     * @constant string
     */
-    const VIEW_FOLDER = 'admin/kvitancy';
+    const VIEW_FOLDER = 'admin/tickets';
  
     /**
     * Responsable for auto load the model
@@ -43,7 +43,7 @@ class Admin_kvitancy extends CI_Controller {
         //pagination settings
         $config['per_page'] = 20;
 
-        $config['base_url'] = base_url().'admin/kvitancy';
+        $config['base_url'] = base_url().'admin/tickets';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
         $config['use_page_numbers'] = TRUE;
@@ -182,7 +182,7 @@ class Admin_kvitancy extends CI_Controller {
         //load the view
 		$data['ap'] = $this->aparaty_model->get_aparaty();
 		
-        $data['main_content'] = 'admin/kvitancy/list';
+        $data['main_content'] = 'admin/tickets/list';
         $this->load->view('includes/template', $data);
 		
 		
@@ -329,7 +329,7 @@ class Admin_kvitancy extends CI_Controller {
         //product id 
         $id = $this->uri->segment(4);
         $this->kvitancy_model->delete_kvitancy($id);
-        redirect('admin/kvitancy');
+        redirect('admin/tickets');
     }//edit
 
 }

@@ -42,7 +42,7 @@
             }
 			
 			
-            echo form_open('admin/kvitancy', $attributes);
+            echo form_open('admin/tickets', $attributes);
 
             ?>
 
@@ -98,14 +98,16 @@
 				echo '<td>'.$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model'].'</td>';
 				
 				echo '<td>'.$row['neispravnost'].'</td>';
-				echo '<td>'.$row['name_sost'].'</td>';
-				
+				//echo '<td>'.$row['name_sost'].'</td>';
+				?>
+				<td><div style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></div></td>
+				<?
 				
 				
 				
                 echo '<td class="span3">
                   <a href="'.site_url("tickets").'/update/'.$row['id_kvitancy'].'" class="btn btn-info">Изменить</a>
-                  <a href="'.site_url("admin").'/kvitancy/delete/'.$row['id_kvitancy'].'" class="btn btn-danger">Удалить</a>
+                  <a href="'.site_url("admin").'/tickets/delete/'.$row['id_kvitancy'].'" class="btn btn-danger">Удалить</a>
                 </td>';
                 echo '</tr>';
               }
