@@ -132,12 +132,12 @@ $route['admin/gorod/update/(:any)'] = 'admin_gorod/update/$1';
 $route['admin/gorod/delete/(:any)'] = 'admin_gorod/delete/$1';
 $route['admin/gorod/(:any)'] = 'admin_gorod/index/$1'; //$1 = page number
 
-$route['admin/vid_remonta'] = 'admin_vid_remonta/index';
-$route['admin/vid_remonta/add'] = 'admin_vid_remonta/add';
-$route['admin/vid_remonta/update'] = 'admin_vid_remonta/update';
-$route['admin/vid_remonta/update/(:any)'] = 'admin_vid_remonta/update/$1';
-$route['admin/vid_remonta/delete/(:any)'] = 'admin_vid_remonta/delete/$1';
-$route['admin/vid_remonta/(:any)'] = 'admin_vid_remonta/index/$1'; //$1 = page number
+$route['admin/types'] = 'admin_types/index';
+$route['admin/types/add'] = 'admin_types/add';
+$route['admin/types/update'] = 'admin_types/update';
+$route['admin/types/update/(:any)'] = 'admin_types/update/$1';
+$route['admin/types/delete/(:any)'] = 'admin_types/delete/$1';
+$route['admin/types/(:any)'] = 'admin_types/index/$1'; //$1 = page number
 
 $route['admin/clients'] = 'admin_clients/index';
 $route['admin/clients/add'] = 'admin_clients/add';

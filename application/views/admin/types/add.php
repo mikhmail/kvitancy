@@ -49,7 +49,7 @@
       //form validation
       echo validation_errors();
       
-      echo form_open('admin/vid_remonta/add', $attributes);
+      echo form_open('admin/types/add', $attributes);
       ?>
         <fieldset>
           <div class="control-group">

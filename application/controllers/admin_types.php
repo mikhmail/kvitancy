@@ -1,12 +1,12 @@
 <?php
-class Admin_vid_remonta extends CI_Controller {
+class Admin_types extends CI_Controller {
 
     /**
     * name of the folder responsible for the views 
     * which are manipulated by this controller
     * @constant string
     */
-    const VIEW_FOLDER = 'admin/vid_remonta';
+    const VIEW_FOLDER = 'admin/types';
  
     /**
     * Responsable for auto load the model
@@ -36,7 +36,7 @@ class Admin_vid_remonta extends CI_Controller {
         //pagination settings
         $config['per_page'] = 50;
 
-        $config['base_url'] = base_url().'admin/vid_remonta';
+        $config['base_url'] = base_url().'admin/types';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
         $config['full_tag_open'] = '<ul>';
@@ -150,7 +150,7 @@ class Admin_vid_remonta extends CI_Controller {
         $this->pagination->initialize($config);   
 
         //load the view
-        $data['main_content'] = 'admin/vid_remonta/list';
+        $data['main_content'] = 'admin/types/list';
         $this->load->view('includes/template', $data);  
 
     }//index
@@ -183,7 +183,7 @@ class Admin_vid_remonta extends CI_Controller {
 
         }
         //load the view
-        $data['main_content'] = 'admin/vid_remonta/add';
+        $data['main_content'] = 'admin/types/add';
         $this->load->view('includes/template', $data);  
     }       
 
@@ -215,7 +215,7 @@ class Admin_vid_remonta extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('admin/vid_remonta/update/'.$id.'');
+                redirect('admin/types/update/'.$id.'');
 
             }//validation run
 
@@ -227,7 +227,7 @@ class Admin_vid_remonta extends CI_Controller {
         //product data 
         $data['manufacture'] = $this->vid_remonta_model->get_vid_remonta_by_id($id);
         //load the view
-        $data['main_content'] = 'admin/vid_remonta/edit';
+        $data['main_content'] = 'admin/types/edit';
         $this->load->view('includes/template', $data);            
 
     }//update
@@ -241,7 +241,7 @@ class Admin_vid_remonta extends CI_Controller {
         //product id 
         $id = $this->uri->segment(4);
         $this->vid_remonta_model->delete_vid_remonta($id);
-        redirect('admin/vid_remonta');
+        redirect('admin/types');
     }//edit
 
 }

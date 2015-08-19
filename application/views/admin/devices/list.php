@@ -73,7 +73,7 @@
                 echo '<tr>';
                 echo '<td>'.$row['id_aparat'].'</td>';
                 echo '<td>'.$row['aparat_name'].'</td>';
-                echo '<td class="crud-actions">
+                echo '<td class="span3">
                   <a href="'.site_url("admin").'/devices/update/'.$row['id_aparat'].'" class="btn btn-info">Изменить</a>  
                   <a href="'.site_url("admin").'/devices/delete/'.$row['id_aparat'].'" class="btn btn-danger">Удалить</a>
                 </td>';

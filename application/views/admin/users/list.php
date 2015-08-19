@@ -119,7 +119,7 @@
 				echo '</td>';
                 
 				
-				echo '<td class="crud-actions">
+				echo '<td class="span3">
                   <a href="'.site_url("admin").'/users/update/'.$row['id'].'" class="btn btn-info">Изменить</a>  
                   <a href="'.site_url("admin").'/users/delete/'.$row['id'].'" class="btn btn-danger">Удалить</a>
                 </td>';

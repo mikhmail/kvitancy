@@ -85,8 +85,8 @@
                                         <a href="<?php echo base_url(); ?>admin/status">Состояния ремонта</a>
                                     </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'vid_remonta'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/vid_remonta">Виды ремонта</a>
+                                    <li <?php if($this->uri->segment(2) == 'types'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>admin/types">Виды ремонта</a>
                                     </li>
 
 

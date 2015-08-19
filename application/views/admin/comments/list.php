@@ -98,7 +98,7 @@
 				
 				
 				
-                echo '<td class="crud-actions">
+                echo '<td class="span3">
                   
                   <a href="'.site_url("admin").'/comments/delete/'.$row['id_comment'].'" class="btn btn-danger">Удалить</a>
                 </td>';

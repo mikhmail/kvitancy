@@ -91,7 +91,7 @@
 				echo '<td>'.$row['mail_sc'].'</td>';
 				echo '<td>'.$row['site'].'</td>';
 				
-                echo '<td class="crud-actions">
+                echo '<td class="span3">
                   <a href="'.site_url("admin").'/service_centers/update/'.$row['id_sc'].'" class="btn btn-info">Изменить</a>  
                   <a href="'.site_url("admin").'/service_centers/delete/'.$row['id_sc'].'" class="btn btn-danger">Удалить</a>
                 </td>';

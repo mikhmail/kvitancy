@@ -71,7 +71,7 @@
                 echo '<tr>';
                 echo '<td>'.$row['id'].'</td>';
                 echo '<td>'.$row['name'].'</td>';
-                echo '<td class="crud-actions">
+                echo '<td class="span3">
                   <a href="'.site_url("admin").'/groups/update/'.$row['id'].'" class="btn btn-info">Изменить</a>  
                   <a href="'.site_url("admin").'/groups/delete/'.$row['id'].'" class="btn btn-danger">Удалить</a>
                 </td>';
