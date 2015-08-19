@@ -1,12 +1,12 @@
 <?php
-class Admin_gorod extends CI_Controller {
+class Admin_cities extends CI_Controller {
 
     /**
     * name of the folder responsible for the views 
     * which are manipulated by this controller
     * @constant string
     */
-    const VIEW_FOLDER = 'admin/gorod';
+    const VIEW_FOLDER = 'admin/cities';
  
     /**
     * Responsable for auto load the model
@@ -36,7 +36,7 @@ class Admin_gorod extends CI_Controller {
         //pagination settings
         $config['per_page'] = 50;
 
-        $config['base_url'] = base_url().'admin/gorod';
+        $config['base_url'] = base_url().'admin/cities';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
         $config['full_tag_open'] = '<ul>';
@@ -150,7 +150,7 @@ class Admin_gorod extends CI_Controller {
         $this->pagination->initialize($config);   
 
         //load the view
-        $data['main_content'] = 'admin/gorod/list';
+        $data['main_content'] = 'admin/cities/list';
         $this->load->view('includes/template', $data);  
 
     }//index
@@ -183,7 +183,7 @@ class Admin_gorod extends CI_Controller {
 
         }
         //load the view
-        $data['main_content'] = 'admin/gorod/add';
+        $data['main_content'] = 'admin/cities/add';
         $this->load->view('includes/template', $data);  
     }       
 
@@ -215,7 +215,7 @@ class Admin_gorod extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('admin/gorod/update/'.$id.'');
+                redirect('admin/cities/update/'.$id.'');
 
             }//validation run
 
@@ -227,7 +227,7 @@ class Admin_gorod extends CI_Controller {
         //product data 
         $data['manufacture'] = $this->gorod_model->get_gorod_by_id($id);
         //load the view
-        $data['main_content'] = 'admin/gorod/edit';
+        $data['main_content'] = 'admin/cities/edit';
         $this->load->view('includes/template', $data);            
 
     }//update
@@ -241,7 +241,7 @@ class Admin_gorod extends CI_Controller {
         //product id 
         $id = $this->uri->segment(4);
         $this->gorod_model->delete_gorod($id);
-        redirect('admin/gorod');
+        redirect('admin/cities');
     }//edit
 
 }

@@ -125,12 +125,12 @@ $route['admin/service_centers/delete/(:any)'] = 'admin_service_centers/delete/$1
 $route['admin/service_centers/(:any)'] = 'admin_service_centers/index/$1'; //$1 = page number
 
 
-$route['admin/gorod'] = 'admin_gorod/index';
-$route['admin/gorod/add'] = 'admin_gorod/add';
-$route['admin/gorod/update'] = 'admin_gorod/update';
-$route['admin/gorod/update/(:any)'] = 'admin_gorod/update/$1';
-$route['admin/gorod/delete/(:any)'] = 'admin_gorod/delete/$1';
-$route['admin/gorod/(:any)'] = 'admin_gorod/index/$1'; //$1 = page number
+$route['admin/cities'] = 'admin_cities/index';
+$route['admin/cities/add'] = 'admin_cities/add';
+$route['admin/cities/update'] = 'admin_cities/update';
+$route['admin/cities/update/(:any)'] = 'admin_cities/update/$1';
+$route['admin/cities/delete/(:any)'] = 'admin_cities/delete/$1';
+$route['admin/cities/(:any)'] = 'admin_cities/index/$1'; //$1 = page number
 
 $route['admin/types'] = 'admin_types/index';
 $route['admin/types/add'] = 'admin_types/add';

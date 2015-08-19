@@ -94,8 +94,8 @@
                                         <a href="<?php echo base_url(); ?>admin/service_centers">Сервисные центры</a>
                                     </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'gorod'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/gorod">Города</a>
+                                    <li <?php if($this->uri->segment(2) == 'cities'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>admin/cities">Города</a>
                                     </li>
 
                                     <li <?php if($this->uri->segment(2) == 'clients'){echo 'class="active"';}?>>

@@ -36,7 +36,7 @@
               break;
             }
 
-            echo form_open('admin/gorod', $attributes); ?>
+            echo form_open('admin/cities', $attributes); ?>
 
             <label class="control-label" for="search_string">Поиск:</label>
               <?echo form_input('search_string', $search_string_selected, 'class="search-query"');?>
@@ -72,8 +72,8 @@
                 echo '<td>'.$row['gorod_id'].'</td>';
                 echo '<td>'.$row['gorod'].'</td>';
                 echo '<td class="span3">
-                  <a href="'.site_url("admin").'/gorod/update/'.$row['gorod_id'].'" class="btn btn-info">Изменить</a>  
-                  <a href="'.site_url("admin").'/gorod/delete/'.$row['gorod_id'].'" class="btn btn-danger">Удалить</a>
+                  <a href="'.site_url("admin").'/cities/update/'.$row['gorod_id'].'" class="btn btn-info">Изменить</a>  
+                  <a href="'.site_url("admin").'/cities/delete/'.$row['gorod_id'].'" class="btn btn-danger">Удалить</a>
                 </td>';
                 echo '</tr>';
               }

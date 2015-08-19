@@ -14,25 +14,24 @@
           <span class="divider">/</span>
         </li>
         <li class="active">
-          <a href="#">Update</a>
+          <a href="#">New</a>
         </li>
       </ul>
       
       <div class="page-header">
         <h2>
-          Обновление "<?php echo $manufacture[0]['gorod']; ?>"
+          Добавить город
         </h2>
       </div>
 
- 
       <?php
       //flash messages
-      if($this->session->flashdata('flash_message')){
-        if($this->session->flashdata('flash_message') == 'updated')
+      if(isset($flash_message)){
+        if($flash_message == TRUE)
         {
           echo '<div class="alert alert-success">';
             echo '<a class="close" data-dismiss="alert">×</a>';
-            echo '<strong>Well done!</strong> manufacturer updated with success.';
+            echo '<strong>Well done!</strong> new manufacturer created with success.';
           echo '</div>';       
         }else{
           echo '<div class="alert alert-error">';
@@ -49,15 +48,15 @@
 
       //form validation
       echo validation_errors();
-
-      echo form_open('admin/gorod/update/'.$this->uri->segment(4).'', $attributes);
+      
+      echo form_open('admin/cities/add', $attributes);
       ?>
         <fieldset>
           <div class="control-group">
             <label for="inputError" class="control-label">Название</label>
             <div class="controls">
-              <input type="text" id="" name="name" value="<?php echo $manufacture[0]['gorod']; ?>" >
-              <!--<span class="help-inline">Woohoo!</span>-->
+              <input type="text" id="" name="name" value="<?php echo set_value('name'); ?>" >
+              
             </div>
           </div>
           <div class="form-actions">
