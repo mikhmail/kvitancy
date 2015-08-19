@@ -16,10 +16,12 @@ class Users_model extends CI_Model {
 		
 		$query = $this->db->get('membership');
 		
-		if($query->num_rows === 1)
+		if(count($query->result_array()) === 1)
 		{
 			return true;
-		}		
+		}
+		else return false;
+		
 	}
 
 	function validate ($user_name, $password)

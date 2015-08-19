@@ -471,6 +471,7 @@ echo form_close();
 
                 <div class="span12">
                     <div class="span6">
+					
                         <input class="" type="text" id="inputApparat" onkeyup="look_apparat(this.value);" placeholder="Поиск аппарата">
 
                         <?php echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="" id="id_aparat" required="required" title="Аппарат"');?>
@@ -478,6 +479,7 @@ echo form_close();
 
 
                         <a href="#" class="btn" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+						
 					<span name="aparat_span" style="display: none;">
 						<input class="" name="add_aparat_name" id="add_aparat_name" type="text" placeholder="Введите название аппарата">
 						<input class="btn" name="submit" id="add_aparat" type="button" value="Добавить аппарат" >
