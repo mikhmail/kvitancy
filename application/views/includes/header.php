@@ -42,7 +42,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a tabindex="-1" href="#">Профиль</a>
+                                    <a tabindex="-1" href="<?php echo base_url(); ?>profile">Профиль</a>
                                 </li>
                                 <li class="divider"></li>
                                 <li>
