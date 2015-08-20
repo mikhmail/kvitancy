@@ -11,9 +11,18 @@ class Admin_users extends CI_Controller {
         $this->load->model('users_model');
         $this->load->model('groups_dostupa_model');
 		$this->load->model('service_centers_model');
-		
+
+
+
+
 
         if(!$this->session->userdata('is_logged_in')){
+            redirect('admin/login');
+        }
+
+
+
+        if (!$this->users_model->is_admin($this->session->userdata('user_name'))) {
             redirect('admin/login');
         }
     }

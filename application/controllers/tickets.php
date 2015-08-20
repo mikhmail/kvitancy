@@ -579,7 +579,7 @@ class Tickets extends CI_Controller
 
             case 3: // инженер
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                $data['soglasovat'] = '';
+                $data['soglasovat'] = array();
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
@@ -588,7 +588,7 @@ class Tickets extends CI_Controller
 
             default: //мало ли кто еще :)
                 $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                $data['soglasovat'] = '';
+                $data['soglasovat'] = array();
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));

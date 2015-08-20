@@ -160,7 +160,7 @@ echo form_close();
 <div class="row-fluid">
 <div class="span12">
 
-<?php if (count($soglasovat) >=1) {?>
+<?php if (count($soglasovat) > 0) {?>
 <p><b>Позвонить клиенту:</b>
 
     <? foreach ($soglasovat as $arr_gog) {?>
@@ -175,7 +175,7 @@ echo form_close();
 </p>
 
 
-<?php if (count($my_kvitancy) >=1) {?>
+<?php if (count($my_kvitancy) > 0 ) {?>
 <p><b>Мои заявки:</b>
 
     <? foreach ($my_kvitancy as $arr_gog) {?>

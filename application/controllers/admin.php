@@ -2,20 +2,30 @@
 
 class Admin extends CI_Controller {
 
-    /**
-    * Check if the user is logged in, if he's not, 
-    * send him to the login page
-    * @return void
-    */	
-	function index()
-	{
-		if($this->session->userdata('is_logged_in')){
-		//var_dump($this->session->userdata);die;
-			redirect('admin/users');
+
+    public function __construct() {
+
+        parent::__construct();
+
+        $this->load->model('users_model');
+
+
+
+        if ($this->users_model->is_admin($this->session->userdata('user_name'))) {
+            //var_dump($this->session->userdata);die;
+            redirect('admin/users');
         }else{
-        	$this->load->view('login');	
+            $this->load->view('login');
+
         }
+
+
 	}
+
+    function index()
+    {
+
+    }
 
     /**
     * encript the password 
@@ -114,13 +124,13 @@ class Admin extends CI_Controller {
 	function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('admin');
+		redirect('admin/login');
 	}
 function cache_delete()
 	{
 		$this->db->cache_delete_all();
 		$this->session->set_flashdata('flash_message', 'cache deleted');
-		redirect('/admin');
+		redirect('admin/login');
 	}
 }
 ?>

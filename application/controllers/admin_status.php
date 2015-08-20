@@ -15,8 +15,18 @@ class Admin_status extends CI_Controller {
     public function __construct() { parent::__construct();
         
         $this->load->model('sost_remonta_model');
+        $this->load->model('users_model');
+
+
+
 
         if(!$this->session->userdata('is_logged_in')){
+            redirect('admin/login');
+        }
+
+
+
+        if (!$this->users_model->is_admin($this->session->userdata('user_name'))) {
             redirect('admin/login');
         }
     }
