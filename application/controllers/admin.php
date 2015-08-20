@@ -11,6 +11,14 @@ class Admin extends CI_Controller {
 
 
 
+
+
+
+	}
+
+    function index()
+    {
+
         if ($this->users_model->is_admin($this->session->userdata('user_name'))) {
             //var_dump($this->session->userdata);die;
             redirect('admin/users');
@@ -18,12 +26,6 @@ class Admin extends CI_Controller {
             $this->load->view('login');
 
         }
-
-
-	}
-
-    function index()
-    {
 
     }
 
@@ -124,13 +126,13 @@ class Admin extends CI_Controller {
 	function logout()
 	{
 		$this->session->sess_destroy();
-		redirect('admin/login');
+		redirect('login');
 	}
 function cache_delete()
 	{
 		$this->db->cache_delete_all();
 		$this->session->set_flashdata('flash_message', 'cache deleted');
-		redirect('admin/login');
+		redirect('login');
 	}
 }
 ?>

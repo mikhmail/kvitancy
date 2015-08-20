@@ -234,12 +234,20 @@ echo form_close();
     <?if(count($count_kvitancys)>=1) {?>
 
 
-        <div class="span12">
 
-                <h2><small>Найдено <?=$count_kvitancys?> аппаратов</small></h2>
+            <div class="row-fluid">
+
+                <legend>Найдено <strong><?=$count_kvitancys?></strong>
+
+                    <div class="pagination pull-right">
+                        <?=$this->pagination->create_links()?>
+                    </div>
+                </legend>
 
 
-        </div>
+
+
+            </div>
 
 
 
@@ -451,10 +459,16 @@ echo form_close();
         </div>
 
         <?}else{?>
-            <div class="span10"></div>
+            <div class="span12"></div>
         <?}?>
 
-        <? echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
+
+
+        <div class="span12 pull-right">
+            <div class="pagination">
+                <?=$this->pagination->create_links()?>
+                </div>
+        </div>
 
     </div>
 

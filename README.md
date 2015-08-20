@@ -61,7 +61,7 @@ Admin/User при фильре по группе вываливется ошиб
 согласовать цену и позвонить клиенту новый статус надо продумать как быть?ОК?
 
 Ошибка http://kvitancy/admin/cities
-при поиске Unknown column 'goroda' in 'where clause'
+при поиске Unknown column 'goroda' in 'where clause' OK?
 
 
 
