@@ -2,7 +2,7 @@
 
     <ul class="breadcrumb">
         <li>
-            <a href="<?php echo site_url("admin"); ?>">
+            <a href="<?php echo site_url("profile"); ?>">
                 <?php echo ucfirst($this->uri->segment(1));?>
             </a>
             <span class="divider">/</span>
@@ -32,12 +32,12 @@
         {
             echo '<div class="alert alert-success">';
             echo '<a class="close" data-dismiss="alert">×</a>';
-            echo '<strong>Well done!</strong> product updated with success.';
+            echo '<strong>Well done!</strong>';
             echo '</div>';
         }else{
             echo '<div class="alert alert-error">';
             echo '<a class="close" data-dismiss="alert">×</a>';
-            echo '<strong>Oh snap!</strong> change a few things up and try submitting again.';
+            echo '<strong>Oh snap!</strong>';
             echo '</div>';
         }
     }
@@ -101,6 +101,27 @@
                 <!--<span class="help-inline">OOps</span>-->
             </div>
         </div>
+
+        <div class="control-group">
+            <label class="control-label" for="optionsCheckbox2">Показывать "мои квитанции"</label>
+            <div class="controls">
+                <label>
+                    <input type="checkbox" class="uniform_on" name="show_my_tickets" <? if( $product[0]['show_my_tickets']) echo 'checked'; ?> >
+
+                </label>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label" for="optionsCheckbox2">Показывать "Позвонить клиенту"</label>
+            <div class="controls">
+                <label>
+                    <input type="checkbox" class="uniform_on" name="show_call_tickets" <? if( $product[0]['show_call_tickets']) echo 'checked'; ?> >
+
+                </label>
+            </div>
+        </div>
+
 
         <div class="control-group">
             <label for="groups_dostupa_id" class="control-label">Группа доступа</label>

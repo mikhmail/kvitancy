@@ -38,6 +38,17 @@ class Profile extends CI_Controller {
                 //$this->form_validation->set_rules('id_sc', 'service center', 'required');
                 //$this->form_validation->set_rules('active', 'active', 'required');
 
+            if($this->input->post('show_my_tickets')) {
+                $show_my_tickets = 1;
+            }else {
+                $show_my_tickets = 0;
+            }
+
+            if($this->input->post('show_call_tickets')) {
+                $show_call_tickets = 1;
+            }else{
+                $show_call_tickets = 0;
+            }
 
                 $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
                 //if the form has passed through the validation
@@ -49,7 +60,8 @@ class Profile extends CI_Controller {
                         'last_name' => $this->input->post('last_name'),
                         'email_addres' => $this->input->post('email_addres'),
                         'user_name' => $this->input->post('user_name'),
-
+                        'show_my_tickets' => $show_my_tickets,
+                        'show_call_tickets' => $show_call_tickets,
                         'pass_word' => trim(md5($this->input->post('pass_word')))
 
 
@@ -61,7 +73,11 @@ class Profile extends CI_Controller {
                     }else{
                         $this->session->set_flashdata('flash_message', 'not_updated');
                     }
-                    redirect('profile');
+
+                    $this->db->cache_delete_all();
+                    $this->session->sess_destroy();
+                    redirect('login');
+
 
                 }//validation run
 

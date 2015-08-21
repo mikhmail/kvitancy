@@ -56,14 +56,19 @@ class Login extends CI_Controller {
 		$user_arr = $this->Users_model->get_users_by_id($user_id);
 		
 		$id_group = $user_arr[0]["id_group"]; 
-		$id_sc = $user_arr[0]["id_sc"]; 
-		
-			$data = array(
+		$id_sc = $user_arr[0]["id_sc"];
+        $show_my_tickets = $user_arr[0]["show_my_tickets"];
+        $show_call_tickets = $user_arr[0]["show_call_tickets"];
+
+
+            $data = array(
 				'user_id' => $user_id,
 				'user_name' => $user_name,
 				'id_group' => $id_group,
 				'user_id_sc' => $id_sc,
-				'is_logged_in' => true
+				'is_logged_in' => true,
+                'show_call_tickets' => $show_call_tickets,
+                'show_my_tickets' => $show_my_tickets
 			);
 
         $remember = $this->input->post('remember');

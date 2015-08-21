@@ -558,28 +558,64 @@ class Tickets extends CI_Controller
         /*Что видит юзер id_group */
         switch ($this->session->userdata('id_group')) {
             case 1: // админ
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
-                $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
+
+                if($this->session->userdata('show_my_tickets') == 1) {
+                    $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
+                } else {
+                    $data['my_kvitancy'] = array();
+                }
+
+                if($this->session->userdata('show_call_tickets') == 1) {
+                    $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
+                } else {
+                    $data['soglasovat'] = array();
+                }
+
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', '');
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
                 $data["id_sc_selected"] = '';
-                break;
+            break;
 
 
             case 2: // приемщик
-                $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
+
+                if($this->session->userdata('show_my_tickets') == 1) {
+                    $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
+                } else {
+                    $data['my_kvitancy'] = array();
+                }
+
+                if($this->session->userdata('show_call_tickets') == 1) {
+                    $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
+                } else {
+                    $data['soglasovat'] = array();
+                }
+
+
+
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
-                break;
+            break;
 
 
             case 3: // инженер
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                $data['soglasovat'] = array();
+
+                if($this->session->userdata('show_my_tickets') == 1) {
+                    $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
+                } else {
+                    $data['my_kvitancy'] = array();
+                }
+
+                if($this->session->userdata('show_call_tickets') == 1) {
+                    $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
+                } else {
+                    $data['soglasovat'] = array();
+                }
+
+
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
@@ -587,8 +623,21 @@ class Tickets extends CI_Controller
                 break;
 
             default: //мало ли кто еще :)
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                $data['soglasovat'] = array();
+
+
+                if($this->session->userdata('show_my_tickets') == 1) {
+                    $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
+                } else {
+                    $data['my_kvitancy'] = array();
+                }
+
+                if($this->session->userdata('show_call_tickets') == 1) {
+                    $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
+                } else {
+                    $data['soglasovat'] = array();
+                }
+
+
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
