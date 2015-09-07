@@ -538,8 +538,8 @@ class Tickets extends CI_Controller
 
         $data['aparats'] = $this->kvitancy_model->get_kvitancy(
                             $search_string = null,
-                            $order = null,
-                            $order_type = null,
+                            $order = 'aparat.aparat_name',
+                            $order_type = 'Asc',
                             $limit_start = null,
                             $limit_end = null,
                             $date = null,

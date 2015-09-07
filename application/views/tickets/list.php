@@ -199,17 +199,20 @@ echo form_close();
     <?php
 
     /* Сортировка масива по аппаратам */
+
+    setlocale(LC_ALL, "Russian_Russia.1251"); // установили локаль для русских букв
+
     $row_global1 = array ();
     foreach ($aparats as $a=>$row) { //arr63
         $row_global1[$row["aparat_name"]][] = $row;
     }
 
+    /* Сортировка масива по состояниям */
     $row_global2 = array ();
     foreach ($aparats as $a=>$row) { //arr63
         $row_global2[$row["name_sost"]][] = $row;
     }
-    //var_dump($row_global2);die;
-    /* Сортировка масива по аппаратам */
+
     ?>
 
 
@@ -267,7 +270,7 @@ echo form_close();
         </ul>
     </div>
 
-    <? if (count($kvitancys)>0) {?>
+    <? if (count($kvitancys)>=1) {?>
     <div class="span10">
 
 
