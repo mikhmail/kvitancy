@@ -31,7 +31,29 @@ class Ajx extends CI_Controller {
 	function change_status ($id_sost, $id_kvitancy, $update_user=NULL)
 	{
 	$update_user=$this->session->userdata('user_id');
-	
+    $type = $this->kvitancy_model->get_type_sost_remonta ($id_sost);
+
+        if ($type[0]["type"] == 1) {
+        $data = array(
+            'id_sost' => $id_sost,
+            'date_okonchan' => '',
+            'date_vydachi' => '',
+            'update_time' => date("j-m-Y, H:i:s"),
+            'update_user' => $update_user
+        );
+    }else{
+
+            $data = array(
+                'id_sost' => $id_sost,
+                'date_okonchan' => date("Y-m-j"),
+                'date_vydachi' => date("Y-m-j"),
+                'update_time' => date("j-m-Y, H:i:s"),
+                'update_user' => $update_user
+            );
+
+        }
+
+    /*
 	if ($id_sost == 1) {
 	$data = array(
 					   'id_sost' => $id_sost,
@@ -103,8 +125,9 @@ class Ajx extends CI_Controller {
                         'update_time' => date("j-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
+
 	}	  
-		
+    */
 		
 		
 			

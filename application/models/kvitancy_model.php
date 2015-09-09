@@ -452,7 +452,17 @@ service.rab_sc
 		$this->db->limit(1);
 		$query = $this->db->get();
 		return $query->result_array(); 
-    }    
+    }
+
+
+    public function get_type_sost_remonta ($id_sost){
+        $this->db->select('type');
+        $this->db->from('sost_remonta');
+        $this->db->where('id_sost', $id_sost);
+        $this->db->limit(1);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
  
 }
 ?>

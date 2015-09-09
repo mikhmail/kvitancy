@@ -7,7 +7,7 @@
           </a> 
           <span class="divider">/</span>
         </li>
-       <a href="<?php echo site_url('kvitancy/'. strtolower(ucfirst($this->uri->segment(2)))); ?>">
+       <a href="<?php echo site_url('tickets/'. strtolower(ucfirst($this->uri->segment(2)))); ?>">
             <?php echo ucfirst($this->uri->segment(2));?>
           </a>
 
@@ -28,7 +28,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
 <div class="row-fluid">
 
-<div class="span12" style="margin-bottom: 20px;">
+<div class="span12">
 
 
 
@@ -199,9 +199,6 @@ echo form_close();
     <?php
 
     /* Сортировка масива по аппаратам */
-
-    setlocale(LC_ALL, "Russian_Russia.1251"); // установили локаль для русских букв
-
     $row_global1 = array ();
     foreach ($aparats as $a=>$row) { //arr63
         $row_global1[$row["aparat_name"]][] = $row;
@@ -371,10 +368,11 @@ echo form_close();
 
                                         <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class=""')?>
 
-                                        <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info" target="_blank">Редактировать</a>
-                                        <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать</a>
-                                        <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger" target="_blank">Печать чека</a>
-
+                                        <span>
+                                        <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info margin-bottom-10px" target="_blank">Редактировать</a>
+                                        <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать</a>
+                                        <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать чека</a>
+                                        </span>
                                     </div>
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">
                                         <table class="table table-bordered table-condensed">
@@ -495,11 +493,11 @@ echo form_close();
 
 
 
-                        <a href="#" class="btn" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+                        <a href="#" class="btn margin-bottom-10px" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
 						
 					<span name="aparat_span" style="display: none;">
 						<input class="" name="add_aparat_name" id="add_aparat_name" type="text" placeholder="Введите название аппарата">
-						<input class="btn" name="submit" id="add_aparat" type="button" value="Добавить аппарат" >
+						<input class="btn margin-bottom-10px" name="submit" id="add_aparat" type="button" value="Добавить аппарат" >
 					</span>
 
                         <div align="left" class="suggestionsBox" id="apparat_box" style="display: none;">
@@ -515,10 +513,10 @@ echo form_close();
                         <?php echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="" id="id_proizvod" required="required" title="Бренд"');?>
 
 
-                        <a href="#" class="btn" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+                        <a href="#" class="btn margin-bottom-10px" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
 					<span name="proizvod_span" style="display: none;">
 						<input class="" name="add_proizvod_name" id="add_proizvod_name" type="text" placeholder="Введите название бренда">
-						<input class="btn" name="submit" id="add_proizvod" type="button" value="Добавить бренд">
+						<input class="btn margin-bottom-10px" name="submit" id="add_proizvod" type="button" value="Добавить бренд">
 					</span>
 
                         <div class="suggestionsBox" id="proizvod_box" style="display: none;">
