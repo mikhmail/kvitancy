@@ -15,7 +15,7 @@
       <div class="page-header users-header">
         <h2>
           Группы доступа
-          <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить</a>
+         <!-- <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить</a>-->
         </h2>
       </div>
       
@@ -62,6 +62,8 @@
               <tr>
                 <th class="header">#</th>
                 <th class="yellow header headerSortDown">Название</th>
+
+
               </tr>
             </thead>
             <tbody>
@@ -71,9 +73,11 @@
                 echo '<tr>';
                 echo '<td>'.$row['id'].'</td>';
                 echo '<td>'.$row['name'].'</td>';
+
+
                 echo '<td class="span3">
-                  <a href="'.site_url("admin").'/groups/update/'.$row['id'].'" class="btn btn-info">Изменить</a>  
-                  <a href="'.site_url("admin").'/groups/delete/'.$row['id'].'" class="btn btn-danger">Удалить</a>
+                 <!-- <a href="'.site_url("admin").'/groups/update/'.$row['id'].'" class="btn btn-info">Изменить</a> -->
+                 <!-- <a href="'.site_url("admin").'/groups/delete/'.$row['id'].'" class="btn btn-danger">Удалить</a> -->
                 </td>';
                 echo '</tr>';
               }
@@ -85,3 +89,14 @@
 
       </div>
     </div>
+
+        <div class="row">
+            <div class="span12 columns">
+                <div class="well">
+                    <p><b>Администраторы</b> - могут все.</p>
+                    <p><b>Менеджеры</b> - могут все в своем сервисе.</p>
+                    <p><b>Администраторы</b> - могут все в своем сервисе.</p>
+
+                </div>
+                </div>
+            </div>

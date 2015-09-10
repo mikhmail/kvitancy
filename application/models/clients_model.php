@@ -130,6 +130,17 @@ class Clients_model extends CI_Model {
 		$this->db->where('user_id', $id);
 		$this->db->delete('users'); 
 	}
- 
+
+
+    function check_kvitancy($user_id){
+
+        $this->db->select('id_kvitancy');
+        $this->db->from('kvitancy');
+        $this->db->where('user_id', $user_id);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }
 ?>

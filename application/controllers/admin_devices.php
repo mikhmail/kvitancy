@@ -261,8 +261,19 @@ class Admin_devices extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
+
+        $check =  $this->aparaty_model->check_kvitancy($id);
+
+        if( count($check) >= 1 ) {
+
+            echo "<script language='JavaScript' type='text/javascript'>alert('Не могу удалить аппарат! Есть квитанции с таким аппаратом.')</script>";
+            echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/devices')</script>";
+
+        } else {
+
         $this->aparaty_model->delete_aparaty($id);
         redirect('admin/devices');
+        }
     }//edit
 
 }

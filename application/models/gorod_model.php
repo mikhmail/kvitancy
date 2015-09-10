@@ -124,6 +124,17 @@ class gorod_model extends CI_Model {
 		$this->db->where('gorod_id', $id);
 		$this->db->delete('goroda'); 
 	}
+
+    function check_kvitancy($id_gorod){
+
+        $this->db->select('id_gorod');
+        $this->db->from('service_centers');
+        $this->db->where('id_gorod', $id_gorod);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
  
 }
 ?>

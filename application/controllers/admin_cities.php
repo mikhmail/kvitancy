@@ -251,8 +251,18 @@ class Admin_cities extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
+
+        $check =  $this->gorod_model->check_kvitancy($id);
+
+        if( count($check) >= 1 ) {
+
+            echo "<script language='JavaScript' type='text/javascript'>alert('Не могу удалить город! Есть сервис в этом городе.')</script>";
+            echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/cities')</script>";
+
+        } else {
         $this->gorod_model->delete_gorod($id);
         redirect('admin/cities');
+        }
     }//edit
 
 }

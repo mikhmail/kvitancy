@@ -131,6 +131,16 @@ class Service_centers_model extends CI_Model {
 		$this->db->where('id_sc', $id);
 		$this->db->delete('service_centers'); 
 	}
- 
+
+    function check_kvitancy($id_sc){
+
+        $this->db->select('id_kvitancy');
+        $this->db->from('kvitancy');
+        $this->db->where('id_sc', $id_sc);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }
 ?>

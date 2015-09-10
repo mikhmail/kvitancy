@@ -314,8 +314,18 @@ class Admin_users extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
+
+        $check =  $this->users_model->check_kvitancy($id);
+
+        if( count($check) >= 1 ) {
+
+            echo "<script language='JavaScript' type='text/javascript'>alert('Не могу удалить пользователя! Есть его комментарии. Вы можете его заблокировать.')</script>";
+            echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/users')</script>";
+
+        } else {
         $this->users_model->delete_users($id);
         redirect('admin/users');
+        }
     }//edit
 
 }

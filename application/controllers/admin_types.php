@@ -251,8 +251,19 @@ class Admin_types extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
+
+        $check =  $this->vid_remonta_model->check_kvitancy($id);
+
+        if( count($check) >= 1 ) {
+
+            echo "<script language='JavaScript' type='text/javascript'>alert('Не могу удалить вид ремонта! Есть квитанции с таким видом.')</script>";
+            echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/types')</script>";
+
+        } else {
+
         $this->vid_remonta_model->delete_vid_remonta($id);
         redirect('admin/types');
+        }
     }//edit
 
 }

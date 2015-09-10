@@ -319,8 +319,19 @@ class Admin_clients extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
-        $this->clients_model->delete_clients($id);
-        redirect('admin/clients');
+
+
+        $check =  $this->clients_model->check_kvitancy($id);
+
+        if( count($check) >= 1 ) {
+
+            echo "<script language='JavaScript' type='text/javascript'>alert('Не могу удалить клиента!')</script>";
+            echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/clients')</script>";
+
+        } else {
+            $this->clients_model->delete_clients($id);
+            redirect('admin/clients');
+        }
     }//edit
 
 }

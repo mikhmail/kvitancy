@@ -235,6 +235,17 @@ if ($limit_start AND $limit_end) {
 		$this->db->where('id', $id);
 		$this->db->delete('membership'); 
 	}
+
+    function check_kvitancy($id_user){
+
+        $this->db->select('id_comment');
+        $this->db->from('comments');
+        $this->db->where('id_user', $id_user);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 	
 }
 

@@ -295,8 +295,18 @@ class Admin_service_centers extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
+
+        $check =  $this->service_centers_model->check_kvitancy($id);
+
+        if( count($check) >= 1 ) {
+
+            echo "<script language='JavaScript' type='text/javascript'>alert('Не могу удалить сервис! Есть квитанции в этом сервисе.')</script>";
+            echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/service_centers')</script>";
+
+        } else {
         $this->service_centers_model->delete_service_centers($id);
         redirect('admin/service_centers');
+        }
     }//edit
 
 }

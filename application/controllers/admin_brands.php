@@ -261,8 +261,20 @@ class Admin_brands extends CI_Controller {
     {
         //product id 
         $id = $this->uri->segment(4);
+
+        $check =  $this->proizvoditel_model->check_kvitancy($id);
+
+        if( count($check) >= 1 ) {
+
+            echo "<script language='JavaScript' type='text/javascript'>alert('Не могу удалить бренд! Есть квитанции с таким брендом.')</script>";
+            echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/admin/brands')</script>";
+
+        } else {
+
         $this->proizvoditel_model->delete_proizvoditel($id);
         redirect('admin/brands');
+
+        }
     }//edit
 
 }

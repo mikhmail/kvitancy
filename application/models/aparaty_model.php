@@ -126,6 +126,17 @@ class Aparaty_model extends CI_Model {
 		$this->db->where('id_aparat', $id);
 		$this->db->delete('aparaty'); 
 	}
+
+    function check_kvitancy($id_aparat){
+
+        $this->db->select('id_kvitancy');
+        $this->db->from('kvitancy');
+        $this->db->where('id_aparat', $id_aparat);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
  
 }
 ?>

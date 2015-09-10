@@ -124,6 +124,16 @@ class vid_remonta_model extends CI_Model {
 		$this->db->where('id_remonta', $id);
 		$this->db->delete('vid_remonta'); 
 	}
- 
+
+    function check_kvitancy($id_remonta){
+
+        $this->db->select('id_kvitancy');
+        $this->db->from('kvitancy');
+        $this->db->where('id_remonta', $id_remonta);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
 }
 ?>

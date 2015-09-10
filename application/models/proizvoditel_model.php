@@ -124,6 +124,17 @@ class Proizvoditel_model extends CI_Model {
 		$this->db->where('id_proizvod', $id);
 		$this->db->delete('proizvoditel'); 
 	}
+
+    function check_kvitancy($id_proizvod){
+
+        $this->db->select('id_kvitancy');
+        $this->db->from('kvitancy');
+        $this->db->where('id_proizvod', $id_proizvod);
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+    }
  
 }
 ?>
