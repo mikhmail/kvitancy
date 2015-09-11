@@ -160,19 +160,24 @@ echo form_close();
 <div class="row-fluid">
 <div class="span12">
 
-<?php if (count($soglasovat) > 0) {?>
-<p><b>Позвонить клиенту:</b>
+<?php
+if (count($soglasovat) > 0) {
 
-    <? foreach ($soglasovat as $arr_gog) {?>
+/* Сортировка масива по статусам */
+$row_global_sost = array ();
+foreach ($soglasovat as $key=>$row) { //arr63
+    $row_global_sost[$row["name_sost"]][] = $row;
+}
 
-        <!--
-					<a href="<?=site_url("tickets")?>/view/<?=$arr_gog['id_kvitancy']?>/">&nbsp;<b>&laquo;</b><?=$arr_gog['aparat_name']?> <?=$arr_gog['name_proizvod']?> <?=$arr_gog['model']?><b>&raquo;</b>&nbsp;&nbsp;&nbsp;</a>
-					-->
-        <a href="#" id="kvit_pokaz_call_<?=$arr_gog['id_kvitancy']?>" name="<?=$arr_gog['id_kvitancy']?>">&nbsp;<b>&laquo;</b><?=$arr_gog['aparat_name']?> <?=$arr_gog['name_proizvod']?> <?=$arr_gog['model']?><b>&raquo;</b>&nbsp;&nbsp;&nbsp;</a>
+foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
-    <?}
-    }?>
-</p>
+    <p><b><?=$name_sost?>:</b>
+
+        <? foreach ($row_sost as $arr_gog) {?>
+
+            <a href="#" id="kvit_pokaz_call_<?=$arr_gog['id_kvitancy']?>" name="<?=$arr_gog['id_kvitancy']?>">&nbsp;<b>&laquo;</b><?=$arr_gog['aparat_name']?> <?=$arr_gog['name_proizvod']?> <?=$arr_gog['model']?><b>&raquo;</b>&nbsp;&nbsp;&nbsp;</a>
+
+        <?}}}?>
 
 
 <?php if (count($my_kvitancy) > 0 ) {?>

@@ -60,12 +60,18 @@ class Kvitancy_model extends CI_Model {
     {	
         $call = $this->sost_remonta_model->get_sost_remonta_call();
 
-		$this->db->select('kvitancy.id_kvitancy, kvitancy.model, aparaty.aparat_name, proizvoditel.name_proizvod');
+        foreach($call as $key => $status){
+
+        }
+
+		$this->db->select('kvitancy.id_kvitancy, kvitancy.model, aparaty.aparat_name, proizvoditel.name_proizvod, sost_remonta.id_sost, sost_remonta.name_sost');
 		
 		$this->db->join('aparaty', 'kvitancy.id_aparat = aparaty.id_aparat');
 		$this->db->join('proizvoditel', 'kvitancy.id_proizvod = proizvoditel.id_proizvod');
-		
-		$this->db->from('kvitancy');
+        $this->db->join('sost_remonta', 'kvitancy.id_sost = sost_remonta.id_sost');
+
+
+        $this->db->from('kvitancy');
 		$this->db->where_in('kvitancy.id_sost',  $call);
 
 
