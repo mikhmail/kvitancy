@@ -44,9 +44,7 @@
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>profile">Профиль</a>
                                 </li>
-                                <li>
-                                    <a tabindex="-1" href="<?php echo base_url(); ?>login/cache_delete">Очистка кеша</a>
-                                </li>
+
                                 <li class="divider"></li>
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>admin/logout">Выход</a>
@@ -113,7 +111,11 @@
                                     <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
                                         <a href="<?php echo base_url(); ?>admin/tickets">Заявки-Админ</a>
                                     </li>
+                                    <li class="divider"></li>
 
+                                    <li>
+                                        <a tabindex="-1" href="<?php echo base_url(); ?>login/cache_delete">Очистка кеша</a>
+                                    </li>
 
                                 </ul>
                             </li>

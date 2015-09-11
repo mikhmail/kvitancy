@@ -49,4 +49,37 @@ class Core {
 			return false;
 		}
 	}
+	
+		function write_autoload() {
+
+		// Config path
+		$template_path 	= 'config/autoload.php';
+		$output_path 	= '../application/config/autoload.php';
+
+		// Open the file
+		$database_file = file_get_contents($template_path);
+
+		
+
+		// Write the new autoload.php file
+		$handle = fopen($output_path,'w+');
+
+		// Chmod the file, in case the user forgot
+		@chmod($output_path,0777);
+
+		// Verify file permissions
+		if(is_writable($output_path)) {
+
+			// Write the file
+			if(fwrite($handle,$database_file)) {
+				return true;
+			} else {
+				return false;
+			}
+
+		} else {
+			return false;
+		}
+	}
+	
 }

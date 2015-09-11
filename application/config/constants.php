@@ -39,3 +39,13 @@ define('FOPEN_READ_WRITE_CREATE_STRICT',		'x+b');
 
 /* End of file constants.php */
 /* Location: ./application/config/constants.php */
+
+/*
+|--------------------------------------------------------------------------
+| CMS Root Folder
+|--------------------------------------------------------------------------
+|
+| Defines the absolute path to the root folder of cms canvas
+|
+*/
+define('CMS_ROOT', dirname(BASEPATH) . '/');

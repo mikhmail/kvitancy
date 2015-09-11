@@ -26,6 +26,8 @@ if($_POST) {
 			$message = $core->show_message('error',"The database tables could not be created, please verify your settings.");
 		} else if ($core->write_config($_POST) == false) {
 			$message = $core->show_message('error',"The database configuration file could not be written, please chmod application/config/database.php file to 777");
+		} else if ($core->write_autoload() == false) {
+			$message = $core->show_message('error',"The autoload configuration file could not be written, please chmod application/config/autoload.php file to 777");
 		}
 
 		// If no errors, redirect to registration page
@@ -34,7 +36,7 @@ if($_POST) {
       $redir .= "://".$_SERVER['HTTP_HOST'];
       $redir .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
       $redir = str_replace('install/','',$redir); 
-			header( 'Location: ' . $redir . 'tickets' ) ;
+			header( 'Location: ' . $redir . 'login' ) ;
 		}
 
 	}

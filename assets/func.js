@@ -276,9 +276,14 @@ $( "#search_user" ).keyup(function() {
                                         $('#user_list').html(data);
 									
 										}else if (inputString.length > 2 && data ==  0) {
-								
-										$('#user_box').hide();
-										}
+
+                                        $('#user_box').hide();
+
+                                        $('#user_list').html('Nothing found ...');
+
+										}else{
+                                    $('#user_list').html('Nothing found ...');
+                                }
                         });
                 }
 });

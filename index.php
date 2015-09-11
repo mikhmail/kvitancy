@@ -154,6 +154,31 @@ if (defined('ENVIRONMENT'))
 		exit("Your system folder path does not appear to be set correctly. Please open the following file and correct this: ".pathinfo(__FILE__, PATHINFO_BASENAME));
 	}
 
+
+/*
+ *--------------------------------------------------------------------------
+ * Base URL
+ *--------------------------------------------------------------------------
+ *
+ * Attemtps to figure the root web address
+ *
+ */
+if (isset($_SERVER['HTTP_HOST']))
+{
+    $base_url = isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on' ? 'https' : 'http';
+    $base_url .= '://'. $_SERVER['HTTP_HOST'];
+    $base_url .= str_replace(basename($_SERVER['SCRIPT_NAME']), '', $_SERVER['SCRIPT_NAME']);
+}
+else
+{
+    $base_url = 'http://localhost/';
+}
+
+define('BASE_URL', $base_url);
+
+unset($base_url);
+
+
 /*
  * -------------------------------------------------------------------
  *  Now that we know the path, set the main path constants
@@ -200,6 +225,7 @@ if (defined('ENVIRONMENT'))
  *
  */
 require_once BASEPATH.'core/CodeIgniter.php';
+
 
 /* End of file index.php */
 /* Location: ./index.php */
