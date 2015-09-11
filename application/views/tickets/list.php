@@ -155,6 +155,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
 <?
 echo form_close();
+if(count($count_kvitancys)>=1) {
 ?>
 
 <div class="row-fluid">
@@ -203,18 +204,20 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
     <?php
 
-    /* Сортировка масива по аппаратам */
-    $row_global1 = array ();
-    foreach ($aparats as $a=>$row) { //arr63
-        $row_global1[$row["aparat_name"]][] = $row;
-    }
 
-    /* Сортировка масива по состояниям */
-    $row_global2 = array ();
-    foreach ($aparats as $a=>$row) { //arr63
-        $row_global2[$row["name_sost"]][] = $row;
-    }
+    if(count($aparats) >= 1) {
+        /* Сортировка масива по аппаратам */
+        $row_global1 = array ();
+        foreach ($aparats as $a=>$row) { //arr63
+            $row_global1[$row["aparat_name"]][] = $row;
+        }
 
+        /* Сортировка масива по состояниям */
+        $row_global2 = array ();
+        foreach ($aparats as $a=>$row) { //arr63
+            $row_global2[$row["name_sost"]][] = $row;
+        }
+    }
     ?>
 
 
@@ -236,7 +239,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
     </div>
 
-    <?if(count($count_kvitancys)>=1) {?>
+
 
 
 
@@ -256,10 +259,6 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
 
-    <?}else{?>
-        <div class="span12">По вашему запросу ничего не найдено</div>
-    <?}?>
-
     <div class="row-fluid">
     <div class="span2">
         <ul class="nav nav-tabs nav-stacked">
@@ -272,7 +271,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
         </ul>
     </div>
 
-    <? if (count($kvitancys)>=1) {?>
+
     <div class="span10">
 
 
@@ -464,9 +463,6 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
         </div>
 
-        <?}else{?>
-            <div class="span12"></div>
-        <?}?>
 
 
 
@@ -477,21 +473,31 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
         </div>
 
     </div>
+<?}?>
+
+    </div>
+
+<div class="row-fluid">
 
 
 
 
-        <!-- Модальное окно d-->
-        <div id="modal_form">
-            <h1>Новая заявка в ремонт</h1>
-            <span id="modal_close">X</span>
+    <!-- Модальное окно d-->
+    <div id="modal_form">
 
+
+        <div class="modal-header">
+            <button id="modal_close" data-dismiss="modal" class="close" type="button">×</button>
+            <h1>Новая заявка</h1>
+        </div>
+
+        <div class="modal-body">
             <form name="new_kvit_form" action="" method="post">
 
 
                 <div class="span12">
                     <div class="span6">
-					
+
                         <input class="" type="text" id="inputApparat" onkeyup="look_apparat(this.value);" placeholder="Поиск аппарата">
 
                         <?php echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="" id="id_aparat" required="required" title="Аппарат"');?>
@@ -499,7 +505,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
                         <a href="#" class="btn margin-bottom-10px" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
-						
+
 					<span name="aparat_span" style="display: none;">
 						<input class="" name="add_aparat_name" id="add_aparat_name" type="text" placeholder="Введите название аппарата">
 						<input class="btn margin-bottom-10px" name="submit" id="add_aparat" type="button" value="Добавить аппарат" >
@@ -591,25 +597,39 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
                 <div class="span12">
-                    <input name="user_id" id="user_id" type="hidden">
-                    <input autocomplete="off" name="fam" id="fam" type="text" placeholder="Фамилия" required="required" title="Фамилия">
-                    <input autocomplete="off" name="imya" id="imya" type="text" placeholder="Имя" required="required" title="Имя">
-                    <input autocomplete="off" name="otch" id="otch" type="text" placeholder="Отчество" title="Отчество">
-
-                    <input autocomplete="off" name="phone" id="phone" type="text" placeholder="Телефон" required="required" title="Телефон">
-                    <input autocomplete="off" name="mail" id="mail" type="text" placeholder="E-MAIL">
-                    <input autocomplete="off" name="adres" name="adres" type="text" placeholder="Адрес">
+                    <div class="span4">
+                        <input name="user_id" id="user_id" type="hidden">
+                        <input autocomplete="off" name="fam" id="fam" type="text" placeholder="Фамилия" required="required" title="Фамилия">
+                    </div>
+                    <div class="span4">
+                        <input autocomplete="off" name="imya" id="imya" type="text" placeholder="Имя" required="required" title="Имя">
+                    </div>
+                    <div class="span4">
+                        <input autocomplete="off" name="otch" id="otch" type="text" placeholder="Отчество" title="Отчество">
+                    </div>
+                </div>
+                <div class="span12">
+                    <div class="span4">
+                        <input autocomplete="off" name="phone" id="phone" type="text" placeholder="Телефон" required="required" title="Телефон">
+                    </div>
+                    <div class="span4">
+                        <input autocomplete="off" name="mail" id="mail" type="text" placeholder="E-MAIL">
+                    </div>
+                    <div class="span4">
+                        <input autocomplete="off" name="adres" name="adres" type="text" placeholder="Адрес">
+                    </div>
                 </div>
 
 
                 <div class="span12">
-                    <input type="button" name="new_kvit" value="Добавить" class="btn btn-primary">
+                    <input type="button" name="new_kvit" value="Добавить" class="btn btn-info">
                 </div>
             </form>
-
-
-
         </div>
-        <div id="overlay"></div>
+
+
     </div>
+    <div id="overlay"></div>
+
+</div>
 </div>

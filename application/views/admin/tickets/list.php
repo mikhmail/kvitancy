@@ -33,7 +33,7 @@
 				
             $options_manufacturers = array();    
             
-			
+if(count($manufacturers) >= 1){
 			foreach ($manufacturers as $array) {
               foreach ($array as $key => $value) {
                 $options_manufacturers[$key] = $key;
@@ -115,7 +115,7 @@
 			?>      
             </tbody>
           </table>
-
+<?}?>
           <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
 
       </div>

@@ -28,7 +28,11 @@
             $attributes = array('class' => 'form-inline', 'id' => 'myform');
            
             //save the columns names in a array that we will use as filter         
-            $options_groups_dostupa = array();    
+            $options_groups_dostupa = array();
+
+        if (count($groups_dostupa) >= 1) {
+
+
             foreach ($groups_dostupa as $array) {
               foreach ($array as $key => $value) {
                 $options_groups_dostupa[$key] = $key;
@@ -84,7 +88,7 @@
               ?>      
             </tbody>
           </table>
-
+<?}?>
           <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
 
       </div>
@@ -93,9 +97,9 @@
         <div class="row">
             <div class="span12 columns">
                 <div class="well">
-                    <p><b>Администраторы</b> - могут все.</p>
-                    <p><b>Менеджеры</b> - могут все в своем сервисе.</p>
-                    <p><b>Администраторы</b> - могут все в своем сервисе.</p>
+                    <p><b>Администраторы</b> - имеют полный доступ во всех сервисных центрах.</p>
+                    <p><b>Менеджеры</b> - имеют ограниченный доступ в своем сервисном центре.</p>
+                    <p><b>Механики</b> - имеют ограниченный доступ в своем сервисном центре.</p>
 
                 </div>
                 </div>

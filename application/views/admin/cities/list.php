@@ -28,7 +28,10 @@
             $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
            
             //save the columns names in a array that we will use as filter         
-            $options_manufacturers = array();    
+            $options_manufacturers = array();
+
+        if (count($manufacturers) >= 1) {
+
             foreach ($manufacturers as $array) {
               foreach ($array as $key => $value) {
                 $options_manufacturers[$key] = $key;
@@ -80,7 +83,7 @@
               ?>      
             </tbody>
           </table>
-
+<?}?>
           <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
 
       </div>
