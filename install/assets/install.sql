@@ -189,20 +189,6 @@ CREATE TABLE IF NOT EXISTS `ci_sessions` (
   KEY `last_activity_idx` (`last_activity`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
---
--- Дамп данных таблицы `ci_sessions`
---
-
-INSERT INTO `ci_sessions` (`session_id`, `ip_address`, `user_agent`, `last_activity`, `user_data`) VALUES
-('7820334f0d198a2880008ff27bd404aa', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 1441970234, 'a:26:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:9:"user_name";s:5:"admin";s:8:"id_group";s:1:"1";s:10:"user_id_sc";s:1:"1";s:12:"is_logged_in";b:1;s:17:"show_call_tickets";s:1:"1";s:15:"show_my_tickets";s:1:"1";s:13:"search_string";N;s:5:"order";N;s:10:"order_type";N;s:11:"limit_start";i:20;s:9:"limit_end";i:0;s:4:"date";N;s:10:"start_date";N;s:8:"end_date";N;s:11:"id_mechanic";N;s:9:"id_aparat";N;s:11:"id_proizvod";N;s:7:"id_sost";a:8:{i:0;s:1:"1";i:1;s:1:"3";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"9";i:5;s:2:"10";i:6;s:2:"11";i:7;s:1:"2";}s:5:"id_sc";b:0;s:11:"id_kvitancy";N;s:10:"id_remonta";N;s:23:"groups_dostupa_selected";N;s:22:"search_string_selected";N;s:20:"manufacture_selected";N;}'),
-('62b2d2f5846629505df672c31a7e5788', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 1441963927, 'a:23:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:9:"user_name";s:5:"admin";s:8:"id_group";s:1:"1";s:10:"user_id_sc";s:1:"1";s:12:"is_logged_in";b:1;s:17:"show_call_tickets";s:1:"1";s:15:"show_my_tickets";s:1:"1";s:13:"search_string";N;s:5:"order";s:11:"id_kvitancy";s:10:"order_type";s:4:"Desc";s:11:"limit_start";i:20;s:9:"limit_end";i:0;s:4:"date";N;s:10:"start_date";N;s:8:"end_date";N;s:11:"id_mechanic";N;s:9:"id_aparat";N;s:11:"id_proizvod";N;s:7:"id_sost";a:8:{i:0;s:1:"1";i:1;s:1:"3";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"9";i:5;s:2:"10";i:6;s:2:"11";i:7;s:1:"2";}s:5:"id_sc";b:0;s:11:"id_kvitancy";N;s:10:"id_remonta";N;}'),
-('80e67e282638e2de3ded0019fc7918da', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 1441965102, 'a:23:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:9:"user_name";s:5:"admin";s:8:"id_group";s:1:"1";s:10:"user_id_sc";s:1:"1";s:12:"is_logged_in";b:1;s:17:"show_call_tickets";s:1:"1";s:15:"show_my_tickets";s:1:"1";s:13:"search_string";N;s:5:"order";s:11:"id_kvitancy";s:10:"order_type";s:4:"Desc";s:11:"limit_start";i:20;s:9:"limit_end";i:0;s:4:"date";N;s:10:"start_date";N;s:8:"end_date";N;s:11:"id_mechanic";N;s:9:"id_aparat";N;s:11:"id_proizvod";N;s:7:"id_sost";a:8:{i:0;s:1:"1";i:1;s:1:"3";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"9";i:5;s:2:"10";i:6;s:2:"11";i:7;s:1:"2";}s:5:"id_sc";b:0;s:11:"id_kvitancy";N;s:10:"id_remonta";N;}'),
-('0e2bfcb0192629ee6a75d305947c2196', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 1441965515, 'a:23:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:9:"user_name";s:5:"admin";s:8:"id_group";s:1:"1";s:10:"user_id_sc";s:1:"1";s:12:"is_logged_in";b:1;s:17:"show_call_tickets";s:1:"1";s:15:"show_my_tickets";s:1:"1";s:13:"search_string";N;s:5:"order";s:11:"id_kvitancy";s:10:"order_type";s:4:"Desc";s:11:"limit_start";i:20;s:9:"limit_end";i:0;s:4:"date";N;s:10:"start_date";N;s:8:"end_date";N;s:11:"id_mechanic";N;s:9:"id_aparat";N;s:11:"id_proizvod";N;s:7:"id_sost";a:8:{i:0;s:1:"1";i:1;s:1:"3";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"9";i:5;s:2:"10";i:6;s:2:"11";i:7;s:1:"2";}s:5:"id_sc";b:0;s:11:"id_kvitancy";N;s:10:"id_remonta";N;}'),
-('5cdf3f7ae5d5308917c1244527557a30', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 1441965994, 'a:23:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:9:"user_name";s:5:"admin";s:8:"id_group";s:1:"1";s:10:"user_id_sc";s:1:"1";s:12:"is_logged_in";b:1;s:17:"show_call_tickets";s:1:"1";s:15:"show_my_tickets";s:1:"1";s:13:"search_string";N;s:5:"order";s:11:"id_kvitancy";s:10:"order_type";s:4:"Desc";s:11:"limit_start";i:20;s:9:"limit_end";i:0;s:4:"date";N;s:10:"start_date";N;s:8:"end_date";N;s:11:"id_mechanic";N;s:9:"id_aparat";N;s:11:"id_proizvod";N;s:7:"id_sost";a:8:{i:0;s:1:"1";i:1;s:1:"3";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"9";i:5;s:2:"10";i:6;s:2:"11";i:7;s:1:"2";}s:5:"id_sc";b:0;s:11:"id_kvitancy";N;s:10:"id_remonta";N;}'),
-('ecfe4ace3dfad2c6346f009bef159013', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 1441959617, ''),
-('580e0ca4041f21e04b6b3a266a3d0f9b', '127.0.0.1', 'Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.85 Safari/537.36', 1441961868, 'a:26:{s:9:"user_data";s:0:"";s:7:"user_id";s:1:"3";s:9:"user_name";s:5:"admin";s:8:"id_group";s:1:"1";s:10:"user_id_sc";s:1:"1";s:12:"is_logged_in";b:1;s:17:"show_call_tickets";s:1:"1";s:15:"show_my_tickets";s:1:"1";s:13:"search_string";N;s:5:"order";s:11:"id_kvitancy";s:10:"order_type";s:4:"Desc";s:11:"limit_start";i:20;s:9:"limit_end";i:0;s:4:"date";N;s:10:"start_date";N;s:8:"end_date";N;s:11:"id_mechanic";N;s:9:"id_aparat";N;s:11:"id_proizvod";N;s:7:"id_sost";a:8:{i:0;s:1:"1";i:1;s:1:"3";i:2;s:1:"4";i:3;s:1:"5";i:4;s:1:"9";i:5;s:2:"10";i:6;s:2:"11";i:7;s:1:"2";}s:5:"id_sc";b:0;s:11:"id_kvitancy";N;s:10:"id_remonta";N;s:20:"manufacture_selected";N;s:22:"search_string_selected";N;s:23:"groups_dostupa_selected";N;}');
-
--- --------------------------------------------------------
 
 --
 -- Структура таблицы `comments`
@@ -234,7 +220,7 @@ CREATE TABLE IF NOT EXISTS `goroda` (
 --
 
 INSERT INTO `goroda` (`gorod_id`, `gorod`) VALUES
-(6, 'Киев');
+(1, 'Киев');
 
 -- --------------------------------------------------------
 
@@ -813,7 +799,7 @@ CREATE TABLE IF NOT EXISTS `service_centers` (
 --
 
 INSERT INTO `service_centers` (`id_sc`, `id_gorod`, `site`, `name_sc`, `adres_sc`, `phone_sc`, `kontakt_sc`, `mail_sc`, `rab_sc`) VALUES
-(1, 6, 'www.fixinka.com', 'Фиксинка', 'г.Київ. ул.Крещатик 17, оф.1,', '', '', 'support@fixinka.com', 'пн.-пт. с8 до 20, сб 11-16, нд. - вихідний');
+(1, 1, 'www.fixinka.com', 'Фиксинка', 'г.Київ. ул.Крещатик 17, оф.1,', '', '', 'support@fixinka.com', 'пн.-пт. с8 до 20, сб 11-16, нд. - вихідний');
 
 -- --------------------------------------------------------
 
