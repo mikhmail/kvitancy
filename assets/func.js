@@ -219,7 +219,8 @@ $.post("ajx/add_kvitancy", {		user_id:user_id,
 // END of добавить NEW квитанцию
 
 
-	
+//добавить аппарат на лету
+
 $("#add_aparat").click(function(){
 		app = $("#add_aparat_name").val();
 			
@@ -239,7 +240,10 @@ $("#add_aparat").click(function(){
 		});				
 	});
 
-$("#add_proizvod").click(function(){
+
+//добавить бренд на лету
+
+    $("#add_proizvod").click(function(){
 		app = $("#add_proizvod_name").val();
 			
 			$.post("ajx/add_proizvod", {proizvod_name:app})

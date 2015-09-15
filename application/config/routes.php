@@ -113,6 +113,8 @@ $route['tickets/printing/(:any)'] = 'tickets/printing/$1';
 $route['tickets/printing_check/(:any)'] = 'tickets/printing_check/$1';
 $route['tickets/view/(:any)'] = 'tickets/view/$1';
 $route['tickets/show/(:any)'] = 'tickets/show/$1';
+$route['tickets/update_client'] = 'tickets/update_client';
+$route['tickets/update_client/(:any)'] = 'tickets/update_client/$1';
 
 
 $route['tickets/(:any)'] = 'tickets/index/$1'; //$1 = page number

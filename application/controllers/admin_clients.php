@@ -248,12 +248,12 @@ class Admin_clients extends CI_Controller {
     /**
     * Update item by his id
     * @return void
-    */
+*/
     public function update()
     {
-        //product id 
+        //product id
         $id = $this->uri->segment(4);
-  
+
         //if save button was clicked, get the data sent via post
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
@@ -268,15 +268,15 @@ class Admin_clients extends CI_Controller {
             //if the form has passed through the validation
             if ($this->form_validation->run())
             {
-    
+
                 $data_to_store = array(
                     'fam' => $this->input->post('fam'),
-					'imya' => $this->input->post('imya'),
-					'otch' => $this->input->post('otch'),
-					'id_group' => $this->input->post('id_group'),
-					'mail' => $this->input->post('mail'),
-					'phone' => $this->input->post('phone'),
-					'adres' => $this->input->post('adres'),
+                    'imya' => $this->input->post('imya'),
+                    'otch' => $this->input->post('otch'),
+                    'id_group' => $this->input->post('id_group'),
+                    'mail' => $this->input->post('mail'),
+                    'phone' => $this->input->post('phone'),
+                    'adres' => $this->input->post('adres'),
                     'id_sc' => $this->input->post('id_sc')
 
 
@@ -285,9 +285,9 @@ class Admin_clients extends CI_Controller {
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->clients_model->update_clients($id, $data_to_store) == TRUE){
-				
-                //var_dump($data_to_store);
-				    $this->session->set_flashdata('flash_message', 'updated');
+
+                    //var_dump($data_to_store);
+                    $this->session->set_flashdata('flash_message', 'updated');
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
@@ -300,14 +300,14 @@ class Admin_clients extends CI_Controller {
         //if we are updating, and the data did not pass trough the validation
         //the code below wel reload the current data
 
-		$data['gorod'] = $this->gorod_model->get_gorod();    
-		
-        //product data 
+        $data['gorod'] = $this->gorod_model->get_gorod();
+
+        //product data
         $data['manufacture'] = $this->clients_model->get_clients_by_id($id);
         $data['sc'] = $this->service_centers_model->get_service_centers();
         //load the view
         $data['main_content'] = 'admin/clients/edit';
-        $this->load->view('includes/template', $data);            
+        $this->load->view('includes/template', $data);
 
     }//update
 

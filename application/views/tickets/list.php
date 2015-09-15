@@ -379,21 +379,20 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                         <span>
                                         <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info margin-bottom-10px" target="_blank">Редактировать</a>
+                                        <a href="<?=site_url()?>tickets/update_client/<?=$row['user_id']?>" class="btn btn-info margin-bottom-10px" target="_blank">Редактировать клиента</a>
+
                                         <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать</a>
                                         <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать чека</a>
                                         </span>
 
                                         <div class="btn-group pull-right open">
-                                            <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
+                                            <button data-toggle="dropdown" class="btn dropdown-toggle">Печать <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
                                                 <li>
-                                                    <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info margin-bottom-10px" target="_blank">Редактировать</a>
+                                                    <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" target="_blank">Квитанции</a>
                                                 </li>
                                                 <li>
-                                                    <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать</a>
-                                                </li>
-                                                <li>
-                                                    <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать чека</a>
+                                                    <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" target="_blank">Чека</a>
                                                 </li>
                                             </ul>
                                         </div>

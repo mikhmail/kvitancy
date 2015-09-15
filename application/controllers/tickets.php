@@ -1023,6 +1023,65 @@ class Tickets extends CI_Controller
 
     }
 
+    public function update_client()
+    {
+        //product id
+        $id = $this->uri->segment(3);
+
+        //if save button was clicked, get the data sent via post
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+            //form validation
+            $this->form_validation->set_rules('fam', 'fam', 'required');
+            $this->form_validation->set_rules('imya', 'imya', 'required');
+            $this->form_validation->set_rules('phone', 'phone', 'required|numeric');
+            $this->form_validation->set_rules('id_sc', 'id_sc', 'required|numeric');
+
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+            //if the form has passed through the validation
+            if ($this->form_validation->run())
+            {
+
+                $data_to_store = array(
+                    'fam' => $this->input->post('fam'),
+                    'imya' => $this->input->post('imya'),
+                    'otch' => $this->input->post('otch'),
+                    'id_group' => $this->input->post('id_group'),
+                    'mail' => $this->input->post('mail'),
+                    'phone' => $this->input->post('phone'),
+                    'adres' => $this->input->post('adres'),
+                    'id_sc' => $this->input->post('id_sc')
+
+
+
+
+                );
+                //if the insert has returned true then we show the flash message
+                if($this->clients_model->update_clients($id, $data_to_store) == TRUE){
+
+                    //var_dump($data_to_store);
+                    $this->session->set_flashdata('flash_message', 'updated');
+                }else{
+                    $this->session->set_flashdata('flash_message', 'not_updated');
+                }
+                redirect('tickets/update_client/'.$id.'');
+
+            }//validation run
+
+        }
+
+        $data['gorod'] = $this->gorod_model->get_gorod();
+
+        //product data
+        $data['manufacture'] = $this->clients_model->get_clients_by_id($id);
+        $data['sc'] = $this->service_centers_model->get_service_centers();
+        //load the view
+        $data['main_content'] = 'tickets/update_client';
+        $this->load->view('includes/template', $data);
+
+    }//update
+
 }
 
 ?>
