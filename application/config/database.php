@@ -2,9 +2,9 @@
 
 
 // The following values will probably need to be changed.
-$db['default']['username'] = "";
+$db['default']['username'] = "root";
 $db['default']['password'] = "";
-$db['default']['database'] = "";
+$db['default']['database'] = "kvitancy";
 
 
 

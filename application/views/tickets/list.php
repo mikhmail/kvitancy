@@ -11,7 +11,12 @@
             <?php echo ucfirst($this->uri->segment(2));?>
           </a>
 
-          <li class="pull-right"><a  href="#" class="btn btn-success" id="new-order-button"><i class="icon-plus"></i>Новая квитанция</a></li>
+
+          <li class="pull-right">
+              <div class="btn-group">
+                  <a href="#" id="new-order-button"><button class="btn btn-success">Новая квитанция <i class="icon-plus icon-white"></i></button></a>
+              </div>
+          </li>
       </ul>
 
 
@@ -377,6 +382,22 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать</a>
                                         <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать чека</a>
                                         </span>
+
+                                        <div class="btn-group pull-right open">
+                                            <button data-toggle="dropdown" class="btn dropdown-toggle">Tools <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li>
+                                                    <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info margin-bottom-10px" target="_blank">Редактировать</a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать</a>
+                                                </li>
+                                                <li>
+                                                    <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать чека</a>
+                                                </li>
+                                            </ul>
+                                        </div>
+
                                     </div>
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">
                                         <table class="table table-bordered table-condensed">
