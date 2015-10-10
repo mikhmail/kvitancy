@@ -185,7 +185,7 @@ class Ajx extends CI_Controller {
 		$ret = $this->db->insert('comments', $data);
 		if ($ret) {
 		
-		$arr = $this->kvitancy_model->get_comment_by_id(mysql_insert_id());
+		$arr = $this->kvitancy_model->get_comment_by_id($this->db->insert_id());
 		foreach($arr as $rowc)
 				{	echo '<li id=li_' . $rowc['id_comment'] . '>' . $rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka ' . $rowc['user_name'] . ' пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment'] . '</b></font>';
 					
