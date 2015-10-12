@@ -469,6 +469,15 @@ service.rab_sc
         $query = $this->db->get();
         return $query->result_array();
     }
- 
+
+    public function get_works ($id_kvitancy){
+        $this->db->select('*');
+        $this->db->from('works');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
+
 }
 ?>

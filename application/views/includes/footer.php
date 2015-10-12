@@ -6,6 +6,6 @@
             </div>
 		</div>
 	</div>
-    <div id="ajaxloader"><img class="ajax-loader" src="/images/ajax-loader.gif"></div>
+    <div id="ajaxloader"><img class="ajax-loader" src="<?php echo base_url(); ?>images/ajax-loader.gif"></div>
 </body>
 </html>

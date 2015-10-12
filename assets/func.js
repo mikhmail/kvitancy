@@ -51,6 +51,29 @@ var id = this.name;
         delete id;
     });
 
+
+// добавить выполенную работу
+    $('a[id^=work_add_]').click(function(){
+        var arr = this.id.split('_');
+        var id_kvitancy = parseInt(arr[2]);
+
+        var name = $.trim($('#work_name_'+id_kvitancy+'').val());
+        var cost = $.trim($('#work_cost_'+id_kvitancy+'').val());
+        var user_id = $.trim($("#work_resp_"+id_kvitancy+" option:selected").val());
+
+        $("div[name='work']").find("input,select,textarea").each(function () {
+            if ( ! $(this).val() ) { alert ('Надо выбрать значение "'+$(this).attr("placeholder")+'".'); $(this).focus(); exit; }
+        });
+
+        $.post("ajx/add_work", {id_kvitancy:id_kvitancy, name:name, cost:cost, user_id:user_id})
+            .done(function(data) {
+
+                $("#table_work_"+id_kvitancy+"").append(data);
+
+            });
+    });
+
+
 // добавить комментарий	
 $('input[name=comment]').click(function(){
 var comment = $('textarea[name='+this.id+']').val();

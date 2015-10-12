@@ -6,7 +6,9 @@ class Ajx extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('kvitancy_model');
-	}
+        $this->load->model('users_model');
+
+    }
 	
 	public function __destruct() {
     $this->db->close();
@@ -165,6 +167,36 @@ class Ajx extends CI_Controller {
 
         $this->db->where('id_kvitancy', $id_kvitancy);
         $ret = $this->db->update('kvitancy', $data);
+    }
+
+
+    function add_work ()
+    {
+
+        $date = date("Y-m-d H:i:s");
+
+        if ($this->input->post('name')) {
+            $data = array(
+                'date_added' => $date,
+                'name' => $this->input->post('name'),
+                'user_id' => $this->input->post('user_id'),
+                'id_kvitancy' => $this->input->post('id_kvitancy'),
+                'cost' => $this->input->post('cost'),
+                'id_sc' => $this->session->userdata['user_id']
+            );
+
+            $ret = $this->db->insert('works', $data);
+            if ($ret) {
+                $user = $this->users_model->get_users_by_id ($this->input->post('user_id'));
+            echo '<tr>
+                     <td>' . $user[0]['user_name'] . '</td>
+                     <td>' . $this->input->post('name') . '</td>
+                     <td>' . $this->input->post('cost') . '</td>
+                     <td>' . $date . '</td>
+                 </tr>';
+            }
+        }
+        else echo 'Надо ввести значение';
     }
 
 

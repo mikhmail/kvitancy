@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
 
       <ul class="breadcrumb" style="margin-bottom: 20px;">
         <li>
@@ -338,14 +338,10 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                             </a>
                             <div style="display: none; margin-bottom: 20px;">
                                 <ul class="nav nav-tabs">
-                                    <li class="active">
-                                        <a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">
-
-                                            Опции
-                                        </a></li>
+                                    <li class="active"><a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">Опции</a></li>
                                     <li><a href="#tab2_<?=$row['id_kvitancy']?>" data-toggle="tab">Информация</a></li>
                                     <li><a href="#tab3_<?=$row['id_kvitancy']?>" data-toggle="tab">Комментарии <sup class="badge"><?=count($comments)?></sup></a></li>
-
+                                    <li><a href="#tab4_<?=$row['id_kvitancy']?>" data-toggle="tab">Ремонт/Запчасти</a></li>
                                 </ul>
                                 <div class="tab-content">
                                     <div style="margin-bottom: 20px;" class="tab-pane active" id="tab1_<?=$row['id_kvitancy']?>">
@@ -384,7 +380,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать</a>
                                         <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать чека</a>
                                         </span>
-
+									<!--
                                         <div class="btn-group pull-right open">
                                             <button data-toggle="dropdown" class="btn dropdown-toggle">Печать <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
@@ -396,7 +392,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 </li>
                                             </ul>
                                         </div>
-
+									-->
                                     </div>
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">
                                         <table class="table table-bordered table-condensed">
@@ -464,12 +460,124 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                                     <textarea name="comment_<?=$row['id_kvitancy']?>"></textarea>
                                                     <input class="btn btn-info btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
-
                                                 </td>
                                             </tr>
                                         </table>
-
                                     </div>
+
+                                    <div style="margin-bottom: 20px;" class="tab-pane" id="tab4_<?=$row['id_kvitancy']?>">
+
+                                        <div class="row-fluid" name="work" style="margin-bottom: 20px;">
+                                            <div class="span10">
+                                                <div class="pull-left"><b>Выполненные работы</b></div>
+                                                </div>
+
+                                                    <?
+                                                    $options_id_responsible = array('' => "Выбрать исполнителя");
+
+                                                    foreach ($resp as $array) {
+                                                        $options_id_responsible[$array['id']] = $array['user_name'];
+                                                    }
+
+                                                    if ($row['id_responsible']) {
+                                                        $id_responsible_selected = $row['id_responsible'];
+                                                    }else{
+                                                        $id_responsible_selected='';
+                                                    }?>
+
+                                            <div class="span10">
+                                                <table table table-bordered table-condensed id="table_work_<?=$row['id_kvitancy']?>">
+
+                                                    <thead>
+                                                    <tr>
+                                                        <th>
+                                                            <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=work_resp_' . $row['id_kvitancy'] . ' class="" placeholder="Исполнитель"')?>
+                                                        </th>
+                                                        <th><input type="text" id="work_name_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Наименование работы" name="title" class=""></th>
+                                                        <th><input type="text" id="work_cost_<?=$row['id_kvitancy']?>" autocomplete="off" name="price" placeholder="Цена" class=""></th>
+                                                        <th>
+                                                            <div class="btn-group margin-bottom-10px">
+                                                                <a href="#" name="work" id="work_add_<?=$row['id_kvitancy']?>"><button class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button></a>
+                                                            </div>
+                                                        </th>
+
+                                                    </tr>
+                                                    </thead>
+                                                <?
+                                                $works = $this->kvitancy_model->get_works($row['id_kvitancy']);
+                                                foreach($works as $work){
+                                                    $user = $this->users_model->get_users_by_id ($work['user_id']);
+                                                    ?>
+                                                    <tr>
+                                                        <td><?=$user[0]['user_name']?></td>
+                                                        <td><?=$work['name']?></td>
+                                                        <td><?=$work['cost']?></td>
+                                                        <td><?=$work['date_added']?></td>
+                                                    </tr>
+                                                <?}?>
+                                                </table>
+                                            </div>
+
+                                        </div>
+
+                                        <legend>
+                                        </legend>
+
+                                        <div class="row-fluid" style="margin-bottom: 20px;">
+                                            <div class="span10">
+                                                <div class="pull-left"><b>Установленные запчасти</b></div>
+                                            </div>
+
+
+                                            <div class="span10">
+                                                <table table table-bordered table-condensed>
+
+                                                    <thead>
+                                                    <tr>
+                                                        <th><input type="text" autocomplete="off" placeholder="Название" class=""></th>
+                                                        <th><input type="text" autocomplete="off" placeholder="Количество" class=""></th>
+                                                        <th><input type="text" autocomplete="off" placeholder="Себестоимость" class=""></th>
+                                                        <th><input type="text" autocomplete="off" placeholder="Цена" class=""></th>
+
+                                                        <th>
+                                                            <div class="btn-group margin-bottom-10px">
+                                                                <a href="#" id="new-order-button"><button class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button></a>
+                                                            </div>
+                                                        </th>
+
+                                                    </tr>
+                                                    </thead>
+
+                                                    <tr>
+                                                        <td>Чип 620-1а-21</td>
+                                                        <td>1</td>
+                                                        <td>50</td>
+                                                        <td>60</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>Чип 620-1а-21</td>
+                                                        <td>1</td>
+                                                        <td>50</td>
+                                                        <td>60</td>
+                                                    </tr>
+
+                                                </table>
+                                            </div>
+
+                                            <div class="span10">
+                                                <div class="pull-left">
+                                                    <div class="btn-group margin-bottom-10px">
+                                                        <a href="#" id="new-order-button"><button class="btn btn-success">Выбрать со склада</button></a>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+
+                                        <!--end remont -->
+
+                                        </div>
 
                                 </div>
                             </div>
