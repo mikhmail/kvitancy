@@ -199,6 +199,16 @@ class Ajx extends CI_Controller {
         else echo 'Надо ввести значение';
     }
 
+    function delete_work ()
+    {
+
+        $this->db->delete('works', array('id' => $this->input->post('id_work')));
+        if ($this->db->affected_rows() > 0) return TRUE;
+
+        return FALSE;
+    }
+
+
 
     function add_comment ()
 	{	

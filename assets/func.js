@@ -73,6 +73,18 @@ var id = this.name;
             });
     });
 
+// удалить выполенную работу
+    $('button[id^=work_dell_]').click(function(){
+        var id_work = this.name;
+//alert (id_work);exit;
+        $.post("ajx/delete_work", {id_work:id_work})
+            .done(function(data) {
+                $("#work_tr_"+id_work+"").remove();
+
+            });
+    });
+
+
 
 // добавить комментарий	
 $('input[name=comment]').click(function(){

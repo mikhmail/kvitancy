@@ -374,11 +374,19 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class=""')?>
 
                                         <span>
-                                        <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="btn btn-info margin-bottom-10px" target="_blank">Редактировать</a>
-                                        <a href="<?=site_url()?>tickets/update_client/<?=$row['user_id']?>" class="btn btn-info margin-bottom-10px" target="_blank">Редактировать клиента</a>
+                                        <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="" target="_blank">
+                                            <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать</button>
+                                        </a>
+                                        <a href="<?=site_url()?>tickets/update_client/<?=$row['user_id']?>" class="" target="_blank">
+                                            <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать клиента</button>
+                                        </a>
 
-                                        <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать</a>
-                                        <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="btn btn-danger margin-bottom-10px" target="_blank">Печать чека</a>
+                                        <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="" target="_blank">
+                                            <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать</button>
+                                        </a>
+                                        <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="" target="_blank">
+                                            <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать чека</button>
+                                        </a>
                                         </span>
 									<!--
                                         <div class="btn-group pull-right open">
@@ -459,7 +467,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
                                                     <textarea name="comment_<?=$row['id_kvitancy']?>"></textarea>
-                                                    <input class="btn btn-info btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
+                                                    <input class="btn btn-success btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -500,6 +508,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                                 <a href="#" name="work" id="work_add_<?=$row['id_kvitancy']?>"><button class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button></a>
                                                             </div>
                                                         </th>
+                                                        <th></th>
 
                                                     </tr>
                                                     </thead>
@@ -508,11 +517,16 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 foreach($works as $work){
                                                     $user = $this->users_model->get_users_by_id ($work['user_id']);
                                                     ?>
-                                                    <tr>
+                                                    <tr id="work_tr_<?=$work['id']?>">
                                                         <td><?=$user[0]['user_name']?></td>
                                                         <td><?=$work['name']?></td>
                                                         <td><?=$work['cost']?></td>
                                                         <td><?=$work['date_added']?></td>
+                                                        <td>
+                                                            <div class="btn-group margin-bottom-10px">
+                                                                <button name="<?=$work['id']?>" id="work_dell_<?=$work['id']?>" class="btn btn-danger"><i class="icon-remove icon-white"></i></button>
+                                                            </div>
+                                                        </td>
                                                     </tr>
                                                 <?}?>
                                                 </table>
