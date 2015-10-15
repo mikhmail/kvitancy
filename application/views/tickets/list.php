@@ -501,10 +501,10 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                             <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=work_resp_' . $row['id_kvitancy'] . ' class="" placeholder="Исполнитель"')?>
                                                         </th>
                                                         <th><input type="text" id="work_name_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Наименование работы" name="title" class=""></th>
-                                                        <th><input type="text" id="work_cost_<?=$row['id_kvitancy']?>" autocomplete="off" name="price" placeholder="Цена" class=""></th>
+                                                        <th><input type="number" min=0 step="0.1" id="work_cost_<?=$row['id_kvitancy']?>" autocomplete="off" name="price" placeholder="Цена" class=""></th>
                                                         <th>
                                                             <div class="btn-group margin-bottom-10px">
-                                                                <a href="#" name="work" id="work_add_<?=$row['id_kvitancy']?>"><button class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button></a>
+                                                                <button id="work_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
                                                             </div>
                                                         </th>
                                                         <th></th>
@@ -556,9 +556,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 </select>
                                                 <input type="number" min=0 step="0.1" name="store_cost_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Себестоимость" class="span2">
                                                 <input type="number" min=0 step="0.1" name="store_price_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Цена" class="span2">
-                                                <input type="text" name="store_text_<?=$row['id_kvitancy']?>"autocomplete="off" placeholder="Тип, цвет, размер, и тд и тп">
+                                                <input type="text" name="store_text_<?=$row['id_kvitancy']?>"autocomplete="off" placeholder="Описание:тип, цвет, размер, и тд">
                                                 <div class="btn-group margin-bottom-10px">
-                                                    <a href="#" name="" id="parts_add_<?=$row['id_kvitancy']?>"><button class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button></a>
+                                                    <button id="parts_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
                                                 </div>
                                             </div>
 

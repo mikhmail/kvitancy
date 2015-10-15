@@ -53,7 +53,7 @@ var id = this.name;
 
 
 // добавить запчасть
-    $('a[id^=parts_add_]').click(function(){
+    $('button[id^=parts_add_]').click(function(){
 
         var arr = this.id.split('_');
         var id_kvitancy = parseInt(arr[2]);
@@ -175,18 +175,20 @@ var id = this.name;
 // удалить установленную запчасть
     $('button[id^=part_dell_]').click(function(){
         var id_part = this.name;
-//alert (id_part);exit;
-        $.post("ajx/update_part", {id_part:id_part})
-            .done(function(data) {
-                $("#part_tr_"+id_part+"").remove();
 
-            });
+        if (confirm('Хотите удалить запчасть? \nЗапчасть не будет удалена и будет возвращена на склад.')) {
+            $.post("ajx/update_part", {id_part:id_part})
+                .done(function(data) {
+                    $("#part_tr_"+id_part+"").remove();
+
+                });
+         }
     });
 
 
 
 // добавить выполенную работу
-    $('a[id^=work_add_]').click(function(){
+    $('button[id^=work_add_]').click(function(){
         var arr = this.id.split('_');
         var id_kvitancy = parseInt(arr[2]);
 
@@ -197,6 +199,8 @@ var id = this.name;
         $("div[name='work']").find("input,select,textarea").each(function () {
             if ( ! $(this).val() ) { alert ('Надо выбрать значение "'+$(this).attr("placeholder")+'".'); $(this).focus(); exit; }
         });
+
+        if(cost < 0) { alert ('Стоимость не может быть меньше 0'); $('#work_cost_'+id_kvitancy+'').focus();exit; }
 
         $.post("ajx/add_work", {id_kvitancy:id_kvitancy, name:name, cost:cost, user_id:user_id})
             .done(function(data) {
@@ -209,12 +213,14 @@ var id = this.name;
 // удалить выполенную работу
     $('button[id^=work_dell_]').click(function(){
         var id_work = this.name;
-//alert (id_work);exit;
+    if (confirm('Хотите выполенную работу? \nВосстановить будет невозможно.'))
+    {
         $.post("ajx/delete_work", {id_work:id_work})
             .done(function(data) {
                 $("#work_tr_"+id_work+"").remove();
 
             });
+    }
     });
 
 
