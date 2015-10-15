@@ -4,8 +4,9 @@
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/kvitancy_model.php" afterPath="$PROJECT_DIR$/application/models/kvitancy_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,21 +32,48 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="519" column="86" selection-start="24709" selection-end="24709" vertical-scroll-proportion="-8.163935" vertical-offset="10920" max-vertical-offset="17204">
+            <state line="586" column="91" selection-start="30184" selection-end="30184" vertical-scroll-proportion="-9.131147" vertical-offset="12335" max-vertical-offset="17776">
               <folding>
-                <marker date="1444730925002" expanded="true" signature="26395:26586" placeholder="..." />
-                <marker date="1444730925002" expanded="true" signature="26456:26586" placeholder="..." />
-                <marker date="1444730925002" expanded="true" signature="26513:26570" placeholder="..." />
-                <marker date="1444730925002" expanded="true" signature="27122:27194" placeholder="..." />
+                <element signature="n#style#0;n#sup#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#td#5;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+                <marker date="1444904334588" expanded="true" signature="28711:28890" placeholder="..." />
+                <marker date="1444904334588" expanded="true" signature="28771:28890" placeholder="..." />
+                <marker date="1444904334588" expanded="true" signature="28828:28885" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users_model.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
+      <file leaf-file-name="ajx.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="36" selection-start="2368" selection-end="2368" vertical-scroll-proportion="-0.0" vertical-offset="2112" max-vertical-offset="5654">
+            <state line="181" column="22" selection-start="4692" selection-end="4692" vertical-scroll-proportion="0.45901638" vertical-offset="3534" max-vertical-offset="15730">
+              <folding>
+                <marker date="1444905718718" expanded="true" signature="5690:5947" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="97" column="26" selection-start="2407" selection-end="2416" vertical-scroll-proportion="-26.935484" vertical-offset="1299" max-vertical-offset="3146">
               <folding />
             </state>
           </provider>
@@ -54,19 +82,8 @@
       <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="0" selection-start="2265" selection-end="2265" vertical-scroll-proportion="-17.6" vertical-offset="1276" max-vertical-offset="9966">
+            <state line="179" column="34" selection-start="6143" selection-end="6143" vertical-scroll-proportion="0.0" vertical-offset="3498" max-vertical-offset="13288">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajx.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="205" column="56" selection-start="5700" selection-end="5700" vertical-scroll-proportion="0.6168033" vertical-offset="3908" max-vertical-offset="11484">
-              <folding>
-                <marker date="1444731706140" expanded="true" signature="5193:5450" placeholder="..." />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +91,7 @@
       <file leaf-file-name="kvitancy_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="473" column="29" selection-start="11125" selection-end="11125" vertical-scroll-proportion="-20.838709" vertical-offset="9760" max-vertical-offset="10736">
+            <state line="491" column="52" selection-start="11726" selection-end="11726" vertical-scroll-proportion="-25.806452" vertical-offset="10002" max-vertical-offset="11044">
               <folding />
             </state>
           </provider>
@@ -83,7 +100,7 @@
       <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="536" column="79" selection-start="17884" selection-end="17884" vertical-scroll-proportion="-0.0" vertical-offset="11792" max-vertical-offset="24024">
+            <state line="501" column="28" selection-start="16592" selection-end="17092" vertical-scroll-proportion="-17.741936" vertical-offset="10472" max-vertical-offset="24024">
               <folding />
             </state>
           </provider>
@@ -146,13 +163,13 @@
         <option value="$PROJECT_DIR$/install/index.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/controllers/admin_clients.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/update_client.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
-        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
-        <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
+        <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
         <option value="$PROJECT_DIR$/assets/func.js" />
+        <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
       </list>
     </option>
   </component>
@@ -358,7 +375,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="config" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -473,9 +490,9 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.14322917" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.23333333" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3942857" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3391473" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3942857" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -507,7 +524,7 @@
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="185" />
+      <option name="time" value="196" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -519,16 +536,6 @@
     <entry file="file://$PROJECT_DIR$/application/views/admin/users/edit.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="92" column="26" selection-start="0" selection-end="5007" vertical-scroll-proportion="0.28664497" vertical-offset="1848" max-vertical-offset="3080" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="70" column="27" selection-start="1788" selection-end="1803" vertical-scroll-proportion="0.44489384" vertical-offset="1100" max-vertical-offset="2442" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="127" column="36" selection-start="2900" selection-end="2931" vertical-scroll-proportion="0.6393443" vertical-offset="2170" max-vertical-offset="3146" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/profile.php">
@@ -729,40 +736,9 @@
         <state line="301" column="0" selection-start="11188" selection-end="11188" vertical-scroll-proportion="0.5177453" vertical-offset="6126" max-vertical-offset="7546" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="28" selection-start="4760" selection-end="4760" vertical-scroll-proportion="-17.032259" vertical-offset="2024" max-vertical-offset="3872" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/update_client.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="12" selection-start="270" selection-end="270" vertical-scroll-proportion="-6.387097" vertical-offset="0" max-vertical-offset="2904" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="536" column="79" selection-start="17884" selection-end="17884" vertical-scroll-proportion="0.0" vertical-offset="11792" max-vertical-offset="24024">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="473" column="29" selection-start="11125" selection-end="11125" vertical-scroll-proportion="-20.838709" vertical-offset="9760" max-vertical-offset="10736">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="519" column="86" selection-start="24709" selection-end="24709" vertical-scroll-proportion="-8.163935" vertical-offset="10920" max-vertical-offset="17204">
-          <folding>
-            <marker date="1444730925002" expanded="true" signature="26395:26586" placeholder="..." />
-            <marker date="1444730925002" expanded="true" signature="26456:26586" placeholder="..." />
-            <marker date="1444730925002" expanded="true" signature="26513:26570" placeholder="..." />
-            <marker date="1444730925002" expanded="true" signature="27122:27194" placeholder="..." />
-          </folding>
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
@@ -772,18 +748,81 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/admin.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="44" column="8" selection-start="720" selection-end="720" vertical-scroll-proportion="0.23770492" vertical-offset="736" max-vertical-offset="3146">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/config/routes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="57" column="38" selection-start="1837" selection-end="1869" vertical-scroll-proportion="0.35591507" vertical-offset="902" max-vertical-offset="3872">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/login.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="97" column="26" selection-start="2407" selection-end="2416" vertical-scroll-proportion="-26.935484" vertical-offset="1299" max-vertical-offset="3146">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="501" column="28" selection-start="16592" selection-end="17092" vertical-scroll-proportion="-17.741936" vertical-offset="10472" max-vertical-offset="24024">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="491" column="52" selection-start="11726" selection-end="11726" vertical-scroll-proportion="-25.806452" vertical-offset="10002" max-vertical-offset="11044">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="586" column="91" selection-start="30184" selection-end="30184" vertical-scroll-proportion="-9.131147" vertical-offset="12335" max-vertical-offset="17776">
+          <folding>
+            <element signature="n#style#0;n#sup#0;n#a#0;n#li#1;n#ul#0;n#div#0;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#1;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#td#5;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#3;n#div#0;n#div#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#6;n#form#0;n#div#1;n#div#0;n#div#3;n#div#3;n#div#0;n#!!top" expanded="true" />
+            <marker date="1444904334588" expanded="true" signature="28711:28890" placeholder="..." />
+            <marker date="1444904334588" expanded="true" signature="28771:28890" placeholder="..." />
+            <marker date="1444904334588" expanded="true" signature="28828:28885" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/assets/func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="0" selection-start="2265" selection-end="2265" vertical-scroll-proportion="-17.6" vertical-offset="1276" max-vertical-offset="9966">
+        <state line="179" column="34" selection-start="6143" selection-end="6143" vertical-scroll-proportion="0.0" vertical-offset="3498" max-vertical-offset="13288">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="205" column="56" selection-start="5700" selection-end="5700" vertical-scroll-proportion="0.6168033" vertical-offset="3908" max-vertical-offset="11484">
+        <state line="181" column="22" selection-start="4692" selection-end="4692" vertical-scroll-proportion="0.45901638" vertical-offset="3534" max-vertical-offset="15730">
           <folding>
-            <marker date="1444731706140" expanded="true" signature="5193:5450" placeholder="..." />
+            <marker date="1444905718718" expanded="true" signature="5690:5947" placeholder="..." />
           </folding>
         </state>
       </provider>

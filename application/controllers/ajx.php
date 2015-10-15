@@ -5,6 +5,11 @@ class Ajx extends CI_Controller {
 	function __construct()
 	{
 		parent::__construct();
+
+        if(!$this->session->userdata('user_id')){
+                $this->load->view('login');
+        }
+
 		$this->load->model('kvitancy_model');
         $this->load->model('users_model');
 
@@ -19,7 +24,7 @@ class Ajx extends CI_Controller {
 			public function clearData($data, $type="s"){
 					switch($type){
 						case "s":
-							$a = mysql_real_escape_string(trim(htmlspecialchars($data)));
+							$a = mysqli_real_escape_string($this->db->conn_id,trim(htmlspecialchars($data)));
 							return str_replace('\r\n','<br>',$a);
 						case "i":
 							return (int)$data;
@@ -168,6 +173,24 @@ class Ajx extends CI_Controller {
         $this->db->where('id_kvitancy', $id_kvitancy);
         $ret = $this->db->update('kvitancy', $data);
     }
+
+
+
+    function update_part ()
+    {
+
+        $data = array(
+            'update_time' => date("j-m-Y, H:i:s"),
+            'update_user' => $this->session->userdata('user_id'),
+            'id_kvitancy' => '',
+            'status' => 1,
+
+
+        );
+        $this->db->where('id', $this->input->post('id_part'));
+        $ret = $this->db->update('store', $data);
+    }
+
 
 
     function add_work ()
@@ -353,8 +376,71 @@ function look_apparat () {
 			}
 		}
 	}
-}	
-	
+}
+
+
+    function look_aparat_p () {
+        // Существует ли строка POST запроса 'queryString'?
+        if ($this->input->post('queryString')) {
+            $queryString = $this->input->post('queryString');
+            $id_kvitancy = $this->input->post('id_kvitancy');
+
+    $kvitancy = $this->kvitancy_model->get_kvitancy(
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                '',
+                $id_kvitancy,
+                '',
+                $count = null
+            );
+
+            // Если длинна строки больше чем 0? Там что то есть
+            if(strlen($queryString) > 0) {
+                // Запускаем запрос: используем LIKE '$queryString%'
+                // Знак процентов(%)это wild-card, в моем примере о странах работает так...
+                // $queryString = 'Uni'; если строка запроса начаниется на ...
+                // Returned data = 'United States, United Kindom'; должно возвратиться ..
+
+                //$row = Filter::select( "Select *  From aparaty where aparat_name LIKE UPPER('".$_POST['queryString']."%') order by aparat_name asc" );
+
+                $this->db->select('*');
+                $this->db->from('aparat_p');
+                $this->db->where('id_aparat', $kvitancy[0]['id_aparat']);
+                $this->db->like('title', $queryString, 'after');
+                $this->db->order_by('title', 'Acs');
+                $query = $this->db->get();
+
+                $row = array();
+                if ($query->num_rows() > 0) {
+                    $row = $query->result_array();
+                }
+
+                if($row) {
+
+                    $div = "\r\n<div  style='position:absolute; background:#fff; overflow:auto; height:99px; width:300px; z-index:1; margin-top:7px; margin-left:0px; border:1px solid #5aa8cc; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; padding:6px; ' id='apparat_box' >\r\n\r\n<div  style='position:relative; cursor:pointer; color:#def0f8; font:bold 16px Arial; height:15px; width:46px; z-index:2; margin:2px 0 -15px 230px; border:0px solid red; text-shadow:#162b35 2px 2px 3px;' onclick=\"document.getElementById('apparat_box').style.display='none';\">закрыть</div>\r\n<ul class='".__FILE__."'>";
+                    foreach ($row as $a=>$row9)
+                    {
+                        $div .= '<li style=\'padding:8px 0 0 0; cursor:pointer; height:14px; font-size:12px;\' onclick=\'fill_apparat_p("'.$row9["id_aparat_p"].'__'.$row9["title"].'__'.$id_kvitancy.'")\'>
+									&nbsp;'.$row9["title"].' &nbsp;</li>';
+                    }
+                    $div .= "</ul></div>";
+                    echo $div;
+
+                }
+            }
+        }
+    }
+
 function look_proizvod () {
 	    // Существует ли строка POST запроса 'queryString'?
     if ($this->input->post('queryString')) {
@@ -396,7 +482,8 @@ function look_proizvod () {
 			}
 		}
 	}
-}	
+}
+
 
 
 
@@ -453,6 +540,111 @@ function search_user () {
 	}
 }
 
+
+
+function add_store(){
+    if ($this->input->post()) {
+
+    $count = $this->input->post('count');
+    $data = array(
+        'name' => $this->clearData($this->input->post('text')),
+        'id_aparat' => $this->input->post('id_aparat'),
+        'id_aparat_p' => $this->input->post('id_aparat_p'),
+        'id_proizvod' => '',
+        'model' => '',
+        'serial' => '',
+        'vid' => '',
+        'id_sost' => $this->input->post('id_sost'),
+        'user_id' => $this->session->userdata['user_id'],
+        'date_priemka' => date("Y-m-j"),
+        'cost' => $this->input->post('cost'),
+        'price' => $this->input->post('price'),
+        'status' => 0,
+        'id_kvitancy' => $this->input->post('id_kvitancy'),
+        'update_user' => $this->session->userdata['user_id'],
+        'update_time' => date("j-m-Y, H:i:s"),
+        'id_resp' => $this->session->userdata['user_id'],
+        'id_from' => '',
+        'id_where' => $this->session->userdata['user_id_sc']
+    );
+
+        $ok ='';
+        for ($i=1;$i<=$count;$i++){
+            $this->db->insert('store', $data);
+                $ok = $this->db->insert_id();
+        }
+        if ($ok) {
+
+            if($this->input->post('id_sost') == 1) {$sost = 'Новый';} else $sost = 'Б.У.';
+            echo '<tr>
+                     <td>' . $this->clearData($this->input->post('name')) . '</td>
+                     <td>' . $this->clearData($this->input->post('text')) . '</td>
+                     <td>' . $sost . '</td>
+                     <td>' . $this->input->post('cost') . '</td>
+                     <td>' . $this->input->post('price') . '</td>
+                     <td>' . $this->session->userdata['user_name'] . '</td>
+                     <td>' . date('j-m-Y, H:i:s') . '</td>
+
+                     <td></td>
+                 </tr>';
+        }
+
+    }
+
+}
+
+
+
+    function check_aparat_p_by_id () {
+
+
+        $name = $this->input->post('name');
+
+
+        $this->db->select('*');
+        $this->db->from('aparat_p');
+        $this->db->where('title', $name);
+        $query = $this->db->get();
+
+        $rez = $query->result_array();
+        if( count($rez) > 0 ) {
+            echo 1;
+        } else echo 0;
+
+    }
+
+
+// проверкам аппарат_p на занятость
+    function check_app_p($aparat_p) {
+
+//$sql = Filter::select("SELECT aparat_name FROM aparaty WHERE aparat_name='".mysql_escape_string($app)."'");
+        $this->db->select('*');
+        $this->db->from('aparat_p');
+        $this->db->where('title', $aparat_p);
+        $query = $this->db->get();
+
+        return $query->result_array();
+
+    }
+
+//добавить aparat_p
+    function add_aparat_p () {
+        if ($this->input->post('aparat_p')) {
+            $check_app = $this->check_app_p($this->clearData($this->input->post('aparat_p')));
+            if( count($check_app) > 0 ) {
+
+                echo '0';
+            } else {
+
+                $aparat_p = array('title' => $this->input->post('aparat_p'), 'id_aparat' => $this->input->post('id_aparat'));
+
+                if ( $this->db->insert('aparat_p', $aparat_p) ) $add_apparat_id = $this->db->insert_id();
+
+                if ($add_apparat_id) echo $add_apparat_id;
+            }
+        }
+    }
+
 // проверкам аппарат на занятость
 function check_app($app) {
 
@@ -465,6 +657,7 @@ function check_app($app) {
 	return $query->result_array();
 				
 }
+
 
 function add_aparat () {
 	if ($this->input->post('aparat_name')) {

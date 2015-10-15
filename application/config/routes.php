@@ -51,9 +51,9 @@ $route['login/validate_credentials'] = 'login/validate_credentials';
 $route['admin'] = 'admin/index';
 //$route['admin/signup'] = 'admin/signup';
 //$route['admin/create_member'] = 'admin/create_member';
-$route['admin/login'] = 'admin/index';
-$route['admin/logout'] = 'admin/logout';
-$route['admin/cache_delete'] = 'admin/cache_delete';
+$route['admin/login'] = 'login/index';
+$route['admin/logout'] = 'login/logout';
+$route['admin/cache_delete'] = 'login/cache_delete';
 
 $route['admin/login/validate_credentials'] = 'admin/validate_credentials';
 

@@ -52,6 +52,139 @@ var id = this.name;
     });
 
 
+// добавить запчасть
+    $('a[id^=parts_add_]').click(function(){
+
+        var arr = this.id.split('_');
+        var id_kvitancy = parseInt(arr[2]);
+        //alert(id_kvitancy);exit;
+
+        var id_aparat_p = $(' input[name=select_parts_'+id_kvitancy+'] ').attr('id');
+        var name = $.trim($(' input[name=select_parts_'+id_kvitancy+'] ').attr('title'));
+        var id_aparat = $.trim($(' input[name=select_parts_'+id_kvitancy+'] ').attr('alt'));
+        var text = $.trim($(' input[name=store_text_'+id_kvitancy+'] ').attr('value'));
+
+        var id_sost = $('select[name=store_id_sost_'+id_kvitancy+'] option:selected').val();
+        var cost = $.trim($(' input[name=store_cost_'+id_kvitancy+'] ').attr('value'));
+        var price = $.trim($(' input[name=store_price_'+id_kvitancy+'] ').attr('value'));
+        var count = $.trim($(' input[name=store_count_'+id_kvitancy+'] ').attr('value'));
+
+
+        $("div[name='parts']").find("input,select,textarea").each(function () {
+            if ( ! $(this).val() ) { alert ('Надо выбрать значение "'+$(this).attr("placeholder")+'".'); $(this).focus(); exit; }
+        });
+
+        if(count < 1) { alert ('Количество не может быть меньше 1'); $(' input[name=store_count_'+id_kvitancy+'] ').focus();exit; }
+
+        if(!id_aparat_p && name){
+            $.post("ajx/add_aparat_p", {aparat_p:name, id_aparat:id_aparat})
+                .done(function(data) {
+                    if(data == 0) {
+                        alert('Название запчасти уже есть в базе, выберите из списка.');
+                        $(' input[name=select_parts_'+id_kvitancy+'] ').focus();
+                    }else{
+
+                            $.post("ajx/add_store", {
+                                text:text,
+                                name:name,
+                                id_aparat:id_aparat,
+                                id_aparat_p:data,
+                                id_sost:id_sost,
+                                cost:cost,
+                                price:price,
+                                id_kvitancy:id_kvitancy,
+                                count:count
+                            })
+                                .done(function(data) {
+                                    $("div[name='parts']").find("input,select,textarea").each(function () {
+                                        $(this).attr('value', '');
+                                    });
+                                    for (var i = 1; i <= count; i++) {
+                                        $("#table_store_"+id_kvitancy+"").append(data);
+                                    }
+                            });
+                    }
+                });
+
+    }else{
+            if(id_aparat_p){
+                $.post("ajx/add_store", {
+                    text:text,
+                    name:name,
+                    id_aparat:id_aparat,
+                    id_aparat_p:id_aparat_p,
+                    id_sost:id_sost,
+                    cost:cost,
+                    price:price,
+                    id_kvitancy:id_kvitancy,
+                    count:count
+                })
+                    .done(function(data) {
+                        $("div[name='parts']").find("input,select,textarea").each(function () {
+                            $(this).attr('value', '');
+                        });
+                        for (var i = 1; i <= count; i++) {
+                            $("#table_store_"+id_kvitancy+"").append(data);
+                        }
+                });
+          }
+      }
+
+
+// end of добавить запчасть
+});
+
+
+// поиск aparat_p при добавлении запчасти.
+    $('input[name^=select_parts_]').keyup(function() {
+
+        $(this).attr('id', '');
+        $(this).attr('title', '');
+
+        var id_aparat = $('#id_sc option:selected').val();
+        var arr = this.name.split('_');
+        var id_kvitancy = parseInt(arr[2]);
+        var inputString = $(this).val();
+        $(this).attr('title', $(this).val());
+
+        //alert(id_kvitancy);exit;
+
+        if(inputString.length > 10) {
+            $('#parts_box').hide();
+        } else {
+            $.post("ajx/look_aparat_p", {queryString: ""+inputString+"", id_kvitancy: id_kvitancy}, function(data){
+                if (data.length > 2 && data !=  0) {
+
+                    $('#parts_box').show();
+                    $('#parts_list').html(data);
+
+                }else if (inputString.length > 2 && data ==  0) {
+
+                    $('#parts_box').hide();
+
+                    //$('#parts_list').html('Nothing found ...');
+
+                }else{
+                    //$('#parts_list').html('Nothing found ...');
+                }
+            });
+        }
+    });
+// END of поиск aparat_p при добавлении запчасти
+
+// удалить установленную запчасть
+    $('button[id^=part_dell_]').click(function(){
+        var id_part = this.name;
+//alert (id_part);exit;
+        $.post("ajx/update_part", {id_part:id_part})
+            .done(function(data) {
+                $("#part_tr_"+id_part+"").remove();
+
+            });
+    });
+
+
+
 // добавить выполенную работу
     $('a[id^=work_add_]').click(function(){
         var arr = this.id.split('_');
@@ -295,7 +428,12 @@ $("#add_aparat").click(function(){
 		
 			}
 		});				
-	});	
+	});
+
+
+
+
+
 
 
 
@@ -362,6 +500,19 @@ jQuery.fn.clear = function()
     return this;
 };
 
+function fill_apparat_p(thisValue) {
+
+    var parts=new Array();
+    var response = thisValue;
+
+    parts = response.split('__');
+   // $('input[name=select_parts_'+parts[2]+']').removeAttr('value');
+    $('input[name=select_parts_'+parts[2]+']').val(parts[1]);
+    $('input[name=select_parts_'+parts[2]+']').attr('title', parts[1]);
+    $('input[name=select_parts_'+parts[2]+']').attr('id', parts[0]);
+
+    setTimeout("$('#parts_box').hide();", 200);
+}
 
 function fill_user(thisValue) {
 			

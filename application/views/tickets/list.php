@@ -495,7 +495,6 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                             <div class="span10">
                                                 <table table table-bordered table-condensed id="table_work_<?=$row['id_kvitancy']?>">
-
                                                     <thead>
                                                     <tr>
                                                         <th>
@@ -517,7 +516,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 foreach($works as $work){
                                                     $user = $this->users_model->get_users_by_id ($work['user_id']);
                                                     ?>
-                                                    <tr id="work_tr_<?=$work['id']?>">
+                                                        <tr id="work_tr_<?=$work['id']?>">
                                                         <td><?=$user[0]['user_name']?></td>
                                                         <td><?=$work['name']?></td>
                                                         <td><?=$work['cost']?></td>
@@ -537,43 +536,70 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <legend>
                                         </legend>
 
-                                        <div class="row-fluid" style="margin-bottom: 20px;">
+                                        <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
                                             <div class="span10">
                                                 <div class="pull-left"><b>Установленные запчасти</b></div>
                                             </div>
 
 
                                             <div class="span10">
-                                                <table table table-bordered table-condensed>
+                                                <input type="text" name="select_parts_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Поиск запчасти" value="" title="" id="" alt="<?=$row['id_aparat']?>">
+                                                <div id="parts_box" style="display: none;">
+                                                    <div id="parts_list">
+                                                    </div>
+                                                </div>
+                                                <input maxlength="2" size="2" type="number" min=1 name="store_count_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Количество" class="span2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                                <select name="store_id_sost_<?=$row['id_kvitancy']?>" class="span2">
+                                                    <option value="" selected>-выбрать-</option>
+                                                    <option value="1">Новый</option>
+                                                    <option value="0">Б.У.</option>
+                                                </select>
+                                                <input type="number" min=0 step="0.1" name="store_cost_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Себестоимость" class="span2">
+                                                <input type="number" min=0 step="0.1" name="store_price_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Цена" class="span2">
+                                                <input type="text" name="store_text_<?=$row['id_kvitancy']?>"autocomplete="off" placeholder="Тип, цвет, размер, и тд и тп">
+                                                <div class="btn-group margin-bottom-10px">
+                                                    <a href="#" name="" id="parts_add_<?=$row['id_kvitancy']?>"><button class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button></a>
+                                                </div>
+                                            </div>
 
+                                            <div class="span10">
+                                                <table table table-bordered table-condensed id="table_store_<?=$row['id_kvitancy']?>">
                                                     <thead>
                                                     <tr>
-                                                        <th><input type="text" autocomplete="off" placeholder="Название" class=""></th>
-                                                        <th><input type="text" autocomplete="off" placeholder="Количество" class=""></th>
-                                                        <th><input type="text" autocomplete="off" placeholder="Себестоимость" class=""></th>
-                                                        <th><input type="text" autocomplete="off" placeholder="Цена" class=""></th>
+                                                        <th>Название</th>
+                                                        <th>Описание</th>
+                                                        <th>Состояне</th>
 
-                                                        <th>
-                                                            <div class="btn-group margin-bottom-10px">
-                                                                <a href="#" id="new-order-button"><button class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button></a>
-                                                            </div>
-                                                        </th>
-
+                                                        <th>Себестоимость</th>
+                                                        <th>Цена</th>
+                                                        <th>Кто</th>
+                                                        <th>Когда</th>
+                                                        <th></th>
                                                     </tr>
                                                     </thead>
 
-                                                    <tr>
-                                                        <td>Чип 620-1а-21</td>
-                                                        <td>1</td>
-                                                        <td>50</td>
-                                                        <td>60</td>
-                                                    </tr>
-                                                    <tr>
-                                                        <td>Чип 620-1а-21</td>
-                                                        <td>1</td>
-                                                        <td>50</td>
-                                                        <td>60</td>
-                                                    </tr>
+                                                    <?
+                                                    $store = $this->kvitancy_model->get_store($row['id_kvitancy']);
+                                                    foreach($store as $parts){
+                                                        $user = $this->users_model->get_users_by_id ($parts['user_id']);
+                                                        $aparat_p = $this->kvitancy_model->get_aparat_p_by_id ($parts['id_aparat_p']);
+                                                        ?>
+                                                        <tr id="part_tr_<?=$parts['id']?>">
+                                                            <td><?=$aparat_p[0]['title']?></td>
+                                                            <td><?=$parts['name']?></td>
+                                                            <td><? if($parts['id_sost'] == 1) {echo 'Новый';} else echo 'Б.У.';?></td>
+                                                            <td><?=$parts['cost']?></td>
+                                                            <td><?=$parts['price']?></td>
+                                                            <td><?=$user[0]['user_name']?></td>
+                                                            <td><?=$parts['date_priemka']?></td>
+
+                                                            <td>
+                                                                <div class="btn-group margin-bottom-10px">
+                                                                    <button name="<?=$parts['id']?>" id="part_dell_<?=$parts['id']?>" class="btn btn-danger"><i class="icon-remove icon-white"></i></button>
+                                                                </div>
+                                                            </td>
+                                                        </tr>
+                                                    <?}?>
 
                                                 </table>
                                             </div>

@@ -478,6 +478,20 @@ service.rab_sc
         return $query->result_array();
     }
 
+    public function get_store ($id_kvitancy){
+        $this->db->select('*');
+        $this->db->from('store');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 
+    public function get_aparat_p_by_id ($id_aparat_p){
+        $this->db->select('title');
+        $this->db->from('aparat_p');
+        $this->db->where('id_aparat_p', $id_aparat_p);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
 }
 ?>
