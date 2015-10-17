@@ -84,7 +84,7 @@ class Kvitancy_model extends CI_Model {
 
 	public function get_my_kvitancy ($user_id, $id_sc=null)
     {	
-
+    if($user_id){
 		$this->db->select('kvitancy.id_kvitancy, kvitancy.model, aparaty.aparat_name, proizvoditel.name_proizvod');
 		
 		$this->db->join('aparaty', 'kvitancy.id_aparat = aparaty.id_aparat');
@@ -97,7 +97,8 @@ class Kvitancy_model extends CI_Model {
         $query = $this->db->get();
         //return($this->db->last_query());die;
 
-		return $query->result_array(); 
+		return $query->result_array();
+    }
     }
 	
     

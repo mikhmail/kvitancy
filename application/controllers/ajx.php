@@ -564,8 +564,10 @@ function add_store(){
         'update_user' => $this->session->userdata['user_id'],
         'update_time' => date("j-m-Y, H:i:s"),
         'id_resp' => $this->session->userdata['user_id'],
-        'id_from' => '',
-        'id_where' => $this->session->userdata['user_id_sc']
+        'id_from' => $this->session->userdata['user_id_sc'],
+        'id_where' => $this->session->userdata['user_id_sc'],
+        'id_sc' => $this->session->userdata['user_id_sc']
+
     );
 
         $ok ='';

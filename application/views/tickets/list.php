@@ -307,7 +307,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     <tr>
                         <td>
                             <a href="#" onclick="anichange(this); return false">
-                                <table class="table table-bordered table-condensed">
+                                <table class="table table-condensed">
                                     <tr>
                                         <td class="span1">
 
@@ -336,7 +336,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     </tr>
                                 </table>
                             </a>
-                            <div style="display: none; margin-bottom: 20px;">
+                            <div style="display: none; margin-bottom: 20px; padding: 10px; border: 2px dashed #3a87ad;">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">Опции</a></li>
                                     <li><a href="#tab2_<?=$row['id_kvitancy']?>" data-toggle="tab">Информация</a></li>
@@ -561,7 +561,13 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     <button id="parts_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
                                                 </div>
                                             </div>
-
+                                            <div class="span8">
+                                                <div class="pull-right">
+                                                    <div class="btn-group margin-bottom-10px">
+                                                        <button class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</button>
+                                                    </div>
+                                                </div>
+                                            </div>
                                             <div class="span10">
                                                 <table table table-bordered table-condensed id="table_store_<?=$row['id_kvitancy']?>">
                                                     <thead>
@@ -604,13 +610,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 </table>
                                             </div>
 
-                                            <div class="span10">
-                                                <div class="pull-left">
-                                                    <div class="btn-group margin-bottom-10px">
-                                                        <a href="#" id="new-order-button"><button class="btn btn-success">Выбрать со склада</button></a>
-                                                    </div>
-                                                </div>
-                                            </div>
+
 
                                         </div>
 

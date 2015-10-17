@@ -115,8 +115,6 @@ $route['tickets/view/(:any)'] = 'tickets/view/$1';
 $route['tickets/show/(:any)'] = 'tickets/show/$1';
 $route['tickets/update_client'] = 'tickets/update_client';
 $route['tickets/update_client/(:any)'] = 'tickets/update_client/$1';
-
-
 $route['tickets/(:any)'] = 'tickets/index/$1'; //$1 = page number
 
 
@@ -164,6 +162,13 @@ $route['admin/status/update/(:any)'] = 'admin_status/update/$1';
 $route['admin/status/delete/(:any)'] = 'admin_status/delete/$1';
 $route['admin/status/(:any)'] = 'admin_status/index/$1'; //$1 = page number
 
+$route['store'] = 'store/index';
+$route['store/(:any)'] = 'store/index'; //$1 = page number
+$route['store/update'] = 'store/index';
+
+$route['store/add'] = 'store/add';
+$route['store/update/(:any)'] = 'store/update/$1';
+$route['store/delete/(:any)'] = 'store/delete/$1';
 
 
 
