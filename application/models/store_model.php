@@ -34,7 +34,7 @@ class Store_model extends CI_Model {
     {
 
         $this->db->select('
-store.id,
+store.id as store_id,
 store.name,
 store.id_aparat,
 store.id_aparat_p,
@@ -55,6 +55,8 @@ store.id_resp,
 store.id_from,
 store.id_where,
 store.id_sc,
+store.id_kvitancy,
+
 
 aparat.id_aparat,
 aparat.aparat_name,
@@ -65,14 +67,12 @@ aparat_p.title,
 proizvod.id_proizvod,
 proizvod.name_proizvod,
 
-user.id,
+user.id as user_id,
 user.first_name,
 user.last_name,
-user.user_name
+user.user_name,
 
-
-
-
+service.name_sc
 		');
 
 

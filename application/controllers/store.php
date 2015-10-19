@@ -125,7 +125,7 @@ class Store extends CI_Controller {
 
 
             $search_string = $this->input->post("search_string");
-            $order = 'id';
+            $order = $this->input->post("order");
             $order_type = $this->input->post("order_type");
             $limit_start = $config['per_page']; //при навигациии надо включить
             $start_date = $this->input->post("start_date");
@@ -255,7 +255,6 @@ class Store extends CI_Controller {
                 $id_sost = '';
             }
             $data['id_sost_selected'] = $id_sost;
-            if ($id_sost == '') $id_sost = $sost_in_remont;
             // end ID_SOST
 
 
