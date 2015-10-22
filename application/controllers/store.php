@@ -20,11 +20,7 @@ class Store extends CI_Controller {
         $this->load->model('users_model');
         $this->load->model('aparaty_model');
         $this->load->model('proizvoditel_model');
-
-
-
-
-
+        $this->load->model('service_centers_model');
 
 
         if(!$this->session->userdata('is_logged_in')){
@@ -282,7 +278,7 @@ class Store extends CI_Controller {
             } else {
                 $id_resp = '';
             }
-            $data['id_resp_selected'] = $user_id;
+            $data['id_resp_selected'] = $id_resp;
             // end id_resp
 
             // id_where
@@ -306,9 +302,9 @@ class Store extends CI_Controller {
                 $status = $this->session->userdata('status');
 
             } else {
-                $status = '';
+                $status = '1';
             }
-            $data['status_selected'] = $user_id;
+            $data['status_selected'] = $status;
             // end status
 
 
@@ -565,6 +561,8 @@ class Store extends CI_Controller {
         $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
         $data['users'] = $this->users_model->get_users('', '', '', '', '', '');
+        $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+
 
 
         /*Загрузка шаблона*/

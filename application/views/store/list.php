@@ -23,30 +23,68 @@
 
     <div class="row-fluid">
         <div class="span12 columns">
+
             <div class="well">
 
                 <?php
 
-                $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
-
-                //save the columns names in a array that we will use as filter
                 $options_store = array();
 
-                if (count($store) >= 1) {
+                if(count($store) > 0) {
 
-                foreach ($store as $array) {
-                    foreach ($array as $key => $value) {
-                        $options_store[$key] = $key;
+                    foreach ($store as $array) {
+                        foreach ($array as $key => $value) {
+                            $options_store[$key] = $key;
+                        }
+                        break;
                     }
-                    break;
                 }
+                $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
 
                 echo form_open('store', $attributes);
 
+
+
+                $options_id_sc = array('' => "Выбрать склад");
+
+                foreach ($sc as $array) {
+                    $options_id_sc[$array['id_sc']] = $array['name_sc'];
+                }
+                echo form_dropdown('id_where', $options_id_sc, $id_where_selected, 'class=""');
+
                 ?>
 
-                <label class="control-label" for="search_string">Поиск:</label>
-                <?echo form_input('search_string', $search_string_selected, 'class="search-query"');?>
+                <?
+                $options_id_responsible = array('' => "Выбрать ответственного");
+
+                foreach ($users as $array) {
+                    $options_id_responsible[$array['id']] = $array['user_name'];
+                }
+
+                echo form_dropdown('id_resp', $options_id_responsible, $id_resp_selected, 'class=""');?>
+
+                <?
+                // echo form_label('Аппарат: ');
+                $options_ap = array('' => "Выбрать аппарат");
+
+                foreach ($ap as $array) {
+                    $options_ap[$array['id_aparat']] = $array['aparat_name'];
+                }
+                echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class=""');
+                ?>
+
+
+
+                <?
+                //echo form_label('Производитель: ');
+                $options_proizvoditel = array('' => "Выбрать бренд");
+
+                foreach ($proizvoditel as $array) {
+                    $options_proizvoditel[$array['id_proizvod']] = $array['name_proizvod'];
+                }
+
+                echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class=""');
+                ?>
 
                 <label class="control-label" for="order">Сортировать по:</label>
                 <?
@@ -57,12 +95,38 @@
                 $options_order_type = array('Asc' => 'По возрастанию', 'Desc' => 'По убыванию');
                 echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span2"');
 
-                echo form_submit($data_submit);
-
-                echo form_close();
+                //echo form_submit($data_submit);
                 ?>
+                <input type="submit" name="mysubmit" value="Показать" class="btn btn-info">
+
 
             </div>
+
+            </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12 columns">
+
+            <div class="pull-left">
+                <input type="text" name="id_kvitancy" value="" placeholder="Введите номер квитанции" class="search-query">
+                <input type="submit" name="mysubmit" value="Показать" class="btn btn-info">
+            </div>
+
+            <div class="pull-right">
+                <input type="text" name="search_string" value="" placeholder="Поиск по описанию" title="Поиск по описанию" class="search-query">
+                </label><input type="submit" name="mysubmit" value="Поиск" class="btn btn-info">    </div>
+        </div>
+    </div>
+<?echo form_close();?>
+
+    <div class="row-fluid">
+
+<?
+
+if (count($store) > 0) {
+
+?>
+
 
             <table class="table table-striped table-bordered table-condensed">
                 <thead>
@@ -101,10 +165,17 @@
                     <td><?=$row['cost']?></td>
                     <td><?=$row['price']?></td>
                     <td>
-                        <?=$row['name_sc']?> / 
+
                         <? if ($row['status'] == 0) {?>
                             Списан на #<?=$row['id_kvitancy']?>
-                        <?}?>
+                        <?}else{
+
+                                foreach ($sc as $rows)
+                                {
+                                    if ($rows['id_sc'] == $row['id_sc']) echo $rows['name_sc'];
+                                }
+
+                            }?>
 
                     </td>
                     <td>
@@ -115,7 +186,7 @@
                         }
                         ?>
                     </td>
-                    <td><?=$row['date_priemka']?> / <?=$row['user_name']?></td>
+                    <td><?=$row['date_priemka']?> / <?=$row['user_name']?> /  <?=$row['name_sc']?><??></td>
                     <td><?=$row['update_time']?> / <?
                         foreach ($users as $rows)
                         {
@@ -137,7 +208,7 @@
                 </tbody>
             </table>
             <?}?>
-            <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
 
-        </div>
-    </div>
+      </div>
+    <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
+</div>

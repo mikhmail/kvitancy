@@ -95,6 +95,11 @@ service.name_sc
                 $this->db->where('store.id_sc', $id_sc);
             }
 
+
+                $this->db->where('store.status', 1);
+
+
+
             $where = "(store.model LIKE '%$search_string%' OR store.name LIKE '%$search_string%' OR store.serial LIKE '%$search_string%')";
 
             $this->db->where($where);
