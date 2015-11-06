@@ -92,18 +92,6 @@ $route['admin/tickets/update/(:any)'] = 'admin_tickets/update/$1';
 $route['admin/tickets/delete/(:any)'] = 'admin_tickets/delete/$1';
 $route['admin/tickets/(:any)'] = 'admin_tickets/index/$1'; //$1 = page number
 
-/*
-$route['kvitancy'] = 'kvitancy/index';
-$route['kvitancy/add'] = 'kvitancy/add';
-$route['kvitancy/update'] = 'kvitancy/update';
-$route['kvitancy/update/(:any)'] = 'kvitancy/update/$1';
-$route['kvitancy/delete/(:any)'] = 'kvitancy/delete/$1';
-$route['kvitancy/printing/(:any)'] = 'kvitancy/printing/$1';
-$route['kvitancy/printing_check/(:any)'] = 'kvitancy/printing_check/$1';
-$route['kvitancy/view/(:any)'] = 'kvitancy/view/$1';
-$route['kvitancy/(:any)'] = 'kvitancy/index/$1'; //$1 = page number
-*/
-
 $route['tickets'] = 'tickets/index';
 $route['tickets/add'] = 'tickets/add';
 $route['tickets/update'] = 'tickets/update';
@@ -163,12 +151,11 @@ $route['admin/status/delete/(:any)'] = 'admin_status/delete/$1';
 $route['admin/status/(:any)'] = 'admin_status/index/$1'; //$1 = page number
 
 $route['store'] = 'store/index';
-$route['store/(:any)'] = 'store/index'; //$1 = page number
-$route['store/update'] = 'store/index';
 
 $route['store/add'] = 'store/add';
 $route['store/update/(:any)'] = 'store/update/$1';
 $route['store/delete/(:any)'] = 'store/delete/$1';
+$route['store/(:any)'] = 'store/index'; //$1 = page number
 
 
 

@@ -34,10 +34,6 @@ class Store extends CI_Controller {
         }
     }
 
-    /**
-     * Load the main view with all the current model model's data.
-     * @return void
-     */
     public function index()
     {
 
@@ -89,7 +85,7 @@ class Store extends CI_Controller {
             $limit_end = 0;
         }
 
-        if ($this->input->post() OR $this->uri->segment(2)) {
+        if ($this->input->post() OR is_int($this->uri->segment(2))) {
 
             /*Очистка масива для сесиии*/
             if ($this->input->post()) {
@@ -572,6 +568,87 @@ class Store extends CI_Controller {
 
     }//index
 
+    public function delete()
+    {
+        //product id
+        $id = $this->uri->segment(3);
+        //var_dump($id);die;
+            $this->store_model->delete_store($id);
+                redirect('store');
+
+    }//delete
+
+    public function update()
+    {
+        //product id
+        $id = $this->uri->segment(3);
+
+        //if save button was clicked, get the data sent via post
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+            //form validation
+            $this->form_validation->set_rules('name', 'name', 'required');
+            $this->form_validation->set_rules('id_aparat', 'id_aparat', 'required|numeric');
+            $this->form_validation->set_rules('id_aparat_p', 'id_aparat_p', 'required|numeric');
+            $this->form_validation->set_rules('id_proizvod', 'id_proizvod', 'required|numeric');
+            $this->form_validation->set_rules('id_sost', 'id_sost', 'required|numeric');
+            $this->form_validation->set_rules('cost', 'cost', 'required|numeric');
+            $this->form_validation->set_rules('price', 'price', 'required|numeric');
+            $this->form_validation->set_rules('id_resp', 'id_resp', 'required|numeric');
+            $this->form_validation->set_rules('id_where', 'id_where', 'required|numeric');
+
+
+
+
+
+
+
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+            //if the form has passed through the validation
+            if ($this->form_validation->run())
+            {
+
+                $data_to_store = array(
+                    'name' => $this->input->post('name'),
+                    'id_aparat' => $this->input->post('id_aparat'),
+                    'id_aparat_p' => $this->input->post('id_aparat_p'),
+                    'id_proizvod' => $this->input->post('id_proizvod'),
+                    'id_sost' => $this->input->post('id_sost'),
+                    'cost' => $this->input->post('cost'),
+                    'price' => $this->input->post('price'),
+                    'id_resp' => $this->input->post('id_resp'),
+                    'id_where' => $this->input->post('id_where'),
+                    'serial' => $this->input->post('serial'),
+                    'vid' => $this->input->post('vid')
+                );
+                //if the insert has returned true then we show the flash message
+                if($this->store_model->update_store($id, $data_to_store) == TRUE){
+
+                    //var_dump($data_to_store);
+                    $this->session->set_flashdata('flash_message', 'updated');
+                }else{
+                    $this->session->set_flashdata('flash_message', 'not_updated');
+                }
+                redirect('store/update/'.$id.'');
+
+            }//validation run
+
+        }
+
+
+
+        //product data
+        $data['store'] = $this->store_model->get_store_by_id($id);
+        $data['sc'] = $this->service_centers_model->get_service_centers();
+        $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
+        $data['aparat'] = $this->aparaty_model->get_aparaty();
+        $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
+        //load the view
+        $data['main_content'] = 'store/edit';
+        $this->load->view('includes/template', $data);
+
+    }//update
 
 
 }

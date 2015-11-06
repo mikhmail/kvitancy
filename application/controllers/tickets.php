@@ -91,7 +91,7 @@ class Tickets extends CI_Controller
         $sost_in_remont = $this->sost_remonta_model->get_sost_remonta_in_remont();
 
         // !--------------------------POST------------------------------------- //
-        if ($this->input->post() OR $this->uri->segment(2)) {
+        if ($this->input->post() OR is_int($this->uri->segment(2))) {
 
             /*Очистка масива для сесиии*/
             if ($this->input->post()) {

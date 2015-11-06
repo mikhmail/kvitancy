@@ -213,5 +213,103 @@ service.name_sc
     }
 
 
+    public function get_store_by_id ($id)
+    {
+
+        $this->db->select('
+store.id as store_id,
+store.name,
+store.id_aparat,
+store.id_aparat_p,
+store.id_proizvod,
+store.model,
+store.serial,
+store.vid,
+store.id_sost,
+store.user_id,
+store.date_priemka,
+store.date_vydachi,
+store.cost,
+store.price,
+store.status,
+store.update_user,
+store.update_time,
+store.id_resp,
+store.id_from,
+store.id_where,
+store.id_sc,
+store.id_kvitancy,
+
+
+aparat.id_aparat,
+aparat.aparat_name,
+
+aparat_p.title,
+
+
+proizvod.id_proizvod,
+proizvod.name_proizvod,
+
+user.id as user_id,
+user.first_name,
+user.last_name,
+user.user_name,
+
+service.name_sc
+		');
+
+
+        $this->db->from('store');
+
+
+
+        $this->db->join('aparaty aparat', 'store.id_aparat = aparat.id_aparat');
+        $this->db->join('aparat_p', 'store.id_aparat_p = aparat_p.id_aparat_p');
+
+        $this->db->join('proizvoditel proizvod', 'store.id_proizvod = proizvod.id_proizvod');
+        $this->db->join('membership user', 'store.user_id = user.id');
+        $this->db->join('service_centers service', 'store.id_sc = service.id_sc');
+        //$this->db->join('membership', 'store.id_mechanic = membership.id');
+
+
+
+
+        if ($id) {
+
+
+
+            $this->db->where('store.id', $id);
+            $query = $this->db->get();
+
+            //return($this->db->last_query());die;
+
+            if ($query->num_rows() > 0) {
+
+                    return $query->result_array();
+            }else return null;
+        }
+    }
+
+
+    function delete_store($id){
+        $this->db->where('id', $id);
+        $this->db->delete('store');
+    }
+
+    function update_store($id, $data)
+    {
+        $this->db->where('id', $id);
+        $this->db->update('store', $data);
+        $report = array();
+        $report['error'] = $this->db->_error_number();
+        $report['message'] = $this->db->_error_message();
+        if($report !== 0){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+
 }
 ?>

@@ -65,6 +65,21 @@ class Aparaty_model extends CI_Model {
 		return $query->result_array(); 	
     }
 
+    public function get_aparat_p($id_aparat)
+    {
+
+        $this->db->select('*');
+        $this->db->from('aparat_p');
+        $this->db->where('id_aparat', $id_aparat);
+
+        $this->db->group_by('title');
+
+        $query = $this->db->get();
+
+        return $query->result_array();
+
+    }
+
     /**
     * Count the number of rows
     * @param int $search_string

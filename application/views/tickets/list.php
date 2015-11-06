@@ -179,11 +179,17 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
     <p><b><?=$name_sost?>:</b>
 
+
+
         <? foreach ($row_sost as $arr_gog) {?>
 
-            <a href="#" id="kvit_pokaz_call_<?=$arr_gog['id_kvitancy']?>" name="<?=$arr_gog['id_kvitancy']?>">&nbsp;<b>&laquo;</b><?=$arr_gog['aparat_name']?> <?=$arr_gog['name_proizvod']?> <?=$arr_gog['model']?><b>&raquo;</b>&nbsp;&nbsp;&nbsp;</a>
 
-        <?}}}?>
+
+            <a href="#" id="kvit_pokaz_call_<?=$arr_gog['id_kvitancy']?>" name="<?=$arr_gog['id_kvitancy']?>">&nbsp;<b>&laquo;</b><?=$arr_gog['aparat_name']?> <?=$arr_gog['name_proizvod']?> <?=$arr_gog['model']?><b>&raquo;</b>&nbsp;&nbsp;&nbsp;</a>
+        
+        <?}?>
+
+<?}}?>
 
 
 <?php if (count($my_kvitancy) > 0 ) {?>
@@ -302,7 +308,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     </td>
                 </tr>
 
-                <?  foreach($kvitancys as $row) { ?>
+                <?  if(count($kvitancys) >= 1) {
+                foreach($kvitancys as $row) { ?>
                     <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
                     <tr>
                         <td>
@@ -617,7 +624,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     </tr>
 
 
-                <?}?>
+                <?}}?>
 
             </table>
 

@@ -6,8 +6,8 @@ class Ajx extends CI_Controller {
 	{
 		parent::__construct();
 
-        if(!$this->session->userdata('user_id')){
-                $this->load->view('login');
+        if(!$this->session->userdata('is_logged_in')){
+            redirect('admin/login');
         }
 
 		$this->load->model('kvitancy_model');
@@ -201,7 +201,7 @@ class Ajx extends CI_Controller {
         if ($this->input->post('name')) {
             $data = array(
                 'date_added' => $date,
-                'name' => $this->input->post('name'),
+                'name' => $this->clearData($this->input->post('name')),
                 'user_id' => $this->input->post('user_id'),
                 'id_kvitancy' => $this->input->post('id_kvitancy'),
                 'cost' => $this->input->post('cost'),
@@ -242,7 +242,7 @@ class Ajx extends CI_Controller {
 		if ($this->input->post('comment')) {
 		$data = array(
 					   'date' => $date,
-					   'comment' => $this->input->post('comment'),
+					   'comment' => $this->clearData($this->input->post('comment')),
 					   'id_user' => $user_id,
 					   'id_kvitancy' => $this->input->post('id')
 					   );
@@ -284,12 +284,12 @@ class Ajx extends CI_Controller {
 		} else {
 		
 		$user = array(
-									   'fam' => $this->input->post('fam'),
-									   'imya' => $this->input->post('imya'),
-									   'otch' => $this->input->post('otch'),
-									   'phone' => $this->input->post('phone'),
-									   'mail' => $this->input->post('mail'),
-									   'adres' => $this->input->post('adres')
+									   'fam' => $this->clearData($this->input->post('fam')),
+									   'imya' => $this->clearData($this->input->post('imya')),
+									   'otch' => $this->clearData($this->input->post('otch')),
+									   'phone' => $this->clearData($this->input->post('phone')),
+									   'mail' => $this->clearData($this->input->post('mail')),
+									   'adres' => $this->clearData($this->input->post('adres'))
 						);
 		
 		if ( $this->db->insert('users', $user) )
@@ -307,18 +307,18 @@ class Ajx extends CI_Controller {
 								   'user_id' => $user_id,
 								   'id_aparat' => $this->input->post('id_aparat'),
 								   'id_proizvod' => $this->input->post('id_proizvod'),
-								   'model' => $this->input->post('model'),
-								   'ser_nomer' => $this->input->post('ser_nomer'),
-								   'neispravnost' => $this->input->post('neispravnost'),
-								   'komplektnost' => $this->input->post('komplektnost'),
+								   'model' => $this->clearData($this->input->post('model')),
+								   'ser_nomer' => $this->clearData($this->input->post('ser_nomer')),
+								   'neispravnost' => $this->clearData($this->input->post('neispravnost')),
+								   'komplektnost' => $this->clearData($this->input->post('komplektnost')),
 								   'date_priemka' => $date = date("Y-m-d"),
 								   'date_okonchan' => '',
 								   'date_vydachi' => '',
 								   'id_sost' => 1,
-								   'vid' => $this->input->post('vid'),
+								   'vid' => $this->clearData($this->input->post('vid')),
 								   'id_remonta' => $this->input->post('id_remonta'),
 								   'id_sc' => $this->input->post('id_sc'),
-								   'primechaniya' => $this->input->post('primechaniya'),
+								   'primechaniya' => $this->clearData($this->input->post('primechaniya')),
 								   'id_where' => $this->input->post('id_where'),
 								   'update_time' => date("Y-m-d H:i:s"),
 								   'update_user' => $this->session->userdata['user_id'],
@@ -522,8 +522,9 @@ function search_user () {
 		<ul class='".__FILE__."' id='user_ul'>";
         foreach ($row as $a=>$row9)
 			{
+                $adres = str_replace(array('"', '&quot;'), '', $row9["adres"]);
 		
-    $div .= '<li style=\'padding:8px 0 0 0; cursor:pointer; height:14px; font-size:12px;\' onclick=\'fill_user("'.$row9["user_id"].'-'.$row9["fam"].'-'.$row9["imya"].'-'.$row9["otch"].'-'.$row9["mail"].'-'.$row9["adres"].'-'.$row9["phone"].'")\'>
+    $div .= '<li style=\'padding:8px 0 0 0; cursor:pointer; height:14px; font-size:12px;\' onclick=\'fill_user("'.$row9["user_id"].'-'.$row9["fam"].'-'.$row9["imya"].'-'.$row9["otch"].'-'.$row9["mail"].'-'.$adres.'-'.$row9["phone"].'")\'>
 					&nbsp;'.$row9["fam"].' '.$row9["imya"].' '.$row9["otch"].', тел.'.$row9["phone"].'&nbsp;</li>';
          
 			}
@@ -669,7 +670,7 @@ function add_aparat () {
 					echo 'device is here';
 				} else {
 					
-					$aparat = array('aparat_name' => $this->input->post('aparat_name'));
+					$aparat = array('aparat_name' => $this->clearData($this->input->post('aparat_name')));
 		
 						if ( $this->db->insert('aparaty', $aparat) ) $add_apparat_id = $this->db->insert_id();
 
@@ -699,7 +700,7 @@ function add_proizvod () {
 					echo 'the brand is here';
 					
 				} else { 
-					$brand = array('name_proizvod' => $this->input->post('proizvod_name'));
+					$brand = array('name_proizvod' => $this->clearData($this->input->post('proizvod_name')));
 		
 						if ( $this->db->insert('proizvoditel', $brand) ) $add_apparat_id = $this->db->insert_id();
 

@@ -1,18 +1,14 @@
-    <div class="container top">
+<?php //var_dump($store);die; ?>
+<div class="container top">
       
       <ul class="breadcrumb">
         <li>
-          <a href="<?php echo site_url("admin"); ?>">
+          <a href="<?php echo site_url("store"); ?>">
             <?php echo ucfirst($this->uri->segment(1));?>
           </a> 
           <span class="divider">/</span>
         </li>
-        <li>
-          <a href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>">
-            <?php echo ucfirst($this->uri->segment(2));?>
-          </a> 
-          <span class="divider">/</span>
-        </li>
+        
         <li class="active">
           <a href="#">Update</a>
         </li>
@@ -20,7 +16,7 @@
       
       <div class="page-header">
         <h2>
-          Обновление клиента "<?php echo $manufacture[0]['fam']; ?>"
+          Обновление "<?php echo $store[0]['name']; ?>"
         </h2>
       </div>
 
@@ -47,74 +43,143 @@
       //form data
       $attributes = array('class' => 'form-horizontal', 'id' => '');
 
-	  $options_manufacture = array('' => "Выбрать");
-	  foreach ($gorod as $row)
+      $options_id_resp = array();
+	  foreach ($resp as $row)
       {
-        $options_manufacture[$row['gorod_id']] = $row['gorod'];
+          $options_id_resp[$row['id']] = $row['user_name'];
       }
 
-      $options_sc = array('' => "Выбрать");
+      $options_sc = array();
       foreach ($sc as $row)
       {
           $options_sc[$row['id_sc']] = $row['name_sc'];
       }
 
+      $options_aparat = array('' => "Выбрать");
+      foreach ($aparat as $row)
+      {
+          $options_aparat[$row['id_aparat']] = $row['aparat_name'];
+      }
+
+      $aparat_p = $this->aparaty_model->get_aparat_p($store[0]['id_aparat']);
+      //var_dump($aparat_p);die;
+
+      $options_aparat_p = array('' => "Выбрать");
+      foreach ($aparat_p as $row)
+      {
+          $options_aparat_p[$row['id_aparat_p']] = $row['title'];
+      }
+     // var_dump($options_aparat_p);die;
+
+
+      $options_proizvod = array('' => "Выбрать");
+      foreach ($proizvoditel as $row)
+      {
+          $options_proizvod[$row['id_proizvod']] = $row['name_proizvod'];
+      }
+
+      $options_sost = array('1' => "Новый",'0' => "БУ");
+
+
       //form validation
       echo validation_errors();
 
-      echo form_open('admin/clients/update/'.$this->uri->segment(4).'', $attributes);
+      echo form_open('store/update/'.$this->uri->segment(3).'', $attributes);
       ?>
         <fieldset>
           <div class="control-group">
-            <label for="inputError" class="control-label">Фамилия</label>
+            <label for="inputError" class="control-label">ID#</label>
             <div class="controls">
-              <input type="text" id="" name="fam" value="<?php echo $manufacture[0]['fam']; ?>" >
+              <input type="text" id="" name="store_id" readonly value="<?php echo $store[0]['store_id']; ?>" >
             </div>
           </div>
-		  
-		  <div class="control-group">
-            <label for="inputError" class="control-label">Имя</label>
-            <div class="controls">
-              <input type="text" id="" name="imya" value="<?php echo $manufacture[0]['imya']; ?>" >
+            <div class="control-group">
+                <label for="inputError" class="control-label">Добавлено</label>
+                <div class="controls">
+                    <input type="text" id="" name="date_priemka" readonly value="<?php echo $store[0]['date_priemka']; ?>" >
+                </div>
             </div>
-          </div>
-		  
-		  <div class="control-group">
-            <label for="inputError" class="control-label">Отчество</label>
-            <div class="controls">
-              <input type="text" id="" name="otch" value="<?php echo $manufacture[0]['otch']; ?>" >
-            </div>
-          </div>
-		  
-		  <div class="control-group">
-            <label for="inputError" class="control-label">Почта</label>
-            <div class="controls">
-              <input type="text" id="" name="mail" value="<?php echo $manufacture[0]['mail']; ?>" >
-            </div>
-          </div>
-		  
-		  <div class="control-group">
-            <label for="inputError" class="control-label">Телефон</label>
-            <div class="controls">
-              <input type="text" id="" name="phone" value="<?php echo $manufacture[0]['phone']; ?>" >
-            </div>
-          </div>
 
-		   <div class="control-group">
-            <label for="inputError" class="control-label">Адрес</label>
+            <div class="control-group">
+                <label for="id_proizvod" class="control-label">Производитель</label>
+                <div class="controls">
+                    <?php echo form_dropdown('id_proizvod', $options_proizvod, $store[0]['id_proizvod'], 'class=""');?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="id_aparat" class="control-label">Аппарат</label>
+                <div class="controls">
+                    <?php echo form_dropdown('id_aparat', $options_aparat, $store[0]['id_aparat'], 'class=""');?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="id_aparat" class="control-label">Название</label>
+                <div class="controls">
+                    <?php echo form_dropdown('id_aparat_p', $options_aparat_p, $store[0]['id_aparat_p'], 'class=""');?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="inputError" class="control-label">Описание</label>
+                <div class="controls">
+                    <textarea id="" rows="2" name="name"><?php echo $store[0]['name']; ?></textarea>
+                </div>
+            </div>
+		  
+		  <div class="control-group">
+            <label for="inputError" class="control-label">Серийный номер</label>
             <div class="controls">
-              <textarea id="" rows="2" name="adres"><?php echo $manufacture[0]['adres']; ?></textarea>
+              <input type="text" id="" name="serial" value="<?php echo $store[0]['serial']; ?>" >
+            </div>
+          </div>
+		  
+		  <div class="control-group">
+            <label for="inputError" class="control-label">Внешний вид</label>
+            <div class="controls">
+              <input type="text" id="" name="vid" value="<?php echo $store[0]['vid']; ?>" >
             </div>
           </div>
 
             <div class="control-group">
-                <label for="id_sc" class="control-label">Сервисный Центр</label>
+                <label for="id_sost" class="control-label">Состояние</label>
                 <div class="controls">
-                    <?php echo form_dropdown('id_sc', $options_sc, $manufacture[0]['id_sc'], 'class="span2"');?>
+                    <?php echo form_dropdown('id_sost', $options_sost, $store[0]['id_sost'], 'class=""');?>
                 </div>
             </div>
-		  
 
+            <div class="control-group">
+                <label for="inputError" class="control-label">Себестоимость</label>
+                <div class="controls">
+                    <input type="text" id="" name="cost" value="<?php echo $store[0]['cost']; ?>" >
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="inputError" class="control-label">Цена</label>
+                <div class="controls">
+                    <input type="text" id="" name="price" value="<?php echo $store[0]['price']; ?>" >
+                </div>
+            </div>
+
+
+
+
+
+            <div class="control-group">
+                <label for="id_sc" class="control-label">Склад</label>
+                <div class="controls">
+                    <?php echo form_dropdown('id_where', $options_sc, $store[0]['id_where'], 'class=""');?>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <label for="id_resp" class="control-label">Ответственный</label>
+                <div class="controls">
+                    <?php echo form_dropdown('id_resp', $options_id_resp, $store[0]['id_resp'], 'class=""');?>
+                </div>
+            </div>
 		  
 		  
           <div class="form-actions">
@@ -126,4 +191,3 @@
       <?php echo form_close(); ?>
 
     </div>
-     

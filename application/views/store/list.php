@@ -9,7 +9,7 @@
             <span class="divider">/</span>
         </li>
 
-        <a href="<?php echo site_url('admin/'. strtolower(ucfirst($this->uri->segment(2)))); ?>">
+        <a href="<?php echo site_url('store/'. strtolower(ucfirst($this->uri->segment(2)))); ?>">
             <?php echo ucfirst($this->uri->segment(2));?>
         </a>
     </ul>
@@ -17,7 +17,7 @@
     <div class="page-header users-header">
         <h2>
             Склад
-            <a  href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить</a>
+            <a  href="<?php echo site_url("store").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить</a>
         </h2>
     </div>
 
@@ -88,9 +88,9 @@
 
                 <label class="control-label" for="order">Сортировать по:</label>
                 <?
-                echo form_dropdown('order', $options_store, $order, 'class="span2"');
+               // echo form_dropdown('order', $options_store, $order, 'class="span2"');
 
-                $data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
+                //$data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
 
                 $options_order_type = array('Asc' => 'По возрастанию', 'Desc' => 'По убыванию');
                 echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span2"');
@@ -193,12 +193,12 @@ if (count($store) > 0) {
                             if ($rows['id'] == $row['update_user']) echo $rows['user_name'];
                         }?>
                     </td>
-
-
-
-
-
-                    <td>Кнопки</td>
+                    <td>
+                        <?echo '
+                    <a href="'.site_url("store").'/update/'.$row['store_id'].'" class="btn btn-info btn-mini">Изменить</a>
+                    <a href="'.site_url("store").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>
+                            ';?>
+                    </td>
 
 
 
@@ -211,4 +211,3 @@ if (count($store) > 0) {
 
       </div>
     <?php echo '<div class="pagination">'.$this->pagination->create_links().'</div>'; ?>
-</div>
