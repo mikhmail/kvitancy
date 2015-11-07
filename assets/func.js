@@ -484,6 +484,12 @@ $( "#search_user" ).keyup(function() {
 
 // END of Подсветить все выбранные value
 
+// вывод под каталога аппарата
+    $("#store_add_id_aparat").change(function(){
+        $("#store_add_id_aparat_p").load("/ajx/show_aparat_p", { id_aparat: $("#store_add_id_aparat option:selected").val() });
+    });
+//end add_id_aparat
+
 //	
 //	
 //ready	

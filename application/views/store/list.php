@@ -17,7 +17,7 @@
     <div class="page-header users-header">
         <h2>
             Склад
-            <a  href="<?php echo site_url("store").'/'.$this->uri->segment(2); ?>/add" class="btn btn-success pull-right">Добавить</a>
+            <a  href="<?php echo site_url("store").'/'.$this->uri->segment(2); ?>add" class="btn btn-success pull-right">Добавить</a>
         </h2>
     </div>
 
@@ -172,7 +172,7 @@ if (count($store) > 0) {
 
                                 foreach ($sc as $rows)
                                 {
-                                    if ($rows['id_sc'] == $row['id_sc']) echo $rows['name_sc'];
+                                    if ($rows['id_sc'] == $row['id_where']) echo $rows['name_sc'];
                                 }
 
                             }?>

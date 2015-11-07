@@ -103,7 +103,7 @@ class Store extends CI_Controller {
                     'id_proizvod' => '',
                     'serial' => '',
                     'id_sost' => '',
-                    'user_id' => '',
+                    'store_user_id' => '',
                     'id_resp' => '',
                     'id_where' => '',
                     'id_sc' => '',
@@ -127,7 +127,7 @@ class Store extends CI_Controller {
             $id_proizvod = $this->input->post("id_proizvod");
             $id_sost = $this->input->post("id_sost");
             $id_sc = $this->input->post("id_sc");
-            $user_id = $this->input->post("user_id");
+            $store_user_id = $this->input->post("store_user_id");
             $id_where = $this->input->post("id_where");
             $id_resp = $this->input->post("id_resp");
             $status = $this->input->post("status");
@@ -250,18 +250,18 @@ class Store extends CI_Controller {
             // end ID_SOST
 
 
-            // user_id
-            if ($this->input->post("user_id")) {
-                $filter_session_data['user_id'] = $user_id;
+            // store_user_id
+            if ($this->input->post("store_user_id")) {
+                $filter_session_data['store_user_id'] = $store_user_id;
             }
             elseif ($this->uri->segment(2)) {
-                $user_id = $this->session->userdata('user_id');
+                $store_user_id = $this->session->userdata('store_user_id');
 
             } else {
-                $user_id = '';
+                $store_user_id = '';
             }
-            $data['user_id_selected'] = $user_id;
-            // end user_id
+            $data['store_user_id_selected'] = $store_user_id;
+            // end store_user_id
 
 
             // id_resp
@@ -328,16 +328,16 @@ class Store extends CI_Controller {
 
 
                 case 2: // приемщик
-                    $id_sc = $this->session->userdata('user_id_sc');
+                    $id_sc = $this->session->userdata('store_user_id_sc');
                     break;
 
 
                 case 3: // инженер
-                    $id_sc = $this->session->userdata('user_id_sc');
+                    $id_sc = $this->session->userdata('store_user_id_sc');
                     break;
 
                 default:
-                    $id_sc = $this->session->userdata('user_id_sc');
+                    $id_sc = $this->session->userdata('store_user_id_sc');
 
             }
 
@@ -371,7 +371,7 @@ class Store extends CI_Controller {
                 $id_aparat_p,
                 $id_proizvod,
                 $id_sost,
-                $user_id,
+                $store_user_id,
                 $id_resp,
                 $id_where,
                 $id_sc,
@@ -393,7 +393,7 @@ class Store extends CI_Controller {
                 $id_aparat_p,
                 $id_proizvod,
                 $id_sost,
-                $user_id,
+                $store_user_id,
                 $id_resp,
                 $id_where,
                 $id_sc,
@@ -421,7 +421,7 @@ class Store extends CI_Controller {
             $data['id_aparat_p_selected'] = '';
             $data['id_proizvod_selected'] = '';
             $data['id_sost_selected'] = '';
-            $data['user_id_selected'] = '';
+            $data['store_user_id_selected'] = '';
             $data['id_resp_selected'] = '';
             $data['id_where_selected'] = '';
             $data['status_selected'] = 1;
@@ -440,7 +440,7 @@ class Store extends CI_Controller {
             $id_proizvod = '';
             $id_sost = '';
             $id_sc = '';
-            $user_id = '';
+            $store_user_id = '';
             $id_where = '';
             $id_resp = '';
             $status = 1;
@@ -488,7 +488,7 @@ class Store extends CI_Controller {
                 'id_proizvod' => '',
                 'serial' => '',
                 'id_sost' => '',
-                'user_id' => '',
+                'store_user_id' => '',
                 'id_resp' => '',
                 'id_where' => '',
                 'id_sc' => '',
@@ -514,7 +514,7 @@ class Store extends CI_Controller {
                 $id_aparat_p,
                 $id_proizvod,
                 $id_sost,
-                $user_id,
+                $store_user_id,
                 $id_resp,
                 $id_where,
                 $id_sc,
@@ -536,7 +536,7 @@ class Store extends CI_Controller {
                 $id_aparat_p,
                 $id_proizvod,
                 $id_sost,
-                $user_id,
+                $store_user_id,
                 $id_resp,
                 $id_where,
                 $id_sc,
@@ -578,7 +578,7 @@ class Store extends CI_Controller {
 
     }//delete
 
-    public function update()
+        public function update()
     {
         //product id
         $id = $this->uri->segment(3);
@@ -649,6 +649,81 @@ class Store extends CI_Controller {
         $this->load->view('includes/template', $data);
 
     }//update
+
+
+    public function add()
+    {
+
+        if ($this->input->server('REQUEST_METHOD') === 'POST')
+        {
+            //form validation
+            $this->form_validation->set_rules('name', 'name', 'required');
+            $this->form_validation->set_rules('id_aparat', 'id_aparat', 'required|numeric');
+            //$this->form_validation->set_rules('id_aparat_p', 'id_aparat_p', 'required|numeric');
+            $this->form_validation->set_rules('id_proizvod', 'id_proizvod', 'required|numeric');
+            $this->form_validation->set_rules('id_sost', 'id_sost', 'required|numeric');
+            $this->form_validation->set_rules('cost', 'cost', 'required|numeric');
+            $this->form_validation->set_rules('price', 'price', 'required|numeric');
+            $this->form_validation->set_rules('id_resp', 'id_resp', 'required|numeric');
+            $this->form_validation->set_rules('id_where', 'id_where', 'required|numeric');
+
+
+            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+            //if the form has passed through the validation
+            if ($this->form_validation->run())
+            {
+
+                $data_to_store = array(
+                    'name' => $this->input->post('name'),
+                    'id_aparat' => $this->input->post('id_aparat'),
+                    'id_aparat_p' => $this->input->post('id_aparat_p'),
+                    'id_proizvod' => $this->input->post('id_proizvod'),
+                    'model' => '',
+                    'serial' => $this->input->post('serial'),
+                    'vid' => $this->input->post('vid'),
+                    'id_sost' => $this->input->post('id_sost'),
+                    'user_id' => $this->session->userdata['user_id'],
+                    'date_priemka' => date("Y-m-j"),
+                    'cost' => $this->input->post('cost'),
+                    'price' => $this->input->post('price'),
+                    'status' => 1,
+
+                    'update_user' => $this->session->userdata['user_id'],
+                    'update_time' => date("j-m-Y, H:i:s"),
+                    'id_resp' => $this->session->userdata['user_id'],
+                    'id_from' => $this->session->userdata['user_id_sc'],
+                    'id_where' => $this->session->userdata['user_id_sc'],
+                    'id_sc' => $this->session->userdata['user_id_sc']
+                );
+
+                //var_dump($data_to_store);die;
+                //if the insert has returned true then we show the flash message
+                $id = $this->store_model->add_store($data_to_store);
+                if($id == TRUE){
+
+
+                    $this->session->set_flashdata('flash_message', 'updated');
+                }else{
+                    $this->session->set_flashdata('flash_message', 'not_updated');
+                }
+                redirect('store/update/'.$id.'');
+
+            }//validation run
+
+        }
+
+
+
+        //product data
+        $data['sc'] = $this->service_centers_model->get_service_centers();
+        $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
+        $data['aparat'] = $this->aparaty_model->get_aparaty();
+        $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
+        //load the view
+        $data['main_content'] = 'store/add';
+        $this->load->view('includes/template', $data);
+
+    }//add
 
 
 }

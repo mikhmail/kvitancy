@@ -8,7 +8,7 @@
           </a> 
           <span class="divider">/</span>
         </li>
-        
+
         <li class="active">
           <a href="#">Update</a>
         </li>
@@ -110,14 +110,14 @@
             <div class="control-group">
                 <label for="id_aparat" class="control-label">Аппарат</label>
                 <div class="controls">
-                    <?php echo form_dropdown('id_aparat', $options_aparat, $store[0]['id_aparat'], 'class=""');?>
+                    <?php echo form_dropdown('id_aparat', $options_aparat, $store[0]['id_aparat'], 'id="store_add_id_aparat" class=""');?>
                 </div>
             </div>
 
             <div class="control-group">
                 <label for="id_aparat" class="control-label">Название</label>
                 <div class="controls">
-                    <?php echo form_dropdown('id_aparat_p', $options_aparat_p, $store[0]['id_aparat_p'], 'class=""');?>
+                    <?php echo form_dropdown('id_aparat_p', $options_aparat_p, $store[0]['id_aparat_p'], 'id="store_add_id_aparat_p" class=""');?>
                 </div>
             </div>
 

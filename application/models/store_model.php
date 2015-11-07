@@ -310,6 +310,12 @@ service.name_sc
         }
     }
 
+    function add_store($data)
+    {
+        if ( $this->db->insert('store', $data) )
+                return $id = $this->db->insert_id();
+    }
+
 
 }
 ?>

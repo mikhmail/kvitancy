@@ -441,6 +441,42 @@ function look_apparat () {
         }
     }
 
+
+    function show_aparat_p () {
+        // Существует ли строка POST запроса 'queryString'?
+        if ($this->input->post('id_aparat')) {
+
+            $id_aparat = $this->input->post('id_aparat');
+
+
+
+                $this->db->select('*');
+                $this->db->from('aparat_p');
+                $this->db->where('id_aparat', $id_aparat);
+
+                $this->db->order_by('title', 'Acs');
+                $query = $this->db->get();
+
+                $row = array();
+                if ($query->num_rows() > 0) {
+                    $row = $query->result_array();
+                }
+
+                if($row) {
+
+                    echo '<option value=0 selected>- выбрать -</option>';
+                    foreach($row as $r){
+                        echo "<option value='".$r['id_aparat_p']."'>".$r['title']."</option>\n";
+                    }
+                    exit();
+
+                }
+
+        }
+    }
+
+
+
 function look_proizvod () {
 	    // Существует ли строка POST запроса 'queryString'?
     if ($this->input->post('queryString')) {
