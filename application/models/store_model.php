@@ -127,6 +127,7 @@ service.name_sc
                 $this->db->where('store.id_sc', $id_sc);
             }
             $this->db->where('store.id_kvitancy', $id_kvitancy);
+
             $query = $this->db->get();
 
             //return($this->db->last_query());die;
@@ -135,8 +136,9 @@ service.name_sc
                 if ($count) {return $query->num_rows(); }
                 else
 
-                    return $query->result_array();
-            }else return null;
+                return $query->result_array();
+                //die($this->db->last_query());
+                }else return null;
         }
 
 

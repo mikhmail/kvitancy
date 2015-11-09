@@ -134,10 +134,8 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 <div class="span12" style="margin-bottom: 20px;">
 
     <div class="pull-left">
-        <?
-        //echo form_label('Введите номер: ');
-        echo form_input('id_kvitancy', $id_kvitancy_selected, 'placeholder="Введите номер квитанции" class=""');
-        ?>
+
+        <input type="number" step="1" min="1" name="id_kvitancy" value="" placeholder="Введите номер квитанции">
 
         <?
         echo form_label('', 'mysubmit');
@@ -494,6 +492,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     </thead>
                                                 <?
                                                 $works = $this->kvitancy_model->get_works($row['id_kvitancy']);
+                                                if(count($works)>0){
                                                 foreach($works as $work){
                                                     $user = $this->users_model->get_users_by_id ($work['user_id']);
                                                     ?>
@@ -508,7 +507,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                             </div>
                                                         </td>
                                                     </tr>
-                                                <?}?>
+                                                <?}}?>
                                                 </table>
                                             </div>
 
@@ -570,6 +569,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                                     <?
                                                     $store = $this->kvitancy_model->get_store($row['id_kvitancy']);
+                                                    if(count($store)>0){
                                                     foreach($store as $parts){
                                                         $user = $this->users_model->get_users_by_id ($parts['user_id']);
                                                         $aparat_p = $this->kvitancy_model->get_aparat_p_by_id ($parts['id_aparat_p']);
@@ -589,7 +589,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                                 </div>
                                                             </td>
                                                         </tr>
-                                                    <?}?>
+                                                    <?}}?>
 
                                                 </table>
                                             </div>

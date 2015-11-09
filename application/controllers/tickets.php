@@ -47,7 +47,7 @@ class Tickets extends CI_Controller
         $config['per_page'] = 20;
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 4;
+        //$config['num_links'] = 10;
 
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
@@ -91,7 +91,7 @@ class Tickets extends CI_Controller
         $sost_in_remont = $this->sost_remonta_model->get_sost_remonta_in_remont();
 
         // !--------------------------POST------------------------------------- //
-        if ($this->input->post() OR is_int($this->uri->segment(2))) {
+        if ($this->input->post() OR $this->uri->segment(2)) {
 
             /*Очистка масива для сесиии*/
             if ($this->input->post()) {
@@ -511,12 +511,11 @@ class Tickets extends CI_Controller
                 $count = null
             );
 
-            $config['total_rows'] = $data['count_kvitancys'];
+
 
         } //end else if POST
 
-
-        //initializate the panination helper 
+        $config['total_rows'] = $data['count_kvitancys'];
         $this->pagination->initialize($config);
 
 

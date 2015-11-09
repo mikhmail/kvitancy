@@ -108,7 +108,7 @@
         <div class="span12 columns">
 
             <div class="pull-left">
-                <input type="text" name="id_kvitancy" value="" placeholder="Введите номер квитанции" class="search-query">
+                <input type="number" step="1" min="1" name="id_kvitancy" value="" placeholder="Введите номер квитанции" class="search-query">
                 <input type="submit" name="mysubmit" value="Показать" class="btn btn-info">
             </div>
 
