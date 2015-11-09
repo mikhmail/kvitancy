@@ -233,9 +233,9 @@ class Admin_clients extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-
+                redirect('admin/clients/update/'.$id.'');
             }
-            redirect('admin/clients/update/'.$id.'');
+
         }
         //load the view
 		$data['gorod'] = $this->gorod_model->get_gorod();

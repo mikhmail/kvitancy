@@ -5,17 +5,9 @@
             <a href="<?php echo site_url("profile"); ?>">
                 <?php echo ucfirst($this->uri->segment(1));?>
             </a>
-            <span class="divider">/</span>
+
         </li>
-        <li>
-            <a href="<?php echo site_url("admin").'/'.$this->uri->segment(2); ?>">
-                <?php echo ucfirst($this->uri->segment(2));?>
-            </a>
-            <span class="divider">/</span>
-        </li>
-        <li class="active">
-            <a href="#">Update</a>
-        </li>
+
     </ul>
 
     <div class="page-header">
@@ -32,7 +24,7 @@
         {
             echo '<div class="alert alert-success">';
             echo '<a class="close" data-dismiss="alert">×</a>';
-            echo '<strong>Well done!</strong>';
+            echo '<strong>Well done!</strong> Item ';
             echo '</div>';
         }else{
             echo '<div class="alert alert-error">';

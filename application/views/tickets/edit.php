@@ -38,7 +38,7 @@
         {
           echo '<div class="alert alert-success">';
             echo '<a class="close" data-dismiss="alert">×</a>';
-            echo '<strong>Well done!</strong> ticket updated with success.';
+            echo '<strong>Well done!</strong> Item  ticket updated with success.';
           echo '</div>';       
         }else{
           echo '<div class="alert alert-error">';

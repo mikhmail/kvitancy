@@ -31,7 +31,7 @@
         {
           echo '<div class="alert alert-success">';
             echo '<a class="close" data-dismiss="alert">×</a>';
-            echo '<strong>Well done!</strong> new manufacturer created with success.';
+            echo '<strong>Well done!</strong> Item  created with success.';
           echo '</div>';       
         }else{
           echo '<div class="alert alert-error">';

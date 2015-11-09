@@ -28,7 +28,7 @@
         {
             echo '<div class="alert alert-success">';
             echo '<a class="close" data-dismiss="alert">×</a>';
-            echo '<strong>Well done!</strong> manufacturer updated with success.';
+            echo '<strong>Well done!</strong> Item  updated with success.';
             echo '</div>';
         }else{
             echo '<div class="alert alert-error">';
@@ -93,77 +93,77 @@
         <div class="control-group">
             <label for="id_proizvod" class="control-label">Производитель</label>
             <div class="controls">
-                <?php echo form_dropdown('id_proizvod', $options_proizvod, '', 'class=""');?>
+                <?php echo form_dropdown('id_proizvod', $options_proizvod, set_value('id_proizvod'), 'class=""');?>
             </div>
         </div>
 
         <div class="control-group">
             <label for="id_aparat" class="control-label">Аппарат</label>
             <div class="controls">
-                <?php echo form_dropdown('id_aparat', $options_aparat, '', 'id="store_add_id_aparat" class=""');?>
+                <?php echo form_dropdown('id_aparat', $options_aparat, set_value('id_aparat'), 'id="store_add_id_aparat" class=""');?>
             </div>
         </div>
 
         <div class="control-group">
             <label for="id_aparat_p" class="control-label">Название</label>
             <div class="controls">
-                <?php echo form_dropdown('id_aparat_p', $options_aparat_p, '', 'id="store_add_id_aparat_p" class=""');?>
+                <?php echo form_dropdown('id_aparat_p', $options_aparat_p, set_value('id_aparat_p'), 'id="store_add_id_aparat_p" class=""');?>
             </div>
         </div>
 
         <div class="control-group">
             <label for="name" class="control-label">Описание</label>
             <div class="controls">
-                <textarea id="" rows="2" name="name"></textarea>
+                <textarea id="" rows="2" name="name" value="<?php echo set_value("name"); ?>"></textarea>
             </div>
         </div>
 
         <div class="control-group">
             <label for="inputError" class="control-label">Серийный номер</label>
             <div class="controls">
-                <input type="text" id="" name="serial" value="" >
+                <input type="text" id="" name="serial" value="<?php echo set_value("serial"); ?>">
             </div>
         </div>
 
         <div class="control-group">
             <label for="vid" class="control-label">Внешний вид</label>
             <div class="controls">
-                <input type="text" id="" name="vid" value="" >
+                <input type="text" id="" name="vid" value="<?php echo set_value("vid"); ?>">
             </div>
         </div>
 
         <div class="control-group">
             <label for="id_sost" class="control-label">Состояние</label>
             <div class="controls">
-                <?php echo form_dropdown('id_sost', $options_sost, '', 'class=""');?>
+                <?php echo form_dropdown('id_sost', $options_sost, set_value("id_sost"), 'class=""');?>
             </div>
         </div>
 
         <div class="control-group">
             <label for="cost" class="control-label">Себестоимость</label>
             <div class="controls">
-                <input type="text" id="" name="cost" value="" >
+                <input type="text" id="" name="cost" value="<?php echo set_value("cost"); ?>">
             </div>
         </div>
 
         <div class="control-group">
             <label for="price" class="control-label">Цена</label>
             <div class="controls">
-                <input type="text" id="" name="price" value="" >
+                <input type="text" id="" name="price" value="<?php echo set_value("price"); ?>">
             </div>
         </div>
 
         <div class="control-group">
             <label for="id_where" class="control-label">Склад</label>
             <div class="controls">
-                <?php echo form_dropdown('id_where', $options_sc, '', 'class=""');?>
+                <?php echo form_dropdown('id_where', $options_sc, set_value("id_where"), 'class=""');?>
             </div>
         </div>
 
         <div class="control-group">
             <label for="id_resp" class="control-label">Ответственный</label>
             <div class="controls">
-                <?php echo form_dropdown('id_resp', $options_id_resp, '', 'class=""');?>
+                <?php echo form_dropdown('id_resp', $options_id_resp, set_value("id_resp"), 'class=""');?>
             </div>
         </div>
 
