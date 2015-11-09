@@ -1,4 +1,5 @@
 <?php //var_dump($store);die; ?>
+
 <div class="container top">
 
     <ul class="breadcrumb">
@@ -93,14 +94,14 @@
         <div class="control-group">
             <label for="id_proizvod" class="control-label">Производитель</label>
             <div class="controls">
-                <?php echo form_dropdown('id_proizvod', $options_proizvod, set_value('id_proizvod'), 'class=""');?>
+                <?php echo form_dropdown('id_proizvod', $options_proizvod, set_value('id_proizvod'), 'class="chzn-select"');?>
             </div>
         </div>
 
         <div class="control-group">
             <label for="id_aparat" class="control-label">Аппарат</label>
             <div class="controls">
-                <?php echo form_dropdown('id_aparat', $options_aparat, set_value('id_aparat'), 'id="store_add_id_aparat" class=""');?>
+                <?php echo form_dropdown('id_aparat', $options_aparat, set_value('id_aparat'), 'id="store_add_id_aparat" class="chzn-select"');?>
             </div>
         </div>
 
@@ -142,14 +143,14 @@
         <div class="control-group">
             <label for="cost" class="control-label">Себестоимость</label>
             <div class="controls">
-                <input type="text" id="" name="cost" value="<?php echo set_value("cost"); ?>">
+                <input type="number" step="1" min="1" name="cost" value="<?php echo set_value("cost"); ?>">
             </div>
         </div>
 
         <div class="control-group">
             <label for="price" class="control-label">Цена</label>
             <div class="controls">
-                <input type="text" id="" name="price" value="<?php echo set_value("price"); ?>">
+                <input type="number" step="1" min="1" name="price" value="<?php echo set_value("price"); ?>">
             </div>
         </div>
 
@@ -164,6 +165,13 @@
             <label for="id_resp" class="control-label">Ответственный</label>
             <div class="controls">
                 <?php echo form_dropdown('id_resp', $options_id_resp, set_value("id_resp"), 'class=""');?>
+            </div>
+        </div>
+
+        <div class="control-group error">
+            <label for="count" class="control-label">Количество</label>
+            <div class="controls">
+                <input type="number" step="1" min="1" max="99" size="2" id="" name="count" value="1">
             </div>
         </div>
 

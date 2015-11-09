@@ -9,6 +9,7 @@
         <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
         <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="<?php echo base_url(); ?>assets/styles.css" rel="stylesheet" media="screen">
+        <link href="<?php echo base_url(); ?>assets/chosen.min.css" rel="stylesheet">
 
 
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
@@ -17,8 +18,8 @@
         <![endif]-->
 
         <script src="<?php echo base_url(); ?>assets/jquery-1.7.1.min.js"></script>
-
         <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.js"></script>
+        <script src="<?php echo base_url(); ?>assets/chosen.jquery.min.js"></script>
         <script src="<?php echo base_url(); ?>assets/func.js"></script>
 
 

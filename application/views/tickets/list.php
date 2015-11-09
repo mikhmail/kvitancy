@@ -519,14 +519,14 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                         <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
                                             <div class="span10">
-                                                <div class="pull-left"><b>Установленные запчасти</b></div>
+                                                <div class="pull-left"><b>Добавить запчасти</b></div>
                                             </div>
 
 
                                             <div class="span10">
                                                 <input type="text" name="select_parts_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Поиск запчасти" value="" title="" id="" alt="<?=$row['id_aparat']?>">
-                                                <div id="parts_box" style="display: none;">
-                                                    <div id="parts_list">
+                                                <div name="parts_box" id="parts_box_<?=$row['id_kvitancy']?>" style="display: none;">
+                                                    <div class="parts_list">
                                                     </div>
                                                 </div>
                                                 <input maxlength="2" size="2" type="number" min=1 name="store_count_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Количество" class="span2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
@@ -548,6 +548,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                         <button class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</button>
                                                     </div>
                                                 </div>
+                                            </div>
+                                            <div class="span10">
+                                                <div class="pull-left"><b>Установленные запчасти</b></div>
                                             </div>
                                             <div class="span10">
                                                 <table table table-bordered table-condensed id="table_store_<?=$row['id_kvitancy']?>">

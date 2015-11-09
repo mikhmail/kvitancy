@@ -50,7 +50,7 @@
                 foreach ($sc as $array) {
                     $options_id_sc[$array['id_sc']] = $array['name_sc'];
                 }
-                echo form_dropdown('id_where', $options_id_sc, $id_where_selected, 'class=""');
+                echo form_dropdown('id_where', $options_id_sc, $id_where_selected, 'class="chzn-select"');
 
                 ?>
 
@@ -61,7 +61,7 @@
                     $options_id_responsible[$array['id']] = $array['user_name'];
                 }
 
-                echo form_dropdown('id_resp', $options_id_responsible, $id_resp_selected, 'class=""');?>
+                echo form_dropdown('id_resp', $options_id_responsible, $id_resp_selected, 'class="chzn-select"');?>
 
                 <?
                 // echo form_label('Аппарат: ');
@@ -70,7 +70,7 @@
                 foreach ($ap as $array) {
                     $options_ap[$array['id_aparat']] = $array['aparat_name'];
                 }
-                echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class=""');
+                echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="chzn-select"');
                 ?>
 
 
@@ -83,7 +83,7 @@
                     $options_proizvoditel[$array['id_proizvod']] = $array['name_proizvod'];
                 }
 
-                echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class=""');
+                echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="chzn-select"');
                 ?>
 
                 <label class="control-label" for="order">Сортировать по:</label>
@@ -93,7 +93,7 @@
                 //$data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
 
                 $options_order_type = array('Asc' => 'По возрастанию', 'Desc' => 'По убыванию');
-                echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="span2"');
+                echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="chzn-select"');
 
                 //echo form_submit($data_submit);
                 ?>

@@ -38,43 +38,20 @@ class Store extends CI_Controller {
     {
 
         //all the posts sent by the view
-        $search_string = $this->input->post('search_string');
-        $order = $this->input->post('order');
-        $order_type = $this->input->post('order_type');
+
 
         //pagination settings
-        $config['per_page'] = 20;
+        $config['per_page'] = 10;
 
         $config['base_url'] = base_url().'store';
         $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 20;
-        $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 4;
-
+        $config['num_links'] = 10;
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = '<li class="active"><a>';
         $config['cur_tag_close'] = '</a></li>';
-        $config['num_tag_open']  = '<li>';
-        $config['num_tag_close'] = '</li>';
-
-        $config['first_link']      = 'First';
-        $config['first_tag_open']  = '<li>';
-        $config['first_tag_close'] = '</li>';
-
-        $config['last_link']      = 'Last';
-        $config['last_tag_open']  = '<li>';
-        $config['last_tag_close'] = '</li>';
-
-        $config['next_link']      = '»';
-        $config['next_tag_open']  = '<li>';
-        $config['next_tag_close'] = '</li>';
-
-        $config['prev_link']      = '«';
-        $config['prev_tag_open']  = '<li>';
-        $config['prev_tag_close'] = '</li>';
 
         //limit end
         $page = $this->uri->segment(2);
@@ -86,6 +63,10 @@ class Store extends CI_Controller {
         }
 
         if ($this->input->post() OR is_int($this->uri->segment(2))) {
+
+            $search_string = $this->input->post('search_string');
+            $order = $this->input->post('order');
+            $order_type = $this->input->post('order_type');
 
             /*Очистка масива для сесиии*/
             if ($this->input->post()) {
@@ -666,6 +647,8 @@ class Store extends CI_Controller {
             $this->form_validation->set_rules('price', 'price', 'required|numeric');
             $this->form_validation->set_rules('id_resp', 'id_resp', 'required|numeric');
             $this->form_validation->set_rules('id_where', 'id_where', 'required|numeric');
+            $this->form_validation->set_rules('count', 'count', 'required|numeric');
+
 
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
@@ -694,11 +677,17 @@ class Store extends CI_Controller {
                     'id_from' => $this->session->userdata['user_id_sc'],
                     'id_where' => $this->session->userdata['user_id_sc'],
                     'id_sc' => $this->session->userdata['user_id_sc']
+
                 );
 
-                //var_dump($data_to_store);die;
-                //if the insert has returned true then we show the flash message
-                $id = $this->store_model->add_store($data_to_store);
+                $count =  $this->input->post('count');
+                if($count>=1) {
+                    for($i=1;$i<=$count;$i++) {
+                        $id = $this->store_model->add_store($data_to_store);
+                    }
+                }
+
+
                 if($id == TRUE){
 
 
@@ -706,7 +695,7 @@ class Store extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('store/update/'.$id.'');
+                redirect('store');
 
             }//validation run
 

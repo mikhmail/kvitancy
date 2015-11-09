@@ -70,7 +70,7 @@ var id = this.name;
         var count = $.trim($(' input[name=store_count_'+id_kvitancy+'] ').attr('value'));
 
 
-        $("div[name='parts']").find("input,select,textarea").each(function () {
+        $(this).parent().parent().find("input,select,textarea").each(function () {
             if ( ! $(this).val() ) { alert ('Надо выбрать значение "'+$(this).attr("placeholder")+'".'); $(this).focus(); exit; }
         });
 
@@ -96,7 +96,7 @@ var id = this.name;
                                 count:count
                             })
                                 .done(function(data) {
-                                    $("div[name='parts']").find("input,select,textarea").each(function () {
+                                    $(this).parent().parent().find("input,select,textarea").each(function () {
                                         $(this).attr('value', '');
                                     });
                                     for (var i = 1; i <= count; i++) {
@@ -147,20 +147,24 @@ var id = this.name;
         var inputString = $(this).val();
         $(this).attr('title', $(this).val());
 
+        var next = $(this).next();
         //alert(id_kvitancy);exit;
 
         if(inputString.length > 10) {
-            $('#parts_box').hide();
+            $(next).hide();
         } else {
             $.post("ajx/look_aparat_p", {queryString: ""+inputString+"", id_kvitancy: id_kvitancy}, function(data){
                 if (data.length > 2 && data !=  0) {
 
-                    $('#parts_box').show();
-                    $('#parts_list').html(data);
+                    //$('#parts_box').show();
+                    //alert($(this).next.name);exit;
+                    $(next).show();
+                    $(next).html(data);
+                    //$('#parts_list').html(data);
 
                 }else if (inputString.length > 2 && data ==  0) {
 
-                    $('#parts_box').hide();
+                    $(next).hide();
 
                     //$('#parts_list').html('Nothing found ...');
 
@@ -196,7 +200,7 @@ var id = this.name;
         var cost = $.trim($('#work_cost_'+id_kvitancy+'').val());
         var user_id = $.trim($("#work_resp_"+id_kvitancy+" option:selected").val());
 
-        $("div[name='work']").find("input,select,textarea").each(function () {
+        $(this).parent().parent().parent().parent().find("input,select,textarea").each(function () {
             if ( ! $(this).val() ) { alert ('Надо выбрать значение "'+$(this).attr("placeholder")+'".'); $(this).focus(); exit; }
         });
 
@@ -204,6 +208,10 @@ var id = this.name;
 
         $.post("ajx/add_work", {id_kvitancy:id_kvitancy, name:name, cost:cost, user_id:user_id})
             .done(function(data) {
+
+                $(this).parent().parent().parent().parent().parent().parent().find("input,select,textarea").each(function () {
+                    $(this).attr('value', '');
+                });
 
                 $("#table_work_"+id_kvitancy+"").append(data);
 
@@ -490,6 +498,13 @@ $( "#search_user" ).keyup(function() {
     });
 //end add_id_aparat
 
+//chzn select
+    $(function() {
+        $(".chzn-select").chosen();
+        });
+//end chzn select
+
+
 //	
 //	
 //ready	
@@ -523,7 +538,7 @@ function fill_apparat_p(thisValue) {
     $('input[name=select_parts_'+parts[2]+']').attr('title', parts[1]);
     $('input[name=select_parts_'+parts[2]+']').attr('id', parts[0]);
 
-    setTimeout("$('#parts_box').hide();", 200);
+    setTimeout("$('#parts_box_"+parts[2]+"').hide();", 200);
 }
 
 function fill_user(thisValue) {
