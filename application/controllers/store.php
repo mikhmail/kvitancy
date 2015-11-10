@@ -131,7 +131,7 @@ class Store extends CI_Controller {
             $store_user_id = $this->input->post("store_user_id");
             $id_where = $this->input->post("id_where");
             $id_resp = $this->input->post("id_resp");
-            $status = $this->input->post("status");
+            //$status = $this->input->post("status");
             $id_kvitancy = $this->input->post("id_kvitancy");
 
 
@@ -329,16 +329,16 @@ class Store extends CI_Controller {
 
 
                 case 2: // приемщик
-                    $id_sc = $this->session->userdata('store_user_id_sc');
+                    $id_sc = $this->session->userdata('user_id_sc');
                     break;
 
 
                 case 3: // инженер
-                    $id_sc = $this->session->userdata('store_user_id_sc');
+                    $id_sc = $this->session->userdata('user_id_sc');
                     break;
 
                 default:
-                    $id_sc = $this->session->userdata('store_user_id_sc');
+                    $id_sc = $this->session->userdata('user_id_sc');
 
             }
 
@@ -378,7 +378,30 @@ class Store extends CI_Controller {
                 $id_sc,
                 $id_kvitancy,
                 $status,
-                1
+                1,
+                $summ=null
+            );
+
+            $data['summ'] = $this->store_model->get_store(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_aparat_p,
+                $id_proizvod,
+                $id_sost,
+                $store_user_id,
+                $id_resp,
+                $id_where,
+                $id_sc,
+                $id_kvitancy,
+                $status,
+                0,
+                $summ=1
             );
 
             $data['store'] = $this->store_model->get_store(
@@ -400,7 +423,8 @@ class Store extends CI_Controller {
                 $id_sc,
                 $id_kvitancy,
                 $status,
-                $count = null
+                $count = null,
+                $summ=null
             );
 
 
@@ -446,6 +470,7 @@ class Store extends CI_Controller {
             $id_resp = '';
             $status = 1;
             $id_kvitancy = '';
+            $summ=null;
 
             /*WHAT USER SEE? */
 
@@ -521,7 +546,30 @@ class Store extends CI_Controller {
                 $id_sc,
                 $id_kvitancy,
                 $status,
-                1
+                1,
+                $summ=null
+            );
+
+            $data['summ'] = $this->store_model->get_store(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_aparat_p,
+                $id_proizvod,
+                $id_sost,
+                $store_user_id,
+                $id_resp,
+                $id_where,
+                $id_sc,
+                $id_kvitancy,
+                $status,
+                0,
+                $summ=1
             );
 
             $data['store'] = $this->store_model->get_store(
@@ -543,7 +591,8 @@ class Store extends CI_Controller {
                 $id_sc,
                 $id_kvitancy,
                 $status,
-                $count = null
+                $count = null,
+                $summ=null
             );
 
         }
@@ -554,6 +603,7 @@ class Store extends CI_Controller {
 
         //load the view
         $data['order'] = 'id_kvitancy';
+
         $data['ap'] = $this->aparaty_model->get_aparaty();
         $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');

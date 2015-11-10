@@ -1,4 +1,4 @@
-<?//=print_r($store);die;?>
+<?//=print_r($summ);die;?>
 <div class="container-fluid">
 
     <ul class="breadcrumb">
@@ -116,14 +116,23 @@
                 <input type="text" name="search_string" value="" placeholder="Поиск по описанию" title="Поиск по описанию" class="search-query">
                 </label><input type="submit" name="mysubmit" value="Поиск" class="btn btn-info">    </div>
         </div>
+   </div>
+    <div class="row-fluid">
+        <legend>Найдено <strong><?=$count_store?></strong>, на сумму <strong><?=$summ[0]['SUM']?></strong>
+
+            <div class="pagination pull-right">
+                <?=$this->pagination->create_links()?>
+            </div>
+        </legend>
     </div>
-<?echo form_close();?>
+
+    <?echo form_close();?>
 
     <div class="row-fluid">
 
 <?
 
-if (count($store) > 0) {
+if (count($store) > 0) {//var_dump($store);die;
 
 ?>
 

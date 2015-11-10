@@ -29,11 +29,14 @@ class Store_model extends CI_Model {
 
                                     $id_kvitancy=null,
                                     $status=null,
-                                    $count=null
+                                    $count=null,
+                                    $summ=null
                                 )
     {
-
-        $this->db->select('
+        if($summ) {
+            $this->db->select('SUM(store.cost) AS SUM');
+        }else{
+            $this->db->select('
 store.id as store_id,
 store.name,
 store.id_aparat,
@@ -74,6 +77,9 @@ user.user_name,
 
 service.name_sc
 		');
+        }
+
+
 
 
         $this->db->from('store');
@@ -180,7 +186,7 @@ service.name_sc
         if ($status != null){
             $this->db->where('store.status', $status);
         }else{
-            $status = 1;
+            $this->db->where('store.status', 1);
         }
 
 
@@ -191,7 +197,7 @@ service.name_sc
         }
 
 
-        if ($count) {$limit_start= null; $limit_end=null;
+        if ($count OR $summ) {$limit_start= null; $limit_end=null;
         }else {
             if($limit_start && $limit_end){
                 $this->db->limit($limit_start, $limit_end);
