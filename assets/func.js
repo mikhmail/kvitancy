@@ -569,6 +569,16 @@ $( "#search_user" ).keyup(function() {
     });
 //end add_id_aparat
 
+
+// вывод online store
+    $("div#store_select select").change(function(){
+        $("#store_modal").load("/ajx/show_store", { id_aparat_p: this.value });
+        //alert($("#store_add_id_aparat option:selected").val());
+        //alert(this.value);
+
+    });
+//end online store
+
 //chzn select
     $(function() {
         $(".chzn-select").chosen();

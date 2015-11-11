@@ -108,7 +108,7 @@
         <div class="control-group">
             <label for="id_aparat_p" class="control-label">Запчасть</label>
             <div class="controls">
-                <?php echo form_dropdown('id_aparat_p', $options_aparat_p, set_value('id_aparat_p'), 'id="store_add_id_aparat_p" class=""');?>
+                <?php echo form_dropdown('id_aparat_p', $options_aparat_p, set_value('id_aparat_p'), 'id="store_add_id_aparat_p" class="select-container"');?>
                 <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
 					<span name="aparat_p_span" style="display: none;">
 						<input class="" name="aparat_p_name" id="aparat_p_name" type="text" placeholder="Введите название">

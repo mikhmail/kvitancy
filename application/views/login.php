@@ -19,37 +19,37 @@
       <script src="<?php echo base_url(); ?>bootstrap/js/bootstrap.js"></script>
       <script src="<?php echo base_url(); ?>assets/func.js"></script>
   </head>
-  <body>
+  <body id="login">
     <div class="container login">
-      <?php 
+      <?php
       $attributes = array('class' => 'form-signin');
       echo form_open(base_url(). 'login/validate_credentials', $attributes);
-      echo '<h2 class="form-signin-heading">Login</h2>';
+      echo '<h2 class="form-signin-heading">Please sign in</h2>';
       echo form_input('user_name', '', 'placeholder="Username"');
       echo form_password('password', '', 'placeholder="Password"');?>
-	  
 
-        <div class="checkbox">
+
+
             <label>
                 <input name="remember" type="checkbox"> Запомнить меня
             </label>
-        </div>
-	  
+
+
      <? if(isset($message_error) && $message_error){
           echo '<div class="alert alert-error">';
             echo '<a class="close" data-dismiss="alert">×</a>';
             echo '<strong>Oh snap!</strong> Change a few things up and try submitting again.';
-          echo '</div>';             
+          echo '</div>';
       }
-      echo "<br />";
-      //echo anchor('admin/signup', 'Signup!');
-      echo "<br />";
-      echo "<br />";
+
       echo form_submit('submit', 'Login', 'class="btn btn-large btn-primary"');
       echo form_close();
-      ?>      
+      ?>
     </div><!--container-->
-    
+
   </body>
+
+
+
 </html>    
     

@@ -103,21 +103,21 @@
             <div class="control-group">
                 <label for="id_proizvod" class="control-label">Производитель</label>
                 <div class="controls">
-                    <?php echo form_dropdown('id_proizvod', $options_proizvod, $store[0]['id_proizvod'], 'class=""');?>
+                    <?php echo form_dropdown('id_proizvod', $options_proizvod, $store[0]['id_proizvod'], 'class="chzn-select"');?>
                 </div>
             </div>
 
             <div class="control-group">
                 <label for="id_aparat" class="control-label">Аппарат</label>
                 <div class="controls">
-                    <?php echo form_dropdown('id_aparat', $options_aparat, $store[0]['id_aparat'], 'id="store_add_id_aparat" class=""');?>
+                    <?php echo form_dropdown('id_aparat', $options_aparat, $store[0]['id_aparat'], 'id="store_add_id_aparat" class="chzn-select"');?>
                 </div>
             </div>
 
             <div class="control-group">
                 <label for="id_aparat_p" class="control-label">Запчасть</label>
                 <div class="controls">
-                    <?php echo form_dropdown('id_aparat_p', $options_aparat_p, $store[0]['id_aparat_p'], 'id="store_add_id_aparat_p" class=""');?>
+                    <?php echo form_dropdown('id_aparat_p', $options_aparat_p, $store[0]['id_aparat_p'], 'id="store_add_id_aparat_p" class="select-container"');?>
                     <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
 					<span name="aparat_p_span" style="display: none;">
 						<input class="" name="aparat_p_name" id="aparat_p_name" type="text" placeholder="Введите название">

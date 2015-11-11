@@ -12,6 +12,8 @@ class Ajx extends CI_Controller {
 
 		$this->load->model('kvitancy_model');
         $this->load->model('users_model');
+        $this->load->model('store_model');
+
 
     }
 	
@@ -745,5 +747,79 @@ function add_proizvod () {
 		}	
 }
 
-	
+
+function show_store () {
+        if ($this->input->post('id_aparat_p')) {
+            $id_aparat_p = $this->input->post('id_aparat_p');
+            $store = $this->store_model->get_store (
+                    $search_string=null,
+                    $order=null,
+                    $order_type=null,
+                    $limit_start=null,
+                    $limit_end=null,
+                    $start_date=null,
+                    $end_date=null,
+                    $id_aparat=null,
+                    $id_aparat_p = $id_aparat_p,
+                    $id_proizvod=null,
+
+                    $id_sost=null,
+                    $user_id=null,
+                    $id_resp=null,
+
+                    $id_where=null,
+                    $id_sc=null,
+
+                    $id_kvitancy=null,
+                    $status=null,
+                    $count=null,
+                    $summ=null
+            );
+    //print_r($store);exit;
+
+            $rezult = '
+            <table class="table table-striped table-bordered table-condensed">
+                <thead>
+                <tr>
+
+                    <th class="yellow header headerSortDown">Название</th>
+                    <th class="yellow header headerSortDown">Состояние</th>
+                    <th class="yellow header headerSortDown">Себестоимость</th>
+                    <th class="yellow header headerSortDown">Цена</th>
+                    <th class="yellow header headerSortDown">Склад</th>
+
+
+
+
+
+                </tr>
+                </thead>
+            ';
+if (count($store)>0){
+foreach($store as $row)
+{
+    if($row['id_sost'] == 1) {$row['id_sost']= 'Новый';} else {$row['id_sost'] = 'Б.У.';}
+$rezult .= '<tr>';
+
+    $rezult .= '<td>'.$row['name'].'</td>';
+    $rezult .= '<td>'.$row['id_sost'].'</td>';
+    $rezult .= '<td>'.$row['cost'].'</td>';
+    $rezult .= '<td>'.$row['price'].'</td>';
+    $rezult .= '<td>'.$row['id_sc'].'</td>';
+
+
+
+
+    $rezult .= '</tr>';
+
+}
+$rezult .= '</tbody>
+</table>';
+
+echo $rezult;
+        }
+    }
+}
+
+//end class
 }

@@ -285,3 +285,25 @@ body {
 .margin-bottom-10px {
     margin-bottom: 10px;
 }
+
+.margin-top-20px {
+    margin-bottom: 20px;
+}
+
+.select-container {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    padding: 0 0 0 8px;
+    height: 23px;
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background-color: #fff;
+    background: -webkit-linear-gradient(top,#fff 20%,#f6f6f6 50%,#eee 52%,#f4f4f4 100%);
+    background-clip: padding-box;
+    box-shadow: 0 0 3px #fff inset,0 1px 1px rgba(0,0,0,.1);
+    color: #444;
+    text-decoration: none;
+    white-space: nowrap;
+    line-height: 24px;
+}

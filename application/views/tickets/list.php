@@ -129,7 +129,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
 </div>
 </div>
-
+      <div class="margin-top-20px"></div>
 <div class="row-fluid">
 <div class="span12" style="margin-bottom: 20px;">
 
@@ -655,8 +655,18 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
             <h3>Склад</h3>
         </div>
         <div class="modal-body">
-            <?php echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="chzn-select" id="id_aparat" required="required" title="Аппарат"');?>
+            <div class="row-fluid">
+                <div class="span5">
+                    <?php echo form_dropdown('id_aparat', $options_ap, '', 'id="store_add_id_aparat" class="chzn-select"');?>
+                </div>
+                <div class="span5" id="store_select">
+                    <?php echo form_dropdown('id_aparat_p', array('' => "-"), '', 'id="store_add_id_aparat_p" class="select-container"');?>
+                </div>
 
+            </div>
+            <div class="row-fluid" id="store_modal">
+
+            </div>
         </div>
         <div class="modal-footer">
             <a data-dismiss="modal" class="btn btn-primary" href="#">Добавить</a>
@@ -722,6 +732,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     </div>
 
                 </div>-->
+                <div></div>
 
                 <div class="span12">
                     <div class="span6">
@@ -746,9 +757,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     </div>
 
                 </div>
+
                 <div class="span12">
                 </div>
-
 
                 <div class="span12">
                     <div class="span4">

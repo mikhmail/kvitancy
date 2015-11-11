@@ -163,7 +163,7 @@ if (count($store) > 0) {//var_dump($store);die;
                 <?php
                 foreach($store as $row)
                 {?>
-
+                    <tr>
                     <td><?=$row['store_id']?></td>
                     <td><?=$row['name_proizvod']?> / <?=$row['aparat_name']?> / <strong><?=$row['title']?></strong></td>
                     <td><?=$row['name']?></td>
