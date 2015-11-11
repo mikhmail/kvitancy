@@ -334,7 +334,7 @@ $('input[name=new_kvit]').click(function(){
 
 // kvitancy
 
-var id_aparat = 	$.trim($("#id_aparat option:selected").val());
+var id_aparat = 	$.trim($("#id_apparat option:selected").val());
 var id_proizvod = 	$.trim($("#id_proizvod option:selected").val());
 var model = 		$.trim($('input[name=model]').val());
 var ser_nomer = 	$.trim($('input[name=ser_nomer]').val());
@@ -402,7 +402,27 @@ $.post("ajx/add_kvitancy", {		user_id:user_id,
 
 
 //добавить аппарат на лету
+    $("#add_aparat").click(function(){
+        app = $("#add_aparat_name").val();
+        $.post("ajx/add_aparat", {aparat_name:app})
+            .done(function(data) {
+                //alert (data);
+                if (data.match(/^[-\+]?\d+/) === null) {
+                    alert('This device name already exists');
+                    $("#add_aparat_name").focus();
+                } else {
 
+                    $("select#id_apparat").append('<option value="'+data+'" selected="selected">'+app+'</option>');
+                    $("div#id_apparat_chzn").find('span').html(app);
+                    $( "span[name='aparat_span']" ).hide();
+                    $("div#id_apparat_chzn").first('a').find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
+
+
+                }
+            });
+    });
+
+/*
 $("#add_aparat").click(function(){
 		app = $("#add_aparat_name").val();
 			
@@ -421,10 +441,32 @@ $("#add_aparat").click(function(){
 			}
 		});				
 	});
-
+*/
 
 //добавить бренд на лету
+    $("#add_proizvod").click(function(){
+        app = $("#add_proizvod_name").val();
 
+        $.post("ajx/add_proizvod", {proizvod_name:app})
+            .done(function(data) {
+                //alert (data);
+                if (data.match(/^[-\+]?\d+/) === null) {
+                    alert('This brand name already exists');
+                    $("#add_proizvod_name").focus();
+                } else {
+
+                    $("select#id_proizvod").append('<option value="'+data+'" selected="selected">'+app+'</option>');
+                    $("div#id_proizvod_chzn").find('span').html(app);
+                    $( "span[name='proizvod_span']" ).hide();
+                    $("div#id_proizvod_chzn").first('a').find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
+
+
+
+                }
+            });
+    });
+
+/*
     $("#add_proizvod").click(function(){
 		app = $("#add_proizvod_name").val();
 			
@@ -444,7 +486,7 @@ $("#add_aparat").click(function(){
 		});				
 	});
 
-
+*/
 
 
 
@@ -564,10 +606,10 @@ var objName = $(obj).next();
 	var objPrev = $(obj).prev();
 	if ( $(objName).css('display') == 'none' ) {
 	$(objName).animate({height: 'show'}, 400);
-	$(objPrev).css({'background-position':"-11px 0"});
+	$(obj).find('i').removeClass( "icon-plus" ).addClass( "icon-minus" );
 		} else {
 	$(objName).animate({height: 'hide'}, 200);
-	$(objPrev).css({'background-position':"0 0"});
+        $(obj).find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
 		}
 }
 

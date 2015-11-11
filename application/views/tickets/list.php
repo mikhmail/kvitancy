@@ -480,7 +480,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                             <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=work_resp_' . $row['id_kvitancy'] . ' class="" placeholder="Исполнитель"')?>
                                                         </th>
                                                         <th><input type="text" id="work_name_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Наименование работы" name="title" class=""></th>
-                                                        <th><input type="number" min=0 step="0.1" id="work_cost_<?=$row['id_kvitancy']?>" autocomplete="off" name="price" placeholder="Цена" class=""></th>
+                                                        <th><input type="number" min=0 step="0.1" id="work_cost_<?=$row['id_kvitancy']?>" autocomplete="off" name="price" placeholder="Cтоимость" class=""></th>
                                                         <th>
                                                             <div class="btn-group margin-bottom-10px">
                                                                 <button id="work_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
@@ -518,7 +518,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                         <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
                                             <div class="span10">
-                                                <div class="pull-left"><b>Добавить запчасти</b></div>
+                                                <div class="pull-left"><b>Добавить новую запчасть</b></div>
                                             </div>
 
 
@@ -544,7 +544,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             <div class="span8">
                                                 <div class="pull-right">
                                                     <div class="btn-group margin-bottom-10px">
-                                                        <button class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</button>
+                                                        <a href="#myAlert" data-toggle="modal" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</a>
                                                     </div>
                                                 </div>
                                             </div>
@@ -649,7 +649,20 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 <div class="row-fluid">
 
+    <div id="myAlert" class="modal hide">
+        <div class="modal-header">
+            <button data-dismiss="modal" class="close" type="button">×</button>
+            <h3>Склад</h3>
+        </div>
+        <div class="modal-body">
+            <?php echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="chzn-select" id="id_aparat" required="required" title="Аппарат"');?>
 
+        </div>
+        <div class="modal-footer">
+            <a data-dismiss="modal" class="btn btn-primary" href="#">Добавить</a>
+            <a data-dismiss="modal" class="btn" href="#">Отмена</a>
+        </div>
+    </div>
 
 
     <!-- Модальное окно d-->
@@ -665,7 +678,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
             <form name="new_kvit_form" action="" method="post">
 
 
-                <div class="span12">
+                <!--<div class="span12">
                     <div class="span6">
 
                         <input class="" type="text" id="inputApparat" onkeyup="look_apparat(this.value);" placeholder="Поиск аппарата">
@@ -708,10 +721,33 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                     </div>
 
+                </div>-->
+
+                <div class="span12">
+                    <div class="span6">
+                        <?php echo form_dropdown('id_aparat', $options_ap, '', 'class="chzn-select" id="id_apparat" required="required" title="Аппарат"');?>
+
+                    <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+
+					<span name="aparat_span" style="display: none;">
+						<input class="" name="add_aparat_name" id="add_aparat_name" type="text" placeholder="Введите название аппарата">
+						<input class="btn btn-mini btn-success margin-bottom-10px" name="submit" id="add_aparat" type="button" value="Добавить" >
+					</span>
+
+					</span>
+                    </div>
+                    <div class="span6">
+                        <?php echo form_dropdown('id_proizvod', $options_proizvoditel, '', 'class="chzn-select" id="id_proizvod" required="required" title="Бренд"');?>
+                        <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+					<span name="proizvod_span" style="display: none;">
+						<input class="" name="add_proizvod_name" id="add_proizvod_name" type="text" placeholder="Введите название бренда">
+						<input class="btn btn-mini btn-success margin-bottom-10px" name="submit" id="add_proizvod" type="button" value="Добавить">
+					</span>
+                    </div>
+
                 </div>
                 <div class="span12">
                 </div>
-
 
 
                 <div class="span12">
@@ -792,7 +828,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
                 <div class="span12">
-                    <input type="button" name="new_kvit" value="Добавить" class="btn btn-info">
+                    <input type="button" name="new_kvit" value="Добавить" class="btn btn-success">
                 </div>
             </form>
         </div>
