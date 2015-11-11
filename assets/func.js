@@ -78,8 +78,8 @@ var id = this.name;
 
         if(!id_aparat_p && name){
             $.post("ajx/add_aparat_p", {aparat_p:name, id_aparat:id_aparat})
-                .done(function(data) {
-                    if(data == 0) {
+                        .done(function(data) {
+                            if(data == 0) {
                         alert('Название запчасти уже есть в базе, выберите из списка.');
                         $(' input[name=select_parts_'+id_kvitancy+'] ').focus();
                     }else{
@@ -415,7 +415,7 @@ $.post("ajx/add_kvitancy", {		user_id:user_id,
                     $("select#id_apparat").append('<option value="'+data+'" selected="selected">'+app+'</option>');
                     $("div#id_apparat_chzn").find('span').html(app);
                     $( "span[name='aparat_span']" ).hide();
-                    $("div#id_apparat_chzn").first('a').find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
+                    $(document).find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
 
 
                 }
@@ -443,6 +443,35 @@ $("#add_aparat").click(function(){
 	});
 */
 
+    //добавить аппарат_p на лету
+    $("#add_aparat_p").click(function(){
+
+        var name =  $.trim($("#aparat_p_name").val());
+        var id_aparat = $.trim($("#store_add_id_aparat option:selected").val());
+
+        //alert(id_aparat);exit;
+        if(!id_aparat) {
+            alert('Надо выбрать аппарат');
+            $("select#store_add_id_aparat").focus();
+            exit;
+        }else{
+        $.post("/ajx/add_aparat_p", {aparat_p:name, id_aparat:id_aparat})
+            .done(function(data) {
+                if(data == 0) {
+                    alert('Такое название уже есть в базе, выберите из списка.');
+                    $("select#store_add_id_aparat_p").focus();
+                }else{
+                    $("select#store_add_id_aparat_p").append('<option value="'+data+'" selected="selected">'+name+'</option>');
+                    $( "span[name='aparat_p_span']" ).hide();
+                    $(document).find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
+
+                }
+            });
+        }
+    });
+
+
+
 //добавить бренд на лету
     $("#add_proizvod").click(function(){
         app = $("#add_proizvod_name").val();
@@ -458,7 +487,7 @@ $("#add_aparat").click(function(){
                     $("select#id_proizvod").append('<option value="'+data+'" selected="selected">'+app+'</option>');
                     $("div#id_proizvod_chzn").find('span').html(app);
                     $( "span[name='proizvod_span']" ).hide();
-                    $("div#id_proizvod_chzn").first('a').find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
+                    $(document).find('i').removeClass( "icon-minus" ).addClass( "icon-plus" );
 
 
 

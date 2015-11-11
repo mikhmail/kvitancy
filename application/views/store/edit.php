@@ -115,14 +115,19 @@
             </div>
 
             <div class="control-group">
-                <label for="id_aparat" class="control-label">Название</label>
+                <label for="id_aparat_p" class="control-label">Запчасть</label>
                 <div class="controls">
                     <?php echo form_dropdown('id_aparat_p', $options_aparat_p, $store[0]['id_aparat_p'], 'id="store_add_id_aparat_p" class=""');?>
+                    <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+					<span name="aparat_p_span" style="display: none;">
+						<input class="" name="aparat_p_name" id="aparat_p_name" type="text" placeholder="Введите название">
+						<input class="btn btn-mini btn-success margin-bottom-10px" name="submit" id="add_aparat_p" type="button" value="Добавить">
+					</span>
                 </div>
             </div>
 
             <div class="control-group">
-                <label for="inputError" class="control-label">Описание</label>
+                <label for="inputError" class="control-label">Описание/Название</label>
                 <div class="controls">
                     <textarea id="" rows="2" name="name"><?php echo $store[0]['name']; ?></textarea>
                 </div>

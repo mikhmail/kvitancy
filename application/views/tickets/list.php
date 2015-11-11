@@ -738,7 +738,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     </div>
                     <div class="span6">
                         <?php echo form_dropdown('id_proizvod', $options_proizvoditel, '', 'class="chzn-select" id="id_proizvod" required="required" title="Бренд"');?>
-                        <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+                    <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
 					<span name="proizvod_span" style="display: none;">
 						<input class="" name="add_proizvod_name" id="add_proizvod_name" type="text" placeholder="Введите название бренда">
 						<input class="btn btn-mini btn-success margin-bottom-10px" name="submit" id="add_proizvod" type="button" value="Добавить">

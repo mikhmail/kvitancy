@@ -17,7 +17,7 @@
     <div class="page-header users-header">
         <h2>
             Склад
-            <a  href="<?php echo site_url("store").'/'.$this->uri->segment(2); ?>add" class="btn btn-success pull-right">Добавить</a>
+            <a  href="<?php echo site_url("store").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>
         </h2>
     </div>
 
