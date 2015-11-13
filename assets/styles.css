@@ -307,3 +307,8 @@ body {
     white-space: nowrap;
     line-height: 24px;
 }
+
+.modal {
+    width: 800px;
+    margin-left: -400px;
+}

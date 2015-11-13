@@ -159,8 +159,9 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 <?
 echo form_close();
 if(count($count_kvitancys)>=1) {
-?>
 
+if (count($soglasovat) > 0 OR count($my_kvitancy) > 0){
+?>
 <div class="row-fluid">
 <div class="span12">
 
@@ -205,9 +206,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 </p>
 
 </div>
-
 </div>
-
+<?}?>
 
 <div class="row-fluid">
 
@@ -523,7 +523,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
                                             <div class="span10">
-                                                <input type="text" name="select_parts_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Поиск запчасти" value="" title="" id="" alt="<?=$row['id_aparat']?>">
+                                                <input type="text" name="select_parts_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Название запчасти" value="" title="" id="" alt="<?=$row['id_aparat']?>">
                                                 <div name="parts_box" id="parts_box_<?=$row['id_kvitancy']?>" style="display: none;">
                                                     <div class="parts_list">
                                                     </div>
@@ -541,12 +541,33 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     <button id="parts_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
                                                 </div>
                                             </div>
-                                            <div class="span8">
-                                                <div class="pull-right">
-                                                    <div class="btn-group margin-bottom-10px">
-                                                        <a href="#myAlert" data-toggle="modal" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</a>
-                                                    </div>
-                                                </div>
+                                            <div class="span8 margin-top-20px margin-bottom-10px">
+
+
+                                                        <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</a>
+                                                        <div class="row-fluid hide">
+                                                            <div class="modal-header">
+
+                                                                <h3>Склад</h3>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row-fluid">
+                                                                    <div class="span5">
+                                                                        <?php echo form_dropdown('id_aparat', $options_ap, '', 'id="store_add_id_aparat" class="chzn-select"');?>
+                                                                    </div>
+                                                                    <div class="span5" id="store_select">
+                                                                        <?php echo form_dropdown('id_aparat_p', array('' => "-"), '', 'id="store_add_id_aparat_p" title='.$row['id_kvitancy'].' class="select-container"');?>
+                                                                    </div>
+
+                                                                </div>
+                                                                <div class="row-fluid" id="store_modal">
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
                                             </div>
                                             <div class="span10">
                                                 <div class="pull-left"><b>Установленные запчасти</b></div>

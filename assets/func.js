@@ -572,12 +572,14 @@ $( "#search_user" ).keyup(function() {
 
 // вывод online store
     $("div#store_select select").change(function(){
-        $("#store_modal").load("/ajx/show_store", { id_aparat_p: this.value });
+        $("#store_modal").load("/ajx/show_store", { id_aparat_p:this.value, id_kvitancy:this.title  });
         //alert($("#store_add_id_aparat option:selected").val());
         //alert(this.value);
 
     });
 //end online store
+
+
 
 //chzn select
     $(function() {
@@ -705,3 +707,29 @@ function fill_proizvod(thisValue) {
 			
 			setTimeout("$('#proizvod_box').hide();", 200);
  }
+
+function fill_store(store_id, id_kvitancy) {
+
+    $.post("ajx/get_store_by_id", {
+        id:store_id
+    })
+        .done(function(data) {
+            //console.log(data);
+                $("#table_store_"+id_kvitancy+"").append(data);
+
+
+            $.post("ajx/update_ajax_store", {
+                id:store_id,
+                id_kvitancy:id_kvitancy
+                })
+                    .done(function(data) {
+                        if (data == 1) {
+                            $("#online_store_tr_"+store_id+"").remove();
+                        }else{
+                            alert('Запчасть не списана, перезагрузите стараницу и попробуйте еще раз.');
+                        }
+                    });
+
+        });
+
+}

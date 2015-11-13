@@ -13,6 +13,7 @@ class Ajx extends CI_Controller {
 		$this->load->model('kvitancy_model');
         $this->load->model('users_model');
         $this->load->model('store_model');
+        $this->load->model('service_centers_model');
 
 
     }
@@ -749,8 +750,10 @@ function add_proizvod () {
 
 
 function show_store () {
-        if ($this->input->post('id_aparat_p')) {
+        if ($this->input->post('id_aparat_p') AND $this->input->post('id_kvitancy')) {
             $id_aparat_p = $this->input->post('id_aparat_p');
+            $id_kvit = $this->input->post('id_kvitancy');
+
             $store = $this->store_model->get_store (
                     $search_string=null,
                     $order=null,
@@ -767,7 +770,7 @@ function show_store () {
                     $user_id=null,
                     $id_resp=null,
 
-                    $id_where=null,
+                    $id_where=$this->session->userdata('user_id_sc'),
                     $id_sc=null,
 
                     $id_kvitancy=null,
@@ -784,8 +787,8 @@ function show_store () {
 
                     <th class="yellow header headerSortDown">Название</th>
                     <th class="yellow header headerSortDown">Состояние</th>
-                    <th class="yellow header headerSortDown">Себестоимость</th>
-                    <th class="yellow header headerSortDown">Цена</th>
+                    <th class="yellow header headerSortDown">Себе/Стоимость</th>
+                    <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Склад</th>
 
 
@@ -796,30 +799,119 @@ function show_store () {
                 </thead>
             ';
 if (count($store)>0){
+    //var_dump($store);die;
 foreach($store as $row)
 {
     if($row['id_sost'] == 1) {$row['id_sost']= 'Новый';} else {$row['id_sost'] = 'Б.У.';}
-$rezult .= '<tr>';
 
-    $rezult .= '<td>'.$row['name'].'</td>';
+    /*
+
+    switch ($this->session->userdata('id_group')) {
+        case 1: // админ
+            $sc = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+            break;
+
+
+        case 2: // приемщик
+            $sc = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+            break;
+
+
+        case 3: // инженер
+            $sc = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+            break;
+
+        default:
+            $sc = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+    }
+
+   */
+
+    $sc = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+    foreach ($sc as $rows)
+    {
+        if ($rows['id_sc'] == $row['id_where']) $id_where = $rows['name_sc'];
+    }
+
+    $users = $this->users_model->get_users('', '', '', '', '', '', '');
+    foreach ($users as $rowu)
+    {
+        if ($rowu['id'] == $row['id_resp']) $id_resp = $rowu['user_name'];
+    }
+
+    $rezult .= '<tr id="online_store_tr_'.$row['store_id'].'">';
+    $rezult .= '<td><a href="#" onclick="fill_store('.$row['store_id'].', '.$id_kvit.');return false">'.$row['name'].'</a></td>';
     $rezult .= '<td>'.$row['id_sost'].'</td>';
-    $rezult .= '<td>'.$row['cost'].'</td>';
-    $rezult .= '<td>'.$row['price'].'</td>';
-    $rezult .= '<td>'.$row['id_sc'].'</td>';
-
-
-
-
+    $rezult .= '<td>'.$row['cost'].' / '.$row['price'].'</td>';
+    $rezult .= '<td>'.$id_resp.'</td>';
+    $rezult .= '<td>'.$id_where.'</td>';
     $rezult .= '</tr>';
 
 }
 $rezult .= '</tbody>
 </table>';
 
-echo $rezult;
+             echo $rezult;
+                }else {
+            echo '<p>По вашему запросу ничего не найдено.</p>
+            <p>Если вы хотите списать запчасти с другого склада попросите у администратора сделать перемещение.</p>';
         }
     }
 }
+
+
+
+function get_store_by_id () {
+    $id = $this->input->post('id');
+
+    $store = $this->store_model->get_store_by_id ($id);
+
+    if (count($store)>0) {
+
+        foreach($store as $row){
+
+            if($row['id_sost'] == 1) {$sost = 'Новый';} else $sost = 'Б.У.';
+
+            $rezult  = '<tr id="part_tr_'.$row['store_id'].'">';
+            $rezult .= '<td>'.$row['title'].'</td>';
+            $rezult .= '<td>'.$row['name'].'</td>';
+            $rezult .= '<td>'.$sost.'</td>';
+            $rezult .= '<td>'.$row['cost'].'</td>';
+            $rezult .= '<td>'.$row['price'].'</td>';
+            $rezult .= '<td>'.$this->session->userdata['user_name'].'</td>';
+            $rezult .= '<td>'.date('j-m-Y').'</td>';
+            $rezult .= '<td>
+            <div class="btn-group margin-bottom-10px">
+                 <button name="'.$row['store_id'].'" id="part_dell_'.$row['store_id'].'" class="btn btn-danger">
+                    <i class="icon-remove icon-white"></i>
+                 </button>
+            </div>
+            </td>';
+            $rezult .= '</tr>';
+
+        }
+        echo $rezult;
+    }
+
+}
+
+function update_ajax_store ()
+{
+    $id = $this->input->post('id');
+    $id_kvitancy = $this->input->post('id_kvitancy');
+        $data = array(
+            'update_time' => date("j-m-Y, H:i:s"),
+            'update_user' => $this->session->userdata('user_id'),
+            'id_kvitancy' => $id_kvitancy,
+            'status' => 0,
+
+
+        );
+        $this->db->where('id', $id);
+        $ret = $this->db->update('store', $data);
+        if ($ret) echo 1;
+}
+
 
 //end class
 }
