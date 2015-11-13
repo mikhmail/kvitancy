@@ -787,7 +787,7 @@ function show_store () {
 
                     <th class="yellow header headerSortDown">Название</th>
                     <th class="yellow header headerSortDown">Состояние</th>
-                    <th class="yellow header headerSortDown">Себе/Стоимость</th>
+                    <th class="yellow header headerSortDown">Стоимость/Цена</th>
                     <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Склад</th>
 

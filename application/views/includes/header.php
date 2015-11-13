@@ -4,6 +4,7 @@
 
     <head>
         <meta charset="utf-8">
+        <meta id="myBase" name="<?php echo base_url(); ?>" />
         <title>Fixinka</title>
         <!-- Bootstrap -->
         <link href="<?php echo base_url(); ?>bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
@@ -111,6 +112,10 @@
 
                                     <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
                                         <a href="<?php echo base_url(); ?>admin/tickets">Заявки-Админ</a>
+                                    </li>
+
+                                    <li <?php if($this->uri->segment(1) == 'store'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>store">Склад</a>
                                     </li>
                                     <li class="divider"></li>
 

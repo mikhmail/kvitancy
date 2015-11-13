@@ -347,7 +347,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     <li><a href="#tab2_<?=$row['id_kvitancy']?>" data-toggle="tab">Информация</a></li>
                                     <li><a href="#tab3_<?=$row['id_kvitancy']?>" data-toggle="tab">Комментарии <sup class="badge"><?=count($comments)?></sup></a></li>
                                     <li><a href="#tab4_<?=$row['id_kvitancy']?>" data-toggle="tab">Ремонт/Запчасти</a></li>
-                                    <li><a href="#tab5_<?=$row['id_kvitancy']?>" data-toggle="tab">Печать</a></li>
+                                    <!--<li><a href="#tab5_<?=$row['id_kvitancy']?>" data-toggle="tab">Склад/</a></li>-->
+                                    <li><a href="#tab6_<?=$row['id_kvitancy']?>" data-toggle="tab">Печать/Редактировать</a></li>
+
 
                                 </ul>
                                 <div class="tab-content">
@@ -620,10 +622,17 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         </div>
 
 
-                                        <!--end remont -->
 
-                                        </div>
-            <div style="margin-bottom: 20px;" class="tab-pane" id="tab5_<?=$row['id_kvitancy']?>">
+
+                                        </div><!--end remont -->
+                 <!--
+                <div style="margin-bottom: 20px;" class="tab-pane" id="tab5_<?=$row['id_kvitancy']?>">
+                <span>
+                                        123
+                </span>
+
+                </div><!-- end  -->
+            <div style="margin-bottom: 20px;" class="tab-pane" id="tab6_<?=$row['id_kvitancy']?>">
                 <span>
                                         <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="" target="_blank">
                                             <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать</button>
@@ -639,8 +648,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать чека</button>
                                         </a>
                 </span>
-                            <!-- end print -->
-                                </div>
+
+            </div><!-- end print -->
 
                                 </div>
                             </div>

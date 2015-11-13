@@ -1,12 +1,12 @@
 $(document).ready(function(){
-
+    var base_url = document.getElementById ("myBase").name;
 
 // смена статуса
 $('select[id^=status_]').change(function(){
 var status = $('#'+this.id+' option:selected').val();
 var id = this.name;
 		$.ajax({
-		  url: "ajx/change_status/"+status+"/"+id+"",
+		  url: ""+base_url+"ajx/change_status/"+status+"/"+id+"",
 		  success: function(data) {
 			
 			 $("#status_"+id+"").fadeOut("slow");
@@ -23,7 +23,7 @@ $('select[id^=meh_]').change(function(){
 var status = $('#'+this.id+' option:selected').val();
 var id = this.name;
 		$.ajax({
-		  url: "ajx/change_mechanic/"+status+"/"+id+"",
+		  url: ""+base_url+"ajx/change_mechanic/"+status+"/"+id+"",
 		  success: function(data) {
 			
 			 $("#meh_"+id+"").fadeOut("slow");
@@ -40,7 +40,7 @@ var id = this.name;
         var status = $('#'+this.id+' option:selected').val();
         var id = this.name;
         $.ajax({
-            url: "ajx/change_resp/"+status+"/"+id+"",
+            url: ""+base_url+"ajx/change_resp/"+status+"/"+id+"",
             success: function(data) {
 
                 $("#resp_"+id+"").fadeOut("slow");
@@ -77,14 +77,14 @@ var id = this.name;
         if(count < 1) { alert ('Количество не может быть меньше 1'); $(' input[name=store_count_'+id_kvitancy+'] ').focus();exit; }
 
         if(!id_aparat_p && name){
-            $.post("ajx/add_aparat_p", {aparat_p:name, id_aparat:id_aparat})
+            $.post(""+base_url+"ajx/add_aparat_p", {aparat_p:name, id_aparat:id_aparat})
                         .done(function(data) {
                             if(data == 0) {
                         alert('Название запчасти уже есть в базе, выберите из списка.');
                         $(' input[name=select_parts_'+id_kvitancy+'] ').focus();
                     }else{
 
-                            $.post("ajx/add_store", {
+                            $.post(""+base_url+"ajx/add_store", {
                                 text:text,
                                 name:name,
                                 id_aparat:id_aparat,
@@ -108,7 +108,7 @@ var id = this.name;
 
     }else{
             if(id_aparat_p){
-                $.post("ajx/add_store", {
+                $.post(""+base_url+"ajx/add_store", {
                     text:text,
                     name:name,
                     id_aparat:id_aparat,
@@ -153,7 +153,7 @@ var id = this.name;
         if(inputString.length > 10) {
             $(next).hide();
         } else {
-            $.post("ajx/look_aparat_p", {queryString: ""+inputString+"", id_kvitancy: id_kvitancy}, function(data){
+            $.post(""+base_url+"ajx/look_aparat_p", {queryString: ""+inputString+"", id_kvitancy: id_kvitancy}, function(data){
                 if (data.length > 2 && data !=  0) {
 
                     //$('#parts_box').show();
@@ -181,7 +181,7 @@ var id = this.name;
         var id_part = this.name;
 
         if (confirm('Хотите удалить запчасть? \nЗапчасть не будет удалена и будет возвращена на склад.')) {
-            $.post("ajx/update_part", {id_part:id_part})
+            $.post(""+base_url+"ajx/update_part", {id_part:id_part})
                 .done(function(data) {
                     $("#part_tr_"+id_part+"").remove();
 
@@ -206,10 +206,10 @@ var id = this.name;
 
         if(cost < 0) { alert ('Стоимость не может быть меньше 0'); $('#work_cost_'+id_kvitancy+'').focus();exit; }
 
-        $.post("ajx/add_work", {id_kvitancy:id_kvitancy, name:name, cost:cost, user_id:user_id})
+        $.post(""+base_url+"ajx/add_work", {id_kvitancy:id_kvitancy, name:name, cost:cost, user_id:user_id})
             .done(function(data) {
 
-                $(this).parent().parent().parent().parent().parent().parent().find("input,select,textarea").each(function () {
+                $('#table_work_'+id_kvitancy+'').find("input,select,textarea").each(function () {
                     $(this).attr('value', '');
                 });
 
@@ -223,7 +223,7 @@ var id = this.name;
         var id_work = this.name;
     if (confirm('Хотите выполенную работу? \nВосстановить будет невозможно.'))
     {
-        $.post("ajx/delete_work", {id_work:id_work})
+        $.post(""+base_url+"ajx/delete_work", {id_work:id_work})
             .done(function(data) {
                 $("#work_tr_"+id_work+"").remove();
 
@@ -240,7 +240,7 @@ var arr = this.id.split('_');
 var id = parseInt(arr[1]);
 //alert(id);
 
-$.post("ajx/add_comment", {id:id, comment:comment})
+$.post(""+base_url+"ajx/add_comment", {id:id, comment:comment})
 	.done(function(data) {
 	
 	$("#ul_"+id+"").append(data);
@@ -253,7 +253,7 @@ $.post("ajx/add_comment", {id:id, comment:comment})
 $('input[id^=dell_comment]').click(function(){
 var id_comment = this.name;
 //alert (id_comment);die;
-$.post("ajx/delete_comment", {id_comment:id_comment})
+$.post(""+base_url+"ajx/delete_comment", {id_comment:id_comment})
 	.done(function(data) {
 	$("#li_"+id_comment+"").remove();
 		});
@@ -358,7 +358,7 @@ var adres = $.trim($('input[name=adres]').val());
 var where_id = $.trim($("#where_id option:selected").val());
 
 	
-$.post("ajx/add_kvitancy", {		user_id:user_id,
+$.post(""+base_url+"ajx/add_kvitancy", {		user_id:user_id,
 									id_aparat:id_aparat,
 									id_proizvod:id_proizvod,
 									model:model,
@@ -404,7 +404,7 @@ $.post("ajx/add_kvitancy", {		user_id:user_id,
 //добавить аппарат на лету
     $("#add_aparat").click(function(){
         app = $("#add_aparat_name").val();
-        $.post("ajx/add_aparat", {aparat_name:app})
+        $.post(""+base_url+"ajx/add_aparat", {aparat_name:app})
             .done(function(data) {
                 //alert (data);
                 if (data.match(/^[-\+]?\d+/) === null) {
@@ -455,7 +455,7 @@ $("#add_aparat").click(function(){
             $("select#store_add_id_aparat").focus();
             exit;
         }else{
-        $.post("/ajx/add_aparat_p", {aparat_p:name, id_aparat:id_aparat})
+        $.post(""+base_url+"ajx/add_aparat_p", {aparat_p:name, id_aparat:id_aparat})
             .done(function(data) {
                 if(data == 0) {
                     alert('Такое название уже есть в базе, выберите из списка.');
@@ -476,7 +476,7 @@ $("#add_aparat").click(function(){
     $("#add_proizvod").click(function(){
         app = $("#add_proizvod_name").val();
 
-        $.post("ajx/add_proizvod", {proizvod_name:app})
+        $.post(""+base_url+"ajx/add_proizvod", {proizvod_name:app})
             .done(function(data) {
                 //alert (data);
                 if (data.match(/^[-\+]?\d+/) === null) {
@@ -534,7 +534,7 @@ $( "#search_user" ).keyup(function() {
 				$('#user_box').hide();
 					
                 } else {
-                        $.post("ajx/search_user", {queryString: ""+inputString+"", id_sc: id_sc}, function(data){
+                        $.post(""+base_url+"ajx/search_user", {queryString: ""+inputString+"", id_sc: id_sc}, function(data){
                                 if (data.length > 2 && data !=  0) {
 										
                                         $('#user_box').show();
@@ -565,14 +565,15 @@ $( "#search_user" ).keyup(function() {
 
 // вывод под каталога аппарата
     $("#store_add_id_aparat").change(function(){
-        $("#store_add_id_aparat_p").load("/ajx/show_aparat_p", { id_aparat: $("#store_add_id_aparat option:selected").val() });
+        $("#store_add_id_aparat_p").load(""+base_url+"ajx/show_aparat_p", { id_aparat: $("#store_add_id_aparat option:selected").val() });
     });
 //end add_id_aparat
 
 
 // вывод online store
     $("div#store_select select").change(function(){
-        $("#store_modal").load("/ajx/show_store", { id_aparat_p:this.value, id_kvitancy:this.title  });
+        //alert(base_url);exit;
+        $("#store_modal").load(""+base_url+"ajx/show_store", { id_aparat_p:this.value, id_kvitancy:this.title  });
         //alert($("#store_add_id_aparat option:selected").val());
         //alert(this.value);
 
@@ -597,7 +598,7 @@ $( "#search_user" ).keyup(function() {
 /*
 Дальше отдельные функции
 */
-
+var base_url = document.getElementById ("myBase").name;
 
 jQuery.fn.clear = function()
 {
@@ -658,7 +659,7 @@ function look_apparat(inputString) {
                 if(inputString.length > 10) {
                         $('#apparat_box').hide();
                 } else {
-                        $.post("ajx/look_apparat", {queryString: ""+inputString+""}, function(data){
+                        $.post(""+base_url+"ajx/look_apparat", {queryString: ""+inputString+""}, function(data){
                                 if(data.length > 2) {
                                         $('#apparat_box').show();
                                         $('#apparat_list').html(data);
@@ -685,7 +686,7 @@ function fill_apparat(thisValue) {
                 if(inputString.length > 10) {
                         $('#proizvod_box').hide();
                 } else {
-                        $.post("ajx/look_proizvod", {queryString: ""+inputString+""}, function(data){
+                        $.post(""+base_url+"ajx/look_proizvod", {queryString: ""+inputString+""}, function(data){
                                 if(data.length > 2) {
                                         $('#proizvod_box').show();
                                         $('#proizvod_list').html(data);
@@ -710,7 +711,7 @@ function fill_proizvod(thisValue) {
 
 function fill_store(store_id, id_kvitancy) {
 
-    $.post("ajx/get_store_by_id", {
+    $.post(""+base_url+"ajx/get_store_by_id", {
         id:store_id
     })
         .done(function(data) {
@@ -718,7 +719,7 @@ function fill_store(store_id, id_kvitancy) {
                 $("#table_store_"+id_kvitancy+"").append(data);
 
 
-            $.post("ajx/update_ajax_store", {
+            $.post(""+base_url+"ajx/update_ajax_store", {
                 id:store_id,
                 id_kvitancy:id_kvitancy
                 })

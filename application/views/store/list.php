@@ -203,10 +203,10 @@ if (count($store) > 0) {//var_dump($store);die;
                         }?>
                     </td>
                     <td>
-                        <?echo '
+                        <? if($row['status'] != 0) echo '
                     <a href="'.site_url("store").'/update/'.$row['store_id'].'" class="btn btn-info btn-mini">Изменить</a>
                     <a href="'.site_url("store").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>
-                            ';?>
+                            '; else echo '<a href="'.site_url("store").'/123/'.$row['store_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>
                     </td>
 
 
