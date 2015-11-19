@@ -14,6 +14,8 @@ class Ajx extends CI_Controller {
         $this->load->model('users_model');
         $this->load->model('store_model');
         $this->load->model('service_centers_model');
+        $this->load->model('sost_remonta_model');
+
 
 
     }
@@ -42,6 +44,7 @@ class Ajx extends CI_Controller {
 	{
 	$update_user=$this->session->userdata('user_id');
     $type = $this->kvitancy_model->get_type_sost_remonta ($id_sost);
+    $sost_remonta = $this->sost_remonta_model->get_sost_remonta_by_id($id_sost);
 
         if ($type[0]["type"] == 1) {
         $data = array(
@@ -143,7 +146,7 @@ class Ajx extends CI_Controller {
 			
 		$this->db->where('id_kvitancy', $id_kvitancy);
 		$ret = $this->db->update('kvitancy', $data);
-		
+        if ($ret) echo json_encode($sost_remonta[0]);
 		
 	}
 		

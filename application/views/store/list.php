@@ -93,7 +93,7 @@
                 //$data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
 
                 $options_order_type = array('Asc' => 'По возрастанию', 'Desc' => 'По убыванию');
-                echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="chzn-select"');
+                echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="select-container"');
 
                 //echo form_submit($data_submit);
                 ?>

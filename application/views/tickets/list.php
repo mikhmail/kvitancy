@@ -319,7 +319,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             <span class="label label-info pull-right"># <?=$row['id_kvitancy']?></span>
                                         </td>
                                         <td class="span2">
-                                            <div style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></div>
+                                            <div id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></div>
                                         </td>
                                         <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
                                         <td class="span3"><?=$row['neispravnost']?></td>

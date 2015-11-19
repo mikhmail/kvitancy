@@ -11,6 +11,18 @@ var id = this.name;
 			
 			 $("#status_"+id+"").fadeOut("slow");
 			 $("#status_"+id+"").fadeIn();
+
+              obj = eval("(function(){return " + data + ";})()");
+              console.log(obj.id_sost);
+              console.log(obj.name_sost);
+              console.log(obj.background);
+
+              $("div#background_"+id+"").html(obj.name_sost);
+              $("div#background_"+id+"").css('background-color',obj.background);
+
+
+
+              //alert(data);
 		  }
 		});
 	delete status;
