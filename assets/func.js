@@ -667,6 +667,19 @@ var objName = $(obj).next();
 		}
 }
 
+function anichange_kvitancy (obj) {
+    var objName = $(obj).next();
+    var objPrev = $(obj).prev();
+    if ( $(objName).css('display') == 'none' ) {
+             $(objName).animate({height: 'show'}, 400);
+             $(obj).css('font-weight','bold');
+    } else {
+        $(objName).animate({height: 'hide'}, 200);
+        $(obj).css('font-weight','normal');
+
+    }
+}
+
 function look_apparat(inputString) {
                 if(inputString.length > 10) {
                         $('#apparat_box').hide();

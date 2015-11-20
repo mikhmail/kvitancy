@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/includes/header.php" afterPath="$PROJECT_DIR$/application/views/includes/header.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/works/list.php" afterPath="$PROJECT_DIR$/application/views/works/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/tickets.php" afterPath="$PROJECT_DIR$/application/controllers/tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/works.php" afterPath="$PROJECT_DIR$/application/controllers/works.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -37,10 +35,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tickets.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="251" column="35" selection-start="8885" selection-end="8885" vertical-scroll-proportion="0.5263158" vertical-offset="5222" max-vertical-offset="24706">
+            <state line="251" column="35" selection-start="8885" selection-end="8885" vertical-scroll-proportion="-9.67742" vertical-offset="5222" max-vertical-offset="24706">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="func.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/func.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="675" column="12" selection-start="21564" selection-end="21564" vertical-scroll-proportion="0.67752445" vertical-offset="14434" max-vertical-offset="16852">
               <folding />
             </state>
           </provider>
@@ -49,7 +56,7 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="34" selection-start="2753" selection-end="2753" vertical-scroll-proportion="-3.672131" vertical-offset="1932" max-vertical-offset="19514">
+            <state line="313" column="67" selection-start="9622" selection-end="9622" vertical-scroll-proportion="-10.193548" vertical-offset="6570" max-vertical-offset="19514">
               <folding />
             </state>
           </provider>
@@ -144,8 +151,6 @@
         <option value="$PROJECT_DIR$/application/views/store/edit.php" />
         <option value="$PROJECT_DIR$/assets/styles.css" />
         <option value="$PROJECT_DIR$/application/views/store/list.php" />
-        <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
-        <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/application/views/admin/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/clients/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/cities/list.php" />
@@ -168,6 +173,8 @@
         <option value="$PROJECT_DIR$/application/views/works/list.php" />
         <option value="$PROJECT_DIR$/application/controllers/works.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
+        <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
+        <option value="$PROJECT_DIR$/assets/func.js" />
       </list>
     </option>
   </component>
@@ -486,7 +493,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1152" extended-state="1" />
+    <frame x="0" y="0" width="1920" height="1152" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -617,12 +624,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/store/edit.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="105" column="124" selection-start="3364" selection-end="3364" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="4488" />
+        <state line="105" column="124" selection-start="3364" selection-end="3364" vertical-scroll-proportion="0.0" vertical-offset="2310" max-vertical-offset="4488">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/store/add.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="139" selection-start="2944" selection-end="2955" vertical-scroll-proportion="0.0" vertical-offset="2266" max-vertical-offset="4378" />
+        <state line="103" column="139" selection-start="2944" selection-end="2955" vertical-scroll-proportion="0.0" vertical-offset="2266" max-vertical-offset="4378">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/sost_remonta_model.php">
@@ -750,11 +761,6 @@
         <state line="162" column="31" selection-start="7079" selection-end="7079" vertical-scroll-proportion="0.721519" vertical-offset="2880" max-vertical-offset="3828" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="49" selection-start="1703" selection-end="1703" vertical-scroll-proportion="0.54162276" vertical-offset="960" max-vertical-offset="16566" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="214" column="14" selection-start="5790" selection-end="5790" vertical-scroll-proportion="0.0" vertical-offset="4708" max-vertical-offset="20350">
@@ -801,16 +807,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="34" selection-start="2753" selection-end="2753" vertical-scroll-proportion="-3.672131" vertical-offset="1932" max-vertical-offset="19514">
+        <state line="251" column="35" selection-start="8885" selection-end="8885" vertical-scroll-proportion="-9.67742" vertical-offset="5222" max-vertical-offset="24706">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="251" column="35" selection-start="8885" selection-end="8885" vertical-scroll-proportion="0.5263158" vertical-offset="5222" max-vertical-offset="24706">
+        <state line="313" column="67" selection-start="9622" selection-end="9622" vertical-scroll-proportion="-10.193548" vertical-offset="6570" max-vertical-offset="19514">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="675" column="12" selection-start="21564" selection-end="21564" vertical-scroll-proportion="0.67752445" vertical-offset="14434" max-vertical-offset="16852">
           <folding />
         </state>
       </provider>

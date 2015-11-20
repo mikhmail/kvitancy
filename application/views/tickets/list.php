@@ -311,7 +311,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
                     <tr>
                         <td>
-                            <a href="#" onclick="anichange(this); return false">
+                            <a href="#" onclick="anichange_kvitancy(this); return false">
                                 <table class="table table-condensed">
                                     <tr>
                                         <td class="span1">
