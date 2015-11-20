@@ -20,6 +20,7 @@ class works_model extends CI_Model {
         $id_aparat_p=null,
         $id_proizvod=null,
         $id_kvitancy=null,
+        $id_sc=null,
         $count=null,
         $summ=null
     )
@@ -111,20 +112,21 @@ service.id_sc
 
 
         if($start_date AND $end_date) {
-            $this->db->where(" works.".$date." BETWEEN '".$start_date."%' AND '".$end_date."%' ", NULL, FALSE);
+            $this->db->where(" works.date_added BETWEEN '".$start_date."%' AND '".$end_date."%' ", NULL, FALSE);
         }
 
+        if ($id_sc != null){
+            $this->db->where('works.id_sc', $id_sc);
+        }
 
         if ($id_aparat != null){
-            $this->db->where('works.id_aparat', $id_aparat);
+            $this->db->where('kvitancy.id_aparat', $id_aparat);
         }
 
-        if ($id_aparat_p != null){
-            $this->db->where('works.id_aparat_p', $id_aparat_p);
-        }
+
 
         if ($id_proizvod != null){
-            $this->db->where('works.id_proizvod', $id_proizvod);
+            $this->db->where('kvitancy.id_proizvod', $id_proizvod);
         }
        
 

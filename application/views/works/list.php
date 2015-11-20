@@ -16,7 +16,7 @@
 
 <div class="page-header users-header">
     <h2>
-        Выполненные работы пользователя "<?=$this->session->userdata('user_name')?>"
+        Выполненные работы пользователя "<?=$this->session->userdata('user_name')?>" за текущий месяц.
         <!--<a  href="<?php echo site_url("works").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
     </h2>
 </div>
@@ -44,17 +44,25 @@
             echo form_open('works', $attributes);
 
 
+            //$options_date = array('date_priemka' => 'Дата приема', 'date_vydachi' => 'Дата выдачи', 'date_okonchan' => 'Дата окон.ремонта');
+            //echo form_dropdown('date', $options_date, $date_selected, 'class=""');
+            ?>
+            От:
+            <?
+            echo form_date('start_date', $start_date_selected);
+            ?>
+            До:
+            <?
+            echo form_date('end_date', $end_date_selected);
 
             $options_id_sc = array('' => "Выбрать СЦ");
 
             foreach ($sc as $array) {
                 $options_id_sc[$array['id_sc']] = $array['name_sc'];
             }
-            echo form_dropdown('id_where', $options_id_sc, $id_where_selected, 'class="chzn-select"');
+            echo form_dropdown('id_sc', $options_id_sc, $id_where_selected, 'class="chzn-select"');
 
-            ?>
 
-            <?
             /*
             $options_id_responsible = array('' => "Выбрать ответственного");
 
@@ -86,10 +94,12 @@
 
             echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="chzn-select"');
             ?>
-
+            <br>
             <label class="control-label" for="order">Сортировать по:</label>
             <?
-            // echo form_dropdown('order', $options_works, $order, 'class="span2"');
+
+            $options_works = array('id' => 'ID', 'cost' => 'Стоимость');
+            echo form_dropdown('order', $options_works, $order_selected, 'class="span2"');
 
             //$data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
 

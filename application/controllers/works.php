@@ -95,7 +95,9 @@ class Works extends CI_Controller {
                     'end_date' => '',
                     'id_aparat' => '',
                     'id_proizvod' => '',
-                    'id_kvitancy' => ''
+                    'id_kvitancy' => '',
+                    'id_sc' => ''
+
                                  );
             }
             //save session data into the session
@@ -113,6 +115,8 @@ class Works extends CI_Controller {
             $id_aparat = $this->input->post("id_aparat");
             $id_proizvod = $this->input->post("id_proizvod");
             $id_kvitancy = $this->input->post("id_kvitancy");
+            $id_sc = $this->input->post("id_sc");
+
 
 
 
@@ -131,7 +135,7 @@ class Works extends CI_Controller {
             // end SEARCH
 
 
-            // ORDER
+            // ORDER type
             if ($this->input->post("order_type")) {
                 $filter_session_data['order_type'] = $order_type;
             } //we have something stored in the session?
@@ -142,9 +146,20 @@ class Works extends CI_Controller {
                 $order_type = 'Desc';
             }
             $data['order_type_selected'] = $order_type;
+            // end ORDER type
+
+            // ORDER
+            if ($this->input->post("order")) {
+                $filter_session_data['order'] = $order;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $order = $this->session->userdata('order');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $order = 'id';
+            }
+            $data['order_selected'] = $order;
             // end ORDER
-
-
 
 
 
@@ -353,6 +368,7 @@ class Works extends CI_Controller {
                 $id_proizvod,
 
                 $id_kvitancy,
+                $id_sc,
 
                 1,
                 $summ=null
@@ -371,6 +387,7 @@ class Works extends CI_Controller {
                 $id_proizvod,
 
                 $id_kvitancy,
+                $id_sc,
 
                 0,
                 $summ=1
@@ -390,6 +407,7 @@ class Works extends CI_Controller {
                 $id_proizvod,
 
                 $id_kvitancy,
+                $id_sc,
 
                 $count = null,
                 $summ=null
@@ -409,8 +427,9 @@ class Works extends CI_Controller {
 
             $data['search_string_selected'] = '';
             $data['order_type_selected'] = '';
-            $data['start_date_selected'] = '';
-            $data['end_date_selected'] = '';
+            $data['order_selected'] = 'id';
+            $data['start_date_selected'] = date('Y') . '-'. date('m') . '-01';
+            $data['end_date_selected'] = date("Y-m-d");
             $data['id_aparat_selected'] = '';
             $data['id_aparat_p_selected'] = '';
             $data['id_proizvod_selected'] = '';
@@ -427,12 +446,13 @@ class Works extends CI_Controller {
             $order = '';
             $order_type = '';
             $limit_start = $config['per_page']; //при навигациии надо включить
-            $start_date = '';
-            $end_date = '';
+            $start_date = date('Y') . '-'. date('m') . '-01';
+            $end_date = date("Y-m-d");
             $id_aparat = '';
             $id_aparat_p = '';
             $id_proizvod = '';
             $id_kvitancy = '';
+            $id_sc = '';
             $summ=null;
 
             /*WHAT USER SEE? */
@@ -498,6 +518,7 @@ class Works extends CI_Controller {
                 $id_proizvod,
 
                 $id_kvitancy,
+                $id_sc,
 
                 1,
                 $summ=null
@@ -516,6 +537,7 @@ class Works extends CI_Controller {
                 $id_proizvod,
 
                 $id_kvitancy,
+                $id_sc,
 
                 0,
                 $summ=1
@@ -535,6 +557,7 @@ class Works extends CI_Controller {
                 $id_proizvod,
 
                 $id_kvitancy,
+                $id_sc,
 
                 $count = null,
                 $summ=null
