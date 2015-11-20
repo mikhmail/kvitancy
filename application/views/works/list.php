@@ -1,4 +1,4 @@
-<?=var_dump($works);die;?>
+<? //var_dump($works);die;?>
 <div class="container-fluid">
 
 <ul class="breadcrumb">
@@ -16,8 +16,8 @@
 
 <div class="page-header users-header">
     <h2>
-        Склад
-        <a  href="<?php echo site_url("works").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>
+        Выполненные работы пользователя "<?=$this->session->userdata('user_name')?>"
+        <!--<a  href="<?php echo site_url("works").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
     </h2>
 </div>
 
@@ -45,7 +45,7 @@
 
 
 
-            $options_id_sc = array('' => "Выбрать склад");
+            $options_id_sc = array('' => "Выбрать СЦ");
 
             foreach ($sc as $array) {
                 $options_id_sc[$array['id_sc']] = $array['name_sc'];
@@ -55,15 +55,16 @@
             ?>
 
             <?
+            /*
             $options_id_responsible = array('' => "Выбрать ответственного");
 
             foreach ($users as $array) {
                 $options_id_responsible[$array['id']] = $array['user_name'];
             }
 
-            echo form_dropdown('id_resp', $options_id_responsible, $id_resp_selected, 'class="chzn-select"');?>
+            echo form_dropdown('id_resp', $options_id_responsible, $id_resp_selected, 'class="chzn-select"');
+            */
 
-            <?
             // echo form_label('Аппарат: ');
             $options_ap = array('' => "Выбрать аппарат");
 
@@ -140,21 +141,12 @@
         <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr>
-                <th class="header">#</th>
+                <th class="header">#квитанции</th>
                 <th class="yellow header headerSortDown">Название</th>
-                <th class="yellow header headerSortDown">Описание</th>
-                <th class="yellow header headerSortDown">Серийный номер</th>
-                <th class="yellow header headerSortDown">Внешний вид</th>
-                <th class="yellow header headerSortDown">Состояние</th>
-
-                <th class="yellow header headerSortDown">Себестоимость</th>
-                <th class="yellow header headerSortDown">Цена</th>
-                <th class="yellow header headerSortDown">Склад</th>
-                <th class="yellow header headerSortDown">Ответственный</th>
-                <th class="yellow header headerSortDown">Добавлено</th>
-                <th class="yellow header headerSortDown">Обновлено</th>
-
-
+                <th class="yellow header headerSortDown">Стоимость</th>
+                <th class="yellow header headerSortDown">Аппарат</th>
+                <th class="yellow header headerSortDown">СЦ</th>
+                <th class="yellow header headerSortDown">Дата</th>
                 <th class="yellow header headerSortDown">Управление</th>
 
             </tr>
@@ -164,49 +156,20 @@
             foreach($works as $row)
             {?>
                 <tr>
-                    <td><?=$row['works_id']?></td>
-                    <td><?=$row['name_proizvod']?> / <?=$row['aparat_name']?> / <strong><?=$row['title']?></strong></td>
+                    <td><?=$row['id_kvitancy']?></td>
                     <td><?=$row['name']?></td>
-                    <td><?=$row['serial']?></td>
-                    <td><?=$row['vid']?></td>
-                    <td><? if($row['id_sost'] == 1) echo 'Новый'; else echo 'Б.У.';?></td>
-
                     <td><?=$row['cost']?></td>
-                    <td><?=$row['price']?></td>
+                    <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> <?=$row['model']?></td>
+                    <td><?=$row['name_sc']?></td>
+                    <td><?=$row['date_added']?></td>
+
+
                     <td>
-
-                        <? if ($row['status'] == 0) {?>
-                            Списан на #<?=$row['id_kvitancy']?>
-                        <?}else{
-
-                            foreach ($sc as $rows)
-                            {
-                                if ($rows['id_sc'] == $row['id_where']) echo $rows['name_sc'];
-                            }
-
-                        }?>
-
-                    </td>
-                    <td>
-                        <?
-                        foreach ($users as $rows)
-                        {
-                            if ($rows['id'] == $row['id_resp']) echo $rows['user_name'];
-                        }
-                        ?>
-                    </td>
-                    <td><?=$row['date_priemka']?> / <?=$row['user_name']?> /  <?=$row['name_sc']?><??></td>
-                    <td><?=$row['update_time']?> / <?
-                        foreach ($users as $rows)
-                        {
-                            if ($rows['id'] == $row['update_user']) echo $rows['user_name'];
-                        }?>
-                    </td>
-                    <td>
-                        <? if($row['status'] != 0) echo '
+                    <? echo '
                     <a href="'.site_url("works").'/update/'.$row['works_id'].'" class="btn btn-info btn-mini">Изменить</a>
                     <a href="'.site_url("works").'/delete/'.$row['works_id'].'" class="btn btn-danger btn-mini">Удалить</a>
-                            '; else echo '<a href="'.site_url("works").'/123/'.$row['works_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>
+                    ';?>
+
                     </td>
 
 

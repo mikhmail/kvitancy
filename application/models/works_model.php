@@ -34,20 +34,21 @@ works.date_added,
 works.cost,
 
 kvitancy.id_kvitancy,
+kvitancy.model,
 
-aparat.id_aparat,
+
+
 aparat.aparat_name,
 
 
-proizvod.id_proizvod,
+
 proizvod.name_proizvod,
 
 user.id as user_id,
-user.first_name,
-user.last_name,
-user.user_name,
 
-service.name_sc
+service.name_sc,
+service.id_sc
+
 		');
         }
 
@@ -70,16 +71,8 @@ service.name_sc
 
         if($search_string){
 
-            if ($id_sc != null){
-                $this->db->where('works.id_sc', $id_sc);
-            }
 
-
-            $this->db->where('works.status', 1);
-
-
-
-            $where = "(works.model LIKE '%$search_string%' OR works.name LIKE '%$search_string%' OR works.serial LIKE '%$search_string%')";
+            $where = "(works.name LIKE '%$search_string%')";
 
             $this->db->where($where);
 
@@ -101,10 +94,6 @@ service.name_sc
 
         elseif ($id_kvitancy) {
 
-
-            if ($id_sc != null){
-                $this->db->where('works.id_sc', $id_sc);
-            }
             $this->db->where('works.id_kvitancy', $id_kvitancy);
 
             $query = $this->db->get();
@@ -126,9 +115,6 @@ service.name_sc
         }
 
 
-        if ($id_sc != null){
-            $this->db->where('works.id_sc', $id_sc);
-        }
         if ($id_aparat != null){
             $this->db->where('works.id_aparat', $id_aparat);
         }

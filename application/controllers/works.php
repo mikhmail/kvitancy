@@ -340,7 +340,7 @@ class Works extends CI_Controller {
 
 
             //fetch sql data into arrays
-            $data['count_works'] = $this->works_model->get_store(
+            $data['count_works'] = $this->works_model->get_works(
                 $search_string,
                 $order,
                 $order_type,
@@ -351,18 +351,14 @@ class Works extends CI_Controller {
                 $id_aparat,
                 $id_aparat_p,
                 $id_proizvod,
-                $id_sost,
-                $store_user_id,
-                $id_resp,
-                $id_where,
-                $id_sc,
+
                 $id_kvitancy,
-                $status,
+
                 1,
                 $summ=null
             );
 
-            $data['summ'] = $this->works_model->get_store(
+            $data['summ'] = $this->works_model->get_works(
                 $search_string,
                 $order,
                 $order_type,
@@ -373,18 +369,14 @@ class Works extends CI_Controller {
                 $id_aparat,
                 $id_aparat_p,
                 $id_proizvod,
-                $id_sost,
-                $store_user_id,
-                $id_resp,
-                $id_where,
-                $id_sc,
+
                 $id_kvitancy,
-                $status,
+
                 0,
                 $summ=1
             );
 
-            $data['works'] = $this->works_model->get_store(
+            $data['works'] = $this->works_model->get_works(
 
                 $search_string,
                 $order,
@@ -396,19 +388,16 @@ class Works extends CI_Controller {
                 $id_aparat,
                 $id_aparat_p,
                 $id_proizvod,
-                $id_sost,
-                $store_user_id,
-                $id_resp,
-                $id_where,
-                $id_sc,
+
                 $id_kvitancy,
-                $status,
+
                 $count = null,
                 $summ=null
             );
 
 
-            $config['total_rows'] = $data['count_store'];
+
+            $config['total_rows'] = $data['count_works'];
 
 
         } // !end--------------------------POST------------------------------------- //
@@ -527,7 +516,7 @@ class Works extends CI_Controller {
                 $id_proizvod,
 
                 $id_kvitancy,
-                $status,
+
                 0,
                 $summ=1
             );
@@ -553,7 +542,7 @@ class Works extends CI_Controller {
 
         }
 
-        $config['total_rows'] = $data['count_store'];
+        $config['total_rows'] = $data['count_works'];
 
         $this->pagination->initialize($config);
 
