@@ -151,11 +151,17 @@ $route['admin/status/delete/(:any)'] = 'admin_status/delete/$1';
 $route['admin/status/(:any)'] = 'admin_status/index/$1'; //$1 = page number
 
 $route['store'] = 'store/index';
-
 $route['store/add'] = 'store/add';
 $route['store/update/(:any)'] = 'store/update/$1';
 $route['store/delete/(:any)'] = 'store/delete/$1';
 $route['store/(:any)'] = 'store/index'; //$1 = page number
+
+$route['works'] = 'works/index';
+$route['works/add'] = 'works/add';
+$route['works/update/(:any)'] = 'works/update/$1';
+$route['works/delete/(:any)'] = 'works/delete/$1';
+$route['works/(:any)'] = 'works/index'; //$1 = page number
+
 
 
 

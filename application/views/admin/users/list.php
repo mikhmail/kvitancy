@@ -52,7 +52,7 @@
               <?echo form_dropdown('groups_dostupa_id', $options_groups_dostupa, $groups_dostupa_selected, 'class="span2"');?>
 
                   <label class="control-label" for="order">Фильтровать по:</label>
-                 <?echo form_dropdown('order', $options_users, $order, 'class="span2"');?>
+                 <? //echo form_dropdown('order', $options_users, $order, 'class="span2"');?>
 
 
                       <?

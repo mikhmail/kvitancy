@@ -6,7 +6,7 @@ class Ajx extends CI_Controller {
 	{
 		parent::__construct();
 
-        if(!$this->session->userdata('is_logged_in')){
+        if(!$this->session->userdata('user_id')){
             redirect('admin/login');
         }
 
@@ -211,7 +211,7 @@ class Ajx extends CI_Controller {
                 'user_id' => $this->input->post('user_id'),
                 'id_kvitancy' => $this->input->post('id_kvitancy'),
                 'cost' => $this->input->post('cost'),
-                'id_sc' => $this->session->userdata['user_id']
+                'id_sc' => $this->session->userdata['user_id_sc']
             );
 
             $ret = $this->db->insert('works', $data);

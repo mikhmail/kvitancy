@@ -46,7 +46,7 @@
               <?echo form_input('search_string', $search_string_selected, 'class="search-query"');?>
 
               <label class="control-label" for="order">Фильтровать по:</label>
-              <?echo form_dropdown('order', $options_groups_dostupa, $order, 'class="span2"');?>
+              <? //echo form_dropdown('order', $options_groups_dostupa, $order, 'class="span2"');?>
 
              <?
 

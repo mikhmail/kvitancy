@@ -46,22 +46,21 @@
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>profile">Профиль</a>
                                 </li>
-
+                                <li>
+                                    <a tabindex="-1" href="<?php echo base_url(); ?>login/cache_delete">Очистка кеша</a>
+                                </li>
                                 <li class="divider"></li>
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>admin/logout">Выход</a>
                                 </li>
+
                             </ul>
                         </li>
                     </ul>
+                    <? if ($this->session->userdata('id_group') == 1) {?>
                     <ul class="nav">
-
-
-
-
-
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Настройки <b class="caret"></b></a>
+                         <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Меню <b class="caret"></b></a>
                                 <ul class="dropdown-menu">
 
                                     <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
@@ -117,16 +116,12 @@
                                     <li <?php if($this->uri->segment(1) == 'store'){echo 'class="active"';}?>>
                                         <a href="<?php echo base_url(); ?>store">Склад</a>
                                     </li>
-                                    <li class="divider"></li>
-
-                                    <li>
-                                        <a tabindex="-1" href="<?php echo base_url(); ?>login/cache_delete">Очистка кеша</a>
-                                    </li>
 
                                 </ul>
                             </li>
 
                         </ul>
+                    <?}?>
                 </div>
                 <!--/.nav-collapse -->
             </div>

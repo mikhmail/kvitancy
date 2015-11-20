@@ -47,7 +47,7 @@
 
               <label class="control-label" for="order">Сортировать по:</label>
               <?
-              echo form_dropdown('order', $options_manufacturers, $order, 'class="span2"');
+              //echo form_dropdown('order', $options_manufacturers, $order, 'class="span2"');
 
               $data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
 

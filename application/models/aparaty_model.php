@@ -49,7 +49,7 @@ class Aparaty_model extends CI_Model {
 		if($order){
 			$this->db->order_by($order, $order_type);
 		}else{
-		    $this->db->order_by('aparat_name', $order_type);
+		    $this->db->order_by('id_aparat', $order_type);
 		}
 
         if($limit_start && $limit_end){
