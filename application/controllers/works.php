@@ -162,16 +162,23 @@ class Works extends CI_Controller {
             // end ORDER
 
 
+            $s = strtotime('-1 month');
+            $m = date("m", $s);
 
             // START_DATE
             if ($this->input->post("start_date")) {
                 $filter_session_data['start_date'] = $start_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $start_date = $this->session->userdata('start_date');
+                if ($this->session->userdata('start_date')) {
+                    $start_date = $this->session->userdata('start_date');
+                }else{
+                    $start_date = date('Y') . '-'. $m . '-31';
+                }
+
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
-                $start_date = '';
+                $start_date = date('Y') . '-'. $m . '-31';
             }
             $data['start_date_selected'] = $start_date;
             // end START_DATE
@@ -181,7 +188,12 @@ class Works extends CI_Controller {
                 $filter_session_data['end_date'] = $end_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $end_date = $this->session->userdata('end_date');
+                if ($this->session->userdata('end_date')) {
+                    $end_date = $this->session->userdata('end_date');
+                }else{
+                    $end_date = date("Y-m-d");
+                }
+
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $end_date = date("Y-m-d");
@@ -422,8 +434,13 @@ class Works extends CI_Controller {
 
         else{
 
+
+
 //clear session data in session
             $this->session->unset_userdata();
+
+            $s = strtotime('-1 month');
+            $m = date("m", $s);
 
             $data['search_string_selected'] = '';
             $data['order_type_selected'] = '';
@@ -442,11 +459,14 @@ class Works extends CI_Controller {
             $data['id_sc_selected'] = '';
             //end pre selected options
 
+
+
+
             $search_string = '';
             $order = '';
             $order_type = '';
             $limit_start = $config['per_page']; //при навигациии надо включить
-            $start_date = date('Y') . '-'. date('m') . '-01';
+            $start_date = date('Y') . '-'. $m . '-31';
             $end_date = date("Y-m-d");
             $id_aparat = '';
             $id_aparat_p = '';

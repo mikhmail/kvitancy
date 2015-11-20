@@ -227,7 +227,12 @@ class Tickets extends CI_Controller
                 $filter_session_data['id_aparat'] = $id_aparat;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_aparat = $this->session->userdata('id_aparat');
+                if ($this->session->userdata('id_aparat')) {
+                        $id_aparat = $this->session->userdata('id_aparat');
+                }else{
+                    $id_aparat = '';
+                }
+
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_aparat = '';
@@ -241,7 +246,12 @@ class Tickets extends CI_Controller
                 $filter_session_data['id_proizvod'] = $id_proizvod;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_proizvod = $this->session->userdata('id_proizvod');
+                if ($this->session->userdata('id_proizvod')) {
+                        $id_proizvod = $this->session->userdata('id_proizvod');
+                }else{
+                    $id_proizvod ='';
+                }
+
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_proizvod = '';
@@ -255,8 +265,11 @@ class Tickets extends CI_Controller
                 $filter_session_data['id_sost'] = $id_sost;
             }
                     elseif ($this->uri->segment(2)) {
-                        $id_sost = $this->session->userdata('id_sost');
-
+                                if ($this->session->userdata('id_sost')) {
+                                    $id_sost = $this->session->userdata('id_sost');
+                                }else{
+                                    $id_sost = '';
+                                }
                             } else {
                                 $id_sost = '';
                             }
@@ -380,8 +393,27 @@ class Tickets extends CI_Controller
 
         else {
 
+            $filter_session_data = array(
+                'search_string' => '',
+                'order' => '',
+                'order_type' => '',
+                'limit_start' => '',
+                'limit_end' => '',
+                'date' => '',
+                'start_date' => '',
+                'end_date' => '',
+                'id_mechanic' => '',
+                'id_aparat' => '',
+                'id_proizvod' => '',
+                'id_sost' => '',
+                'id_sc' => '',
+                'id_kvitancy' => '',
+                'id_remonta' => ''
+
+            );
+
             //clear session data in session
-            $this->session->unset_userdata();
+            $this->session->unset_userdata($filter_session_data);
 
 
             //pre selected options from session
@@ -445,7 +477,7 @@ class Tickets extends CI_Controller
 
 
 
-            /*Масив для сесиии*/
+            /*Масив для сесиии
             $filter_session_data = array(
                 'search_string' => $search_string,
                 'order' => $order,
@@ -469,7 +501,7 @@ class Tickets extends CI_Controller
             if (isset($filter_session_data)) {
                 $this->session->set_userdata($filter_session_data);
             }
-
+        */
             //fetch count kvitancys from db
             $data['count_kvitancys'] = $this->kvitancy_model->get_kvitancy(
                 $search_string,

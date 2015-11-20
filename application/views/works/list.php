@@ -98,7 +98,7 @@
             <label class="control-label" for="order">Сортировать по:</label>
             <?
 
-            $options_works = array('id' => 'ID', 'cost' => 'Стоимость');
+            $options_works = array('works.id' => 'ID', 'kvitancy.id_kvitancy' => 'ID_квитанции', 'cost' => 'Стоимость');
             echo form_dropdown('order', $options_works, $order_selected, 'class="span2"');
 
             //$data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
@@ -151,12 +151,13 @@
         <table class="table table-striped table-bordered table-condensed">
             <thead>
             <tr>
+                <th class="header">#</th>
                 <th class="header">#квитанции</th>
-                <th class="yellow header headerSortDown">Название</th>
+                <th class="yellow header headerSortDown">Дата</th>
+                <th class="yellow header headerSortDown">Выполненная работа</th>
                 <th class="yellow header headerSortDown">Стоимость</th>
                 <th class="yellow header headerSortDown">Аппарат</th>
                 <th class="yellow header headerSortDown">СЦ</th>
-                <th class="yellow header headerSortDown">Дата</th>
                 <th class="yellow header headerSortDown">Управление</th>
 
             </tr>
@@ -166,12 +167,13 @@
             foreach($works as $row)
             {?>
                 <tr>
+                    <td><?=$row['works_id']?></td>
                     <td><?=$row['id_kvitancy']?></td>
+                    <td><?=$row['date_added']?></td>
                     <td><?=$row['name']?></td>
                     <td><?=$row['cost']?></td>
                     <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> <?=$row['model']?></td>
                     <td><?=$row['name_sc']?></td>
-                    <td><?=$row['date_added']?></td>
 
 
                     <td>

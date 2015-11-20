@@ -47,6 +47,10 @@
                                     <a tabindex="-1" href="<?php echo base_url(); ?>profile">Профиль</a>
                                 </li>
                                 <li>
+                                    <a tabindex="-1" href="<?php echo base_url(); ?>works">Мои ремонты</a>
+                                </li>
+
+                                <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>login/cache_delete">Очистка кеша</a>
                                 </li>
                                 <li class="divider"></li>
