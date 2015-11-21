@@ -146,7 +146,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
     <div class="pull-right">
         <?
         //echo form_label('Поиск:', 'search_string');
-        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск по фамилии, модели, телефоне" title="Поиск по фамилии, модели, телефоне" class="search-query"');
+        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск по фамилии, модели, телефоне" title="Поиск по фамилии, модели, телефоне" class="search-query" style="width: 260px;"');
         ?>
         <?
         echo form_label('', 'mysubmit');

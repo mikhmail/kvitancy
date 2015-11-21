@@ -612,8 +612,8 @@ class Works extends CI_Controller {
         //product id
         $id = $this->uri->segment(3);
         //var_dump($id);die;
-        $this->works_model->delete_store($id);
-        redirect('store');
+        $this->works_model->delete_works($id);
+        redirect('works');
 
     }//delete
 
