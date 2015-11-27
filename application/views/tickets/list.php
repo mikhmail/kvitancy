@@ -455,10 +455,20 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     </div>
 
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab4_<?=$row['id_kvitancy']?>">
+                                        <div class="row-fluid" name="price" style="margin-bottom: 20px;">
+                                            <div class="span6">
+                                                Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="" id="price_<?=$row['id_kvitancy']?>" class="span2">
+                                                <input class="btn margin-bottom-10px" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
+                                            </div>
+                                            <div class="span6">
+                                                Фактическая сумма за ремонт [Выполненные работы + Установленные запчасти]:
+                                            </div>
+                                        </div>
 
+                                    <legend></legend>
                                         <div class="row-fluid" name="work" style="margin-bottom: 20px;">
                                             <div class="span10">
-                                                <div class="pull-left"><b>Выполненные работы</b></div>
+                                                <div class="pull-left"><h4>Выполненные работы</h4></div>
                                                 </div>
 
                                                     <?
@@ -519,8 +529,11 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         </legend>
 
                                         <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
+                                            <h4>Запчасти</h4>
                                             <div class="span10">
-                                                <div class="pull-left"><b>Добавить на склад новую запчасть и списать на эту квитанцию</b></div>
+                                                <div class="pull-left">
+                                                    <i class="icon-chevron-right icon"></i>
+                                                    <b>Добавить на склад новую запчасть и списать на эту квитанцию</b></div>
                                             </div>
 
 
@@ -545,7 +558,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </div>
                                             <div class="span8 margin-top-20px margin-bottom-10px">
 
-
+                                                <i class="icon-chevron-right icon"></i>
                                                         <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</a>
                                                         <div class="row-fluid hide">
                                                             <div class="modal-header">
