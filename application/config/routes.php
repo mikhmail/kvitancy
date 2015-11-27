@@ -154,6 +154,8 @@ $route['store'] = 'store/index';
 $route['store/add'] = 'store/add';
 $route['store/update/(:any)'] = 'store/update/$1';
 $route['store/delete/(:any)'] = 'store/delete/$1';
+$route['store/return_store/(:any)'] = 'store/return_store/$1';
+
 $route['store/(:any)'] = 'store/index'; //$1 = page number
 
 $route['works'] = 'works/index';

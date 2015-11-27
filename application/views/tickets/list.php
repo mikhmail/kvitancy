@@ -520,7 +520,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                         <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
                                             <div class="span10">
-                                                <div class="pull-left"><b>Добавить новую запчасть</b></div>
+                                                <div class="pull-left"><b>Добавить на склад новую запчасть и списать на эту квитанцию</b></div>
                                             </div>
 
 

@@ -178,7 +178,7 @@
 
                     <td>
                     <? echo '
-                    
+
                     <a href="'.site_url("works").'/delete/'.$row['works_id'].'" class="btn btn-danger btn-mini">Удалить</a>
                     ';?>
 

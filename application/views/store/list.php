@@ -44,6 +44,9 @@
                 echo form_open('store', $attributes);
 
 
+                $options_status = array('' => "Что показать", '1' => "На складе", '0' => "Установлено",);
+                echo form_dropdown('id_status', $options_status, $id_status_selected, 'class="chzn-select"');
+
 
                 $options_id_sc = array('' => "Выбрать склад");
 
@@ -52,9 +55,7 @@
                 }
                 echo form_dropdown('id_where', $options_id_sc, $id_where_selected, 'class="chzn-select"');
 
-                ?>
 
-                <?
                 $options_id_responsible = array('' => "Выбрать ответственного");
 
                 foreach ($users as $array) {
@@ -206,7 +207,7 @@ if (count($store) > 0) {//var_dump($store);die;
                         <? if($row['status'] != 0) echo '
                     <a href="'.site_url("store").'/update/'.$row['store_id'].'" class="btn btn-info btn-mini">Изменить</a>
                     <a href="'.site_url("store").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>
-                            '; else echo '<a href="'.site_url("store").'/123/'.$row['store_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>
+                            '; else echo '<a href="'.site_url("store").'/return_store/'.$row['store_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>
                     </td>
 
 

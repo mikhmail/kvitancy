@@ -28,7 +28,7 @@ class Store_model extends CI_Model {
                                     $id_sc=null,
 
                                     $id_kvitancy=null,
-                                    $status=null,
+                                    $id_status=null,
                                     $count=null,
                                     $summ=null
                                 )
@@ -183,8 +183,8 @@ service.name_sc
             $this->db->where('store.id_where', $id_where);
         }
 
-        if ($status != null){
-            $this->db->where('store.status', $status);
+        if ($id_status OR $id_status==0){
+            $this->db->where('store.status', $id_status);
         }else{
             $this->db->where('store.status', 1);
         }
@@ -296,6 +296,20 @@ service.name_sc
                     return $query->result_array();
             }else return null;
         }
+    }
+
+
+    function return_store($id){
+
+        $data = array(
+
+            'status' => 1,
+            'update_user' => $this->session->userdata['user_id'],
+            'update_time' => date("j-m-Y, H:i:s")
+        );
+
+        $this->db->where('id', $id);
+        $this->db->update('store', $data);
     }
 
 

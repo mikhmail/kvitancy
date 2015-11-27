@@ -109,7 +109,7 @@ class Store extends CI_Controller {
                     'id_where' => '',
                     'id_sc' => '',
                     'id_kvitancy' => '',
-                    'status' => ''                );
+                    'id_status' => ''                );
             }
             //save session data into the session
             if (isset($filter_session_data)) {
@@ -131,10 +131,26 @@ class Store extends CI_Controller {
             $store_user_id = $this->input->post("store_user_id");
             $id_where = $this->input->post("id_where");
             $id_resp = $this->input->post("id_resp");
-            //$status = $this->input->post("status");
+            $id_status = $this->input->post("id_status");
             $id_kvitancy = $this->input->post("id_kvitancy");
 
 
+            // id_status
+            if (($this->input->post("id_status")) OR $this->input->post("id_status")==0) {
+                $filter_session_data['id_status'] = $id_status;
+            }
+            elseif ($this->uri->segment(2)) {
+                if ($this->session->userdata('id_status')) {
+                    $id_status = $this->session->userdata('id_status');
+                }else{
+                    $id_status = '';
+                }
+            } else {
+                $id_status = '';
+            }
+            $data['id_status_selected'] = $id_status;
+
+            // end id_status
 
 
             // SEARCH
@@ -291,18 +307,7 @@ class Store extends CI_Controller {
             $data['id_where_selected'] = $id_where;
             // end id_where
 
-            // status
-            if ($this->input->post("status")) {
-                $filter_session_data['status'] = $status;
-            }
-            elseif ($this->uri->segment(2)) {
-                $status = $this->session->userdata('status');
 
-            } else {
-                $status = '1';
-            }
-            $data['status_selected'] = $status;
-            // end status
 
 
             // ID_KVITANCY
@@ -377,7 +382,7 @@ class Store extends CI_Controller {
                 $id_where,
                 $id_sc,
                 $id_kvitancy,
-                $status,
+                $id_status,
                 1,
                 $summ=null
             );
@@ -399,7 +404,7 @@ class Store extends CI_Controller {
                 $id_where,
                 $id_sc,
                 $id_kvitancy,
-                $status,
+                $id_status,
                 0,
                 $summ=1
             );
@@ -422,7 +427,7 @@ class Store extends CI_Controller {
                 $id_where,
                 $id_sc,
                 $id_kvitancy,
-                $status,
+                $id_status,
                 $count = null,
                 $summ=null
             );
@@ -452,6 +457,7 @@ class Store extends CI_Controller {
             $data['status_selected'] = 1;
             $data['id_kvitancy_selected'] = '';
             $data['id_sc_selected'] = '';
+            $data['id_status_selected'] = 1;
             //end pre selected options
 
             $search_string = '';
@@ -468,7 +474,7 @@ class Store extends CI_Controller {
             $store_user_id = '';
             $id_where = '';
             $id_resp = '';
-            $status = 1;
+            $id_status = 1;
             $id_kvitancy = '';
             $summ=null;
 
@@ -519,7 +525,7 @@ class Store extends CI_Controller {
                 'id_where' => '',
                 'id_sc' => '',
                 'id_kvitancy' => '',
-                'status' => ''
+                'id_status' => ''
             );
 
             //save session data into the session
@@ -545,7 +551,7 @@ class Store extends CI_Controller {
                 $id_where,
                 $id_sc,
                 $id_kvitancy,
-                $status,
+                $id_status,
                 1,
                 $summ=null
             );
@@ -567,7 +573,7 @@ class Store extends CI_Controller {
                 $id_where,
                 $id_sc,
                 $id_kvitancy,
-                $status,
+                $id_status,
                 0,
                 $summ=1
             );
@@ -590,7 +596,7 @@ class Store extends CI_Controller {
                 $id_where,
                 $id_sc,
                 $id_kvitancy,
-                $status,
+                $id_status,
                 $count = null,
                 $summ=null
             );
@@ -629,7 +635,18 @@ class Store extends CI_Controller {
 
     }//delete
 
-        public function update()
+    public function return_store()
+    {
+        //product id
+        $id = $this->uri->segment(3);
+        //var_dump($id);die;
+        $this->store_model->return_store($id);
+        redirect('store');
+
+    }//delete
+
+
+    public function update()
     {
         //product id
         $id = $this->uri->segment(3);
