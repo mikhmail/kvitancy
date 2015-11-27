@@ -600,6 +600,51 @@ $( "#search_user" ).keyup(function() {
         });
 //end chzn select
 
+// setup store
+    $('a[id^=setup_]').click(function(){
+        var parts=new Array();
+        parts = this.id.split('_');
+        var id = parts[1];
+
+        var id_kvitancy = prompt('Введите номер квитанции?', '');
+        if (id_kvitancy) {
+
+            $.post(""+base_url+"ajx/update_ajax_store", {
+                id:id,
+                id_kvitancy:id_kvitancy
+                })
+                .done(function(data) {
+                    if (data == 1) {
+                        $("#store_tr_"+id+"").remove();
+                    }else if(data == 0){
+                        //alert('Квитанция №'+id_kvitancy+' не найдена!');
+                        var text = prompt('Квитанция №'+id_kvitancy+' не найдена! \n Введите под что списать?', '');
+                            if(text){
+                                $.post(""+base_url+"ajx/setup_ajax_store", {
+                                    id:id,
+                                    text:text
+                                    })
+                                    .done(function(data) {
+                                        if (data == 1) {
+                                            $("#store_tr_"+id+"").remove();
+                                        }else{
+                                            alert('Запчасть не списана, перезагрузите стараницу и попробуйте еще раз.');
+                                        }
+                                    });
+                            }
+                    }
+                    else{
+                        alert('Запчасть не списана, перезагрузите стараницу и попробуйте еще раз.');
+                    }
+                });
+
+        }else{
+            alert('Надо ввести информацию!');
+        }
+
+    });
+//end setup store
+
 
 //	
 //	

@@ -44,7 +44,7 @@
                 echo form_open('store', $attributes);
 
 
-                $options_status = array('' => "Что показать", '1' => "На складе", '0' => "Установлено",);
+                $options_status = array('' => "Что показать", '1' => "На складе", '0' => "Списано",);
                 echo form_dropdown('id_status', $options_status, $id_status_selected, 'class="chzn-select"');
 
 
@@ -164,7 +164,7 @@ if (count($store) > 0) {//var_dump($store);die;
                 <?php
                 foreach($store as $row)
                 {?>
-                    <tr>
+                    <tr id="store_tr_<?=$row['store_id']?>">
                     <td><?=$row['store_id']?></td>
                     <td><?=$row['name_proizvod']?> / <?=$row['aparat_name']?> / <strong><?=$row['title']?></strong></td>
                     <td><?=$row['name']?></td>
@@ -176,9 +176,14 @@ if (count($store) > 0) {//var_dump($store);die;
                     <td><?=$row['price']?></td>
                     <td>
 
-                        <? if ($row['status'] == 0) {?>
-                            Списан на #<?=$row['id_kvitancy']?>
-                        <?}else{
+                        <? if ($row['status'] == 0) {
+                                if($row['id_kvitancy']){?>
+                                    Списан #<?=$row['id_kvitancy']?>
+                                 <? }else{ ?>
+                                    Списан "<?=$row['text']?>"
+                                <?}
+
+                        }else{
 
                                 foreach ($sc as $rows)
                                 {
@@ -205,6 +210,7 @@ if (count($store) > 0) {//var_dump($store);die;
                     </td>
                     <td>
                         <? if($row['status'] != 0) echo '
+                    <a id="setup_'.$row['store_id'].'" class="btn btn-primary btn-mini">Списать</a>
                     <a href="'.site_url("store").'/update/'.$row['store_id'].'" class="btn btn-info btn-mini">Изменить</a>
                     <a href="'.site_url("store").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>
                             '; else echo '<a href="'.site_url("store").'/return_store/'.$row['store_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>

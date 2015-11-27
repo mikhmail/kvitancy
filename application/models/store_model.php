@@ -59,6 +59,8 @@ store.id_from,
 store.id_where,
 store.id_sc,
 store.id_kvitancy,
+store.text,
+
 
 
 aparat.id_aparat,
@@ -304,6 +306,7 @@ service.name_sc
         $data = array(
 
             'status' => 1,
+            'id_kvitancy' => NULL,
             'update_user' => $this->session->userdata['user_id'],
             'update_time' => date("j-m-Y, H:i:s")
         );

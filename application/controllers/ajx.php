@@ -902,19 +902,65 @@ function update_ajax_store ()
 {
     $id = $this->input->post('id');
     $id_kvitancy = $this->input->post('id_kvitancy');
+
+    $kvitancy = $this->kvitancy_model->get_kvitancy(
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        '',
+        $id_kvitancy,
+        '',
+        $count = null
+    );
+    //print_r($kvitancy);exit;
+    if($kvitancy){
         $data = array(
             'update_time' => date("j-m-Y, H:i:s"),
             'update_user' => $this->session->userdata('user_id'),
             'id_kvitancy' => $id_kvitancy,
             'status' => 0,
-
-
         );
         $this->db->where('id', $id);
         $ret = $this->db->update('store', $data);
         if ($ret) echo 1;
+    }else{
+        echo 0;
+    }
+
+
 }
 
+    function setup_ajax_store ()
+    {
+        $id = $this->input->post('id');
+        $text = $this->input->post('text');
+
+
+        if($text AND $id){
+            $data = array(
+                'update_time' => date("j-m-Y, H:i:s"),
+                'update_user' => $this->session->userdata('user_id'),
+                'text' => $text,
+                'status' => 0,
+            );
+            $this->db->where('id', $id);
+            $ret = $this->db->update('store', $data);
+            if ($ret) echo 1;
+        }else{
+            echo 0;
+        }
+
+
+    }
 
 //end class
 }

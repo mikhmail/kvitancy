@@ -3,13 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/store/list.php" afterPath="$PROJECT_DIR$/application/views/store/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/works/list.php" afterPath="$PROJECT_DIR$/application/views/works/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/config/routes.php" afterPath="$PROJECT_DIR$/application/config/routes.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/store.php" afterPath="$PROJECT_DIR$/application/controllers/store.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/store_model.php" afterPath="$PROJECT_DIR$/application/models/store_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +35,7 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="73" column="0" selection-start="3781" selection-end="3834" vertical-scroll-proportion="0.78594595" vertical-offset="879" max-vertical-offset="1804">
+            <state line="75" column="43" selection-start="3894" selection-end="3935" vertical-scroll-proportion="0.6464286" vertical-offset="1288" max-vertical-offset="1848">
               <folding />
             </state>
           </provider>
@@ -47,7 +44,16 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/store/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="209" column="85" selection-start="8150" selection-end="8150" vertical-scroll-proportion="-9.786885" vertical-offset="4001" max-vertical-offset="5038">
+            <state line="212" column="69" selection-start="8125" selection-end="8125" vertical-scroll-proportion="-3.2950819" vertical-offset="4463" max-vertical-offset="5170">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/assets/func.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="625" column="38" selection-start="20614" selection-end="20614" vertical-scroll-proportion="0.0" vertical-offset="13409" max-vertical-offset="17842">
               <folding />
             </state>
           </provider>
@@ -74,8 +80,21 @@
       <file leaf-file-name="store_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/store_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="301" column="31" selection-start="7320" selection-end="7320" vertical-scroll-proportion="-7.870968" vertical-offset="6378" max-vertical-offset="7656">
+            <state line="61" column="10" selection-start="1702" selection-end="1702" vertical-scroll-proportion="-15.612904" vertical-offset="858" max-vertical-offset="7722">
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ajx.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="951" column="31" selection-start="30344" selection-end="30344" vertical-scroll-proportion="-9.870968" vertical-offset="20616" max-vertical-offset="21362">
+              <folding>
+                <marker date="1448633546300" expanded="true" signature="25595:26090" placeholder="..." />
+                <marker date="1448633546300" expanded="true" signature="25619:26077" placeholder="..." />
+                <marker date="1448633546300" expanded="true" signature="25640:26052" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -131,19 +150,19 @@
         <option value="$PROJECT_DIR$/application/views/engineer/list.php" />
         <option value="$PROJECT_DIR$/application/models/engineer_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/engineer.php" />
-        <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/application/models/works_model.php" />
         <option value="$PROJECT_DIR$/application/views/includes/header.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
-        <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/application/controllers/works.php" />
         <option value="$PROJECT_DIR$/application/views/works/list.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
+        <option value="$PROJECT_DIR$/application/controllers/store.php" />
+        <option value="$PROJECT_DIR$/application/config/routes.php" />
+        <option value="$PROJECT_DIR$/assets/func.js" />
+        <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
+        <option value="$PROJECT_DIR$/application/models/store_model.php" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/views/store/list.php" />
-        <option value="$PROJECT_DIR$/application/controllers/store.php" />
-        <option value="$PROJECT_DIR$/application/models/store_model.php" />
-        <option value="$PROJECT_DIR$/application/config/routes.php" />
       </list>
     </option>
   </component>
@@ -493,7 +512,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.17025863" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3617443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3617443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39345887" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -535,16 +554,11 @@
           <line>367</line>
           <option name="timeStamp" value="258" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="php">
-          <url>file://$PROJECT_DIR$/application/models/store_model.php</url>
-          <line>35</line>
-          <option name="timeStamp" value="269" />
-        </line-breakpoint>
       </breakpoints>
       <breakpoints-dialog>
         <breakpoints-dialog />
       </breakpoints-dialog>
-      <option name="time" value="270" />
+      <option name="time" value="273" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -728,17 +742,6 @@
         <state line="283" column="2" selection-start="9966" selection-end="9966" vertical-scroll-proportion="0.05882353" vertical-offset="6171" max-vertical-offset="8162" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="214" column="14" selection-start="5790" selection-end="5790" vertical-scroll-proportion="0.0" vertical-offset="4708" max-vertical-offset="20350">
-          <folding>
-            <marker date="1447938664833" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1447938664833" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1447938664833" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="297" column="17" selection-start="5591" selection-end="6051" vertical-scroll-proportion="0.0" vertical-offset="6039" max-vertical-offset="7018">
@@ -749,13 +752,6 @@
     <entry file="file://$PROJECT_DIR$/application/controllers/works.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="614" column="40" selection-start="19053" selection-end="19053" vertical-scroll-proportion="0.0" vertical-offset="13508" max-vertical-offset="17204">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="675" column="12" selection-start="21564" selection-end="21564" vertical-scroll-proportion="0.0" vertical-offset="11992" max-vertical-offset="16852">
           <folding />
         </state>
       </provider>
@@ -802,23 +798,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/store_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="301" column="31" selection-start="7320" selection-end="7320" vertical-scroll-proportion="-7.870968" vertical-offset="6378" max-vertical-offset="7656">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/store/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="209" column="85" selection-start="8150" selection-end="8150" vertical-scroll-proportion="-9.786885" vertical-offset="4001" max-vertical-offset="5038">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/config/routes.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="156" column="57" selection-start="6875" selection-end="6875" vertical-scroll-proportion="-18.806452" vertical-offset="2849" max-vertical-offset="3872">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="625" column="38" selection-start="20614" selection-end="20614" vertical-scroll-proportion="0.0" vertical-offset="13409" max-vertical-offset="17842">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="951" column="31" selection-start="30344" selection-end="30344" vertical-scroll-proportion="-9.870968" vertical-offset="20616" max-vertical-offset="21362">
+          <folding>
+            <marker date="1448633546300" expanded="true" signature="25595:26090" placeholder="..." />
+            <marker date="1448633546300" expanded="true" signature="25619:26077" placeholder="..." />
+            <marker date="1448633546300" expanded="true" signature="25640:26052" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/store_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="61" column="10" selection-start="1702" selection-end="1702" vertical-scroll-proportion="-15.612904" vertical-offset="858" max-vertical-offset="7722">
           <folding />
         </state>
       </provider>
@@ -830,12 +837,19 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/store/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="212" column="69" selection-start="8125" selection-end="8125" vertical-scroll-proportion="-3.2950819" vertical-offset="4463" max-vertical-offset="5170">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
       <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="0" selection-start="3781" selection-end="3834" vertical-scroll-proportion="0.78594595" vertical-offset="879" max-vertical-offset="1804">
+        <state line="75" column="43" selection-start="3894" selection-end="3935" vertical-scroll-proportion="0.6464286" vertical-offset="1288" max-vertical-offset="1848">
           <folding />
         </state>
       </provider>
