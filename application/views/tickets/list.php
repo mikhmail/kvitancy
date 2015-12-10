@@ -457,11 +457,12 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab4_<?=$row['id_kvitancy']?>">
                                         <div class="row-fluid" name="price" style="margin-bottom: 20px;">
                                             <div class="span6">
-                                                Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="" id="price_<?=$row['id_kvitancy']?>" class="span2">
-                                                <input class="btn margin-bottom-10px" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
+                                                Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
+                                                <input class="btn margin-bottom-10px btn btn-success" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
                                             </div>
-                                            <div class="span6">
+                                            <div class="span6 pull-left">
                                                 Фактическая сумма за ремонт [Выполненные работы + Установленные запчасти]:
+                                                <span class="label label-important pull-right"><strong><?=$this->kvitancy_model->get_sum($row['id_kvitancy']);?></strong></span>
                                             </div>
                                         </div>
 

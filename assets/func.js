@@ -645,6 +645,30 @@ $( "#search_user" ).keyup(function() {
     });
 //end setup store
 
+// save price
+$('input[id^=save_price_]').click(function(){
+        var parts=new Array();
+        parts = this.id.split('_');
+        var id = parts[2];
+        var price = $("#price_"+id+"").val();
+
+            if(price) {
+                $.post(""+base_url+"ajx/save_price", {
+                    id:id,
+                    price:price
+                })
+                .done(function(data) {
+                    //alert (data);
+                    if (data.match(/^[-\+]?\d+/) === null) {
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
+                        $("#price_"+id+"").focus();
+                    } else {
+                        alert('Добавлено!');
+                    }
+                });
+            }
+});
+// end of save price
 
 //	
 //	

@@ -773,11 +773,11 @@ function show_store () {
                     $user_id=null,
                     $id_resp=null,
 
-                    $id_where=$this->session->userdata('user_id_sc'),
+                    $id_where=null,
                     $id_sc=null,
 
                     $id_kvitancy=null,
-                    $status=null,
+                    $status=1,
                     $count=null,
                     $summ=null
             );
@@ -961,6 +961,29 @@ function update_ajax_store ()
 
 
     }
+
+    function save_price ()
+    {
+        $id_kvitancy = $this->input->post('id');
+        $price = $this->input->post('price');
+
+
+        if($price AND $id_kvitancy){
+            $data = array(
+                'update_time' => date("j-m-Y, H:i:s"),
+                'update_user' => $this->session->userdata('user_id'),
+                'full_cost' => $price
+            );
+            $this->db->where('id_kvitancy', $id_kvitancy);
+            $ret = $this->db->update('kvitancy', $data);
+        if ($ret) echo 1;
+        }else{
+            echo 0;
+        }
+
+
+    }
+
 
 //end class
 }

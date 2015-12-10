@@ -222,6 +222,8 @@ kvitancy.primechaniya,
 kvitancy.update_time,
 kvitancy.update_user,
 kvitancy.id_responsible,
+kvitancy.full_cost,
+
 
 
 aparat.id_aparat,
@@ -494,5 +496,28 @@ service.rab_sc
         $query = $this->db->get();
         return $query->result_array();
     }
-}
+
+    public function get_sum ($id_kvitancy){
+
+        $this->db->select('SUM(cost) as sum');
+        $this->db->from('works');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $query = $this->db->get();
+        $works = $query->result_array();
+        $work = $works[0]['sum'];
+
+        $this->db->select('SUM(cost) as cost');
+        $this->db->from('store');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $query = $this->db->get();
+        $cost = $query->result_array();
+        $cost = $cost[0]['cost'];
+        return $cost+$work;
+
+
+    }
+
+
+
+}//end class
 ?>
