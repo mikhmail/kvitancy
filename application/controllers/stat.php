@@ -1,0 +1,611 @@
+<?php
+class Stat extends CI_Controller {
+
+    /**
+     * name of the folder responsible for the views
+     * which are manipulated by this controller
+     * @constant string
+     */
+    const VIEW_FOLDER = 'admin/stat';
+
+    /**
+     * Responsable for auto load the model
+     * @return void
+     */
+    public function __construct() { parent::__construct();
+
+
+
+        $this->load->model('stat_model');
+        $this->load->model('users_model');
+        $this->load->model('aparaty_model');
+        $this->load->model('proizvoditel_model');
+        $this->load->model('service_centers_model');
+
+
+        if(!$this->session->userdata('is_logged_in')){
+            redirect('admin/login');
+        }
+
+    }
+
+    public function index()
+    {
+
+        //all the posts sent by the view
+
+
+        //pagination settings
+        //pagination settings
+        $config['per_page'] = 10;
+        $config['base_url'] = base_url() . 'admin/stat/';
+        $config['use_page_numbers'] = TRUE;
+
+        $config['full_tag_open'] = '<ul>';
+        $config['full_tag_close'] = '</ul>';
+        $config['num_tag_open'] = '<li>';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] = '<li class="active"><a>';
+        $config['cur_tag_close'] = '</a></li>';
+        $config['num_tag_open']  = '<li>';
+        $config['num_tag_close'] = '</li>';
+
+        $config['first_link']      = 'First';
+        $config['first_tag_open']  = '<li>';
+        $config['first_tag_close'] = '</li>';
+
+        $config['last_link']      = 'Last';
+        $config['last_tag_open']  = '<li>';
+        $config['last_tag_close'] = '</li>';
+
+        $config['next_link']      = '»';
+        $config['next_tag_open']  = '<li>';
+        $config['next_tag_close'] = '</li>';
+
+        $config['prev_link']      = '«';
+        $config['prev_tag_open']  = '<li>';
+        $config['prev_tag_close'] = '</li>';
+
+        $config['uri_segment'] = 2;
+
+        //limit end
+        $page = $this->uri->segment(2);
+
+        //math to get the initial record to be select in the database
+        $limit_end = ($page * $config['per_page']) - $config['per_page'];
+        if ($limit_end < 0){
+            $limit_end = 0;
+        }
+
+        if ($this->input->post() OR $this->uri->segment(2)) {
+
+            $search_string = $this->input->post('search_string');
+            $order = $this->input->post('order');
+            $order_type = $this->input->post('order_type');
+
+            /*Очистка масива для сесиии*/
+            if ($this->input->post()) {
+
+                $filter_session_data = array(
+                    'search_string' => '',
+                    'order' => '',
+                    'order_type' => '',
+                    'limit_start' => '',
+                    'start_date' => '',
+                    'end_date' => '',
+                    'id_aparat' => '',
+                    'id_proizvod' => '',
+                    'id_kvitancy' => '',
+                    'id_sc' => ''
+
+                );
+            }
+            //save session data into the session
+            if (isset($filter_session_data)) {
+                $this->session->set_userdata($filter_session_data);
+            }
+
+
+            $search_string = $this->input->post("search_string");
+            $order = $this->input->post("order");
+            $order_type = $this->input->post("order_type");
+            $limit_start = $config['per_page']; //при навигациии надо включить
+            $start_date = $this->input->post("start_date");
+            $end_date = $this->input->post("end_date");
+            $id_aparat = $this->input->post("id_aparat");
+            $id_proizvod = $this->input->post("id_proizvod");
+            $id_kvitancy = $this->input->post("id_kvitancy");
+            $id_sc = $this->input->post("id_sc");
+
+
+
+
+
+            // SEARCH
+            if ($this->input->post("search_string")) {
+                $filter_session_data['search_string'] = $search_string;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $search_string = $this->session->userdata('search_string');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $search_string = '';
+            }
+            $data['search_string_selected'] = $search_string;
+            // end SEARCH
+
+
+            // ORDER type
+            if ($this->input->post("order_type")) {
+                $filter_session_data['order_type'] = $order_type;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $order_type = $this->session->userdata('order_type');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $order_type = 'Desc';
+            }
+            $data['order_type_selected'] = $order_type;
+            // end ORDER type
+
+            // ORDER
+            if ($this->input->post("order")) {
+                $filter_session_data['order'] = $order;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $order = $this->session->userdata('order');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $order = 'id';
+            }
+            $data['order_selected'] = $order;
+            // end ORDER
+
+
+            $s = strtotime('-1 month');
+            $m = date("m", $s);
+
+            // START_DATE
+            if ($this->input->post("start_date")) {
+                $filter_session_data['start_date'] = $start_date;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                if ($this->session->userdata('start_date')) {
+                    $start_date = $this->session->userdata('start_date');
+                }else{
+                    $start_date = date('Y') . '-'. $m . '-31';
+                }
+
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $start_date = date('Y') . '-'. $m . '-31';
+            }
+            $data['start_date_selected'] = $start_date;
+            // end START_DATE
+
+            // END_DATE
+            if ($this->input->post("end_date")) {
+                $filter_session_data['end_date'] = $end_date;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                if ($this->session->userdata('end_date')) {
+                    $end_date = $this->session->userdata('end_date');
+                }else{
+                    $end_date = date("Y-m-d");
+                }
+
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $end_date = date("Y-m-d");
+            }
+            $data['end_date_selected'] = $end_date;
+            // end END_DATE
+
+
+
+
+            // ID_APARAT
+            if ($this->input->post("id_aparat")) {
+                $filter_session_data['id_aparat'] = $id_aparat;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_aparat = $this->session->userdata('id_aparat');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $id_aparat = '';
+            }
+            $data['id_aparat_selected'] = $id_aparat;
+            // end ID_APARAT
+
+            // ID_APARAT_P
+            if ($this->input->post("id_aparat_p")) {
+                $filter_session_data['id_aparat_p'] = $id_aparat_p;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_aparat_p = $this->session->userdata('id_aparat_p');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $id_aparat_p = '';
+            }
+            $data['id_aparat_p_selected'] = $id_aparat;
+            // end ID_APARAT_P
+
+            // ID_PROIZVOD
+            if ($this->input->post("id_proizvod")) {
+                $filter_session_data['id_proizvod'] = $id_proizvod;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_proizvod = $this->session->userdata('id_proizvod');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $id_proizvod = '';
+            }
+            $data['id_proizvod_selected'] = $id_proizvod;
+            // end ID_PROIZVOD
+
+
+            // ID_SOST
+            if ($this->input->post("id_sost")) {
+                $filter_session_data['id_sost'] = $id_sost;
+            }
+            elseif ($this->uri->segment(2)) {
+                $id_sost = $this->session->userdata('id_sost');
+
+            } else {
+                $id_sost = '';
+            }
+            $data['id_sost_selected'] = $id_sost;
+            // end ID_SOST
+
+
+            // store_user_id
+            if ($this->input->post("store_user_id")) {
+                $filter_session_data['store_user_id'] = $store_user_id;
+            }
+            elseif ($this->uri->segment(2)) {
+                $store_user_id = $this->session->userdata('store_user_id');
+
+            } else {
+                $store_user_id = '';
+            }
+            $data['store_user_id_selected'] = $store_user_id;
+            // end store_user_id
+
+
+            // id_resp
+            if ($this->input->post("id_resp")) {
+                $filter_session_data['id_resp'] = $id_resp;
+            }
+            elseif ($this->uri->segment(2)) {
+                $id_resp = $this->session->userdata('id_resp');
+
+            } else {
+                $id_resp = '';
+            }
+            $data['id_resp_selected'] = $id_resp;
+            // end id_resp
+
+            // id_where
+            if ($this->input->post("id_where")) {
+                $filter_session_data['id_where'] = $id_where;
+            }
+            elseif ($this->uri->segment(2)) {
+                $id_where = $this->session->userdata('id_where');
+
+            } else {
+                $id_where = '';
+            }
+            $data['id_where_selected'] = $id_where;
+            // end id_where
+
+            // status
+            if ($this->input->post("status")) {
+                $filter_session_data['status'] = $status;
+            }
+            elseif ($this->uri->segment(2)) {
+                $status = $this->session->userdata('status');
+
+            } else {
+                $status = '1';
+            }
+            $data['status_selected'] = $status;
+            // end status
+
+
+            // ID_KVITANCY
+            if ($this->input->post("id_kvitancy")) {
+                $filter_session_data['id_kvitancy'] = $id_kvitancy;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                //$id_kvitancy = $this->session->userdata('id_kvitancy');
+                $id_kvitancy = '';
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $id_kvitancy = '';
+            }
+            $data['id_kvitancy_selected'] = $id_kvitancy;
+            // end ID_KVITANCY
+
+
+
+            // ID_SC
+            switch ($this->session->userdata('id_group')) {
+                case 1: // админ
+                    $id_sc = $this->input->post("id_sc");
+                    break;
+
+
+                case 2: // приемщик
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+
+                case 3: // инженер
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+                default:
+                    $id_sc = $this->session->userdata('user_id_sc');
+
+            }
+
+            if ($id_sc) {
+                $filter_session_data['id_sc'] = $id_sc;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_sc = $this->session->userdata('id_sc');
+            } else {  $id_sc = ''; }
+
+            $data['id_sc_selected'] = $id_sc;
+            // end ID_SC
+
+
+            //save session data into the session
+            if (isset($filter_session_data)) {
+                $this->session->set_userdata($filter_session_data);
+            }
+
+
+            //fetch sql data into arrays
+            $data['count_stat'] = $this->stat_model->get_stat(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+
+                1,
+                $summ=null
+            );
+
+            $data['summ'] = $this->stat_model->get_stat(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+
+                0,
+                $summ=1
+            );
+
+            $data['stat'] = $this->stat_model->get_stat(
+
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+
+                $count = null,
+                $summ=null
+            );
+
+
+
+            $config['total_rows'] = $data['count_stat'];
+
+
+        } // !end--------------------------POST------------------------------------- //
+
+        else{
+
+
+
+//clear session data in session
+            $this->session->unset_userdata();
+
+            $s = strtotime('-1 month');
+            $m = date("m", $s);
+
+            $data['search_string_selected'] = '';
+            $data['order_type_selected'] = '';
+            $data['order_selected'] = 'id';
+            $data['start_date_selected'] = date('Y') . '-'. date('m') . '-01';
+            $data['end_date_selected'] = date("Y-m-d");
+            $data['id_aparat_selected'] = '';
+            $data['id_aparat_p_selected'] = '';
+            $data['id_proizvod_selected'] = '';
+            $data['id_sost_selected'] = '';
+            $data['store_user_id_selected'] = '';
+            $data['id_resp_selected'] = '';
+            $data['id_where_selected'] = '';
+            $data['status_selected'] = 1;
+            $data['id_kvitancy_selected'] = '';
+            $data['id_sc_selected'] = '';
+            //end pre selected options
+
+
+
+
+            $search_string = '';
+            $order = '';
+            $order_type = '';
+            $limit_start = $config['per_page']; //при навигациии надо включить
+            $start_date = date('Y') . '-'. $m . '-31';
+            $end_date = date("Y-m-d");
+            $id_aparat = '';
+            $id_aparat_p = '';
+            $id_proizvod = '';
+            $id_kvitancy = '';
+            $id_sc = '';
+            $summ=null;
+
+            /*WHAT USER SEE? */
+
+            switch ($this->session->userdata('id_group')) {
+                case 1: // админ
+                    $id_sc = $this->input->post("id_sc");
+                    break;
+
+
+                case 2: // приемщик
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+
+                case 3: // инженер
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+                default:
+                    $id_sc = $this->session->userdata('user_id_sc');
+            }
+
+            /*WHAT USER SEE? */
+
+            //end $vars to select to db
+
+
+
+
+            /*Масив для сесиии*/
+            $filter_session_data = array(
+                'search_string' => '',
+                'order' => '',
+                'order_type' => '',
+                'limit_start' => '',
+                'limit_end' => '',
+                'start_date' => '',
+                'end_date' => '',
+                'id_aparat' => '',
+                'id_aparat_p' => '',
+                'id_proizvod' => '',
+                'id_kvitancy' => ''
+
+            );
+
+            //save session data into the session
+            if (isset($filter_session_data)) {
+                $this->session->set_userdata($filter_session_data);
+            }
+
+            //fetch sql data into arrays
+            $data['count_stat'] = $this->stat_model->get_stat(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_aparat_p,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+
+                1,
+                $summ=null
+            );
+
+            $data['summ'] = $this->stat_model->get_stat(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_aparat_p,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+
+                0,
+                $summ=1
+            );
+
+            $data['stat'] = $this->stat_model->get_stat(
+
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_aparat_p,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+
+                $count = null,
+                $summ=null
+            );
+
+        }
+
+        $config['total_rows'] = $data['count_stat'];
+
+        $this->pagination->initialize($config);
+
+        //load the view
+        $data['order'] = 'id_kvitancy';
+
+        $data['ap'] = $this->aparaty_model->get_aparaty();
+        $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
+        $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
+        $data['users'] = $this->users_model->get_users('', '', '', '', '', '');
+        $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+
+
+
+        /*Загрузка шаблона*/
+        $data['main_content'] = 'admin/stat/list';
+        $this->load->view('includes/template', $data);
+
+
+    }//index
+
+
+
+//end stat controller
+}
+?>

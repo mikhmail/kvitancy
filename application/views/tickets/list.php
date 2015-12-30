@@ -469,7 +469,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     <legend></legend>
                                         <div class="row-fluid" name="work" style="margin-bottom: 20px;">
                                             <div class="span10">
-                                                <div class="pull-left"><h4>Выполненные работы</h4></div>
+                                                <div class="pull-left"><h4>Выполненные работы инженера</h4></div>
                                                 </div>
 
                                                     <?

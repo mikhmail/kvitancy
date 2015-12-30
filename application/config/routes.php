@@ -155,7 +155,6 @@ $route['store/add'] = 'store/add';
 $route['store/update/(:any)'] = 'store/update/$1';
 $route['store/delete/(:any)'] = 'store/delete/$1';
 $route['store/return_store/(:any)'] = 'store/return_store/$1';
-
 $route['store/(:any)'] = 'store/index'; //$1 = page number
 
 $route['works'] = 'works/index';
@@ -164,8 +163,13 @@ $route['works/update/(:any)'] = 'works/update/$1';
 $route['works/delete/(:any)'] = 'works/delete/$1';
 $route['works/(:any)'] = 'works/index'; //$1 = page number
 
+$route['stat'] = 'stat/index';
 
-
+$route['cash'] = 'cash/index';
+$route['cash/add'] = 'cash/add';
+$route['cash/update/(:any)'] = 'cash/update/$1';
+$route['cash/delete/(:any)'] = 'cash/delete/$1';
+$route['cash/(:any)'] = 'cash/index'; //$1 = page number
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
