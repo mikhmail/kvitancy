@@ -36,6 +36,7 @@ cash.update_time,
 cash.plus,
 cash.minus,
 cash.id_kvitancy,
+
 service.name_sc,
 service.id_sc
 
@@ -50,13 +51,12 @@ service.id_sc
 
         $this->db->join('membership user', 'cash.update_user = user.id');
         $this->db->join('service_centers service', 'cash.id_sc = service.id_sc');
-        //$this->db->join('membership', 'works.id_mechanic = membership.id');
 
 
         if($search_string){
 
 
-            $where = "(works.name LIKE '%$search_string%')";
+            $where = "(cash.name LIKE '%$search_string%')";
 
             $this->db->where($where);
 
@@ -95,24 +95,12 @@ service.id_sc
 
 
         if($start_date AND $end_date) {
-            $this->db->where(" cash.update_time BETWEEN '".$start_date."%' AND '".$end_date."%' ", NULL, FALSE);
+            $this->db->where(" cash.update_time >='".$start_date."%' AND cash.update_time <= '".$end_date."%' ", NULL, FALSE);
         }
 
         if ($id_sc != null){
-            $this->db->where('works.id_sc', $id_sc);
+            $this->db->where('cash.id_sc', $id_sc);
         }
-
-        if ($id_aparat != null){
-            $this->db->where('kvitancy.id_aparat', $id_aparat);
-        }
-
-
-
-        if ($id_proizvod != null){
-            $this->db->where('kvitancy.id_proizvod', $id_proizvod);
-        }
-
-
 
         if($order != null){
             $this->db->order_by($order, $order_type);

@@ -3,13 +3,13 @@
 
     <ul class="breadcrumb">
         <li>
-            <a href="<?php echo site_url("works"); ?>">
+            <a href="<?php echo site_url("cash"); ?>">
                 <?php echo ucfirst($this->uri->segment(1));?>
             </a>
             <span class="divider">/</span>
         </li>
 
-        <a href="<?php echo site_url('works/'. strtolower(ucfirst($this->uri->segment(2)))); ?>">
+        <a href="<?php echo site_url('cash/'. strtolower(ucfirst($this->uri->segment(2)))); ?>">
             <?php echo ucfirst($this->uri->segment(2));?>
         </a>
     </ul>
@@ -17,7 +17,7 @@
     <div class="page-header users-header">
         <h2>
             Cash за текущий месяц.
-            <!--<a  href="<?php echo site_url("works").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
+            <!--<a  href="<?php echo site_url("cash").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
         </h2>
     </div>
 
@@ -41,7 +41,7 @@
                 }
                 $attributes = array('class' => 'form-inline reset-margin', 'id' => 'myform');
 
-                echo form_open('works', $attributes);
+                echo form_open('cash', $attributes);
 
 
                 //$options_date = array('date_priemka' => 'Дата приема', 'date_vydachi' => 'Дата выдачи', 'date_okonchan' => 'Дата окон.ремонта');
@@ -60,7 +60,7 @@
                 foreach ($sc as $array) {
                     $options_id_sc[$array['id_sc']] = $array['name_sc'];
                 }
-                echo form_dropdown('id_sc', $options_id_sc, $id_where_selected, 'class="chzn-select"');
+                echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class="chzn-select"');
 
 
                 /*
@@ -71,7 +71,7 @@
                 }
 
                 echo form_dropdown('id_resp', $options_id_responsible, $id_resp_selected, 'class="chzn-select"');
-                */
+
 
                 // echo form_label('Аппарат: ');
                 $options_ap = array('' => "Выбрать аппарат");
@@ -80,11 +80,13 @@
                     $options_ap[$array['id_aparat']] = $array['aparat_name'];
                 }
                 echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="chzn-select"');
+                */
                 ?>
 
 
 
                 <?
+                /*
                 //echo form_label('Производитель: ');
                 $options_proizvoditel = array('' => "Выбрать бренд");
 
@@ -93,12 +95,13 @@
                 }
 
                 echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="chzn-select"');
+                */
                 ?>
-                <br>
+
                 <label class="control-label" for="order">Сортировать по:</label>
                 <?
 
-                $options_works = array('works.id' => 'ID', 'kvitancy.id_kvitancy' => 'ID_квитанции', 'cost' => 'Стоимость');
+                $options_works = array( 'cash.id' => 'по ID');
                 echo form_dropdown('order', $options_works, $order_selected, 'class="span2"');
 
                 //$data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
@@ -143,7 +146,7 @@
 
         <?
 
-        if (count($works) > 0) {//var_dump($works);die;
+        if (count($works) > 0) {var_dump($works);die;
 
             ?>
 

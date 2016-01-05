@@ -367,7 +367,7 @@ class Cash extends CI_Controller {
 
 
             //fetch sql data into arrays
-            $data['count_works'] = $this->works_model->get_works(
+            $data['count_works'] = $this->cash_model->get_works(
                 $search_string,
                 $order,
                 $order_type,
@@ -385,7 +385,7 @@ class Cash extends CI_Controller {
                 1,
                 $summ=null
             );
-
+/*
             $data['summ'] = $this->works_model->get_works(
                 $search_string,
                 $order,
@@ -404,8 +404,8 @@ class Cash extends CI_Controller {
                 0,
                 $summ=1
             );
-
-            $data['works'] = $this->works_model->get_works(
+*/
+            $data['works'] = $this->cash_model->get_works(
 
                 $search_string,
                 $order,
@@ -440,7 +440,7 @@ class Cash extends CI_Controller {
             $this->session->unset_userdata();
 
             $s = strtotime('-1 month');
-            $m = date("m", $s);
+            $m = date("m");
 
             $data['search_string_selected'] = '';
             $data['order_type_selected'] = '';
@@ -466,7 +466,7 @@ class Cash extends CI_Controller {
             $order = '';
             $order_type = '';
             $limit_start = $config['per_page']; //при навигациии надо включить
-            $start_date = date('Y') . '-'. $m . '-31';
+            $start_date = date('Y') . '-'. date('m') . '-01';
             $end_date = date("Y-m-d");
             $id_aparat = '';
             $id_aparat_p = '';
