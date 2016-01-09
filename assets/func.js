@@ -659,7 +659,7 @@ $('input[id^=save_price_]').click(function(){
                 })
                 .done(function(data) {
                     //alert (data);
-                    if (data.match(/^[-\+]?\d+/) === null) {
+                    if (data == 0) {
                         alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
                         $("#price_"+id+"").focus();
                     } else {

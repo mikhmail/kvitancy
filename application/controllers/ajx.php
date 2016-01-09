@@ -968,6 +968,46 @@ function update_ajax_store ()
         $price = $this->input->post('price');
 
 
+        $kvitancy = $this->kvitancy_model->get_kvitancy(
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            $id_kvitancy,
+            '',
+            $count = null
+        );
+        //print_r($kvitancy[0]['id_sc']);exit;
+        $id_sc = $kvitancy[0]['id_sc'];
+
+        $check = $this->db->get_where('cash', array('id_kvitancy' => $id_kvitancy));
+
+        if($price AND $id_kvitancy AND count($check->result_array())<1 ){
+            $data = array(
+                'update_time' => date("Y-m-d, H:i:s"),
+                'update_user' => $this->session->userdata('user_id'),
+                'id_kvitancy' => $id_kvitancy,
+                'plus' => $price,
+                'name' => 'Получено от клиента',
+                'id_sc' => $id_sc,
+
+            );
+            $ret = $this->db->insert('cash', $data);
+            if ($ret) echo 1;
+        }else{
+            echo 0;
+        }
+
+        /*
         if($price AND $id_kvitancy){
             $data = array(
                 'update_time' => date("j-m-Y, H:i:s"),
@@ -980,7 +1020,7 @@ function update_ajax_store ()
         }else{
             echo 0;
         }
-
+        */
 
     }
 

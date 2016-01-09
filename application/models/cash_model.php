@@ -122,7 +122,7 @@ service.id_sc
 
 
         $query = $this->db->get();
-        //return($this->db->last_query());die;
+        return($this->db->last_query());die;
 
         if ($query->num_rows() > 0) {
             if ($count) {return $query->num_rows(); }

@@ -146,7 +146,7 @@
 
         <?
 
-        if (count($works) > 0) {var_dump($works);die;
+        if (count($works) > 0) {//var_dump($works);die;
 
             ?>
 
@@ -155,13 +155,15 @@
                 <thead>
                 <tr>
                     <th class="header">#</th>
-                    <th class="header">#квитанции</th>
+                    <th class="yellow header headerSortDown">Приход +</th>
+                    <th class="yellow header headerSortDown">Расход -</th>
+                    <th class="yellow header headerSortDown">Описание</th>
+                    <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Дата</th>
-                    <th class="yellow header headerSortDown">Выполненная работа</th>
-                    <th class="yellow header headerSortDown">Стоимость</th>
-                    <th class="yellow header headerSortDown">Аппарат</th>
                     <th class="yellow header headerSortDown">СЦ</th>
-                    <th class="yellow header headerSortDown">Управление</th>
+                    <th class="header">#квитанции</th>
+                    <th class="header">Опции</th>
+
 
                 </tr>
                 </thead>
@@ -171,18 +173,26 @@
                 {?>
                     <tr>
                         <td><?=$row['cash_id']?></td>
-                        <td><?=$row['id_kvitancy']?></td>
-                        <td><?=$row['date_added']?></td>
+                        <td style="text-align: center"><div class="label label-success"><? if($row['plus']) echo '+ '.$row['plus'];?></div></td>
+                        <td style="text-align: center"><div class="label label-important"><? if($row['minus']) echo '- '. $row['minus'];?></div></td>
                         <td><?=$row['name']?></td>
-                        <td><?=$row['cost']?></td>
-                        <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> <?=$row['model']?></td>
-                        <td><?=$row['name_sc']?></td>
+
+                        <td style="text-align: center"><?
+                            foreach ($users as $rows)
+                            {
+                                if ($rows['id'] == $row['update_user']) echo $rows['user_name'];
+                            }?>
+                        </td>
+                        <td style="text-align: center"><?=$row['update_time']?></td>
+                        <td style="text-align: center"><?=$row['name_sc']?></td>
+                        <td style="text-align: center"><?=$row['id_kvitancy']?></td>
 
 
-                        <td>
+                        <td style="text-align: center">
                             <? echo '
 
                     <a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>
+                    <a href="'.site_url("cash").'/edit/'.$row['cash_id'].'" class="btn btn-primary btn-mini">Изменить</a>
                     ';?>
 
                         </td>
