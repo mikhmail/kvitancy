@@ -31,12 +31,7 @@ class Cash extends CI_Controller {
 
     public function index()
     {
-
-        //all the posts sent by the view
-
-
-        //pagination settings
-        //pagination settings
+ //pagination settings
         $config['per_page'] = 10;
         $config['base_url'] = base_url() . 'works/';
         $config['use_page_numbers'] = TRUE;
@@ -643,10 +638,10 @@ class Cash extends CI_Controller {
 
 
 
-            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
-            //if the form has passed through the validation
-            if ($this->form_validation->run())
-            {
+                $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
+                //if the form has passed through the validation
+                if ($this->form_validation->run())
+                {
 
                 $data_to_store = array(
                     'name' => $this->input->post('name'),
@@ -692,21 +687,15 @@ class Cash extends CI_Controller {
 
     public function add()
     {
-
         if ($this->input->server('REQUEST_METHOD') === 'POST')
         {
-            //form validation
-            $this->form_validation->set_rules('name', 'name', 'required');
-            $this->form_validation->set_rules('id_aparat', 'id_aparat', 'required|numeric');
-            //$this->form_validation->set_rules('id_aparat_p', 'id_aparat_p', 'required|numeric');
-            $this->form_validation->set_rules('id_proizvod', 'id_proizvod', 'required|numeric');
-            $this->form_validation->set_rules('id_sost', 'id_sost', 'required|numeric');
-            $this->form_validation->set_rules('cost', 'cost', 'required|numeric');
-            $this->form_validation->set_rules('price', 'price', 'required|numeric');
-            $this->form_validation->set_rules('id_resp', 'id_resp', 'required|numeric');
-            $this->form_validation->set_rules('id_where', 'id_where', 'required|numeric');
-            $this->form_validation->set_rules('count', 'count', 'required|numeric');
 
+            //form validation
+            $this->form_validation->set_rules('plus-minus', 'plus-minus', 'required');
+            $this->form_validation->set_rules('plus', 'plus', 'required|numeric');
+            $this->form_validation->set_rules('minus', 'minus', 'required|numeric');
+            $this->form_validation->set_rules('name', 'name', 'required');
+            $this->form_validation->set_rules('id_kvitancy', 'id_kvitancy', 'required|numeric');
 
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
@@ -719,56 +708,29 @@ class Cash extends CI_Controller {
                     'id_aparat' => $this->input->post('id_aparat'),
                     'id_aparat_p' => $this->input->post('id_aparat_p'),
                     'id_proizvod' => $this->input->post('id_proizvod'),
-                    'model' => '',
-                    'serial' => $this->input->post('serial'),
-                    'vid' => $this->input->post('vid'),
                     'id_sost' => $this->input->post('id_sost'),
-                    'user_id' => $this->session->userdata['user_id'],
-                    'date_priemka' => date("Y-m-j"),
                     'cost' => $this->input->post('cost'),
                     'price' => $this->input->post('price'),
-                    'status' => 1,
-
-                    'update_user' => $this->session->userdata['user_id'],
-                    'update_time' => date("j-m-Y, H:i:s"),
-                    'id_resp' => $this->session->userdata['user_id'],
-                    'id_from' => $this->session->userdata['user_id_sc'],
-                    'id_where' => $this->session->userdata['user_id_sc'],
-                    'id_sc' => $this->session->userdata['user_id_sc']
-
+                    'id_resp' => $this->input->post('id_resp'),
+                    'id_where' => $this->input->post('id_where'),
+                    'serial' => $this->input->post('serial'),
+                    'vid' => $this->input->post('vid')
                 );
+                //if the insert has returned true then we show the flash message
+                if($this->works_model->update_store($id, $data_to_store) == TRUE){
 
-                $count =  $this->input->post('count');
-                if($count>=1) {
-                    for($i=1;$i<=$count;$i++) {
-                        $id = $this->works_model->add_store($data_to_store);
-                    }
-                }
-
-
-                if($id == TRUE){
-
-
+                    //var_dump($data_to_store);
                     $this->session->set_flashdata('flash_message', 'updated');
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('store');
+                redirect('store/cash');
 
             }//validation run
 
+
+            //print_r($this->input->post());
         }
-
-
-
-        //product data
-        //$data['sc'] = $this->service_centers_model->get_service_centers();
-        //$data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
-        //$data['aparat'] = $this->aparaty_model->get_aparaty();
-        //$data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
-        //load the view
-        $data['main_content'] = 'store/add';
-        $this->load->view('includes/template', $data);
 
     }//add
 

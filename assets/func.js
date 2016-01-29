@@ -670,6 +670,43 @@ $('input[id^=save_price_]').click(function(){
 });
 // end of save price
 
+
+
+// add cash
+    $('button[id=plus_add]').click(function(){
+
+
+
+        var id_kvitancy = $("#id_kvitancy").val();
+        var plus_select = $("#plus_select option:selected").val();
+        var plus = $("#plus").val();
+        var name = $("#name").val();
+
+
+       // alert (plus_select);exit;
+        if(plus && plus_select ) {
+            $.post(""+base_url+"ajx/add_cash", {
+                plus:plus,
+                plus_select:plus_select,
+                id_kvitancy:id_kvitancy,
+                name:name
+            })
+                .done(function(data) {
+                    //alert (data);
+                    if (data == 0) {
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
+
+                    } else {
+                        alert('Добавлено!');
+                    }
+                });
+        }else{
+            alert('Надо ввести значения!');
+        }
+
+    });
+// end of add cash
+
 //	
 //	
 //ready	

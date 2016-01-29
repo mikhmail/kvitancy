@@ -1,5 +1,5 @@
 <? //var_dump($works);die;?>
-<div class="container-fluid">
+<div class="container-fluid" xmlns="http://www.w3.org/1999/html">
 
     <ul class="breadcrumb">
         <li>
@@ -19,6 +19,39 @@
             Cash за текущий месяц.
             <!--<a  href="<?php echo site_url("cash").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
         </h2>
+    </div>
+
+    <div class="row-fluid">
+
+        <div class="span10">
+            <div class="pull-left">
+
+                <h3><i class="icon-chevron-right icon"></i>Добавить новую запись</h3>
+            </div>
+        </div>
+
+
+        <div class="span10">
+
+
+            <select name="plus_select" id="plus_select" class="span2">
+                <option value="" selected="selected">-Выбрать-</option>
+                <option value="1">Приход +</option>
+                <option value="2">Расход -</option>
+            </select>
+
+
+            <input type="number" min=0 step="0.1" name="plus" id="plus" autocomplete="off" placeholder="Сумма" class="span2">
+            <input type="text" name="name"  id="name" autocomplete="off" placeholder="Описание" class="span2">
+
+            <input type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции" class="span2">
+
+            <div class="btn-group margin-bottom-10px">
+                <button id="plus_add" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
+            </div>
+
+        </div>
+
     </div>
 
     <div class="row-fluid">
@@ -60,7 +93,7 @@
                 foreach ($sc as $array) {
                     $options_id_sc[$array['id_sc']] = $array['name_sc'];
                 }
-                echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class="chzn-select"');
+                echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class=""');
 
 
                 /*
@@ -183,7 +216,7 @@
                                 if ($rows['id'] == $row['update_user']) echo $rows['user_name'];
                             }?>
                         </td>
-                        <td style="text-align: center"><?=$row['update_time']?></td>
+                        <td style="text-align: center"><?=$row['update_date']?>, <?=$row['update_time']?></td>
                         <td style="text-align: center"><?=$row['name_sc']?></td>
                         <td style="text-align: center"><?=$row['id_kvitancy']?></td>
 

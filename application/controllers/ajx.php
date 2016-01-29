@@ -993,13 +993,67 @@ function update_ajax_store ()
 
         if($price AND $id_kvitancy AND count($check->result_array())<1 ){
             $data = array(
-                'update_time' => date("Y-m-d, H:i:s"),
+                'update_time' => date("H:i:s"),
+                'update_date' => date("Y-m-d"),
                 'update_user' => $this->session->userdata('user_id'),
                 'id_kvitancy' => $id_kvitancy,
                 'plus' => $price,
                 'name' => 'Получено от клиента',
                 'id_sc' => $id_sc,
 
+            );
+            $ret = $this->db->insert('cash', $data);
+            if ($ret) echo 1;
+        }else{
+            echo 0;
+        }
+
+        /*
+        if($price AND $id_kvitancy){
+            $data = array(
+                'update_time' => date("j-m-Y, H:i:s"),
+                'update_user' => $this->session->userdata('user_id'),
+                'full_cost' => $price
+            );
+            $this->db->where('id_kvitancy', $id_kvitancy);
+            $ret = $this->db->update('kvitancy', $data);
+        if ($ret) echo 1;
+        }else{
+            echo 0;
+        }
+        */
+
+    }
+
+    function add_cash ()
+    {
+        $id_kvitancy = $this->input->post('id_kvitancy');
+        $cost = $this->input->post('plus');
+        $plus_select = $this->input->post('plus_select');
+        $name =  $this->input->post('name');
+
+        switch ($plus_select) {
+            case 1:
+                $plus = $cost;
+                $minus = '';
+                break;
+            case 2:
+                $plus = '';
+                $minus = $cost;
+                break;
+        }
+
+
+        if( ($plus OR $minus) AND $name){
+            $data = array(
+                'update_time' => date("H:i:s"),
+                'update_date' => date("Y-m-d"),
+                'update_user' => $this->session->userdata('user_id'),
+                'id_kvitancy' => $id_kvitancy,
+                'plus' => $plus,
+                'minus' => $minus,
+                'name' => $name,
+                'id_sc' => $this->session->userdata('user_id_sc')
             );
             $ret = $this->db->insert('cash', $data);
             if ($ret) echo 1;

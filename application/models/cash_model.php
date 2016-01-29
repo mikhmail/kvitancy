@@ -33,6 +33,8 @@ cash.id as cash_id,
 cash.name,
 cash.update_user,
 cash.update_time,
+cash.update_date,
+
 cash.plus,
 cash.minus,
 cash.id_kvitancy,
@@ -95,7 +97,7 @@ service.id_sc
 
 
         if($start_date AND $end_date) {
-            $this->db->where(" cash.update_time >='".$start_date."%' AND cash.update_time <= '".$end_date."%' ", NULL, FALSE);
+            $this->db->where(" cash.update_date >='".$start_date."%' AND cash.update_date <= '".$end_date."%' ", NULL, FALSE);
         }
 
         if ($id_sc != null){
@@ -122,7 +124,7 @@ service.id_sc
 
 
         $query = $this->db->get();
-        return($this->db->last_query());die;
+        //return($this->db->last_query());die;
 
         if ($query->num_rows() > 0) {
             if ($count) {return $query->num_rows(); }
@@ -133,82 +135,7 @@ service.id_sc
     }
 
 
-    public function get_works_by_id ($id)
-    {
 
-        $this->db->select('
-works.id as works_id,
-works.name,
-works.id_aparat,
-works.id_aparat_p,
-works.id_proizvod,
-works.model,
-works.serial,
-works.vid,
-works.id_sost,
-works.user_id,
-works.date_priemka,
-works.date_vydachi,
-works.cost,
-works.price,
-works.status,
-works.update_user,
-works.update_time,
-works.id_resp,
-works.id_from,
-works.id_where,
-works.id_sc,
-works.id_kvitancy,
-
-
-aparat.id_aparat,
-aparat.aparat_name,
-
-aparat_p.title,
-
-
-proizvod.id_proizvod,
-proizvod.name_proizvod,
-
-user.id as user_id,
-user.first_name,
-user.last_name,
-user.user_name,
-
-service.name_sc
-		');
-
-
-        $this->db->from('works');
-
-
-
-        $this->db->join('aparaty aparat', 'works.id_aparat = aparat.id_aparat');
-        $this->db->join('aparat_p', 'works.id_aparat_p = aparat_p.id_aparat_p');
-
-        $this->db->join('proizvoditel proizvod', 'works.id_proizvod = proizvod.id_proizvod');
-        $this->db->join('membership user', 'works.user_id = user.id');
-        $this->db->join('service_centers service', 'works.id_sc = service.id_sc');
-        //$this->db->join('membership', 'works.id_mechanic = membership.id');
-
-
-
-
-        if ($id) {
-
-
-
-            $this->db->where('works.id', $id);
-            $query = $this->db->get();
-
-            //return($this->db->last_query());die;
-
-            if ($query->num_rows() > 0) {
-
-                return $query->result_array();
-            }else return null;
-        }
-    }
 
 
     function delete_works($id){
