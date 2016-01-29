@@ -26,7 +26,9 @@ class cash_model extends CI_Model {
     )
     {
         if($summ) {
-            $this->db->select('SUM(works.cost) AS SUM');
+            $this->db->select('SUM(cash.plus) AS SUM');
+
+
         }else{
             $this->db->select('
 cash.id as cash_id,

@@ -1028,30 +1028,21 @@ function update_ajax_store ()
     function add_cash ()
     {
         $id_kvitancy = $this->input->post('id_kvitancy');
-        $cost = $this->input->post('plus');
-        $plus_select = $this->input->post('plus_select');
+        $plus = $this->input->post('plus');
+
         $name =  $this->input->post('name');
 
-        switch ($plus_select) {
-            case 1:
-                $plus = $cost;
-                $minus = '';
-                break;
-            case 2:
-                $plus = '';
-                $minus = $cost;
-                break;
-        }
 
 
-        if( ($plus OR $minus) AND $name){
+
+        if ($plus AND $name) {
             $data = array(
                 'update_time' => date("H:i:s"),
                 'update_date' => date("Y-m-d"),
                 'update_user' => $this->session->userdata('user_id'),
                 'id_kvitancy' => $id_kvitancy,
                 'plus' => $plus,
-                'minus' => $minus,
+                'minus' => '',
                 'name' => $name,
                 'id_sc' => $this->session->userdata('user_id_sc')
             );

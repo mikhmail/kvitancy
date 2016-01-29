@@ -380,8 +380,8 @@ class Cash extends CI_Controller {
                 1,
                 $summ=null
             );
-/*
-            $data['summ'] = $this->works_model->get_works(
+
+            $data['summ'] = $this->cash_model->get_works(
                 $search_string,
                 $order,
                 $order_type,
@@ -399,7 +399,7 @@ class Cash extends CI_Controller {
                 0,
                 $summ=1
             );
-*/
+
             $data['works'] = $this->cash_model->get_works(
 
                 $search_string,
@@ -538,8 +538,8 @@ class Cash extends CI_Controller {
                 1,
                 $summ=null
             );
-/*
-            $data['summ'] = $this->works_model->get_works(
+
+            $data['summ'] = $this->cash_model->get_works(
                 $search_string,
                 $order,
                 $order_type,
@@ -557,7 +557,7 @@ class Cash extends CI_Controller {
                 0,
                 $summ=1
             );
-*/
+
             $data['works'] = $this->cash_model->get_works(
 
                 $search_string,

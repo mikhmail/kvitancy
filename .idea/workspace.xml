@@ -2,14 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/system/core/Input.php" afterPath="$PROJECT_DIR$/system/core/Input.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/cash.php" afterPath="$PROJECT_DIR$/application/controllers/cash.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/cash_model.php" afterPath="$PROJECT_DIR$/application/models/cash_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/cash/list.php" afterPath="$PROJECT_DIR$/application/views/cash/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -47,18 +43,24 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="218" column="75" selection-start="8084" selection-end="8084" vertical-scroll-proportion="-21.612904" vertical-offset="3928" max-vertical-offset="5280">
+            <state line="202" column="117" selection-start="7371" selection-end="7371" vertical-scroll-proportion="-15.612904" vertical-offset="3762" max-vertical-offset="5126">
               <folding>
+                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
                 <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <marker date="1454075659354" expanded="true" signature="7504:7633" placeholder="..." />
+                <marker date="1454075659354" expanded="true" signature="8084:8121" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="func.js" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/assets/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="681" column="16" selection-start="22339" selection-end="22343" vertical-scroll-proportion="0.0" vertical-offset="14521" max-vertical-offset="19184">
+            <state line="656" column="26" selection-start="21684" selection-end="21684" vertical-scroll-proportion="0.31358528" vertical-offset="14125" max-vertical-offset="19184">
               <folding />
             </state>
           </provider>
@@ -67,11 +69,11 @@
       <file leaf-file-name="ajx.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1029" column="43" selection-start="32292" selection-end="32292" vertical-scroll-proportion="-3.1935484" vertical-offset="22539" max-vertical-offset="23936">
+            <state line="1037" column="29" selection-start="32430" selection-end="32430" vertical-scroll-proportion="-15.258064" vertical-offset="22341" max-vertical-offset="23738">
               <folding>
-                <marker date="1454073514114" expanded="true" signature="25558:26053" placeholder="..." />
-                <marker date="1454073514114" expanded="true" signature="25582:26040" placeholder="..." />
-                <marker date="1454073514114" expanded="true" signature="25603:26015" placeholder="..." />
+                <marker date="1454075366618" expanded="true" signature="25558:26053" placeholder="..." />
+                <marker date="1454075366618" expanded="true" signature="25582:26040" placeholder="..." />
+                <marker date="1454075366618" expanded="true" signature="25603:26015" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -86,10 +88,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="cash_model.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="cash_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="16" selection-start="741" selection-end="741" vertical-scroll-proportion="0.39451477" vertical-offset="396" max-vertical-offset="3806">
+            <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="3850">
               <folding />
             </state>
           </provider>
@@ -98,7 +100,7 @@
       <file leaf-file-name="cash.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="736" selection-end="736" vertical-scroll-proportion="-8.870968" vertical-offset="451" max-vertical-offset="16368">
+            <state line="541" column="39" selection-start="17145" selection-end="17145" vertical-scroll-proportion="-5.322581" vertical-offset="11737" max-vertical-offset="16368">
               <folding />
             </state>
           </provider>
@@ -162,12 +164,12 @@
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/system/core/Input.php" />
-        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
         <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
+        <option value="$PROJECT_DIR$/application/models/cash_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/application/views/cash/list.php" />
-        <option value="$PROJECT_DIR$/application/models/cash_model.php" />
       </list>
     </option>
   </component>
@@ -422,7 +424,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1920" height="1152" extended-state="1" />
+    <frame x="0" y="0" width="1920" height="1152" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -723,20 +725,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="681" column="16" selection-start="22339" selection-end="22343" vertical-scroll-proportion="0.0" vertical-offset="14521" max-vertical-offset="19184">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="33" column="0" selection-start="736" selection-end="736" vertical-scroll-proportion="-8.870968" vertical-offset="451" max-vertical-offset="16368">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="142" column="18" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.0" vertical-offset="2684" max-vertical-offset="7018">
@@ -744,29 +732,49 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="541" column="39" selection-start="17145" selection-end="17145" vertical-scroll-proportion="-5.322581" vertical-offset="11737" max-vertical-offset="16368">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="3850">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="218" column="75" selection-start="8084" selection-end="8084" vertical-scroll-proportion="-21.612904" vertical-offset="3928" max-vertical-offset="5280">
+        <state line="202" column="117" selection-start="7371" selection-end="7371" vertical-scroll-proportion="-15.612904" vertical-offset="3762" max-vertical-offset="5126">
           <folding>
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
             <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <marker date="1454075659354" expanded="true" signature="7504:7633" placeholder="..." />
+            <marker date="1454075659354" expanded="true" signature="8084:8121" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1029" column="43" selection-start="32292" selection-end="32292" vertical-scroll-proportion="-3.1935484" vertical-offset="22539" max-vertical-offset="23936">
+        <state line="1037" column="29" selection-start="32430" selection-end="32430" vertical-scroll-proportion="-15.258064" vertical-offset="22341" max-vertical-offset="23738">
           <folding>
-            <marker date="1454073514114" expanded="true" signature="25558:26053" placeholder="..." />
-            <marker date="1454073514114" expanded="true" signature="25582:26040" placeholder="..." />
-            <marker date="1454073514114" expanded="true" signature="25603:26015" placeholder="..." />
+            <marker date="1454075366618" expanded="true" signature="25558:26053" placeholder="..." />
+            <marker date="1454075366618" expanded="true" signature="25582:26040" placeholder="..." />
+            <marker date="1454075366618" expanded="true" signature="25603:26015" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="16" selection-start="741" selection-end="741" vertical-scroll-proportion="0.39451477" vertical-offset="396" max-vertical-offset="3806">
+        <state line="656" column="26" selection-start="21684" selection-end="21684" vertical-scroll-proportion="0.31358528" vertical-offset="14125" max-vertical-offset="19184">
           <folding />
         </state>
       </provider>

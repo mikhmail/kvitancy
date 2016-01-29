@@ -34,15 +34,8 @@
         <div class="span10">
 
 
-            <select name="plus_select" id="plus_select" class="span2">
-                <option value="" selected="selected">-Выбрать-</option>
-                <option value="1">Приход +</option>
-                <option value="2">Расход -</option>
-            </select>
-
-
-            <input type="number" min=0 step="0.1" name="plus" id="plus" autocomplete="off" placeholder="Сумма" class="span2">
-            <input type="text" name="name"  id="name" autocomplete="off" placeholder="Описание" class="span2">
+            <input type="number" min="-99999999" step="0.1" name="plus" id="plus" autocomplete="off" placeholder="Сумма" class="span2">
+            <input type="text" name="name"  id="name" autocomplete="off" placeholder="Описание" class="span4">
 
             <input type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции" class="span2">
 
@@ -165,7 +158,7 @@
         </div>
     </div>
     <div class="row-fluid">
-        <legend>Найдено <strong><?=$count_works?></strong>, на сумму <strong><? //$summ[0]['SUM']?></strong>
+        <legend>Найдено <strong><?=$count_works?></strong> записи, на сумму <strong><?=$summ[0]['SUM']?></strong>
 
             <div class="pagination pull-right">
                 <?=$this->pagination->create_links()?>
@@ -206,8 +199,8 @@
                 {?>
                     <tr>
                         <td><?=$row['cash_id']?></td>
-                        <td style="text-align: center"><div class="label label-success"><? if($row['plus']) echo '+ '.$row['plus'];?></div></td>
-                        <td style="text-align: center"><div class="label label-important"><? if($row['minus']) echo '- '. $row['minus'];?></div></td>
+                        <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+ '.$row['plus'];?></div></td>
+                        <td style="text-align: center"><div class="label label-important"><? if($row['plus']<0) echo $row['plus'];?></div></td>
                         <td><?=$row['name']?></td>
 
                         <td style="text-align: center"><?
