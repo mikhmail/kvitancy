@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/cash.php" afterPath="$PROJECT_DIR$/application/controllers/cash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/cash_model.php" afterPath="$PROJECT_DIR$/application/models/cash_model.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/cash/list.php" afterPath="$PROJECT_DIR$/application/views/cash/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,39 +28,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="80" column="117" selection-start="4387" selection-end="4387" vertical-scroll-proportion="-12.648149" vertical-offset="1077" max-vertical-offset="2002">
-              <folding />
-            </state>
-          </provider>
           <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
             <state />
+          </provider>
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="84" column="45" selection-start="4605" selection-end="4605" vertical-scroll-proportion="0.8335135" vertical-offset="1077" max-vertical-offset="2024">
+              <folding />
+            </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="202" column="117" selection-start="7371" selection-end="7371" vertical-scroll-proportion="-15.612904" vertical-offset="3762" max-vertical-offset="5126">
+            <state line="36" column="147" selection-start="1125" selection-end="1140" vertical-scroll-proportion="-17.032259" vertical-offset="264" max-vertical-offset="5126">
               <folding>
-                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-                <marker date="1454075659354" expanded="true" signature="7504:7633" placeholder="..." />
-                <marker date="1454075659354" expanded="true" signature="8084:8121" placeholder="..." />
+                <marker date="1454150132709" expanded="true" signature="7535:7664" placeholder="..." />
+                <marker date="1454150132709" expanded="true" signature="8146:8183" placeholder="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="func.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="656" column="26" selection-start="21684" selection-end="21684" vertical-scroll-proportion="0.31358528" vertical-offset="14125" max-vertical-offset="19184">
+            <state line="688" column="26" selection-start="22476" selection-end="22476" vertical-scroll-proportion="0.0" vertical-offset="14565" max-vertical-offset="19162">
               <folding />
             </state>
           </provider>
@@ -82,7 +77,7 @@
       <file leaf-file-name="styles.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="142" column="18" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.0" vertical-offset="2684" max-vertical-offset="7018">
+            <state line="313" column="1" selection-start="6108" selection-end="6108" vertical-scroll-proportion="0.0" vertical-offset="6039" max-vertical-offset="7018">
               <folding />
             </state>
           </provider>
@@ -91,7 +86,7 @@
       <file leaf-file-name="cash_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="3850">
+            <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="3850">
               <folding />
             </state>
           </provider>
@@ -133,7 +128,6 @@
         <option value="$PROJECT_DIR$/application/views/login.php" />
         <option value="$PROJECT_DIR$/application/views/store/add.php" />
         <option value="$PROJECT_DIR$/application/views/store/edit.php" />
-        <option value="$PROJECT_DIR$/assets/styles.css" />
         <option value="$PROJECT_DIR$/application/views/admin/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/clients/list.php" />
         <option value="$PROJECT_DIR$/application/views/admin/cities/list.php" />
@@ -164,12 +158,13 @@
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/system/core/Input.php" />
-        <option value="$PROJECT_DIR$/assets/func.js" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/controllers/cash.php" />
         <option value="$PROJECT_DIR$/application/models/cash_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
+        <option value="$PROJECT_DIR$/assets/func.js" />
+        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/views/cash/list.php" />
+        <option value="$PROJECT_DIR$/assets/styles.css" />
       </list>
     </option>
   </component>
@@ -223,17 +218,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Tests" />
-        <subPane subId="Changed Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,70 +246,19 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
+              <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Tests" />
+        <subPane subId="Changed Files">
           <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tickets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="cash" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -432,7 +365,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19234914" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1945043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3617443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39345887" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -440,12 +373,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32945737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -689,16 +622,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/store/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="193" column="0" selection-start="7265" selection-end="7265" vertical-scroll-proportion="0.19779006" vertical-offset="4067" max-vertical-offset="5170">
-          <folding />
-        </state>
+        <state line="193" column="0" selection-start="7265" selection-end="7265" vertical-scroll-proportion="0.19779006" vertical-offset="4067" max-vertical-offset="5170" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/system/core/Input.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="732" column="43" selection-start="15942" selection-end="15942" vertical-scroll-proportion="-11.548388" vertical-offset="15746" max-vertical-offset="18832">
-          <folding />
-        </state>
+        <state line="732" column="43" selection-start="15942" selection-end="15942" vertical-scroll-proportion="-11.548388" vertical-offset="15746" max-vertical-offset="18832" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
@@ -710,24 +639,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/config/config.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="131" column="50" selection-start="4420" selection-end="4420" vertical-scroll-proportion="0.3540107" vertical-offset="2551" max-vertical-offset="8162">
+        <state line="131" column="50" selection-start="4420" selection-end="4420" vertical-scroll-proportion="0.3540107" vertical-offset="2551" max-vertical-offset="8162" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="3850">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="117" selection-start="4387" selection-end="4387" vertical-scroll-proportion="-12.648149" vertical-offset="1077" max-vertical-offset="2002">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="142" column="18" selection-start="2684" selection-end="2684" vertical-scroll-proportion="0.0" vertical-offset="2684" max-vertical-offset="7018">
+        <state line="688" column="26" selection-start="22476" selection-end="22476" vertical-scroll-proportion="0.0" vertical-offset="14565" max-vertical-offset="19162">
           <folding />
         </state>
       </provider>
@@ -739,24 +663,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="-9.225806" vertical-offset="330" max-vertical-offset="3850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="202" column="117" selection-start="7371" selection-end="7371" vertical-scroll-proportion="-15.612904" vertical-offset="3762" max-vertical-offset="5126">
+        <state line="36" column="147" selection-start="1125" selection-end="1140" vertical-scroll-proportion="-17.032259" vertical-offset="264" max-vertical-offset="5126">
           <folding>
-            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
-            <marker date="1454075659354" expanded="true" signature="7504:7633" placeholder="..." />
-            <marker date="1454075659354" expanded="true" signature="8084:8121" placeholder="..." />
+            <marker date="1454150132709" expanded="true" signature="7535:7664" placeholder="..." />
+            <marker date="1454150132709" expanded="true" signature="8146:8183" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -772,9 +684,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
+    <entry file="file://$PROJECT_DIR$/assets/styles.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="656" column="26" selection-start="21684" selection-end="21684" vertical-scroll-proportion="0.31358528" vertical-offset="14125" max-vertical-offset="19184">
+        <state line="313" column="1" selection-start="6108" selection-end="6108" vertical-scroll-proportion="0.0" vertical-offset="6039" max-vertical-offset="7018">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="45" selection-start="4605" selection-end="4605" vertical-scroll-proportion="0.8335135" vertical-offset="1077" max-vertical-offset="2024">
           <folding />
         </state>
       </provider>

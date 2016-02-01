@@ -34,8 +34,8 @@
         <div class="span10">
 
 
-            <input type="number" min="-99999999" step="0.1" name="plus" id="plus" autocomplete="off" placeholder="Сумма" class="span2">
-            <input type="text" name="name"  id="name" autocomplete="off" placeholder="Описание" class="span4">
+            <input type="number" min="-99999999" step="0.1" name="plus" id="plus" autocomplete="off" placeholder="Сумма*" class="span2 red-placeholder">
+            <input type="text" name="name"  id="name" autocomplete="" placeholder="Описание*" class="span4 red-placeholder">
 
             <input type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции" class="span2">
 
@@ -158,7 +158,7 @@
         </div>
     </div>
     <div class="row-fluid">
-        <legend>Найдено <strong><?=$count_works?></strong> записи, на сумму <strong><?=$summ[0]['SUM']?></strong>
+        <legend>Найдено <strong><?=$count_works?></strong> записей, на сумму <strong><?=$summ[0]['SUM']?></strong>
 
             <div class="pagination pull-right">
                 <?=$this->pagination->create_links()?>
@@ -199,7 +199,7 @@
                 {?>
                     <tr>
                         <td><?=$row['cash_id']?></td>
-                        <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+ '.$row['plus'];?></div></td>
+                        <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+'.$row['plus'];?></div></td>
                         <td style="text-align: center"><div class="label label-important"><? if($row['plus']<0) echo $row['plus'];?></div></td>
                         <td><?=$row['name']?></td>
 
@@ -211,7 +211,7 @@
                         </td>
                         <td style="text-align: center"><?=$row['update_date']?>, <?=$row['update_time']?></td>
                         <td style="text-align: center"><?=$row['name_sc']?></td>
-                        <td style="text-align: center"><?=$row['id_kvitancy']?></td>
+                        <td style="text-align: center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></td>
 
 
                         <td style="text-align: center">
