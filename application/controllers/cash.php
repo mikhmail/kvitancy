@@ -33,7 +33,7 @@ class Cash extends CI_Controller {
     {
  //pagination settings
         $config['per_page'] = 10;
-        $config['base_url'] = base_url() . 'works/';
+        $config['base_url'] = base_url() . 'cash/';
         $config['use_page_numbers'] = TRUE;
 
         $config['full_tag_open'] = '<ul>';
@@ -89,7 +89,7 @@ class Cash extends CI_Controller {
                     'start_date' => '',
                     'end_date' => '',
                     'id_aparat' => '',
-                    'id_proizvod' => '',
+                    'id_sc' => '',
                     'id_kvitancy' => '',
                     'id_sc' => ''
 
@@ -168,7 +168,8 @@ class Cash extends CI_Controller {
                 if ($this->session->userdata('start_date')) {
                     $start_date = $this->session->userdata('start_date');
                 }else{
-                    $start_date = date('Y') . '-'. $m . '-31';
+                    //$start_date = date('Y') . '-'. $m . '-31';
+                    $start_date = date('Y') . '-'. date('m') . '-01';
                 }
 
             } else {
@@ -312,8 +313,8 @@ class Cash extends CI_Controller {
                 $filter_session_data['id_kvitancy'] = $id_kvitancy;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                //$id_kvitancy = $this->session->userdata('id_kvitancy');
-                $id_kvitancy = '';
+                $id_kvitancy = $this->session->userdata('id_kvitancy');
+                //$id_kvitancy = '';
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_kvitancy = '';
@@ -430,15 +431,32 @@ class Cash extends CI_Controller {
         else{
 
 
+            /*Очистка масива для сесиии*/
+                $filter_session_data = array(
+                    'search_string' => '',
+                    'order' => '',
+                    'order_type' => '',
+                    'limit_start' => '',
+                    'start_date' => '',
+                    'end_date' => '',
+                    'id_sc' => '',
+                    'id_proizvod' => '',
+                    'id_kvitancy' => '',
+                    'id_sc' => ''
 
-//clear session data in session
-            $this->session->unset_userdata();
+                );
+
+            //save session data into the session
+            if (isset($filter_session_data)) {
+                $this->session->set_userdata($filter_session_data);
+            }
+            /*Очистка масива для сесиии*/
 
             $s = strtotime('-1 month');
             $m = date("m");
 
             $data['search_string_selected'] = '';
-            $data['order_type_selected'] = '';
+            $data['order_type_selected'] = 'Desc';
             $data['order_selected'] = 'id';
             $data['start_date_selected'] = date('Y') . '-'. date('m') . '-01';
             $data['end_date_selected'] = date("Y-m-d");
@@ -459,7 +477,7 @@ class Cash extends CI_Controller {
 
             $search_string = '';
             $order = '';
-            $order_type = '';
+            $order_type = 'Desc';
             $limit_start = $config['per_page']; //при навигациии надо включить
             $start_date = date('Y') . '-'. date('m') . '-01';
             $end_date = date("Y-m-d");
@@ -498,26 +516,7 @@ class Cash extends CI_Controller {
 
 
 
-            /*Масив для сесиии*/
-            $filter_session_data = array(
-                'search_string' => '',
-                'order' => '',
-                'order_type' => '',
-                'limit_start' => '',
-                'limit_end' => '',
-                'start_date' => '',
-                'end_date' => '',
-                'id_aparat' => '',
-                'id_aparat_p' => '',
-                'id_proizvod' => '',
-                'id_kvitancy' => ''
 
-            );
-
-            //save session data into the session
-            if (isset($filter_session_data)) {
-                $this->session->set_userdata($filter_session_data);
-            }
 
             //fetch sql data into arrays
             $data['count_works'] = $this->cash_model->get_works(

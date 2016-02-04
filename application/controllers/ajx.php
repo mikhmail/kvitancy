@@ -1042,7 +1042,6 @@ function update_ajax_store ()
                 'update_user' => $this->session->userdata('user_id'),
                 'id_kvitancy' => $id_kvitancy,
                 'plus' => $plus,
-                'minus' => '',
                 'name' => $name,
                 'id_sc' => $this->session->userdata('user_id_sc')
             );

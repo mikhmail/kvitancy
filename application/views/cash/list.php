@@ -124,11 +124,11 @@
                 */
                 ?>
 
-                <label class="control-label" for="order">Сортировать по:</label>
+                <label class="control-label" style="display: none" for="order">Сортировать по:</label>
                 <?
 
                 $options_works = array( 'cash.id' => 'по ID');
-                echo form_dropdown('order', $options_works, $order_selected, 'class="span2"');
+                echo form_dropdown('order', $options_works, $order_selected, 'class="span2" style="display: none"');
 
                 //$data_submit = array('name' => 'mysubmit', 'class' => 'btn btn-primary', 'value' => 'Поиск');
 
@@ -148,12 +148,12 @@
         <div class="span12 columns">
 
             <div class="pull-left">
-                <input type="number" step="1" min="1" name="id_kvitancy" value="" placeholder="Введите номер квитанции" class="search-query">
+                <input type="number" step="1" min="1" name="id_kvitancy" value="<?if($id_kvitancy_selected) echo $id_kvitancy_selected;?>" placeholder="Введите номер квитанции" class="search-query">
                 <input type="submit" name="mysubmit" value="Показать" class="btn btn-info">
             </div>
 
             <div class="pull-right">
-                <input type="text" name="search_string" value="" placeholder="Поиск по описанию" title="Поиск по описанию" class="search-query">
+                <input type="text" name="search_string" value="<?if($search_string_selected) echo $search_string_selected;?>" placeholder="Поиск по описанию" title="Поиск по описанию" class="search-query">
                 </label><input type="submit" name="mysubmit" value="Поиск" class="btn btn-info">    </div>
         </div>
     </div>

@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/cash.php" afterPath="$PROJECT_DIR$/application/controllers/cash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/cash_model.php" afterPath="$PROJECT_DIR$/application/models/cash_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/cash/list.php" afterPath="$PROJECT_DIR$/application/views/cash/list.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
@@ -28,25 +30,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="84" column="45" selection-start="4605" selection-end="4605" vertical-scroll-proportion="0.8335135" vertical-offset="1077" max-vertical-offset="2024">
+            <state line="84" column="45" selection-start="4605" selection-end="4605" vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="2024">
               <folding />
             </state>
           </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="147" selection-start="1125" selection-end="1140" vertical-scroll-proportion="-17.032259" vertical-offset="264" max-vertical-offset="5126">
+            <state line="130" column="113" selection-start="4571" selection-end="4571" vertical-scroll-proportion="0.5176471" vertical-offset="2178" max-vertical-offset="5126">
               <folding>
-                <marker date="1454150132709" expanded="true" signature="7535:7664" placeholder="..." />
-                <marker date="1454150132709" expanded="true" signature="8146:8183" placeholder="..." />
+                <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+                <marker date="1454597206476" expanded="true" signature="7697:7826" placeholder="..." />
+                <marker date="1454597206476" expanded="true" signature="8308:8345" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -55,7 +65,7 @@
       <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="688" column="26" selection-start="22476" selection-end="22476" vertical-scroll-proportion="0.0" vertical-offset="14565" max-vertical-offset="19162">
+            <state line="699" column="42" selection-start="22877" selection-end="22877" vertical-scroll-proportion="0.0" vertical-offset="14697" max-vertical-offset="19184">
               <folding />
             </state>
           </provider>
@@ -64,11 +74,11 @@
       <file leaf-file-name="ajx.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1037" column="29" selection-start="32430" selection-end="32430" vertical-scroll-proportion="-15.258064" vertical-offset="22341" max-vertical-offset="23738">
+            <state line="1007" column="17" selection-start="31745" selection-end="31745" vertical-scroll-proportion="-15.967742" vertical-offset="21659" max-vertical-offset="23716">
               <folding>
-                <marker date="1454075366618" expanded="true" signature="25558:26053" placeholder="..." />
-                <marker date="1454075366618" expanded="true" signature="25582:26040" placeholder="..." />
-                <marker date="1454075366618" expanded="true" signature="25603:26015" placeholder="..." />
+                <marker date="1454572513986" expanded="true" signature="25558:26053" placeholder="..." />
+                <marker date="1454572513986" expanded="true" signature="25582:26040" placeholder="..." />
+                <marker date="1454572513986" expanded="true" signature="25603:26015" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -86,7 +96,7 @@
       <file leaf-file-name="cash_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="3850">
+            <state line="83" column="31" selection-start="1722" selection-end="1722" vertical-scroll-proportion="4.193548" vertical-offset="1956" max-vertical-offset="4026">
               <folding />
             </state>
           </provider>
@@ -95,7 +105,7 @@
       <file leaf-file-name="cash.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="541" column="39" selection-start="17145" selection-end="17145" vertical-scroll-proportion="-5.322581" vertical-offset="11737" max-vertical-offset="16368">
+            <state line="449" column="46" selection-start="14558" selection-end="14558" vertical-scroll-proportion="-20.64516" vertical-offset="9238" max-vertical-offset="16346">
               <folding />
             </state>
           </provider>
@@ -158,13 +168,13 @@
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/system/core/Input.php" />
-        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
-        <option value="$PROJECT_DIR$/application/models/cash_model.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/assets/styles.css" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/assets/func.js" />
-        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/application/models/cash_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
         <option value="$PROJECT_DIR$/application/views/cash/list.php" />
-        <option value="$PROJECT_DIR$/assets/styles.css" />
       </list>
     </option>
   </component>
@@ -218,6 +228,17 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope">
+        <subPane subId="Tests" />
+        <subPane subId="Changed Files">
+          <PATH>
+            <PATH_ELEMENT USER_OBJECT="Root">
+              <option name="myItemId" value="" />
+              <option name="myItemType" value="" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -248,17 +269,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="Scope">
-        <subPane subId="Tests" />
-        <subPane subId="Changed Files">
-          <PATH>
-            <PATH_ELEMENT USER_OBJECT="Root">
-              <option name="myItemId" value="" />
-              <option name="myItemType" value="" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -365,7 +375,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.1945043" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19665948" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3617443" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39345887" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -373,12 +383,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32945737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -642,48 +652,6 @@
         <state line="131" column="50" selection-start="4420" selection-end="4420" vertical-scroll-proportion="0.3540107" vertical-offset="2551" max-vertical-offset="8162" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="12" selection-start="566" selection-end="566" vertical-scroll-proportion="0.0" vertical-offset="330" max-vertical-offset="3850">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="688" column="26" selection-start="22476" selection-end="22476" vertical-scroll-proportion="0.0" vertical-offset="14565" max-vertical-offset="19162">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="541" column="39" selection-start="17145" selection-end="17145" vertical-scroll-proportion="-5.322581" vertical-offset="11737" max-vertical-offset="16368">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="147" selection-start="1125" selection-end="1140" vertical-scroll-proportion="-17.032259" vertical-offset="264" max-vertical-offset="5126">
-          <folding>
-            <marker date="1454150132709" expanded="true" signature="7535:7664" placeholder="..." />
-            <marker date="1454150132709" expanded="true" signature="8146:8183" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1037" column="29" selection-start="32430" selection-end="32430" vertical-scroll-proportion="-15.258064" vertical-offset="22341" max-vertical-offset="23738">
-          <folding>
-            <marker date="1454075366618" expanded="true" signature="25558:26053" placeholder="..." />
-            <marker date="1454075366618" expanded="true" signature="25582:26040" placeholder="..." />
-            <marker date="1454075366618" expanded="true" signature="25603:26015" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="313" column="1" selection-start="6108" selection-end="6108" vertical-scroll-proportion="0.0" vertical-offset="6039" max-vertical-offset="7018">
@@ -692,12 +660,62 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="84" column="45" selection-start="4605" selection-end="4605" vertical-scroll-proportion="0.0" vertical-offset="1077" max-vertical-offset="2024">
+          <folding />
+        </state>
+      </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="84" column="45" selection-start="4605" selection-end="4605" vertical-scroll-proportion="0.8335135" vertical-offset="1077" max-vertical-offset="2024">
+        <state line="699" column="42" selection-start="22877" selection-end="22877" vertical-scroll-proportion="0.0" vertical-offset="14697" max-vertical-offset="19184">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1007" column="17" selection-start="31745" selection-end="31745" vertical-scroll-proportion="-15.967742" vertical-offset="21659" max-vertical-offset="23716">
+          <folding>
+            <marker date="1454572513986" expanded="true" signature="25558:26053" placeholder="..." />
+            <marker date="1454572513986" expanded="true" signature="25582:26040" placeholder="..." />
+            <marker date="1454572513986" expanded="true" signature="25603:26015" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="83" column="31" selection-start="1722" selection-end="1722" vertical-scroll-proportion="4.193548" vertical-offset="1956" max-vertical-offset="4026">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="449" column="46" selection-start="14558" selection-end="14558" vertical-scroll-proportion="-20.64516" vertical-offset="9238" max-vertical-offset="16346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="130" column="113" selection-start="4571" selection-end="4571" vertical-scroll-proportion="0.5176471" vertical-offset="2178" max-vertical-offset="5126">
+          <folding>
+            <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#div#2;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#1;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#2;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#4;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#5;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#6;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#7;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#8;n#tr#0;n#tbody#0;n#table#0;n#div#5;n#div#0;n#!!top" expanded="true" />
+            <marker date="1454597206476" expanded="true" signature="7697:7826" placeholder="..." />
+            <marker date="1454597206476" expanded="true" signature="8308:8345" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

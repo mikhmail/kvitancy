@@ -38,7 +38,6 @@ cash.update_time,
 cash.update_date,
 
 cash.plus,
-cash.minus,
 cash.id_kvitancy,
 
 service.name_sc,
@@ -64,10 +63,12 @@ service.id_sc
 
             $this->db->where($where);
 
-            //$this->db->where('works.model LIKE', "%$search_string%");
-            //$this->db->or_where('user.phone LIKE', "%$search_string%");
-            //$this->db->or_where('user.fam LIKE', "%$search_string%");
-
+            if($limit_start && $limit_end){
+                $this->db->limit($limit_start, $limit_end);
+            }
+            elseif($limit_start != null){
+                $this->db->limit($limit_start, $limit_end);
+            }
 
 
             $query = $this->db->get();
@@ -85,6 +86,13 @@ service.id_sc
             $this->db->where('cash.id_kvitancy', $id_kvitancy);
 
             $query = $this->db->get();
+
+            if($limit_start && $limit_end){
+                $this->db->limit($limit_start, $limit_end);
+            }
+            elseif($limit_start != null){
+                $this->db->limit($limit_start, $limit_end);
+            }
 
             //return($this->db->last_query());die;
 

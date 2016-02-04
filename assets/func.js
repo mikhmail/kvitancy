@@ -697,6 +697,7 @@ $('input[id^=save_price_]').click(function(){
 
                     } else {
                         alert('Добавлено!');
+                        location.reload();
                     }
                 });
         }else{
