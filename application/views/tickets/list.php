@@ -314,18 +314,19 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                             <a href="#" onclick="anichange_kvitancy(this); return false">
                                 <table class="table table-condensed">
                                     <tr>
-                                        <td class="span1">
-
-                                            <span class="label label-info pull-right"># <?=$row['id_kvitancy']?></span>
+                                        <td class="span1"><p class="text-center">
+                                            <span class="label label-info"># <?=$row['id_kvitancy']?></span>
+                                            </p>
                                         </td>
-                                        <td class="span2">
-                                            <div id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></div>
+                                        <td class="span2"><p class="text-center">
+                                            <span id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span>
+                                            </p>
                                         </td>
                                         <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
                                         <td class="span3"><?=$row['neispravnost']?></td>
 
-                                        <td class="span2"><?=$row['date_priemka']?></td>
-                                        <td class="span2">
+                                        <td class="span2"><p class="text-center"><?=$row['date_priemka']?></p></td>
+                                        <td class="span2"><p class="text-center">
                                             <?
                                             if ($row['date_vydachi'] == '0000-00-00') {?>
                                                 <span style="background-color:#b94a48" class="label">
@@ -335,9 +336,10 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 echo $row['date_vydachi'];
                                             }
                                             ?>
+                                            </p>
                                         </td>
-                                        <td class="span2"><?=$row['name_sc']?></td>
-                                        <td class="span3"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></td>
+                                        <td class="span2"><p class="text-center"><?=$row['name_sc']?></p></td>
+                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></p></td>
                                     </tr>
                                 </table>
                             </a>

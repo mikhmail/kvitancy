@@ -149,14 +149,14 @@
         <div class="control-group">
             <label for="cost" class="control-label">Себестоимость</label>
             <div class="controls">
-                <input type="number" step="1" min="1" name="cost" value="<?php echo set_value("cost"); ?>">
+                <input type="number" step="1" min="0" name="cost" value="<?php echo set_value("cost"); ?>">
             </div>
         </div>
 
         <div class="control-group">
             <label for="price" class="control-label">Цена</label>
             <div class="controls">
-                <input type="number" step="1" min="1" name="price" value="<?php echo set_value("price"); ?>">
+                <input type="number" step="1" min="0" name="price" value="<?php echo set_value("price"); ?>">
             </div>
         </div>
 

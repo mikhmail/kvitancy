@@ -17,8 +17,8 @@ var id = this.name;
               console.log(obj.name_sost);
               console.log(obj.background);
 
-              $("div#background_"+id+"").html(obj.name_sost);
-              $("div#background_"+id+"").css('background-color',obj.background);
+              $("span#background_"+id+"").html(obj.name_sost);
+              $("span#background_"+id+"").css('background-color',obj.background);
 
 
 
