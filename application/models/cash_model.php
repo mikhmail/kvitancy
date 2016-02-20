@@ -148,9 +148,9 @@ service.id_sc
 
 
 
-    function delete_works($id){
+    function delete_cash($id){
         $this->db->where('id', $id);
-        $this->db->delete('works');
+        $this->db->delete('cash');
     }
 
     function update_works($id, $data)

@@ -606,8 +606,8 @@ class Cash extends CI_Controller {
         //product id
         $id = $this->uri->segment(3);
         //var_dump($id);die;
-        $this->works_model->delete_works($id);
-        redirect('works');
+        $this->cash_model->delete_cash($id);
+        redirect('cash');
 
     }//delete
 
