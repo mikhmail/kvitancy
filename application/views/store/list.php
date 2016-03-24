@@ -164,17 +164,16 @@ if (count($store) > 0) {//var_dump($store);die;
                 <?php
                 foreach($store as $row)
                 {?>
-                    <tr id="store_tr_<?=$row['store_id']?>">
-                    <td><?=$row['store_id']?></td>
+                   <tr id="store_tr_<?=$row['store_id']?>">
+                    <td><p class="text-center"><?=$row['store_id']?></p></td>
                     <td><?=$row['name_proizvod']?> / <?=$row['aparat_name']?> / <strong><?=$row['title']?></strong></td>
-                    <td><?=$row['name']?></td>
-                    <td><?=$row['serial']?></td>
-                    <td><?=$row['vid']?></td>
-                    <td><? if($row['id_sost'] == 1) echo 'Новый'; else echo 'Б.У.';?></td>
-
-                    <td><?=$row['cost']?></td>
-                    <td><?=$row['price']?></td>
-                    <td>
+                    <td><p class="text-center"><?=$row['name']?></p></td>
+                    <td><p class="text-center"><?=$row['serial']?></p></td>
+                    <td><p class="text-center"><?=$row['vid']?></p></td>
+                    <td><p class="text-center"><? if($row['id_sost'] == 1) echo 'Новый'; else echo 'Б.У.';?></p></td>
+                    <td><p class="text-center"><?=$row['cost']?></p></td>
+                    <td><p class="text-center"><?=$row['price']?></p></td>
+                    <td><p class="text-center">
 
                         <? if ($row['status'] == 0) {
                                 if($row['id_kvitancy']){?>
@@ -192,29 +191,31 @@ if (count($store) > 0) {//var_dump($store);die;
 
                             }?>
 
-                    </td>
-                    <td>
+                    </p></td>
+                    <td><p class="text-center">
                         <?
                         foreach ($users as $rows)
                         {
                             if ($rows['id'] == $row['id_resp']) echo $rows['user_name'];
                         }
                         ?>
+                        </p>
                     </td>
-                    <td><?=$row['date_priemka']?> / <?=$row['user_name']?> /  <?=$row['name_sc']?><??></td>
-                    <td><?=$row['update_time']?> / <?
+                    <td><p class="text-center"><?=$row['date_priemka']?> / <?=$row['user_name']?> /  <?=$row['name_sc']?></p></td>
+                    <td><p class="text-center"><?=$row['update_time']?> / <?
                         foreach ($users as $rows)
                         {
                             if ($rows['id'] == $row['update_user']) echo $rows['user_name'];
                         }?>
+                        </p>
                     </td>
-                    <td>
+                    <td><p class="text-center">
                         <? if($row['status'] != 0) echo '
                     <a id="setup_'.$row['store_id'].'" class="btn btn-primary btn-mini">Списать</a>
                     <a href="'.site_url("store").'/update/'.$row['store_id'].'" class="btn btn-info btn-mini">Изменить</a>
                     <a href="'.site_url("store").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>
                             '; else echo '<a href="'.site_url("store").'/return_store/'.$row['store_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>
-                    </td>
+                    </p></td>
 
 
 

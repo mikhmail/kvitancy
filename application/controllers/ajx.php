@@ -1029,7 +1029,6 @@ function update_ajax_store ()
     {
         $id_kvitancy = $this->input->post('id_kvitancy');
         $plus = $this->input->post('plus');
-
         $name =  $this->input->post('name');
 
 
@@ -1046,6 +1045,17 @@ function update_ajax_store ()
                 'id_sc' => $this->session->userdata('user_id_sc')
             );
             $ret = $this->db->insert('cash', $data);
+
+            /*
+            $data2 = array(
+                'update_time' => date("j-m-Y, H:i:s"),
+                'update_user' => $this->session->userdata('user_id'),
+                'full_cost' => $plus,
+                );
+            $this->db->where('id_kvitancy', $id_kvitancy);
+            $ret2 = $this->db->update('kvitancy', $data2);
+            */
+
             if ($ret) echo 1;
         }else{
             echo 0;

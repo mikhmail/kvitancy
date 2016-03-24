@@ -112,7 +112,7 @@ service.id_sc
 
 
         if($start_date AND $end_date) {
-            $this->db->where(" works.date_added BETWEEN '".$start_date."%' AND '".$end_date."%' ", NULL, FALSE);
+            $this->db->where(" works.date_added >= '".$start_date."%' AND works.date_added <= '".$end_date."%' ", NULL, FALSE);
         }
 
         if ($id_sc != null){

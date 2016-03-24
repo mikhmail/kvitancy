@@ -34,8 +34,8 @@
         <div class="span10">
 
 
-            <input type="number" min="-99999999" step="0.1" name="plus" id="plus" autocomplete="off" placeholder="Сумма*" class="span2 red-placeholder">
-            <input type="text" name="name"  id="name" autocomplete="" placeholder="Описание*" class="span4 red-placeholder">
+            <input type="number" min="-99999999" step="0.1" name="plus" id="plus" title="Можно вводить с минусом, например: -500" autocomplete="off" placeholder="Сумма*" class="span2" style="border: 1px solid rgb(173, 61, 61);">
+            <input type="text" name="name"  id="name" placeholder="Описание*" class="span4" style="border: 1px solid rgb(173, 61, 61);">
 
             <input type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции" class="span2">
 
@@ -198,30 +198,30 @@
                 foreach($works as $row)
                 {?>
                     <tr>
-                        <td><?=$row['cash_id']?></td>
+                        <td><p class="text-center"><?=$row['cash_id']?></p></td>
                         <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+'.$row['plus'];?></div></td>
                         <td style="text-align: center"><div class="label label-important"><? if($row['plus']<0) echo $row['plus'];?></div></td>
                         <td><?=$row['name']?></td>
 
-                        <td style="text-align: center"><?
+                        <td style="text-align: center"><p class="text-center"><?
                             foreach ($users as $rows)
                             {
                                 if ($rows['id'] == $row['update_user']) echo $rows['user_name'];
                             }?>
-                        </td>
-                        <td style="text-align: center"><?=$row['update_date']?>, <?=$row['update_time']?></td>
-                        <td style="text-align: center"><?=$row['name_sc']?></td>
-                        <td style="text-align: center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></td>
+                        </p></td>
+                        <td style="text-align: center"><p class="text-center"><?=$row['update_date']?>, <?=$row['update_time']?></p></td>
+                        <td style="text-align: center"><p class="text-center"><?=$row['name_sc']?></p></td>
+                        <td style="text-align: center"><p class="text-center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></p></td>
 
 
-                        <td style="text-align: center">
+                        <td style="text-align: center"><p class="text-center">
                             <? echo '
 
                     <a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>
                     <a href="'.site_url("cash").'/edit/'.$row['cash_id'].'" class="btn btn-primary btn-mini">Изменить</a>
                     ';?>
 
-                        </td>
+                        </p></td>
 
 
 

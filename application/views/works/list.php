@@ -167,19 +167,19 @@
             foreach($works as $row)
             {?>
                 <tr>
-                    <td><?=$row['works_id']?></td>
-                    <td><?=$row['id_kvitancy']?></td>
-                    <td><?=$row['date_added']?></td>
-                    <td><?=$row['name']?></td>
-                    <td><?=$row['cost']?></td>
+                    <td><p class="text-center"><?=$row['works_id']?></p></td>
+                    <td><p class="text-center"><?=$row['id_kvitancy']?></p></td>
+                    <td><p class="text-center"><?=$row['date_added']?></p></td>
+                    <td><p class="text-center"><?=$row['name']?></p></td>
+                    <td><p class="text-center"><?=$row['cost']?></p></td>
                     <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> <?=$row['model']?></td>
-                    <td><?=$row['name_sc']?></td>
+                    <td><p class="text-center"><?=$row['name_sc']?></p></td>
 
 
                     <td>
                     <? echo '
 
-                    <a href="'.site_url("works").'/delete/'.$row['works_id'].'" class="btn btn-danger btn-mini">Удалить</a>
+                    <p class="text-center"><a href="'.site_url("works").'/delete/'.$row['works_id'].'" class="btn btn-danger btn-mini">Удалить</a></p>
                     ';?>
 
                     </td>
