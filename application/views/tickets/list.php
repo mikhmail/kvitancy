@@ -213,23 +213,25 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
     <?php
 
+    $row_global1 = array ();
+    $row_global2 = array ();
 
     if(count($aparats) >= 1) {
         /* Сортировка масива по аппаратам */
-        $row_global1 = array ();
+
         foreach ($aparats as $a=>$row) { //arr63
             $row_global1[$row["aparat_name"]][] = $row;
         }
 
         /* Сортировка масива по состояниям */
-        $row_global2 = array ();
+
         foreach ($aparats as $a=>$row) { //arr63
             $row_global2[$row["name_sost"]][] = $row;
         }
     }
     ?>
 
-
+    <?  if(count($row_global2) >= 1) { ?>
     <div class="span12">
 
         <ul class="nav nav-tabs">
@@ -247,7 +249,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
         </ul>
 
     </div>
-
+<?}?>
 
 
 
@@ -293,7 +295,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     <td>
                         <table class="table">
                             <tr class="chart-bottom-heading">
-                                <th class="span1"><span style="padding:0px 20px;">#</span></th>
+                                <th class="span2"><span style="padding:0px 20px;">#</span></th>
                                 <th class="span2 chart-bottom-heading">Статус</th>
                                 <th class="span3">Аппарат</th>
                                 <th class="span3">Неисправность</th>
@@ -314,7 +316,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                             <a href="#" onclick="anichange_kvitancy(this); return false">
                                 <table class="table table-condensed">
                                     <tr>
-                                        <td class="span1"><p class="text-center">
+                                        <td class="span2"><p class="text-center">
                                             <span class="label label-info"># <?=$row['id_kvitancy']?></span>
                                             </p>
                                         </td>
@@ -348,8 +350,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     <li class="active"><a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">Опции</a></li>
                                     <li><a href="#tab2_<?=$row['id_kvitancy']?>" data-toggle="tab">Информация</a></li>
                                     <li><a href="#tab3_<?=$row['id_kvitancy']?>" data-toggle="tab">Комментарии <sup class="badge"><?=count($comments)?></sup></a></li>
-                                    <li><a href="#tab4_<?=$row['id_kvitancy']?>" data-toggle="tab">Ремонт/Запчасти</a></li>
-                                    <!--<li><a href="#tab5_<?=$row['id_kvitancy']?>" data-toggle="tab">Склад/</a></li>-->
+                                    <li><a href="#tab4_<?=$row['id_kvitancy']?>" data-toggle="tab">Ремонт</a></li>
+                                    <li><a href="#tab5_<?=$row['id_kvitancy']?>" data-toggle="tab">Запчасти</a></li>
                                     <li><a href="#tab6_<?=$row['id_kvitancy']?>" data-toggle="tab">Печать/Редактировать</a></li>
 
 
@@ -534,7 +536,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         </legend>
 
                                         <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
-                                            <h4>Запчасти</h4>
+                                            <h4>Списать запчасти</h4>
                                             <div class="span10">
                                                 <div class="pull-left">
                                                     <i class="icon-chevron-right icon"></i>
@@ -643,13 +645,13 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
                                         </div><!--end remont -->
-                 <!--
+                <!--start zapchsti -->
                 <div style="margin-bottom: 20px;" class="tab-pane" id="tab5_<?=$row['id_kvitancy']?>">
                 <span>
                                         123
                 </span>
 
-                </div><!-- end  -->
+                </div><!-- end запчаст  -->
             <div style="margin-bottom: 20px;" class="tab-pane" id="tab6_<?=$row['id_kvitancy']?>">
                 <span>
                                         <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="" target="_blank">

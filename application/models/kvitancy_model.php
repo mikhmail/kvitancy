@@ -319,7 +319,7 @@ service.rab_sc
 		if($date != null){
 		
 					if($start_date AND $end_date) {
-					$this->db->where(" kvitancy.".$date." BETWEEN '".$start_date."%' AND '".$end_date."%' ", NULL, FALSE);
+					$this->db->where(" kvitancy.".$date." <= '".$start_date."%' AND kvitancy.".$date." >= '".$end_date."%' ", NULL, FALSE);
 					}
 					
 					
@@ -499,25 +499,52 @@ service.rab_sc
 
     public function get_sum ($id_kvitancy){
 
+    $this->db->select('SUM(cost) as sum');
+    $this->db->from('works'); // инженеры
+    $this->db->where('id_kvitancy', $id_kvitancy);
+    $query = $this->db->get();
+    $works = $query->result_array();
+    $work = $works[0]['sum'];
+
+    $this->db->select('SUM(cost) as cost');
+    $this->db->from('store'); // склад
+    $this->db->where('id_kvitancy', $id_kvitancy);
+    $query = $this->db->get();
+    $cost = $query->result_array();
+    $cost = $cost[0]['cost'];
+    return $cost+$work;
+
+
+}
+
+    public function get_stat ($id_kvitancy){
+
+        $stat = array();
+
         $this->db->select('SUM(cost) as sum');
-        $this->db->from('works');
+        $this->db->from('works'); // инженеры
         $this->db->where('id_kvitancy', $id_kvitancy);
         $query = $this->db->get();
         $works = $query->result_array();
-        $work = $works[0]['sum'];
+        $stat["work"] = $works[0]['sum'];
 
         $this->db->select('SUM(cost) as cost');
-        $this->db->from('store');
+        $this->db->from('store'); // склад
         $this->db->where('id_kvitancy', $id_kvitancy);
         $query = $this->db->get();
         $cost = $query->result_array();
-        $cost = $cost[0]['cost'];
-        return $cost+$work;
+        $stat["cost"] = $cost[0]['cost'];
 
+        $this->db->select('SUM(full_cost) as full_cost');
+        $this->db->from('kvitancy'); // склад
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $query = $this->db->get();
+        $full_cost = $query->result_array();
+        $stat["full_cost"] = $full_cost[0]['full_cost'];
+
+        return $stat;
 
     }
-
-
 
 }//end class
 ?>
