@@ -27,6 +27,8 @@ class Stat extends CI_Controller
         $this->load->model('users_model');
         $this->load->model('sost_remonta_model');
         $this->load->model('clients_model');
+        $this->load->model('stat_model');
+
 
 
         if (!$this->session->userdata('is_logged_in')) {

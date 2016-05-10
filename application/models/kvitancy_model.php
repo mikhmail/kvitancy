@@ -506,6 +506,7 @@ service.rab_sc
         return $query->result_array();
     }
 
+
     public function get_sum ($id_kvitancy){
 
     $this->db->select('SUM(cost) as sum');
@@ -530,26 +531,23 @@ service.rab_sc
 
         $stat = array();
 
-        $this->db->select('SUM(cost) as sum');
+        $this->db->select('*');
         $this->db->from('works'); // инженеры
         $this->db->where('id_kvitancy', $id_kvitancy);
+        $this->db->join('membership', 'works.user_id = membership.id');
         $query = $this->db->get();
         $works = $query->result_array();
-        $stat["work"] = $works[0]['sum'];
+        $stat["work"] = $works;
 
-        $this->db->select('SUM(cost) as cost');
+        $this->db->select('*');
         $this->db->from('store'); // склад
         $this->db->where('id_kvitancy', $id_kvitancy);
+        $this->db->join('aparat_p', 'store.id_aparat_p = aparat_p.id_aparat_p');
         $query = $this->db->get();
         $cost = $query->result_array();
-        $stat["cost"] = $cost[0]['cost'];
+        $stat["cost"] = $cost;
 
-        $this->db->select('SUM(full_cost) as full_cost');
-        $this->db->from('kvitancy'); // склад
-        $this->db->where('id_kvitancy', $id_kvitancy);
-        $query = $this->db->get();
-        $full_cost = $query->result_array();
-        $stat["full_cost"] = $full_cost[0]['full_cost'];
+        $stat["cash"] = $this->get_cash ($id_kvitancy);
 
         return $stat;
 

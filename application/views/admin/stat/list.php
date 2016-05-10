@@ -215,10 +215,10 @@ if(count($aparats) >= 1) {
                 <th class="span2">Дата приема</th>
                 <th class="span2">В ремонте/Дата выдачи</th>
                 <th class="span2">Сервис</th>
-                <th class="span3">Расходы/Запчасти</th>
-                <th class="span3">Работы</th>
-                <th class="span3">Стоимость ремонта</th>
-                <th class="span3">Прибыль</th>
+                <th class="span2">Запчасти</th>
+                <th class="span2">Работы</th>
+                <th class="span2">Касса</th>
+                <th class="span2">Прибыль</th>
 
 
 
@@ -260,11 +260,35 @@ if(count($aparats) >= 1) {
                             ?>
                         </p>
                     </td>
+                    <?
+                    $store = $this->stat_model->get_store($row['id_kvitancy']);
+                    $cash = $this->stat_model->get_cash($row['id_kvitancy']);
+                    $work = $this->stat_model->get_work($row['id_kvitancy']);
+
+                    ?>
                     <td class="span2"><p class="text-center"><?=$row['name_sc']?></p></td>
-                    <td class="span3"><p class="text-center">расходы запчасти</p></td>
-                    <td class="span3"><p class="text-center">механик работы</p></td>
-                    <td class="span3"><p class="text-center"><?=$row['full_cost']?></p></td>
-                    <td class="span3"><p class="text-center"><?=print_r($this->kvitancy_model->get_stat($row['id_kvitancy']))?></p></td>
+                    <td class="span2">
+                            <? if($store) {
+                                foreach ($store as $str){?>
+                                -<?=$str["title"]?>: <strong><?=$str["cost"]?></strong>
+                    <?}}?>
+                    </td>
+
+                    <td class="span2">
+                        <? if($work) {
+                            foreach ($work as $works){?>
+                                -<?=$works["name"]?>: <strong><?=$works["cost"]?></strong> by <?=$works["user_name"]?>
+                            <?}}?>
+                    </td>
+
+                    <td class="span2">
+                        <? if($cash) {
+                            foreach ($cash as $csh){?>
+                                -<?=$csh["name"]?>: <strong><?=$csh["plus"]?></strong> by <?=$works["user_name"]?>
+                            <?}}?>
+                    </td>
+
+                <td></td>
 
 
                 </tr>

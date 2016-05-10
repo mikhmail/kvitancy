@@ -466,12 +466,13 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
                                                 <input class="btn margin-bottom-10px btn btn-success" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
                                             </div>
-                                            -->
+
 
                                             <div class="span10">
                                                 Фактическая сумма за ремонт [Выполненные работы инженера + Установленные запчасти]:
                                                 <span class="label label-important"><strong><?=$this->kvitancy_model->get_sum($row['id_kvitancy']);?></strong></span>
                                             </div>
+                                            -->
                                             <div class="span10">
                                                 <? //var_dump($this->kvitancy_model->get_cash($row['id_kvitancy']));?>
 
@@ -498,8 +499,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </div>
 
                                         </div>
-
-                                    <legend></legend>
+                                        <div class="devider-blue">
+                                        </div>
                                         <div class="row-fluid" name="work" style="margin-bottom: 20px;">
                                             <h4>Выполненные работы</h4>
                                             <div class="span10">
@@ -561,8 +562,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                         </div>
 
-                                        <legend>
-                                        </legend>
+                                        <div class="devider-blue">
+                                        </div>
 
                                         <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
                                             <h4>Списать запчасти</h4>

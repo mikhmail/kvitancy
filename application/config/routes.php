@@ -163,13 +163,17 @@ $route['works/update/(:any)'] = 'works/update/$1';
 $route['works/delete/(:any)'] = 'works/delete/$1';
 $route['works/(:any)'] = 'works/index'; //$1 = page number
 
-$route['stat'] = 'stat/index';
-
 $route['cash'] = 'cash/index';
 $route['cash/add'] = 'cash/add';
 $route['cash/update/(:any)'] = 'cash/update/$1';
 $route['cash/delete/(:any)'] = 'cash/delete/$1';
 $route['cash/(:any)'] = 'cash/index'; //$1 = page number
+
+$route['stat'] = 'stat/index';
+$route['stat/add'] = 'stat/add';
+$route['stat/update/(:any)'] = 'stat/update/$1';
+$route['stat/delete/(:any)'] = 'stat/delete/$1';
+$route['stat/(:any)'] = 'stat/index'; //$1 = page number
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */
