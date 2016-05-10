@@ -924,7 +924,11 @@ class Tickets extends CI_Controller
                     'komplektnost' => $this->input->post('komplektnost'),
                     'id_remonta' => $this->input->post('id_remonta'),
                     'id_sc' => $this->input->post('id_sc'),
-                    'primechaniya' => $this->input->post('primechaniya')
+                    'primechaniya' => $this->input->post('primechaniya'),
+                    'update_time' => date("j-m-Y, H:i:s"),
+                    'update_user' => $this->session->userdata('user_id')
+
+
 
                 );
                 //if the insert has returned true then we show the flash message
