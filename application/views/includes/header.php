@@ -121,6 +121,14 @@
                                         <a href="<?php echo base_url(); ?>store">Склад</a>
                                     </li>
 
+                                    <li <?php if($this->uri->segment(1) == 'cash'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>cash">Касса</a>
+                                    </li>
+
+                                    <li <?php if($this->uri->segment(1) == 'stat'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>stat">Статистика</a>
+                                    </li>
+
                                 </ul>
                             </li>
 

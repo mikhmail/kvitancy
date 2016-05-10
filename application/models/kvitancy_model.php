@@ -497,6 +497,15 @@ service.rab_sc
         return $query->result_array();
     }
 
+    public function get_cash ($id_kvitancy){
+        $this->db->select('*');
+        $this->db->from('cash');
+        $this->db->join('membership', 'cash.update_user = membership.id');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function get_sum ($id_kvitancy){
 
     $this->db->select('SUM(cost) as sum');

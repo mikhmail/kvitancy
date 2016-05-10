@@ -316,8 +316,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                             <a href="#" onclick="anichange_kvitancy(this); return false">
                                 <table class="table table-condensed">
                                     <tr>
-                                        <td class="span2"><p class="text-center">
-                                            <span class="label label-info"># <?=$row['id_kvitancy']?></span>
+                                        <td class="span2">
+                                            <p class="text-center">
+                                                <span class="label label-info"># <?=$row['id_kvitancy']?></span>
                                             </p>
                                         </td>
                                         <td class="span2"><p class="text-center">
@@ -460,14 +461,42 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab4_<?=$row['id_kvitancy']?>">
                                         <div class="row-fluid" name="price" style="margin-bottom: 20px;">
+                                            <h4>Касса</h4>
                                             <!--<div class="span6">
                                                 Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
                                                 <input class="btn margin-bottom-10px btn btn-success" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
-                                            </div>-->
-                                            <div class="span6 pull-left">
-                                                Фактическая сумма за ремонт [Выполненные работы инженера + Установленные запчасти]:
-                                                <span class="label label-important pull-right"><strong><?=$this->kvitancy_model->get_sum($row['id_kvitancy']);?></strong></span>
                                             </div>
+                                            -->
+
+                                            <div class="span10">
+                                                Фактическая сумма за ремонт [Выполненные работы инженера + Установленные запчасти]:
+                                                <span class="label label-important"><strong><?=$this->kvitancy_model->get_sum($row['id_kvitancy']);?></strong></span>
+                                            </div>
+                                            <div class="span10">
+                                                <? //var_dump($this->kvitancy_model->get_cash($row['id_kvitancy']));?>
+
+                                                <table table table-bordered table-condensed id="table_cash_<?=$row['id_kvitancy']?>">
+                                                    <th>Название</th>
+                                                    <th>Сумма</th>
+                                                    <th>Ответственный</th>
+                                                    <th>Дата</th>
+
+                                                    <?
+                                                    $cash = $this->kvitancy_model->get_cash($row['id_kvitancy']);
+                                                    if(count($cash)>0){
+                                                        foreach($cash as $csh){ ?>
+                                                            <tr id="cash_tr_<?=$csh['id']?>">
+                                                                <td><?=$csh['name']?></td>
+                                                                <td><?=$csh['plus']?></td>
+                                                                <td><?=$csh['user_name']?></td>
+                                                                <td><?=$csh['update_date']?>, <?=$csh['update_time']?></td>
+
+                                                            </tr>
+                                                        <?}}?>
+                                                </table>
+
+                                            </div>
+
                                         </div>
 
                                     <legend></legend>
@@ -604,8 +633,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                                         <th>Себестоимость</th>
                                                         <th>Цена</th>
-                                                        <th>Кто</th>
-                                                        <th>Когда</th>
+                                                        <th>Ответственный</th>
+                                                        <th>Дата</th>
                                                         <th></th>
                                                     </tr>
                                                     </thead>

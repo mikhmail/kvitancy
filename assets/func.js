@@ -645,7 +645,7 @@ $( "#search_user" ).keyup(function() {
     });
 //end setup store
 
-// save price
+// save price - Сумма, полученная от клиента за ремонт
 $('input[id^=save_price_]').click(function(){
         var parts=new Array();
         parts = this.id.split('_');
