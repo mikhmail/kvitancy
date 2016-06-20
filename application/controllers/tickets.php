@@ -632,7 +632,8 @@ class Tickets extends CI_Controller
                 }
 
                 if($this->session->userdata('show_call_tickets') == 1) {
-                    $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
+                    //$data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
+                    $data['soglasovat'] = array();
                 } else {
                     $data['soglasovat'] = array();
                 }

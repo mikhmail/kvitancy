@@ -471,6 +471,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     </div>
 
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab4_<?=$row['id_kvitancy']?>">
+
+                                    <?if ($this->session->userdata('id_group') == 1 OR $this->session->userdata('id_group') == 2) {?>
                                         <div class="row-fluid" name="price" style="margin-bottom: 20px;">
                                             <h4>Касса</h4>
                                             <!--<div class="span6">
@@ -510,6 +512,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </div>
 
                                         </div>
+                                        <?}?>
                                         <div class="devider-blue">
                                         </div>
                                         <div class="row-fluid" name="work" style="margin-bottom: 20px;">
