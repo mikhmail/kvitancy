@@ -397,13 +397,13 @@ class Stat extends CI_Controller
 
             $filter_session_data = array(
                 'search_string' => '',
-                'order' => '',
-                'order_type' => '',
+                'order' => 'id_kvitancy',
+                'order_type' => 'ASC',
                 'limit_start' => '',
                 'limit_end' => '',
-                'date' => '',
-                'start_date' => '',
-                'end_date' => '',
+                'date' => 'date_priemka',
+                'start_date' => date('Y') . '-'. date('m') . '-01',
+                'end_date' => date("Y-m-d"),
                 'id_mechanic' => '',
                 'id_aparat' => '',
                 'id_proizvod' => '',
@@ -415,15 +415,14 @@ class Stat extends CI_Controller
             );
 
             //clear session data in session
-            $this->session->unset_userdata($filter_session_data);
-
+            $this->session->set_userdata($filter_session_data);
 
             //pre selected options from session
             $data['search_string_selected'] = '';
             $data['order'] = 'id_kvitancy';
-            $order_type = $data['order_type'] = $data['order_type_selected'] = 'Desc';
+            $order_type = $data['order_type'] = $data['order_type_selected'] = 'Asc';
             $data['date_selected'] = 'date_priemka';
-            $data['start_date'] = ''; // date("d")
+            $data['start_date'] = date('Y') . '-'. date('m') . '-01';
             $data['end_date'] = date("Y-m-d");
             //$data["id_sc_selected"] = '';
             $data["id_mechanic_selected"] = '';
@@ -437,17 +436,17 @@ class Stat extends CI_Controller
             // $var for select to db
             $search_string = null;
             $order = 'id_kvitancy';
-            $order_type = 'Desc';
+            $order_type = 'Asc';
             $limit_start = $config['per_page']; //при навигациии надо включить
             //$limit_start=null;
             //$limit_end;
-            $date = null;
-            $start_date = null;
-            $end_date = null;
+            $date = 'date_priemka';
+            $start_date = date('Y') . '-'. date('m') . '-01';
+            $end_date = date("Y-m-d");
             $id_mechanic = null;
             $id_aparat = null;
             $id_proizvod = null;
-            $id_sost = $sost_in_remont;
+            $id_sost = null;
             $id_kvitancy = null;
             $id_remonta = null;
 
@@ -505,7 +504,7 @@ class Stat extends CI_Controller
             }
         */
             //fetch count kvitancys from db
-            $data['count_kvitancys'] = $this->kvitancy_model->get_kvitancy(
+            $data['count_kvitancys'] = $this->stat_model->get_kvitancy(
                 $search_string,
                 $order,
                 $order_type,
@@ -526,7 +525,7 @@ class Stat extends CI_Controller
             // end fetch count kvitancys from db
 
             //fetch kvitancys from db
-            $data['kvitancys'] = $this->kvitancy_model->get_kvitancy(
+            $data['kvitancys'] = $this->stat_model->get_kvitancy(
                 $search_string,
                 $order,
                 $order_type,

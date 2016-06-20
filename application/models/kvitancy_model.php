@@ -197,6 +197,7 @@ public function get_kvitancy(
 							$id_sc=null,
 							$id_kvitancy=null,
 							$id_remonta=null,
+                            $id_responsible=null,
 							$count=null
 							)
     {
@@ -317,9 +318,16 @@ service.rab_sc
 			
 
 		if($date != null){
-		
-					if($start_date AND $end_date) {
-					$this->db->where(" kvitancy.".$date." <= '".$start_date."%' AND kvitancy.".$date." >= '".$end_date."%' ", NULL, FALSE);
+            if($start_date AND !$end_date) {
+                $this->db->where(" kvitancy.".$date." >= '".$start_date."%' ", NULL, FALSE);
+            }
+
+                elseif(!$start_date AND $end_date) {
+                        $this->db->where(" kvitancy.".$date." <= '".$end_date."%' ", NULL, FALSE);
+                    }
+
+					elseif($start_date AND $end_date) {
+					$this->db->where(" kvitancy.".$date." >= '".$start_date."%' AND kvitancy.".$date." <= '".$end_date."%' ", NULL, FALSE);
 					}
 					
 					
@@ -351,6 +359,9 @@ service.rab_sc
 		if ($id_remonta != null){
 					$this->db->where('kvitancy.id_remonta', $id_remonta);
 				}
+        if ($id_responsible != null){
+            $this->db->where('kvitancy.id_responsible', $id_responsible);
+        }
 	if ($count) {$limit_start= null; $limit_end=null;
 	}else {		
         if($limit_start && $limit_end){

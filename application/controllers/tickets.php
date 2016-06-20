@@ -111,7 +111,8 @@ class Tickets extends CI_Controller
                 'id_sost' => '',
                 'id_sc' => '',
                 'id_kvitancy' => '',
-                'id_remonta' => ''
+                'id_remonta' => '',
+                'id_responsible' => ''
 
             );
             }
@@ -137,7 +138,7 @@ class Tickets extends CI_Controller
             $id_sc = $this->input->post("id_sc");
             $id_kvitancy = $this->input->post("id_kvitancy");
             $id_remonta = $this->input->post("id_remonta");
-
+            $id_responsible = $this->input->post("id_responsible");
 
 
             // SEARCH
@@ -305,6 +306,19 @@ class Tickets extends CI_Controller
             $data['id_remonta_selected'] = $id_remonta;
             // end ID_REMONTA
 
+            // ID_resp
+            if ($this->input->post("id_responsible")) {
+                $filter_session_data['id_responsible'] = $id_responsible;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_responsible = $this->session->userdata('id_responsible');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $id_responsible = '';
+            }
+            $data['id_responsible_selected'] = $id_responsible;
+            // end ID_resp
+
 
             // ID_SC
             switch ($this->session->userdata('id_group')) {
@@ -361,6 +375,7 @@ class Tickets extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible,
                 1
             );
 
@@ -381,6 +396,7 @@ class Tickets extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible,
                 $count = null
             );
 
@@ -408,7 +424,8 @@ class Tickets extends CI_Controller
                 'id_sost' => '',
                 'id_sc' => '',
                 'id_kvitancy' => '',
-                'id_remonta' => ''
+                'id_remonta' => '',
+                'id_responsible' => ''
 
             );
 
@@ -430,6 +447,7 @@ class Tickets extends CI_Controller
             $data["id_sost_selected"] = '';
             $data["id_kvitancy_selected"] = '';
             $data["id_remonta_selected"] = '';
+            $data["id_responsible_selected"] = '';
             //end pre selected options
 
             // $var for select to db
@@ -448,6 +466,7 @@ class Tickets extends CI_Controller
             $id_sost = $sost_in_remont;
             $id_kvitancy = null;
             $id_remonta = null;
+            $id_responsible = null;
 
             /*WHAT USER SEE? */
 
@@ -470,38 +489,7 @@ class Tickets extends CI_Controller
                     $id_sc = $this->session->userdata('user_id_sc');
             }
 
-            /*WHAT USER SEE? */
 
-            //end $vars to select to db
-
-
-
-
-            /*Масив для сесиии
-            $filter_session_data = array(
-                'search_string' => $search_string,
-                'order' => $order,
-                'order_type' => $order_type,
-                'limit_start' => $limit_start,
-                'limit_end' => $limit_end,
-                'date' => $date,
-                'start_date' => $start_date,
-                'end_date' => $end_date,
-                'id_mechanic' => $id_mechanic,
-                'id_aparat' => $id_aparat,
-                'id_proizvod' => $id_proizvod,
-                'id_sost' => $id_sost,
-                'id_sc' => $id_sc,
-                'id_kvitancy' => $id_kvitancy,
-                'id_remonta' => $id_remonta
-
-            );
-
-            //save session data into the session
-            if (isset($filter_session_data)) {
-                $this->session->set_userdata($filter_session_data);
-            }
-        */
             //fetch count kvitancys from db
             $data['count_kvitancys'] = $this->kvitancy_model->get_kvitancy(
                 $search_string,
@@ -519,6 +507,7 @@ class Tickets extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible,
                 1
             );
             // end fetch count kvitancys from db
@@ -540,6 +529,7 @@ class Tickets extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible,
                 $count = null
             );
 
@@ -583,6 +573,7 @@ class Tickets extends CI_Controller
                             $id_sc,
                             $id_kvitancy = null,
                             $id_remonta = null,
+                            $id_responsible = null,
                             $count = null
         );
 

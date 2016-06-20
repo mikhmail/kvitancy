@@ -69,7 +69,15 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             echo form_dropdown('id_mechanic', $options_id_meh, $id_mechanic_selected, 'class=""');
             ?>
 
-        <?
+            <?
+            $options_id_responsible = array('' => "Выбрать ответственного");
+
+            foreach ($resp as $array) {
+                $options_id_responsible[$array['id']] = $array['user_name'];
+            }?>
+            <? echo form_dropdown('id_responsible', $options_id_responsible, $id_responsible_selected, 'class=""');?>
+
+    <?
        // echo form_label('Аппарат: ');
         $options_ap = array('' => "Выбрать аппарат");
 
@@ -360,8 +368,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                 <div class="tab-content">
                                     <div style="margin-bottom: 20px;" class="tab-pane active" id="tab1_<?=$row['id_kvitancy']?>">
 
-
-
+                                    <div class="span3">
+                                        <label for="status_<?=$row['id_kvitancy']?>">Статус ремонта</label>
                                         <?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class=""')?>
 
                                         <?if ($row['id_mechanic']) {
@@ -369,9 +377,12 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         }else{
                                             $id_mechanic_selected='';
                                         }?>
-
+                                    </div>
+                                    <div class="span3">
+                                        <label for="meh_<?=$row['id_kvitancy']?>">Механик</label>
                                         <?=form_dropdown($row['id_kvitancy'], $options_id_meh, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class=""')?>
-
+                                    </div>
+                                    <div class="span3">
                                         <?
                                         $options_id_responsible = array('' => "Выбрать ответственного");
 
@@ -384,9 +395,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         }else{
                                             $id_responsible_selected='';
                                         }?>
-
+                                        <label for="resp_<?=$row['id_kvitancy']?>">Ответственный</label>
                                         <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class=""')?>
-
+                                    </div>
                                     </div>
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">
                                         <table class="table table-bordered table-condensed">
@@ -685,14 +696,14 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
             <div style="margin-bottom: 20px;" class="tab-pane" id="tab6_<?=$row['id_kvitancy']?>">
                 <span>
                                         <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="" target="_blank">
-                                            <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать</button>
+                                            <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать квитанцию</button>
                                         </a>
                                         <a href="<?=site_url()?>tickets/update_client/<?=$row['user_id']?>" class="" target="_blank">
                                             <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать клиента</button>
                                         </a>
 
                                         <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="" target="_blank">
-                                            <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать</button>
+                                            <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать квитанции</button>
                                         </a>
                                         <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="" target="_blank">
                                             <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать чека</button>
