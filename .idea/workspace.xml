@@ -2,17 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="DELETED" beforePath="D:\openserver\domains\kvitancy\install_\assets\install.sql" afterPath="" />
-      <change type="DELETED" beforePath="D:\openserver\domains\kvitancy\install_\config\autoload.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\openserver\domains\kvitancy\install_\config\database.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\openserver\domains\kvitancy\install_\includes\core_class.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\openserver\domains\kvitancy\install_\includes\database_class.php" afterPath="" />
-      <change type="DELETED" beforePath="D:\openserver\domains\kvitancy\install_\index.php" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/stat/list.php" afterPath="$PROJECT_DIR$/application/views/admin/stat/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/stat.php" afterPath="$PROJECT_DIR$/application/controllers/stat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/works.php" afterPath="$PROJECT_DIR$/application/controllers/works.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/cash/list.php" afterPath="$PROJECT_DIR$/application/views/cash/list.php" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -41,65 +31,30 @@
             <state />
           </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="103" column="47" selection-start="5576" selection-end="5576" vertical-scroll-proportion="-28.068966" vertical-offset="1452" max-vertical-offset="2420">
+            <state line="98" column="31" selection-start="5189" selection-end="5189" vertical-scroll-proportion="-24.275862" vertical-offset="1452" max-vertical-offset="2420">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="stat.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/stat.php">
+      <file leaf-file-name="cash.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="686" column="43" selection-start="24456" selection-end="24460" vertical-scroll-proportion="-23.064516" vertical-offset="14377" max-vertical-offset="24838">
+            <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="-18.67742" vertical-offset="12819" max-vertical-offset="16346">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
+        <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="287" column="28" selection-start="8634" selection-end="8634" vertical-scroll-proportion="0.5540399" vertical-offset="5786" max-vertical-offset="11660">
+            <state line="185" column="54" selection-start="6808" selection-end="6808" vertical-scroll-proportion="0.33997902" vertical-offset="3548" max-vertical-offset="5170">
               <folding>
-                <element signature="n#class#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-                <marker date="1466590978003" expanded="true" signature="4460:8998" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="5143:5692" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="5760:8836" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="5794:8835" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="5911:8797" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="5994:8795" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="5994:8774" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="6033:6102" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="6034:6098" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="6141:6285" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="6142:6281" placeholder="..." />
-                <marker date="1466590978003" expanded="false" signature="6196:6236" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="6574:7091" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="6575:7066" placeholder="..." />
-                <marker date="1466590978003" expanded="false" signature="6726:6750" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="6765:6908" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="7477:7856" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="7896:8275" placeholder="..." />
-                <marker date="1466590978003" expanded="true" signature="8315:8698" placeholder="..." />
+                <marker date="1466591844346" expanded="false" signature="7451:7469" placeholder="..." />
+                <marker date="1466591844346" expanded="false" signature="7938:7956" placeholder="..." />
+                <marker date="1466591844346" expanded="true" signature="7980:8224" placeholder="..." />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="399" column="29" selection-start="13988" selection-end="13988" vertical-scroll-proportion="-72.67742" vertical-offset="6525" max-vertical-offset="24618">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/index.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="35" column="35" selection-start="996" selection-end="996" vertical-scroll-proportion="-24.838709" vertical-offset="0" max-vertical-offset="5192">
-              <folding />
             </state>
           </provider>
         </entry>
@@ -163,7 +118,6 @@
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/application/controllers/store.php" />
         <option value="$PROJECT_DIR$/application/views/includes/header.php" />
-        <option value="$PROJECT_DIR$/application/views/cash/list.php" />
         <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/application/config/routes.php" />
         <option value="$PROJECT_DIR$/application/models/stat_model.php" />
@@ -177,6 +131,7 @@
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/controllers/stat.php" />
         <option value="$PROJECT_DIR$/application/views/admin/stat/list.php" />
+        <option value="$PROJECT_DIR$/application/views/cash/list.php" />
       </list>
     </option>
   </component>
@@ -342,7 +297,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cash" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -473,7 +432,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1170" extended-state="7" />
+    <frame x="-9" y="-9" width="1938" height="1170" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814023" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -692,19 +651,9 @@
         <state line="175" column="29" selection-start="7582" selection-end="7582" vertical-scroll-proportion="0.6944444" vertical-offset="3400" max-vertical-offset="4048" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="35" selection-start="599" selection-end="599" vertical-scroll-proportion="-6.0283465" vertical-offset="4224" max-vertical-offset="5126" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/store.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="51" column="43" selection-start="1280" selection-end="1280" vertical-scroll-proportion="-13.303937" vertical-offset="9570" max-vertical-offset="17842" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="482" column="36" selection-start="15790" selection-end="15804" vertical-scroll-proportion="0.5889764" vertical-offset="10230" max-vertical-offset="16346" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/system/core/CodeIgniter.php">
@@ -761,61 +710,79 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="103" column="47" selection-start="5576" selection-end="5576" vertical-scroll-proportion="-28.068966" vertical-offset="1452" max-vertical-offset="2420">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="29" selection-start="13988" selection-end="13988" vertical-scroll-proportion="-72.67742" vertical-offset="6525" max-vertical-offset="24618">
+        <state line="399" column="29" selection-start="13988" selection-end="13988" vertical-scroll-proportion="2.3641133" vertical-offset="6525" max-vertical-offset="24618">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="35" selection-start="996" selection-end="996" vertical-scroll-proportion="-24.838709" vertical-offset="0" max-vertical-offset="5192">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/stat.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="686" column="43" selection-start="24456" selection-end="24460" vertical-scroll-proportion="-23.064516" vertical-offset="14377" max-vertical-offset="24838">
+        <state line="35" column="35" selection-start="996" selection-end="996" vertical-scroll-proportion="0.8079748" vertical-offset="0" max-vertical-offset="5192">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="287" column="28" selection-start="8634" selection-end="8634" vertical-scroll-proportion="0.5540399" vertical-offset="5786" max-vertical-offset="11660">
+        <state line="291" column="45" selection-start="8746" selection-end="8746" vertical-scroll-proportion="-19.870968" vertical-offset="5786" max-vertical-offset="11660">
           <folding>
             <element signature="n#class#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <marker date="1466590978003" expanded="true" signature="4460:8998" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="5143:5692" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="5760:8836" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="5794:8835" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="5911:8797" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="5994:8795" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="5994:8774" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="6033:6102" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="6034:6098" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="6141:6285" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="6142:6281" placeholder="..." />
-            <marker date="1466590978003" expanded="false" signature="6196:6236" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="6574:7091" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="6575:7066" placeholder="..." />
-            <marker date="1466590978003" expanded="false" signature="6726:6750" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="6765:6908" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="7477:7856" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="7896:8275" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="8315:8698" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="false" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/stat.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1001" column="5" selection-start="35549" selection-end="35549" vertical-scroll-proportion="0.3347324" vertical-offset="21703" max-vertical-offset="24838">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="98" column="31" selection-start="5189" selection-end="5189" vertical-scroll-proportion="-24.275862" vertical-offset="1452" max-vertical-offset="2420">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="-18.67742" vertical-offset="12819" max-vertical-offset="16346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="185" column="54" selection-start="6808" selection-end="6808" vertical-scroll-proportion="0.33997902" vertical-offset="3548" max-vertical-offset="5170">
+          <folding>
+            <marker date="1466591844346" expanded="false" signature="7451:7469" placeholder="..." />
+            <marker date="1466591844346" expanded="false" signature="7938:7956" placeholder="..." />
+            <marker date="1466591844346" expanded="true" signature="7980:8224" placeholder="..." />
           </folding>
         </state>
       </provider>

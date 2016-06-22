@@ -183,11 +183,12 @@
                     <th class="header">#</th>
                     <th class="yellow header headerSortDown">Приход +</th>
                     <th class="yellow header headerSortDown">Расход -</th>
+                    <th class="header">#квитанции</th>
                     <th class="yellow header headerSortDown">Описание</th>
                     <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Дата</th>
                     <th class="yellow header headerSortDown">СЦ</th>
-                    <th class="header">#квитанции</th>
+
                     <th class="header">Опции</th>
 
 
@@ -201,6 +202,7 @@
                         <td><p class="text-center"><?=$row['cash_id']?></p></td>
                         <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+'.$row['plus'];?></div></td>
                         <td style="text-align: center"><div class="label label-important"><? if($row['plus']<0) echo $row['plus'];?></div></td>
+                        <td style="text-align: center"><p class="text-center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></p></td>
                         <td><?=$row['name']?></td>
 
                         <td style="text-align: center"><p class="text-center"><?
@@ -211,14 +213,14 @@
                         </p></td>
                         <td style="text-align: center"><p class="text-center"><?=$row['update_date']?>, <?=$row['update_time']?></p></td>
                         <td style="text-align: center"><p class="text-center"><?=$row['name_sc']?></p></td>
-                        <td style="text-align: center"><p class="text-center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></p></td>
+
 
 
                         <td style="text-align: center"><p class="text-center">
                             <? echo '
 
                     <a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>
-                    <a href="'.site_url("cash").'/edit/'.$row['cash_id'].'" class="btn btn-primary btn-mini">Изменить</a>
+
                     ';?>
 
                         </p></td>
