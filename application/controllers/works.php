@@ -162,8 +162,9 @@ class Works extends CI_Controller {
             // end ORDER
 
 
-            $s = strtotime('-1 month');
-            $m = date("m", $s);
+            //$s = strtotime('-1 month');
+            //$m = date("m", $s);
+            $m = date("m");
 
             // START_DATE
             if ($this->input->post("start_date")) {
@@ -173,12 +174,12 @@ class Works extends CI_Controller {
                 if ($this->session->userdata('start_date')) {
                     $start_date = $this->session->userdata('start_date');
                 }else{
-                    $start_date = date('Y') . '-'. $m . '-31';
+                    $start_date = date('Y') . '-'. $m . '-01';
                 }
 
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
-                $start_date = date('Y') . '-'. $m . '-31';
+                $start_date = date('Y') . '-'. $m . '-01';
             }
             $data['start_date_selected'] = $start_date;
             // end START_DATE

@@ -204,12 +204,13 @@ if(count($aparats) >= 1) {
 
 <table class="table table-bordered table-condensed">
 
+
 <tr>
     <td>
         <table class="table">
             <tr class="chart-bottom-heading">
-                <th class="span2"><span style="padding:0px 20px;">#</span></th>
-                <th class="span2 chart-bottom-heading">Статус</th>
+                <th class="span2">#</th>
+                <th class="span2">Статус</th>
                 <th class="span3">Аппарат</th>
                 <th class="span3">Неисправность</th>
                 <th class="span2">Дата приема</th>
@@ -219,9 +220,6 @@ if(count($aparats) >= 1) {
                 <th class="span2">Работы</th>
                 <th class="span2">Касса</th>
                 <th class="span2">Прибыль</th>
-
-
-
             </tr>
         </table>
     </td>
@@ -230,25 +228,20 @@ if(count($aparats) >= 1) {
 <?  if(count($kvitancys) >= 1) {
     foreach($kvitancys as $row) { ?>
         <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
+
+
+
         <tr>
         <td>
-        <a href="#" onclick="anichange_kvitancy(this); return false">
-            <table class="table table-condensed">
-                <tr>
-                    <td class="span2"><p class="text-center">
-                            <span class="label label-info"># <?=$row['id_kvitancy']?></span>
-                        </p>
-                    </td>
-                    <td class="span2"><p class="text-center">
-                            <span id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span>
-                        </p>
-                    </td>
+
+            <table class="table">
+                <tr class="chart-bottom-heading">
+                    <td class="span2"><span class="label label-info"># <?=$row['id_kvitancy']?></span></td>
+                    <td class="span2"><span id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span></td>
                     <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
                     <td class="span3"><?=$row['neispravnost']?></td>
-
-                    <td class="span2"><p class="text-center"><?=$row['date_priemka']?></p></td>
-
-                    <td class="span2"><p class="text-center">
+                    <td class="span2"><?=$row['date_priemka']?></td>
+                    <td class="span2">
                             <?
                             if ($row['date_vydachi'] == '0000-00-00') {?>
                                 <span style="background-color:#b94a48" class="label">
@@ -258,7 +251,6 @@ if(count($aparats) >= 1) {
                                 echo $row['date_vydachi'];
                             }
                             ?>
-                        </p>
                     </td>
                     <?
                     $store = $this->stat_model->get_store($row['id_kvitancy']);
@@ -266,362 +258,44 @@ if(count($aparats) >= 1) {
                     $work = $this->stat_model->get_work($row['id_kvitancy']);
 
                     ?>
-                    <td class="span2"><p class="text-center"><?=$row['name_sc']?></p></td>
+                    <td class="span2"><?=$row['name_sc']?></td>
                     <td class="span2">
-                            <? if($store) {
-                                foreach ($store as $str){?>
-                                -<?=$str["title"]?>: <strong><?=$str["cost"]?></strong>
-                    <?}}?>
+                            <? if($store) {?>
+                                <ul>
+                                <? foreach ($store as $str){?>
+                                <li><?=$str["title"]?>: <strong><?=$str["cost"]?></strong></li>
+                                     <?}?>
+                                </ul>
+                        <?}?>
                     </td>
 
                     <td class="span2">
-                        <? if($work) {
-                            foreach ($work as $works){?>
-                                -<?=$works["name"]?>: <strong><?=$works["cost"]?></strong> by <?=$works["user_name"]?>
-                            <?}}?>
-                    </td>
-
-                    <td class="span2">
-                        <? if($cash) {
-                            foreach ($cash as $csh){?>
-                                -<?=$csh["name"]?>: <strong><?=$csh["plus"]?></strong> by <?=$works["user_name"]?>
-                            <?}}?>
-                    </td>
-
-                <td></td>
-
-
-                </tr>
-            </table>
-        </a>
-        <div style="display: none; margin-bottom: 20px; padding: 10px;">
-        <ul class="nav nav-tabs">
-            <li class="active"><a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">Опции</a></li>
-            <li><a href="#tab2_<?=$row['id_kvitancy']?>" data-toggle="tab">Информация</a></li>
-            <li><a href="#tab3_<?=$row['id_kvitancy']?>" data-toggle="tab">Комментарии <sup class="badge"><?=count($comments)?></sup></a></li>
-            <li><a href="#tab4_<?=$row['id_kvitancy']?>" data-toggle="tab">Ремонт</a></li>
-            <li><a href="#tab5_<?=$row['id_kvitancy']?>" data-toggle="tab">Запчасти</a></li>
-            <li><a href="#tab6_<?=$row['id_kvitancy']?>" data-toggle="tab">Печать/Редактировать</a></li>
-
-
-        </ul>
-        <div class="tab-content">
-        <div style="margin-bottom: 20px;" class="tab-pane active" id="tab1_<?=$row['id_kvitancy']?>">
-
-
-
-            <?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class=""')?>
-
-            <?if ($row['id_mechanic']) {
-                $id_mechanic_selected = $row['id_mechanic'];
-            }else{
-                $id_mechanic_selected='';
-            }?>
-
-            <?=form_dropdown($row['id_kvitancy'], $options_id_meh, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class=""')?>
-
-            <?
-            $options_id_responsible = array('' => "Выбрать ответственного");
-
-            foreach ($resp as $array) {
-                $options_id_responsible[$array['id']] = $array['user_name'];
-            }
-
-            if ($row['id_responsible']) {
-                $id_responsible_selected = $row['id_responsible'];
-            }else{
-                $id_responsible_selected='';
-            }?>
-
-            <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class=""')?>
-
-        </div>
-        <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">
-            <table class="table table-bordered table-condensed">
-                <tr>
-
-                    <td>
+                        <? if($work) {?>
                         <ul>
-
-                            <li><b>Обновлено:</b> <?=$row['update_time']?> by
-
-                                <?
-                                foreach ($users as $user) {
-                                    if ($user['id'] == $row['update_user']) echo $user['user_name'];
-                                }
-                                ?>
-
-                            </li>
-                            <li><b>Адрес клиента:</b> <?=$row['adres']?></li>
-                            <li><b>Вид ремонта:</b>
-
-                                <?
-                                foreach ( $remont as $a=>$rowidrem)
-                                {
-                                    if($rowidrem['id_remonta'] == $row['id_remonta']) echo $rowidrem['name_remonta'];
-                                }
-                                ?>
-                            <li><b>Внешний вид аппарата:</b> <?=$row['vid']?></li>
-                            <li><b>Серийный номер аппарата:</b> <?=$row['ser_nomer']?></li>
-                            <li><b>Комплектность:</b> <?=$row['komplektnost']?></li>
-                            <li><b>Приёмка:</b>
-
-                                <?
-                                foreach ($sc as $a=>$rowsc)
-                                {
-                                    if($rowsc['id_sc'] == $row['id_sc']) echo $rowsc['name_sc'];
-                                }
-                                ?>
-                            </li>
-                            <li><b>Примечания:</b> <?=$row['primechaniya']?></li>
-
-                        </ul>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
-        <div style="margin-bottom: 20px;" class="tab-pane" id="tab3_<?=$row['id_kvitancy']?>">
-            <table class="table table-bordered table-condensed">
-                <tr>
-                    <td>
-                        <ul id="ul_<?=$row['id_kvitancy']?>">
-                            <?foreach($comments as $rowc)
-                            {?>
-
-                                <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka ' . $rowc['user_name'] . ' пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment']?></b></font>
-
-                                    <? if ($rowc['id_user'] == $this->session->userdata['user_id'])
-                                    {?>
-                                        <input class="btn btn-danger btn-mini" type="button" value="Удалить" id="dell_comment_<?=$rowc['id_comment']?>" name="<?=$rowc['id_comment']?>">
-                                    <?}?>
-                                </li>
+                           <? foreach ($work as $works){?>
+                                <li><?=$works["name"]?>: <strong><?=$works["cost"]?></strong> by <?=$works["user_name"]?></li>
                             <?}?>
                         </ul>
-
-
-                        <textarea name="comment_<?=$row['id_kvitancy']?>"></textarea>
-                        <input class="btn btn-success btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
+                           <?}?>
                     </td>
+
+                    <td class="span2">
+                        <? if($cash) {?>
+                            <ul>
+                            <? foreach ($cash as $csh){?>
+                                <li><?=$csh["name"]?>: <strong><?=$csh["plus"]?></strong> by <?=$works["user_name"]?></li>
+                            <?}?>
+                            </ul>
+                            <?}?>
+                    </td>
+
+                    <td class="span2">прибыль</td>
+
+
                 </tr>
             </table>
-        </div>
-
-        <div style="margin-bottom: 20px;" class="tab-pane" id="tab4_<?=$row['id_kvitancy']?>">
-            <div class="row-fluid" name="price" style="margin-bottom: 20px;">
-                <!--<div class="span6">
-                                                Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
-                                                <input class="btn margin-bottom-10px btn btn-success" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
-                                            </div>-->
-                <div class="span6 pull-left">
-                    Фактическая сумма за ремонт [Выполненные работы инженера + Установленные запчасти]:
-                    <span class="label label-important pull-right"><strong><?=$this->kvitancy_model->get_sum($row['id_kvitancy']);?></strong></span>
-                </div>
-            </div>
-
-            <legend></legend>
-            <div class="row-fluid" name="work" style="margin-bottom: 20px;">
-                <h4>Выполненные работы</h4>
-                <div class="span10">
-                    <div class="pull-left">
-                        <i class="icon-chevron-right icon"></i>
-                        <b>Добавить выполненную работу по этой квитанции</b></div>
-                </div>
-                <?
-                $options_id_responsible = array('' => "Выбрать исполнителя");
-
-                foreach ($resp as $array) {
-                    $options_id_responsible[$array['id']] = $array['user_name'];
-                }
-
-                if ($row['id_responsible']) {
-                    $id_responsible_selected = $row['id_responsible'];
-                }else{
-                    $id_responsible_selected='';
-                }?>
-
-                <div class="span10">
-                    <table table table-bordered table-condensed id="table_work_<?=$row['id_kvitancy']?>">
-                        <thead>
-                        <tr>
-                            <th>
-                                <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=work_resp_' . $row['id_kvitancy'] . ' class="" placeholder="Исполнитель"')?>
-                            </th>
-                            <th><input type="text" id="work_name_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Наименование работы" name="title" class=""></th>
-                            <th><input type="number" min=0 step="0.1" id="work_cost_<?=$row['id_kvitancy']?>" autocomplete="off" name="price" placeholder="Cтоимость" class=""></th>
-                            <th>
-                                <div class="btn-group margin-bottom-10px">
-                                    <button id="work_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
-                                </div>
-                            </th>
-                            <th></th>
-
-                        </tr>
-                        </thead>
-                        <?
-                        $works = $this->kvitancy_model->get_works($row['id_kvitancy']);
-                        if(count($works)>0){
-                            foreach($works as $work){
-                                $user = $this->users_model->get_users_by_id ($work['user_id']);
-                                ?>
-                                <tr id="work_tr_<?=$work['id']?>">
-                                    <td><?=$user[0]['user_name']?></td>
-                                    <td><?=$work['name']?></td>
-                                    <td><?=$work['cost']?></td>
-                                    <td><?=$work['date_added']?></td>
-                                    <td>
-                                        <div class="btn-group margin-bottom-10px">
-                                            <button name="<?=$work['id']?>" id="work_dell_<?=$work['id']?>" class="btn btn-danger"><i class="icon-remove icon-white"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?}}?>
-                    </table>
-                </div>
-
-            </div>
-
-            <legend>
-            </legend>
-
-            <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
-                <h4>Списать запчасти</h4>
-                <div class="span10">
-                    <div class="pull-left">
-                        <i class="icon-chevron-right icon"></i>
-                        <b>Добавить на склад новую запчасть и списать на эту квитанцию</b></div>
-                </div>
 
 
-                <div class="span10">
-                    <input type="text" name="select_parts_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Название запчасти" value="" title="" id="" alt="<?=$row['id_aparat']?>">
-                    <div name="parts_box" id="parts_box_<?=$row['id_kvitancy']?>" style="display: none;">
-                        <div class="parts_list">
-                        </div>
-                    </div>
-                    <input maxlength="2" size="2" type="number" min=1 name="store_count_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Количество" class="span2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
-                    <select name="store_id_sost_<?=$row['id_kvitancy']?>" class="span2">
-                        <option value="" selected>-выбрать-</option>
-                        <option value="1">Новый</option>
-                        <option value="0">Б.У.</option>
-                    </select>
-                    <input type="number" min=0 step="0.1" name="store_cost_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Себестоимость" class="span2">
-                    <input type="number" min=0 step="0.1" name="store_price_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Цена" class="span2">
-                    <input type="text" name="store_text_<?=$row['id_kvitancy']?>"autocomplete="off" placeholder="Описание:тип, цвет, размер, и тд">
-                    <div class="btn-group margin-bottom-10px">
-                        <button id="parts_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
-                    </div>
-                </div>
-                <div class="span8 margin-top-20px margin-bottom-10px">
-
-                    <i class="icon-chevron-right icon"></i>
-                    <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</a>
-                    <div class="row-fluid hide">
-                        <div class="modal-header">
-
-                            <h3>Склад</h3>
-                        </div>
-                        <div class="modal-body">
-                            <div class="row-fluid">
-                                <div class="span5">
-                                    <?php echo form_dropdown('id_aparat', $options_ap, '', 'id="store_add_id_aparat" class="chzn-select"');?>
-                                </div>
-                                <div class="span5" id="store_select">
-                                    <?php echo form_dropdown('id_aparat_p', array('' => "-"), '', 'id="store_add_id_aparat_p" title='.$row['id_kvitancy'].' class="select-container"');?>
-                                </div>
-
-                            </div>
-                            <div class="row-fluid" id="store_modal">
-
-                            </div>
-                        </div>
-
-                    </div>
-
-
-                </div>
-                <div class="span10">
-                    <div class="pull-left"><b>Установленные запчасти</b></div>
-                </div>
-                <div class="span10">
-                    <table table table-bordered table-condensed id="table_store_<?=$row['id_kvitancy']?>">
-                        <thead>
-                        <tr>
-                            <th>Название</th>
-                            <th>Описание</th>
-                            <th>Состояне</th>
-
-                            <th>Себестоимость</th>
-                            <th>Цена</th>
-                            <th>Кто</th>
-                            <th>Когда</th>
-                            <th></th>
-                        </tr>
-                        </thead>
-
-                        <?
-                        $store = $this->kvitancy_model->get_store($row['id_kvitancy']);
-                        if(count($store)>0){
-                            foreach($store as $parts){
-                                $user = $this->users_model->get_users_by_id ($parts['user_id']);
-                                $aparat_p = $this->kvitancy_model->get_aparat_p_by_id ($parts['id_aparat_p']);
-                                ?>
-                                <tr id="part_tr_<?=$parts['id']?>">
-                                    <td><?=$aparat_p[0]['title']?></td>
-                                    <td><?=$parts['name']?></td>
-                                    <td><? if($parts['id_sost'] == 1) {echo 'Новый';} else echo 'Б.У.';?></td>
-                                    <td><?=$parts['cost']?></td>
-                                    <td><?=$parts['price']?></td>
-                                    <td><?=$user[0]['user_name']?></td>
-                                    <td><?=$parts['date_priemka']?></td>
-
-                                    <td>
-                                        <div class="btn-group margin-bottom-10px">
-                                            <button name="<?=$parts['id']?>" id="part_dell_<?=$parts['id']?>" class="btn btn-danger"><i class="icon-remove icon-white"></i></button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            <?}}?>
-
-                    </table>
-                </div>
-
-
-
-            </div>
-
-
-
-
-        </div><!--end remont -->
-        <!--start zapchsti -->
-        <div style="margin-bottom: 20px;" class="tab-pane" id="tab5_<?=$row['id_kvitancy']?>">
-                <span>
-                                        123
-                </span>
-
-        </div><!-- end запчаст  -->
-        <div style="margin-bottom: 20px;" class="tab-pane" id="tab6_<?=$row['id_kvitancy']?>">
-                <span>
-                                        <a href="<?=site_url()?>tickets/update/<?=$row['id_kvitancy']?>" class="" target="_blank">
-                                            <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать</button>
-                                        </a>
-                                        <a href="<?=site_url()?>tickets/update_client/<?=$row['user_id']?>" class="" target="_blank">
-                                            <button class="btn margin-bottom-10px"><i class="icon-edit"></i> Редактировать клиента</button>
-                                        </a>
-
-                                        <a href="<?=site_url()?>tickets/printing/<?=$row['id_kvitancy']?>" class="" target="_blank">
-                                            <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать</button>
-                                        </a>
-                                        <a href="<?=site_url()?>tickets/printing_check/<?=$row['id_kvitancy']?>" class="" target="_blank">
-                                            <button class="btn margin-bottom-10px"><i class="icon-print"></i> Печать чека</button>
-                                        </a>
-                </span>
-
-        </div><!-- end print -->
-
-        </div>
-        </div>
         </td>
         </tr>
 

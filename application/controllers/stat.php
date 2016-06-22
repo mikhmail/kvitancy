@@ -139,7 +139,7 @@ class Stat extends CI_Controller
             $id_sc = $this->input->post("id_sc");
             $id_kvitancy = $this->input->post("id_kvitancy");
             $id_remonta = $this->input->post("id_remonta");
-
+            $id_responsible = null;
 
 
             // SEARCH
@@ -363,6 +363,7 @@ class Stat extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible,
                 1
             );
 
@@ -383,6 +384,7 @@ class Stat extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible,
                 $count = null
             );
 
@@ -520,6 +522,7 @@ class Stat extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible = null,
                 1
             );
             // end fetch count kvitancys from db
@@ -541,6 +544,7 @@ class Stat extends CI_Controller
                 $id_sc,
                 $id_kvitancy,
                 $id_remonta,
+                $id_responsible = null,
                 $count = null
             );
 
@@ -584,6 +588,7 @@ class Stat extends CI_Controller
             $id_sc,
             $id_kvitancy = null,
             $id_remonta = null,
+            $id_responsible = null,
             $count = null
         );
 
