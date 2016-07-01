@@ -256,14 +256,17 @@ if(count($aparats) >= 1) {
                     $store = $this->stat_model->get_store($row['id_kvitancy']);
                     $cash = $this->stat_model->get_cash($row['id_kvitancy']);
                     $work = $this->stat_model->get_work($row['id_kvitancy']);
-
+                    //$profit = 0;
+                    $sum_store = 0;
+                    $sum_work = 0;
+                    $pro_cash =0;
                     ?>
                     <td class="span2"><?=$row['name_sc']?></td>
                     <td class="span2">
                             <? if($store) {?>
                                 <ul>
                                 <? foreach ($store as $str){?>
-                                <li><?=$str["title"]?>: <strong><?=$str["cost"]?></strong></li>
+                                <li><?=$str["title"]?>: <strong><?=$str["cost"];$sum_store += $str["cost"];?></strong></li>
                                      <?}?>
                                 </ul>
                         <?}?>
@@ -273,7 +276,7 @@ if(count($aparats) >= 1) {
                         <? if($work) {?>
                         <ul>
                            <? foreach ($work as $works){?>
-                                <li><?=$works["name"]?>: <strong><?=$works["cost"]?></strong> by <?=$works["user_name"]?></li>
+                                <li><?=$works["name"]?>: <strong><?=$works["cost"];$sum_work += $works["cost"];?></strong> by <?=$works["user_name"]?></li>
                             <?}?>
                         </ul>
                            <?}?>
@@ -283,13 +286,13 @@ if(count($aparats) >= 1) {
                         <? if($cash) {?>
                             <ul>
                             <? foreach ($cash as $csh){?>
-                                <li><?=$csh["name"]?>: <strong><?=$csh["plus"]?></strong> by <?=$works["user_name"]?></li>
+                                <li><?=$csh["name"]?>: <strong><?=$csh["plus"];$pro_cash += $csh["plus"];?></strong> by <?=$works["user_name"]?></li>
                             <?}?>
                             </ul>
                             <?}?>
                     </td>
 
-                    <td class="span2">прибыль</td>
+                    <td class="span2">Касса[<?=$pro_cash?>] - запчасти[<?=$sum_store?>] - работы[<?=$sum_work?>] = <?=$pro_cash-$sum_work-$sum_store;?></td>
 
 
                 </tr>
