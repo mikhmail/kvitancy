@@ -31,7 +31,10 @@ class Stat_model extends CI_Model {
         $id_sc=null,
         $id_kvitancy=null,
         $id_remonta=null,
-        $count=null
+        $id_responsible,
+        $count=null,
+        $summ =null
+
     )
     {
 
@@ -108,14 +111,10 @@ service.rab_sc
             if ($id_sc != null){
                 $this->db->where('kvitancy.id_sc', $id_sc);
             }
-
+            $search_string = trim($search_string);
             $where = "(kvitancy.model LIKE '%$search_string%' OR user.phone LIKE '%$search_string%' OR user.fam LIKE '%$search_string%')";
 
             $this->db->where($where);
-
-            //$this->db->where('kvitancy.model LIKE', "%$search_string%");
-            //$this->db->or_where('user.phone LIKE', "%$search_string%");
-            //$this->db->or_where('user.fam LIKE', "%$search_string%");
 
 
 
@@ -123,13 +122,13 @@ service.rab_sc
             //return($this->db->last_query());die;
             if ($query->num_rows() > 0) {
                 if ($count) {return $query->num_rows(); }
-                else
 
-                    return $query->result_array();
+                 else {   return $query->result_array(); }
+
+
+
             }else return null;
-        }
-
-        elseif ($id_kvitancy) {
+        } elseif ($id_kvitancy) {
 
 
             if ($id_sc != null){
@@ -138,14 +137,14 @@ service.rab_sc
             $this->db->where('kvitancy.id_kvitancy', $id_kvitancy);
             $query = $this->db->get();
 
-            //return($this->db->last_query());die;
+
+           //return($this->db->last_query());die;
 
             if ($query->num_rows() > 0) {
                 if ($count) {return $query->num_rows(); }
                 else
-
-                    return $query->result_array();
-            }else return null;
+                    {return $query->result_array();}
+            }else return  null;
         }
 
 
@@ -185,7 +184,7 @@ service.rab_sc
         if ($id_remonta != null){
             $this->db->where('kvitancy.id_remonta', $id_remonta);
         }
-        if ($count) {$limit_start= null; $limit_end=null;
+        if ($count OR $summ) {$limit_start= null; $limit_end=null;
         }else {
             if($limit_start && $limit_end){
                 $this->db->limit($limit_start, $limit_end);
@@ -205,11 +204,43 @@ service.rab_sc
             else
 
                 return $query->result_array();
-        }else return null;
+        }else return  null;
+
+
+
+}
+
+
+    public function get_summ($kvitancys){
+
+        $store_summ =0;
+        $cash_summ=0;
+        $work_summ=0;
+
+        //var_dump($kvitancys);die;
+        if (count($kvitancys)>0){
+        foreach($kvitancys as $row){
+
+            $store = $this->stat_model->get_store($row['id_kvitancy']);
+                foreach ($store as $str){
+                    $store_summ += $str["cost"];
+                }
+
+            $cash = $this->stat_model->get_cash($row['id_kvitancy']);
+                foreach ($cash as $csh){
+                    $cash_summ += $csh["plus"];
+                }
+
+            $work = $this->stat_model->get_work($row['id_kvitancy']);
+                foreach ($work as $works){
+                    $work_summ += $works["cost"];
+                }
+
+        }
+        //echo  $store_summ;die;
+        return $profit =  $cash_summ - $work_summ -  $store_summ;
+    }else return NULL;
     }
-
-
-
 
 
     public function get_cash ($id_kvitancy){

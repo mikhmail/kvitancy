@@ -158,29 +158,9 @@ if(count($count_kvitancys)>=1) {?>
 
 <div class="row-fluid">
 
-<?php
-
-$row_global1 = array ();
-
-
-if(count($aparats) >= 1) {
-    /* Сортировка масива по аппаратам */
-
-    foreach ($aparats as $a=>$row) { //arr63
-        $row_global1[$row["aparat_name"]][] = $row;
-    }
-
-
-}
-?>
-
-
-
-
-
 <div class="row-fluid">
 
-    <legend>Найдено <strong><?=$count_kvitancys?></strong>
+    <legend>Найдено <strong><?=$count_kvitancys?></strong> записей на сумму <?echo $summ;?>
 
         <div class="pagination pull-right">
             <?=$this->pagination->create_links()?>
@@ -227,7 +207,7 @@ if(count($aparats) >= 1) {
 
 <?  if(count($kvitancys) >= 1) {
     foreach($kvitancys as $row) { ?>
-        <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
+        <? //$comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
 
 
 
@@ -263,7 +243,7 @@ if(count($aparats) >= 1) {
                     ?>
                     <td class="span2"><?=$row['name_sc']?></td>
                     <td class="span2">
-                            <? if($store) {?>
+                            <? if(count($store)>0) {?>
                                 <ul>
                                 <? foreach ($store as $str){?>
                                 <li><?=$str["title"]?>: <strong><?=$str["cost"];$sum_store += $str["cost"];?></strong></li>
@@ -273,7 +253,7 @@ if(count($aparats) >= 1) {
                     </td>
 
                     <td class="span2">
-                        <? if($work) {?>
+                        <? if(count($work)>0) {?>
                         <ul>
                            <? foreach ($work as $works){?>
                                 <li><?=$works["name"]?>: <strong><?=$works["cost"];$sum_work += $works["cost"];?></strong> by <?=$works["user_name"]?></li>
@@ -283,10 +263,10 @@ if(count($aparats) >= 1) {
                     </td>
 
                     <td class="span2">
-                        <? if($cash) {?>
+                        <? if(count($cash) >0) {?>
                             <ul>
                             <? foreach ($cash as $csh){?>
-                                <li><?=$csh["name"]?>: <strong><?=$csh["plus"];$pro_cash += $csh["plus"];?></strong> by <?=$works["user_name"]?></li>
+                                <li><?=$csh["name"]?>: <strong><?=$csh["plus"];$pro_cash += $csh["plus"];?></strong> by <?=$csh["user_name"]?></li>
                             <?}?>
                             </ul>
                             <?}?>

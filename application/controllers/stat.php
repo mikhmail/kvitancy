@@ -276,7 +276,7 @@ class Stat extends CI_Controller
                 $id_sost = '';
             }
             $data['id_sost_selected'] = $id_sost;
-            if ($id_sost == '') $id_sost = $sost_in_remont;
+            if ($id_sost == '') $id_sost = null;
             // end ID_SOST
 
 
@@ -347,7 +347,7 @@ class Stat extends CI_Controller
 
 
             //fetch sql data into arrays
-            $data['count_kvitancys'] = $this->kvitancy_model->get_kvitancy(
+            $data['count_kvitancys'] = $this->stat_model->get_kvitancy(
                 $search_string,
                 $order,
                 $order_type,
@@ -364,10 +364,12 @@ class Stat extends CI_Controller
                 $id_kvitancy,
                 $id_remonta,
                 $id_responsible,
-                1
+                1,
+                $summ=null
+
             );
 
-            $data['kvitancys'] = $this->kvitancy_model->get_kvitancy(
+            $data['kvitancys'] = $this->stat_model->get_kvitancy(
 
                 $search_string,
                 $order,
@@ -385,9 +387,35 @@ class Stat extends CI_Controller
                 $id_kvitancy,
                 $id_remonta,
                 $id_responsible,
-                $count = null
+                $count = null,
+                $summ=null
+
             );
 
+            $summa = $this->stat_model->get_kvitancy(
+
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $date,
+                $start_date,
+                $end_date,
+                $id_mechanic,
+                $id_aparat,
+                $id_proizvod,
+                $id_sost,
+                $id_sc,
+                $id_kvitancy,
+                $id_remonta,
+                $id_responsible,
+                $count = null,
+                $summ=1
+
+            );
+
+            $data['summ'] = $this->stat_model->get_summ($summa);
 
             $config['total_rows'] = $data['count_kvitancys'];
 
@@ -473,38 +501,7 @@ class Stat extends CI_Controller
                     $id_sc = $this->session->userdata('user_id_sc');
             }
 
-            /*WHAT USER SEE? */
 
-            //end $vars to select to db
-
-
-
-
-            /*Масив для сесиии
-            $filter_session_data = array(
-                'search_string' => $search_string,
-                'order' => $order,
-                'order_type' => $order_type,
-                'limit_start' => $limit_start,
-                'limit_end' => $limit_end,
-                'date' => $date,
-                'start_date' => $start_date,
-                'end_date' => $end_date,
-                'id_mechanic' => $id_mechanic,
-                'id_aparat' => $id_aparat,
-                'id_proizvod' => $id_proizvod,
-                'id_sost' => $id_sost,
-                'id_sc' => $id_sc,
-                'id_kvitancy' => $id_kvitancy,
-                'id_remonta' => $id_remonta
-
-            );
-
-            //save session data into the session
-            if (isset($filter_session_data)) {
-                $this->session->set_userdata($filter_session_data);
-            }
-        */
             //fetch count kvitancys from db
             $data['count_kvitancys'] = $this->stat_model->get_kvitancy(
                 $search_string,
@@ -524,6 +521,7 @@ class Stat extends CI_Controller
                 $id_remonta,
                 $id_responsible = null,
                 1
+
             );
             // end fetch count kvitancys from db
 
@@ -546,8 +544,33 @@ class Stat extends CI_Controller
                 $id_remonta,
                 $id_responsible = null,
                 $count = null
+
             );
 
+            $summa = $this->stat_model->get_kvitancy(
+
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $date,
+                $start_date,
+                $end_date,
+                $id_mechanic,
+                $id_aparat,
+                $id_proizvod,
+                $id_sost,
+                $id_sc,
+                $id_kvitancy,
+                $id_remonta,
+                $id_responsible,
+                $count = null,
+                $summ=1
+
+            );
+
+            $data['summ'] = $this->stat_model->get_summ($summa);
 
 
         } //end else if POST
@@ -572,6 +595,7 @@ class Stat extends CI_Controller
 
         $data['users'] = $this->users_model->get_users('', '', '', '', '', '');
 
+        /*
         $data['aparats'] = $this->kvitancy_model->get_kvitancy(
             $search_string = null,
             $order = 'aparat.aparat_name',
@@ -589,8 +613,11 @@ class Stat extends CI_Controller
             $id_kvitancy = null,
             $id_remonta = null,
             $id_responsible = null,
-            $count = null
+            $count = null,
+            $summ = null
+
         );
+        */
 
         /*Что видит юзер id_group */
         switch ($this->session->userdata('id_group')) {
