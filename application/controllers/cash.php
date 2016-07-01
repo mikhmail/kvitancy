@@ -91,7 +91,8 @@ class Cash extends CI_Controller {
                     'id_aparat' => '',
                     'id_sc' => '',
                     'id_kvitancy' => '',
-                    'id_sc' => ''
+                    'id_sc' => '',
+                    'id_responsible' => ''
 
                 );
             }
@@ -111,6 +112,7 @@ class Cash extends CI_Controller {
             $id_proizvod = $this->input->post("id_proizvod");
             $id_kvitancy = $this->input->post("id_kvitancy");
             $id_sc = $this->input->post("id_sc");
+            $id_responsible = $this->input->post("id_responsible");
 
 
 
@@ -269,16 +271,16 @@ class Cash extends CI_Controller {
 
 
             // id_resp
-            if ($this->input->post("id_resp")) {
-                $filter_session_data['id_resp'] = $id_resp;
+            if ($this->input->post("id_responsible")) {
+                $filter_session_data['id_responsible'] = $id_responsible;
             }
             elseif ($this->uri->segment(2)) {
-                $id_resp = $this->session->userdata('id_resp');
+                $id_responsible = $this->session->userdata('id_responsible');
 
             } else {
-                $id_resp = '';
+                $id_responsible = '';
             }
-            $data['id_resp_selected'] = $id_resp;
+            $data['id_responsible_selected'] = $id_responsible;
             // end id_resp
 
             // id_where
@@ -377,6 +379,7 @@ class Cash extends CI_Controller {
 
                 $id_kvitancy,
                 $id_sc,
+                $id_responsible,
 
                 1,
                 $summ=null
@@ -396,7 +399,7 @@ class Cash extends CI_Controller {
 
                 $id_kvitancy,
                 $id_sc,
-
+                $id_responsible,
                 0,
                 $summ=1
             );
@@ -416,7 +419,7 @@ class Cash extends CI_Controller {
 
                 $id_kvitancy,
                 $id_sc,
-
+                $id_responsible,
                 $count = null,
                 $summ=null
             );
@@ -442,7 +445,8 @@ class Cash extends CI_Controller {
                     'id_sc' => '',
                     'id_proizvod' => '',
                     'id_kvitancy' => '',
-                    'id_sc' => ''
+                    'id_sc' => '',
+                    'id_responsible' =>''
 
                 );
 
@@ -470,6 +474,8 @@ class Cash extends CI_Controller {
             $data['status_selected'] = 1;
             $data['id_kvitancy_selected'] = '';
             $data['id_sc_selected'] = '';
+            $data['id_responsible_selected'] = '';
+
             //end pre selected options
 
 
@@ -486,6 +492,7 @@ class Cash extends CI_Controller {
             $id_proizvod = '';
             $id_kvitancy = '';
             $id_sc = '';
+            $id_responsible = '';
             $summ=null;
 
             /*WHAT USER SEE? */
@@ -533,6 +540,7 @@ class Cash extends CI_Controller {
 
                 $id_kvitancy,
                 $id_sc,
+                $id_responsible,
 
                 1,
                 $summ=null
@@ -552,7 +560,7 @@ class Cash extends CI_Controller {
 
                 $id_kvitancy,
                 $id_sc,
-
+                $id_responsible,
                 0,
                 $summ=1
             );
@@ -572,7 +580,7 @@ class Cash extends CI_Controller {
 
                 $id_kvitancy,
                 $id_sc,
-
+                $id_responsible,
                 $count = null,
                 $summ=null
             );
@@ -591,7 +599,7 @@ class Cash extends CI_Controller {
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
         $data['users'] = $this->users_model->get_users('', '', '', '', '', '');
         $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
-
+        $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
 
 
         /*Загрузка шаблона*/

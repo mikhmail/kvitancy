@@ -88,12 +88,12 @@
                 }
                 echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class=""');
 
+                $options_id_responsible = array('' => "Выбрать ответственного");
 
-
-                $options_cash = array('' => "Что показать");
-                echo form_dropdown('id_cash', $options_id_responsible, $id_resp_selected, 'class="chzn-select"');
-
-                ?>
+                foreach ($resp as $array) {
+                    $options_id_responsible[$array['id']] = $array['user_name'];
+                }?>
+                <? echo form_dropdown('id_responsible', $options_id_responsible, $id_responsible_selected, 'class=""');?>
 
 
                 <label class="control-label" style="display: none" for="order">Сортировать по:</label>

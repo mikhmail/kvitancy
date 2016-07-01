@@ -21,6 +21,7 @@ class cash_model extends CI_Model {
         $id_proizvod=null,
         $id_kvitancy=null,
         $id_sc=null,
+        $id_responsible=null,
         $count=null,
         $summ=null
     )
@@ -112,6 +113,10 @@ service.id_sc
 
         if ($id_sc != null){
             $this->db->where('cash.id_sc', $id_sc);
+        }
+
+        if ($id_responsible != null){
+            $this->db->where('cash.update_user', $id_responsible);
         }
 
         if($order != null){

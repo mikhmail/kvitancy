@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/cash.php" afterPath="$PROJECT_DIR$/application/controllers/cash.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/cash_model.php" afterPath="$PROJECT_DIR$/application/models/cash_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/cash/list.php" afterPath="$PROJECT_DIR$/application/views/cash/list.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -26,10 +28,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="101" column="54" selection-start="5413" selection-end="5413" vertical-scroll-proportion="0.79545456" vertical-offset="1452" max-vertical-offset="2420">
+            <state line="104" column="0" selection-start="5577" selection-end="5577" vertical-scroll-proportion="-28.827587" vertical-offset="1452" max-vertical-offset="2420">
               <folding />
             </state>
           </provider>
@@ -41,7 +43,7 @@
       <file leaf-file-name="cash.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="0.0" vertical-offset="12819" max-vertical-offset="16346">
+            <state line="114" column="27" selection-start="3732" selection-end="3747" vertical-scroll-proportion="-53.225807" vertical-offset="858" max-vertical-offset="16522">
               <folding />
             </state>
           </provider>
@@ -50,10 +52,19 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="96" column="0" selection-start="3313" selection-end="3313" vertical-scroll-proportion="-15.419354" vertical-offset="1634" max-vertical-offset="4752">
+            <state line="95" column="105" selection-start="3424" selection-end="3448" vertical-scroll-proportion="-20.806452" vertical-offset="1445" max-vertical-offset="4752">
               <folding>
-                <marker date="1466592252901" expanded="true" signature="3117:3293" placeholder="..." />
+                <marker date="1467365774075" expanded="true" signature="3115:3465" placeholder="..." />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cash_model.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="118" column="46" selection-start="2764" selection-end="2764" vertical-scroll-proportion="0.29606625" vertical-offset="2310" max-vertical-offset="4136">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -61,7 +72,7 @@
       <file leaf-file-name="styles.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="327" column="23" selection-start="6364" selection-end="6364" vertical-scroll-proportion="0.0" vertical-offset="7194" max-vertical-offset="7370">
+            <state line="327" column="23" selection-start="6364" selection-end="6364" vertical-scroll-proportion="0.0" vertical-offset="6373" max-vertical-offset="7370">
               <folding />
             </state>
           </provider>
@@ -109,8 +120,6 @@
         <option value="$PROJECT_DIR$/application/controllers/engineer.php" />
         <option value="$PROJECT_DIR$/application/models/store_model.php" />
         <option value="$PROJECT_DIR$/system/core/Input.php" />
-        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
-        <option value="$PROJECT_DIR$/application/models/cash_model.php" />
         <option value="$PROJECT_DIR$/application/views/store/add.php" />
         <option value="$PROJECT_DIR$/application/views/works/list.php" />
         <option value="$PROJECT_DIR$/application/views/store/list.php" />
@@ -131,6 +140,8 @@
         <option value="$PROJECT_DIR$/application/controllers/stat.php" />
         <option value="$PROJECT_DIR$/application/views/admin/stat/list.php" />
         <option value="$PROJECT_DIR$/application/views/cash/list.php" />
+        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
+        <option value="$PROJECT_DIR$/application/models/cash_model.php" />
       </list>
     </option>
   </component>
@@ -300,7 +311,65 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="tickets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="cash" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -660,11 +729,6 @@
         <state line="358" column="0" selection-start="10236" selection-end="10236" vertical-scroll-proportion="0.33245382" vertical-offset="7750" max-vertical-offset="8954" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="152" column="34" selection-start="3526" selection-end="3526" vertical-scroll-proportion="2.7915568" vertical-offset="2286" max-vertical-offset="4026" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/stat_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="37" column="0" selection-start="744" selection-end="744" vertical-scroll-proportion="-3.1935484" vertical-offset="715" max-vertical-offset="5478" />
@@ -692,28 +756,6 @@
         <state line="193" column="22" selection-start="6662" selection-end="6662" vertical-scroll-proportion="0.56500804" vertical-offset="3894" max-vertical-offset="17226" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="514" column="43" selection-start="23783" selection-end="23783" vertical-scroll-proportion="0.5919056" vertical-offset="10957" max-vertical-offset="20922" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="377" column="10" selection-start="9059" selection-end="9059" vertical-scroll-proportion="0.40288925" vertical-offset="8043" max-vertical-offset="12606" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/assets/styles.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="327" column="23" selection-start="6364" selection-end="6364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7370">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="29" selection-start="13988" selection-end="13988" vertical-scroll-proportion="2.3641133" vertical-offset="6525" max-vertical-offset="24618" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="35" column="35" selection-start="996" selection-end="996" vertical-scroll-proportion="0.8079748" vertical-offset="0" max-vertical-offset="5192" />
@@ -729,30 +771,65 @@
         <state line="1001" column="5" selection-start="35549" selection-end="35549" vertical-scroll-proportion="0.3347324" vertical-offset="21703" max-vertical-offset="24838" />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="104" column="0" selection-start="5577" selection-end="5577" vertical-scroll-proportion="-28.827587" vertical-offset="1452" max-vertical-offset="2420">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="327" column="23" selection-start="6364" selection-end="6364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7370">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="74" column="22" selection-start="1971" selection-end="2314" vertical-scroll-proportion="0.6002099" vertical-offset="1056" max-vertical-offset="20922">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="877" column="112" selection-start="31094" selection-end="31204" vertical-scroll-proportion="0.45225602" vertical-offset="18863" max-vertical-offset="24618">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="361" column="17" selection-start="8615" selection-end="8736" vertical-scroll-proportion="-15.903226" vertical-offset="7449" max-vertical-offset="12606">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="0.0" vertical-offset="12819" max-vertical-offset="16346">
+        <state line="114" column="27" selection-start="3732" selection-end="3747" vertical-scroll-proportion="-53.225807" vertical-offset="858" max-vertical-offset="16522">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="96" column="0" selection-start="3313" selection-end="3313" vertical-scroll-proportion="-15.419354" vertical-offset="1634" max-vertical-offset="4752">
+        <state line="95" column="105" selection-start="3424" selection-end="3448" vertical-scroll-proportion="-20.806452" vertical-offset="1445" max-vertical-offset="4752">
           <folding>
-            <marker date="1466592252901" expanded="true" signature="3117:3293" placeholder="..." />
+            <marker date="1467365774075" expanded="true" signature="3115:3465" placeholder="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="101" column="54" selection-start="5413" selection-end="5413" vertical-scroll-proportion="0.79545456" vertical-offset="1452" max-vertical-offset="2420">
+        <state line="118" column="46" selection-start="2764" selection-end="2764" vertical-scroll-proportion="0.29606625" vertical-offset="2310" max-vertical-offset="4136">
           <folding />
         </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
   </component>
