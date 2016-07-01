@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/cash/list.php" afterPath="$PROJECT_DIR$/application/views/cash/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,35 +26,33 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="README.md" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state line="98" column="31" selection-start="5189" selection-end="5189" vertical-scroll-proportion="-24.275862" vertical-offset="1452" max-vertical-offset="2420">
+            <state line="101" column="54" selection-start="5413" selection-end="5413" vertical-scroll-proportion="0.79545456" vertical-offset="1452" max-vertical-offset="2420">
               <folding />
             </state>
+          </provider>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
       <file leaf-file-name="cash.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="-18.67742" vertical-offset="12819" max-vertical-offset="16346">
+            <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="0.0" vertical-offset="12819" max-vertical-offset="16346">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="185" column="54" selection-start="6808" selection-end="6808" vertical-scroll-proportion="0.33997902" vertical-offset="3548" max-vertical-offset="5170">
+            <state line="96" column="0" selection-start="3313" selection-end="3313" vertical-scroll-proportion="-15.419354" vertical-offset="1634" max-vertical-offset="4752">
               <folding>
-                <marker date="1466591844346" expanded="false" signature="7451:7469" placeholder="..." />
-                <marker date="1466591844346" expanded="false" signature="7938:7956" placeholder="..." />
-                <marker date="1466591844346" expanded="true" signature="7980:8224" placeholder="..." />
+                <marker date="1466592252901" expanded="true" signature="3117:3293" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -62,7 +61,7 @@
       <file leaf-file-name="styles.css" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/styles.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="327" column="23" selection-start="6364" selection-end="6364" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="7370">
+            <state line="327" column="23" selection-start="6364" selection-end="6364" vertical-scroll-proportion="0.0" vertical-offset="7194" max-vertical-offset="7370">
               <folding />
             </state>
           </provider>
@@ -440,7 +439,7 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814023" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3297414" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18089648" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18303095" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32132426" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39345887" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -448,12 +447,12 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Duplicates" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32945737" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Command Line Tools Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295238" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -712,79 +711,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="399" column="29" selection-start="13988" selection-end="13988" vertical-scroll-proportion="2.3641133" vertical-offset="6525" max-vertical-offset="24618">
-          <folding />
-        </state>
+        <state line="399" column="29" selection-start="13988" selection-end="13988" vertical-scroll-proportion="2.3641133" vertical-offset="6525" max-vertical-offset="24618" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/index.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="35" column="35" selection-start="996" selection-end="996" vertical-scroll-proportion="0.8079748" vertical-offset="0" max-vertical-offset="5192">
-          <folding />
-        </state>
+        <state line="35" column="35" selection-start="996" selection-end="996" vertical-scroll-proportion="0.8079748" vertical-offset="0" max-vertical-offset="5192" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="291" column="45" selection-start="8746" selection-end="8746" vertical-scroll-proportion="-19.870968" vertical-offset="5786" max-vertical-offset="11660">
-          <folding>
-            <element signature="n#class#0;n#table#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#0;n#div#1;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="false" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1466590978003" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
+        <state line="291" column="45" selection-start="8746" selection-end="8746" vertical-scroll-proportion="-19.870968" vertical-offset="5786" max-vertical-offset="11660" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/stat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="1001" column="5" selection-start="35549" selection-end="35549" vertical-scroll-proportion="0.3347324" vertical-offset="21703" max-vertical-offset="24838">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="98" column="31" selection-start="5189" selection-end="5189" vertical-scroll-proportion="-24.275862" vertical-offset="1452" max-vertical-offset="2420">
-          <folding />
-        </state>
+        <state line="1001" column="5" selection-start="35549" selection-end="35549" vertical-scroll-proportion="0.3347324" vertical-offset="21703" max-vertical-offset="24838" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="-18.67742" vertical-offset="12819" max-vertical-offset="16346">
+        <state line="609" column="25" selection-start="19028" selection-end="19028" vertical-scroll-proportion="0.0" vertical-offset="12819" max-vertical-offset="16346">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="185" column="54" selection-start="6808" selection-end="6808" vertical-scroll-proportion="0.33997902" vertical-offset="3548" max-vertical-offset="5170">
+        <state line="96" column="0" selection-start="3313" selection-end="3313" vertical-scroll-proportion="-15.419354" vertical-offset="1634" max-vertical-offset="4752">
           <folding>
-            <marker date="1466591844346" expanded="false" signature="7451:7469" placeholder="..." />
-            <marker date="1466591844346" expanded="false" signature="7938:7956" placeholder="..." />
-            <marker date="1466591844346" expanded="true" signature="7980:8224" placeholder="..." />
+            <marker date="1466592252901" expanded="true" signature="3117:3293" placeholder="..." />
           </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="54" selection-start="5413" selection-end="5413" vertical-scroll-proportion="0.79545456" vertical-offset="1452" max-vertical-offset="2420">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
       </provider>
     </entry>
   </component>

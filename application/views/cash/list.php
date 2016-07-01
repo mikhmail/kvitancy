@@ -89,40 +89,12 @@
                 echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class=""');
 
 
-                /*
-                $options_id_responsible = array('' => "Выбрать ответственного");
 
-                foreach ($users as $array) {
-                    $options_id_responsible[$array['id']] = $array['user_name'];
-                }
+                $options_cash = array('' => "Что показать");
+                echo form_dropdown('id_cash', $options_id_responsible, $id_resp_selected, 'class="chzn-select"');
 
-                echo form_dropdown('id_resp', $options_id_responsible, $id_resp_selected, 'class="chzn-select"');
-
-
-                // echo form_label('Аппарат: ');
-                $options_ap = array('' => "Выбрать аппарат");
-
-                foreach ($ap as $array) {
-                    $options_ap[$array['id_aparat']] = $array['aparat_name'];
-                }
-                echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="chzn-select"');
-                */
                 ?>
 
-
-
-                <?
-                /*
-                //echo form_label('Производитель: ');
-                $options_proizvoditel = array('' => "Выбрать бренд");
-
-                foreach ($proizvoditel as $array) {
-                    $options_proizvoditel[$array['id_proizvod']] = $array['name_proizvod'];
-                }
-
-                echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="chzn-select"');
-                */
-                ?>
 
                 <label class="control-label" style="display: none" for="order">Сортировать по:</label>
                 <?
