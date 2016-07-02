@@ -3,23 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_brands.php" afterPath="$PROJECT_DIR$/application/controllers/admin_brands.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_cities.php" afterPath="$PROJECT_DIR$/application/controllers/admin_cities.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_clients.php" afterPath="$PROJECT_DIR$/application/controllers/admin_clients.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_comments.php" afterPath="$PROJECT_DIR$/application/controllers/admin_comments.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_devices.php" afterPath="$PROJECT_DIR$/application/controllers/admin_devices.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_groups.php" afterPath="$PROJECT_DIR$/application/controllers/admin_groups.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_service_centers.php" afterPath="$PROJECT_DIR$/application/controllers/admin_service_centers.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_status.php" afterPath="$PROJECT_DIR$/application/controllers/admin_status.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_types.php" afterPath="$PROJECT_DIR$/application/controllers/admin_types.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/admin_users.php" afterPath="$PROJECT_DIR$/application/controllers/admin_users.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/cash.php" afterPath="$PROJECT_DIR$/application/controllers/cash.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/stat.php" afterPath="$PROJECT_DIR$/application/controllers/stat.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/store.php" afterPath="$PROJECT_DIR$/application/controllers/store.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/tickets.php" afterPath="$PROJECT_DIR$/application/controllers/tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/works.php" afterPath="$PROJECT_DIR$/application/controllers/works.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/stat/list.php" afterPath="$PROJECT_DIR$/application/views/admin/stat/list.php" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -42,91 +26,22 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <file leaf-file-name="README.md" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="24" selection-start="1336" selection-end="1364" vertical-scroll-proportion="-23.419355" vertical-offset="396" max-vertical-offset="24684">
+            <state line="106" column="46" selection-start="5713" selection-end="5713" vertical-scroll-proportion="-28.827587" vertical-offset="1496" max-vertical-offset="2486">
               <folding />
             </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="works.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/works.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="35" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-10.645162" vertical-offset="594" max-vertical-offset="17226">
-              <folding />
-            </state>
+          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+            <state />
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="welcome.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/controllers/welcome.php">
+      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1298">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_status.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin_status.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="35" selection-start="1164" selection-end="1164" vertical-scroll-proportion="-14.193548" vertical-offset="594" max-vertical-offset="6952">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_tickets.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin_tickets.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="24" selection-start="704" selection-end="704" vertical-scroll-proportion="-19.161291" vertical-offset="0" max-vertical-offset="7678">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_types.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin_types.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="35" selection-start="1162" selection-end="1162" vertical-scroll-proportion="-6.387097" vertical-offset="858" max-vertical-offset="6050">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="admin_users.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/admin_users.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="35" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-15.612904" vertical-offset="550" max-vertical-offset="7414">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="cash.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="35" selection-start="924" selection-end="924" vertical-scroll-proportion="-13.4838705" vertical-offset="396" max-vertical-offset="16522">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="stat.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/stat.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="52" column="35" selection-start="1319" selection-end="1319" vertical-scroll-proportion="-15.612904" vertical-offset="660" max-vertical-offset="25432">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="store.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/store.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="47" column="35" selection-start="1141" selection-end="1141" vertical-scroll-proportion="-18.451612" vertical-offset="462" max-vertical-offset="17842">
+            <state line="277" column="23" selection-start="9054" selection-end="9054" vertical-scroll-proportion="1.23085" vertical-offset="4921" max-vertical-offset="11374">
               <folding />
             </state>
           </provider>
@@ -177,11 +92,9 @@
         <option value="$PROJECT_DIR$/application/models/works_model.php" />
         <option value="$PROJECT_DIR$/application/views/cash/list.php" />
         <option value="$PROJECT_DIR$/application/models/cash_model.php" />
-        <option value="$PROJECT_DIR$/application/views/admin/stat/list.php" />
         <option value="$PROJECT_DIR$/application/models/stat_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/application/controllers/admin_brands.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_cities.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_clients.php" />
@@ -196,6 +109,8 @@
         <option value="$PROJECT_DIR$/application/controllers/stat.php" />
         <option value="$PROJECT_DIR$/application/controllers/store.php" />
         <option value="$PROJECT_DIR$/application/controllers/works.php" />
+        <option value="$PROJECT_DIR$/README.md" />
+        <option value="$PROJECT_DIR$/application/views/admin/stat/list.php" />
       </list>
     </option>
   </component>
@@ -280,6 +195,72 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="stat" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -428,7 +409,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1170" extended-state="6" />
+    <frame x="-9" y="-9" width="1938" height="1170" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32814023" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -619,11 +600,6 @@
         <state line="95" column="105" selection-start="3424" selection-end="3448" vertical-scroll-proportion="0.6768101" vertical-offset="1445" max-vertical-offset="4752" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="265" column="45" selection-start="8393" selection-end="8393" vertical-scroll-proportion="0.0" vertical-offset="5185" max-vertical-offset="11286" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/stat_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="241" column="21" selection-start="5970" selection-end="5974" vertical-scroll-proportion="2.084886" vertical-offset="3288" max-vertical-offset="6160" />
@@ -655,16 +631,6 @@
         <state line="25" column="39" selection-start="423" selection-end="423" vertical-scroll-proportion="-1.7240294" vertical-offset="2193" max-vertical-offset="3146">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="88" selection-start="5712" selection-end="5712" vertical-scroll-proportion="-30.344828" vertical-offset="1452" max-vertical-offset="2464">
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_brands.php">
@@ -718,63 +684,56 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_status.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="35" selection-start="1164" selection-end="1164" vertical-scroll-proportion="-14.193548" vertical-offset="594" max-vertical-offset="6952">
+        <state line="47" column="35" selection-start="1164" selection-end="1164" vertical-scroll-proportion="0.4616999" vertical-offset="594" max-vertical-offset="6952">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_tickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="24" selection-start="704" selection-end="704" vertical-scroll-proportion="-19.161291" vertical-offset="0" max-vertical-offset="7678">
+        <state line="27" column="24" selection-start="704" selection-end="704" vertical-scroll-proportion="0.62329483" vertical-offset="0" max-vertical-offset="7678">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_types.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="35" selection-start="1162" selection-end="1162" vertical-scroll-proportion="-6.387097" vertical-offset="858" max-vertical-offset="6050">
+        <state line="48" column="35" selection-start="1162" selection-end="1162" vertical-scroll-proportion="0.20776495" vertical-offset="858" max-vertical-offset="6050">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_users.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="35" selection-start="1250" selection-end="1250" vertical-scroll-proportion="-15.612904" vertical-offset="550" max-vertical-offset="7414">
+        <state line="47" column="35" selection-start="1250" selection-end="1250" vertical-scroll-proportion="0.5078699" vertical-offset="550" max-vertical-offset="7414">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="35" selection-start="924" selection-end="924" vertical-scroll-proportion="-13.4838705" vertical-offset="396" max-vertical-offset="16522">
+        <state line="37" column="35" selection-start="924" selection-end="924" vertical-scroll-proportion="0.4386149" vertical-offset="396" max-vertical-offset="16522">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/stat.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="52" column="35" selection-start="1319" selection-end="1319" vertical-scroll-proportion="-15.612904" vertical-offset="660" max-vertical-offset="25432">
+        <state line="52" column="35" selection-start="1319" selection-end="1319" vertical-scroll-proportion="0.5078699" vertical-offset="660" max-vertical-offset="25432">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/store.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="47" column="35" selection-start="1141" selection-end="1141" vertical-scroll-proportion="-18.451612" vertical-offset="462" max-vertical-offset="17842">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="51" column="24" selection-start="1336" selection-end="1364" vertical-scroll-proportion="-23.419355" vertical-offset="396" max-vertical-offset="24684">
+        <state line="47" column="35" selection-start="1141" selection-end="1141" vertical-scroll-proportion="0.6002099" vertical-offset="462" max-vertical-offset="17842">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/works.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="35" selection-start="1008" selection-end="1008" vertical-scroll-proportion="-10.645162" vertical-offset="594" max-vertical-offset="17226">
+        <state line="42" column="35" selection-start="1008" selection-end="1008" vertical-scroll-proportion="0.3462749" vertical-offset="594" max-vertical-offset="17226">
           <folding />
         </state>
       </provider>
@@ -782,6 +741,30 @@
     <entry file="file://$PROJECT_DIR$/application/controllers/welcome.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1298">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="51" column="24" selection-start="1336" selection-end="1364" vertical-scroll-proportion="0.7823276" vertical-offset="396" max-vertical-offset="24684">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="106" column="46" selection-start="5713" selection-end="5713" vertical-scroll-proportion="-28.827587" vertical-offset="1496" max-vertical-offset="2486">
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="277" column="23" selection-start="9054" selection-end="9054" vertical-scroll-proportion="1.23085" vertical-offset="4921" max-vertical-offset="11374">
           <folding />
         </state>
       </provider>

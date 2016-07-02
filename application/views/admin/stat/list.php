@@ -272,7 +272,11 @@ if(count($count_kvitancys)>=1) {?>
                             <?}?>
                     </td>
 
-                    <td class="span2">Касса[<?=$pro_cash?>] - запчасти[<?=$sum_store?>] - работы[<?=$sum_work?>] = <?=$pro_cash-$sum_work-$sum_store;?></td>
+                    <td class="span2">
+                        <?if(count($store)>0 OR count($work)>0 OR count($cash) >0) {?>
+                        Касса[<?=$pro_cash?>] - запчасти[<?=$sum_store?>] - работы[<?=$sum_work?>] = <?=$pro_cash-$sum_work-$sum_store;?>
+                    <?}?>
+                    </td>
 
 
                 </tr>
