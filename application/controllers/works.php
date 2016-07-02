@@ -40,7 +40,7 @@ class Works extends CI_Controller {
         $config['per_page'] = 10;
         $config['base_url'] = base_url() . 'works/';
         $config['use_page_numbers'] = TRUE;
-
+        $config['first_url'] = '1';
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';

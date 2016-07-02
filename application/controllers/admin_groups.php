@@ -47,7 +47,7 @@ class Admin_groups extends CI_Controller {
 
         //pagination settings
         $config['per_page'] = 5;
-
+        $config['first_url'] = '1';
         $config['base_url'] = base_url().'admin/groups';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;

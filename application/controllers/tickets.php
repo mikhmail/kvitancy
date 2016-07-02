@@ -42,12 +42,16 @@ class Tickets extends CI_Controller
     {
 
 
-
+        $page = $this->uri->segment(2);
         //pagination settings
         $config['per_page'] = 20;
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
+        $config['display_pages'] = TRUE;
+        $config['uri_segment'] = 2;
+        $config['first_url'] = '1';
         //$config['num_links'] = 10;
+        //$config['display_pages'] = TRUE;
 
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
@@ -58,11 +62,11 @@ class Tickets extends CI_Controller
         $config['num_tag_open']  = '<li>';
         $config['num_tag_close'] = '</li>';
 
-        $config['first_link']      = 'First';
+        //$config['first_link']      = 'First';
         $config['first_tag_open']  = '<li>';
         $config['first_tag_close'] = '</li>';
 
-        $config['last_link']      = 'Last';
+        //$config['last_link']      = 'Last';
         $config['last_tag_open']  = '<li>';
         $config['last_tag_close'] = '</li>';
 
@@ -74,11 +78,10 @@ class Tickets extends CI_Controller
         $config['prev_tag_open']  = '<li>';
         $config['prev_tag_close'] = '</li>';
 
-        $config['uri_segment'] = 2;
-        $config['display_pages'] = TRUE;
+
 
         //limit end
-        $page = $this->uri->segment(2);
+
 
 
         //math to get the initial record to be select in the database

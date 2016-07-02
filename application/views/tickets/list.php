@@ -732,7 +732,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
         <div class="span12 pull-right">
             <div class="pagination">
-                <?=$this->pagination->create_links()?>
+                <?echo $this->pagination->create_links();?>
                 </div>
         </div>
 

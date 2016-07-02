@@ -50,7 +50,7 @@ class Admin_clients extends CI_Controller {
 
         //pagination settings
         $config['per_page'] = 20;
-
+        $config['first_url'] = '1';
         $config['base_url'] = base_url().'admin/clients';
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 20;
