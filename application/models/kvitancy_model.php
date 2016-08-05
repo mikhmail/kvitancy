@@ -565,5 +565,28 @@ service.rab_sc
 
     }
 
+
+function show_aparat_p ($id_aparat) {
+        // Существует ли строка POST запроса 'queryString'?
+        if ($id_aparat) {
+
+
+            $this->db->select('*');
+            $this->db->from('aparat_p');
+            $this->db->where('id_aparat', $id_aparat);
+
+            $this->db->order_by('title', 'Acs');
+            $query = $this->db->get();
+
+            $row = array();
+            if ($query->num_rows() > 0) {
+                return $row = $query->result_array();
+            }
+
+
+
+        }
+    }
+
 }//end class
 ?>

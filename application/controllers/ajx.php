@@ -51,7 +51,7 @@ class Ajx extends CI_Controller {
             'id_sost' => $id_sost,
             'date_okonchan' => '',
             'date_vydachi' => '',
-            'update_time' => date("j-m-Y, H:i:s"),
+            'update_time' => date("d-m-Y, H:i:s"),
             'update_user' => $update_user
         );
     }else{
@@ -60,7 +60,7 @@ class Ajx extends CI_Controller {
                 'id_sost' => $id_sost,
                 'date_okonchan' => date("Y-m-j"),
                 'date_vydachi' => date("Y-m-j"),
-                'update_time' => date("j-m-Y, H:i:s"),
+                'update_time' => date("d-m-Y, H:i:s"),
                 'update_user' => $update_user
             );
 
@@ -72,7 +72,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
 					   'date_vydachi' => '',
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 	}
@@ -81,7 +81,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
 					   'date_vydachi' => '',
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 	}
@@ -90,7 +90,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => date("Y-m-j"),
 					   'date_vydachi' => '',
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 	}
@@ -99,7 +99,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => date("Y-m-j"),
 					   'date_vydachi' => '',
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 	}
@@ -108,7 +108,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
 					   'date_vydachi' => date("Y-m-j"),
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 	}						
@@ -117,7 +117,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
 					   'date_vydachi' => '',
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 	}							
@@ -126,7 +126,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
 					   'date_vydachi' => '',
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 	}
@@ -135,7 +135,7 @@ class Ajx extends CI_Controller {
 					   'id_sost' => $id_sost,
 					   'date_okonchan' => '',
 					   'date_vydachi' => '',
-                        'update_time' => date("j-m-Y, H:i:s"),
+                        'update_time' => date("d-m-Y, H:i:s"),
                         'update_user' => $update_user
 					   );
 
@@ -156,7 +156,7 @@ class Ajx extends CI_Controller {
     $update_user = $this->session->userdata('user_id');
 		$data = array(
 					   'id_mechanic' => $id_meh,
-					   'update_time' => date("j-m-Y, H:i:s"),
+					   'update_time' => date("d-m-Y, H:i:s"),
 					   'update_user' => $update_user
 					   );
 	
@@ -171,7 +171,7 @@ class Ajx extends CI_Controller {
         $update_user = $this->session->userdata('user_id');
         $data = array(
             'id_where' => $id_where,
-            'update_time' => date("j-m-Y, H:i:s"),
+            'update_time' => date("d-m-Y, H:i:s"),
             'update_user' => $update_user
         );
 
@@ -185,7 +185,7 @@ class Ajx extends CI_Controller {
      $update_user = $this->session->userdata('user_id');
         $data = array(
             'id_responsible' => $id_responsible,
-            'update_time' => date("j-m-Y, H:i:s"),
+            'update_time' => date("d-m-Y, H:i:s"),
             'update_user' => $update_user
         );
 
@@ -200,7 +200,7 @@ class Ajx extends CI_Controller {
     {
 
         $data = array(
-            'update_time' => date("j-m-Y, H:i:s"),
+            'update_time' => date("d-m-Y, H:i:s"),
             'update_user' => $this->session->userdata('user_id'),
             'id_kvitancy' => '',
             'status' => 1,
@@ -340,7 +340,7 @@ class Ajx extends CI_Controller {
 								   'id_sc' => $this->input->post('id_sc'),
 								   'primechaniya' => $this->clearData($this->input->post('primechaniya')),
 								   'id_where' => $this->input->post('id_where'),
-								   'update_time' => date("j-m-Y, H:i:s"),
+								   'update_time' => date("d-m-Y, H:i:s"),
 								   'update_user' => $this->session->userdata['user_id'],
 								   'whereid' => $this->input->post('id_sc')
 								   );
@@ -495,7 +495,41 @@ function look_apparat () {
         }
     }
 
+function add_parts () {
 
+    $data_to_store = array(
+        'name' => $this->input->post('name'),
+        'id_aparat' => $this->input->post('id_aparat'),
+        'id_aparat_p' => $this->input->post('id_aparat_p'),
+        'id_proizvod' => $this->input->post('id_proizvod'),
+        'model' => '',
+        'serial' => '',
+        'vid' => '',
+        'id_sost' => 1,
+        'user_id' => $this->session->userdata['user_id'],
+        'date_priemka' => date("Y-m-j"),
+        'cost' => '',
+        'price' => '',
+        'status' => 1,
+        'update_user' => $this->session->userdata['user_id'],
+        'update_time' => date("d-m-Y, H:i:s"),
+        'id_resp' => $this->session->userdata['user_id'],
+        'id_from' => $this->session->userdata['user_id_sc'],
+        'id_where' => $this->session->userdata['user_id_sc'],
+        'id_sc' => $this->session->userdata['user_id_sc'],
+        'id_kvitancy' => $this->session->userdata['id_kvitancy'],
+
+
+    );
+
+
+    if ( $this->db->insert('parts', $data_to_store) ) {
+        echo $id = $this->db->insert_id();
+    }else{
+        echo 0;
+    }
+
+}
 
 function look_proizvod () {
 	    // Существует ли строка POST запроса 'queryString'?
@@ -619,7 +653,7 @@ function add_store(){
         'status' => 0,
         'id_kvitancy' => $this->input->post('id_kvitancy'),
         'update_user' => $this->session->userdata['user_id'],
-        'update_time' => date("j-m-Y, H:i:s"),
+        'update_time' => date("d-m-Y, H:i:s"),
         'id_resp' => $this->session->userdata['user_id'],
         'id_from' => $this->session->userdata['user_id_sc'],
         'id_where' => $this->session->userdata['user_id_sc'],
@@ -642,7 +676,7 @@ function add_store(){
                      <td>' . $this->input->post('cost') . '</td>
                      <td>' . $this->input->post('price') . '</td>
                      <td>' . $this->session->userdata['user_name'] . '</td>
-                     <td>' . date('j-m-Y, H:i:s') . '</td>
+                     <td>' . date('d-m-Y, H:i:s') . '</td>
 
                      <td></td>
                  </tr>';
@@ -896,7 +930,7 @@ function get_store_by_id () {
             $rezult .= '<td>'.$row['cost'].'</td>';
             $rezult .= '<td>'.$row['price'].'</td>';
             $rezult .= '<td>'.$this->session->userdata['user_name'].'</td>';
-            $rezult .= '<td>'.date('j-m-Y').'</td>';
+            $rezult .= '<td>'.date('d-m-Y').'</td>';
             $rezult .= '<td>
             <div class="btn-group margin-bottom-10px">
                  <button name="'.$row['store_id'].'" id="part_dell_'.$row['store_id'].'" class="btn btn-danger">
@@ -938,7 +972,7 @@ function update_ajax_store ()
     //print_r($kvitancy);exit;
     if($kvitancy){
         $data = array(
-            'update_time' => date("j-m-Y, H:i:s"),
+            'update_time' => date("d-m-Y, H:i:s"),
             'update_user' => $this->session->userdata('user_id'),
             'id_kvitancy' => $id_kvitancy,
             'status' => 0,
@@ -961,7 +995,7 @@ function update_ajax_store ()
 
         if($text AND $id){
             $data = array(
-                'update_time' => date("j-m-Y, H:i:s"),
+                'update_time' => date("d-m-Y, H:i:s"),
                 'update_user' => $this->session->userdata('user_id'),
                 'text' => $text,
                 'status' => 0,
@@ -1025,7 +1059,7 @@ function update_ajax_store ()
         /*
         if($price AND $id_kvitancy){
             $data = array(
-                'update_time' => date("j-m-Y, H:i:s"),
+                'update_time' => date("d-m-Y, H:i:s"),
                 'update_user' => $this->session->userdata('user_id'),
                 'full_cost' => $price
             );
@@ -1062,7 +1096,7 @@ function update_ajax_store ()
 
             /*
             $data2 = array(
-                'update_time' => date("j-m-Y, H:i:s"),
+                'update_time' => date("d-m-Y, H:i:s"),
                 'update_user' => $this->session->userdata('user_id'),
                 'full_cost' => $plus,
                 );
@@ -1078,7 +1112,7 @@ function update_ajax_store ()
         /*
         if($price AND $id_kvitancy){
             $data = array(
-                'update_time' => date("j-m-Y, H:i:s"),
+                'update_time' => date("d-m-Y, H:i:s"),
                 'update_user' => $this->session->userdata('user_id'),
                 'full_cost' => $price
             );

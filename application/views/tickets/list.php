@@ -460,7 +460,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                         <?foreach($comments as $rowc)
                                                         {?>
 
-                                                            <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka ' . $rowc['user_name'] . ' пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment']?></b></font>
+                                                            <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka <b>' . $rowc['user_name'] . '</b> пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment']?></b></font>
 
                                                                 <? if ($rowc['id_user'] == $this->session->userdata['user_id'])
                                                                 {?>
@@ -699,9 +699,60 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         </div><!--end remont -->
                 <!--start zapchsti -->
                 <div style="margin-bottom: 20px;" class="tab-pane" id="tab5_<?=$row['id_kvitancy']?>">
-                <span>
-                                        123
-                </span>
+                <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Добавить запчасть</a>
+                <div class="row-fluid hide">
+                    <fieldset id = "parts">
+
+                        <div class="control-group">
+                            <label for="id_proizvod" class="control-label">Производитель</label>
+                            <div class="controls">
+                                <?php echo form_dropdown('id_proizvod_zap', $options_proizvoditel, $row['id_proizvod'], 'id="add_id_proizvod_zap" class="select-container" disabled');?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="id_aparat" class="control-label">Аппарат</label>
+                            <div class="controls">
+                                <?php echo form_dropdown('id_aparat_zap', $options_ap, $row['id_aparat'], 'id="add_id_aparat_zap" title='.$row['id_kvitancy'].' class="select-container" disabled');?>
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="id_aparat_p" class="control-label">Запчасть</label>
+                            <div class="controls">
+                                <? $o_aparat_p =  $this->kvitancy_model->show_aparat_p ($row['id_aparat']);
+
+                                $options_aparat_p = array('' => "Выбрать");
+
+                                foreach ($o_aparat_p as $array) {
+                                    $options_aparat_p[$array['id_aparat_p']] = $array['title'];
+                                }
+                                ?>
+
+                                <?php echo form_dropdown('id_aparat_p_zap', $options_aparat_p, '', 'id="add_id_aparat_p_zap" class="select-container"');?>
+                                <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
+					<span name="aparat_p_span" style="display: none;">
+						<input class="" name="aparat_p_name" id="aparat_p_name_zap" type="text" placeholder="Введите название">
+						<input class="btn btn-mini btn-success margin-bottom-10px" name="submit" id="add_aparat_p_zap" type="button" value="Добавить">
+					</span>
+
+                            </div>
+                        </div>
+
+                        <div class="control-group">
+                            <label for="name" class="control-label">Описание/Название</label>
+                            <div class="controls">
+                                <textarea rows="2" name="name" id="zap_name" value=""></textarea>
+                            </div>
+                        </div>
+
+
+
+                        <div class="form-actions">
+                            <button class="btn btn-primary" type="button" id="zap_add">Добавить</button>
+                        </div>
+                    </fieldset>
+                </div>
 
                 </div><!-- end запчаст  -->
             <div style="margin-bottom: 20px;" class="tab-pane" id="tab6_<?=$row['id_kvitancy']?>">
@@ -750,7 +801,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
     </div>
 
 <div class="row-fluid">
-
+<!--
     <div id="myAlert" class="modal hide">
         <div class="modal-header">
             <button data-dismiss="modal" class="close" type="button">×</button>
@@ -775,7 +826,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
             <a data-dismiss="modal" class="btn" href="#">Отмена</a>
         </div>
     </div>
-
+-->
 
     <!-- Модальное окно d-->
     <div id="modal_form">

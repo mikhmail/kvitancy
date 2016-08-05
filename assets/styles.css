@@ -334,3 +334,7 @@ div.tab-content label {
     font-weight: bold;
 
 }
+
+.tab-content {
+     overflow: visible;
+}
