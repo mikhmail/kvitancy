@@ -16,7 +16,7 @@
 
     <div class="page-header users-header">
         <h2>
-            Касса за текущий месяц.
+            Касса ручная
             <!--<a  href="<?php echo site_url("cash").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
         </h2>
     </div>

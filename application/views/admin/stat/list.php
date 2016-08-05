@@ -13,6 +13,12 @@
 
 </ul>
 
+<div class="page-header users-header">
+    <h2>
+        Статистика
+        <!--<a  href="<?php echo site_url("cash").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
+    </h2>
+</div>
 
 
 <?php
@@ -160,7 +166,7 @@ if(count($count_kvitancys)>=1) {?>
 
 <div class="row-fluid">
 
-    <legend>Найдено <strong><?=$count_kvitancys?></strong> записей на сумму <?echo $summ;?>
+    <legend>Найдено <strong><?=$count_kvitancys?></strong> записей на сумму <strong><?echo $summ;?></strong>
 
         <div class="pagination pull-right">
             <?=$this->pagination->create_links()?>
@@ -192,14 +198,14 @@ if(count($count_kvitancys)>=1) {?>
                 <th class="span2">#</th>
                 <th class="span2">Статус</th>
                 <th class="span3">Аппарат</th>
-                <th class="span3">Неисправность</th>
+                <!--<th class="span3">Неисправность</th>-->
                 <th class="span2">Дата приема</th>
                 <th class="span2">В ремонте/Дата выдачи</th>
                 <th class="span2">Сервис</th>
                 <th class="span2">Запчасти</th>
                 <th class="span2">Работы</th>
                 <th class="span2">Касса</th>
-                <th class="span2">Прибыль</th>
+                <th class="span3">Прибыль</th>
             </tr>
         </table>
     </td>
@@ -218,8 +224,8 @@ if(count($count_kvitancys)>=1) {?>
                 <tr class="chart-bottom-heading">
                     <td class="span2"><span class="label label-info"># <?=$row['id_kvitancy']?></span></td>
                     <td class="span2"><span id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span></td>
-                    <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
-                    <td class="span3"><?=$row['neispravnost']?></td>
+                    <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?> - <?=$row['neispravnost']?></td>
+                    <!--<td class="span3"><?=$row['neispravnost']?></td>-->
                     <td class="span2"><?=$row['date_priemka']?></td>
                     <td class="span2">
                             <?
@@ -272,9 +278,9 @@ if(count($count_kvitancys)>=1) {?>
                             <?}?>
                     </td>
 
-                    <td class="span2">
+                    <td class="span3">
                         <?if(count($store)>0 OR count($work)>0 OR count($cash) >0) {?>
-                        Касса[<?=$pro_cash?>] - запчасти[<?=$sum_store?>] - работы[<?=$sum_work?>] = <?=$pro_cash-$sum_work-$sum_store;?>
+                        Касса[<b><?=$pro_cash?></b>] - Запчасти[<b><?=$sum_store?></b>] - Работы[<b><?=$sum_work?></b>] = <b><?=$pro_cash-$sum_work-$sum_store;?></b>
                     <?}?>
                     </td>
 

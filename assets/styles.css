@@ -280,6 +280,7 @@ body {
     -webkit-box-shadow: 0 0 0 1px #2f96b4;
     box-shadow: 0 0 0 1px #2f96b4;
     margin: 2px;
+    font-weight: bold;
 }
 
 .margin-bottom-10px {
@@ -327,4 +328,9 @@ body {
 
 div.tab-content label {
     font-weight: 600;
+}
+
+.nav-stacked>li.active {
+    font-weight: bold;
+
 }
