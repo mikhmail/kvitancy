@@ -224,6 +224,7 @@ kvitancy.update_time,
 kvitancy.update_user,
 kvitancy.id_responsible,
 kvitancy.full_cost,
+kvitancy.id_where,
 
 
 

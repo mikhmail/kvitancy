@@ -371,14 +371,13 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                     <div class="span3">
                                         <label for="status_<?=$row['id_kvitancy']?>">Статус ремонта</label>
                                         <?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class=""')?>
-
+                                      </div>
+                                    <div class="span3">
                                         <?if ($row['id_mechanic']) {
                                             $id_mechanic_selected = $row['id_mechanic'];
                                         }else{
                                             $id_mechanic_selected='';
                                         }?>
-                                    </div>
-                                    <div class="span3">
                                         <label for="meh_<?=$row['id_kvitancy']?>">Механик</label>
                                         <?=form_dropdown($row['id_kvitancy'], $options_id_meh, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class=""')?>
                                     </div>
@@ -397,6 +396,15 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         }?>
                                         <label for="resp_<?=$row['id_kvitancy']?>">Ответственный</label>
                                         <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_responsible_selected, 'id=resp_' . $row['id_kvitancy'] . ' class=""')?>
+                                    </div>
+                                    <div class="span3">
+                                        <?if ($row['id_where']) {
+                                            $id_where_selected = $row['id_where'];
+                                        }else{
+                                            $id_where_selected='';
+                                        }?>
+                                            <label for="id_where_<?=$row['id_kvitancy']?>">Мастерская (где техника)</label>
+                                            <?=form_dropdown($row['id_kvitancy'], $options_id_sc, $id_where_selected, 'id=id_where_' . $row['id_kvitancy'] . ' class=""')?>
                                     </div>
                                     </div>
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">

@@ -166,6 +166,20 @@ class Ajx extends CI_Controller {
 	}
 
 
+    function change_workroom ($id_where, $id_kvitancy, $update_user=NULL)
+    {
+        $update_user = $this->session->userdata('user_id');
+        $data = array(
+            'id_where' => $id_where,
+            'update_time' => date("j-m-Y, H:i:s"),
+            'update_user' => $update_user
+        );
+
+
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $ret = $this->db->update('kvitancy', $data);
+    }
+
     function change_resp ($id_responsible, $id_kvitancy, $update_user=NULL )
     {
      $update_user = $this->session->userdata('user_id');
@@ -326,7 +340,7 @@ class Ajx extends CI_Controller {
 								   'id_sc' => $this->input->post('id_sc'),
 								   'primechaniya' => $this->clearData($this->input->post('primechaniya')),
 								   'id_where' => $this->input->post('id_where'),
-								   'update_time' => date("Y-m-d H:i:s"),
+								   'update_time' => date("j-m-Y, H:i:s"),
 								   'update_user' => $this->session->userdata['user_id'],
 								   'whereid' => $this->input->post('id_sc')
 								   );

@@ -63,6 +63,24 @@ var id = this.name;
         delete id;
     });
 
+// смена мастерской где техника
+    $('select[id^=id_where_]').change(function(){
+
+        var workroom = $('#'+this.id+' option:selected').val();
+        var id = this.name;
+        $.ajax({
+            url: ""+base_url+"ajx/change_workroom/"+workroom+"/"+id+"",
+            success: function(data) {
+
+                $("#id_where_"+id+"").fadeOut("slow");
+                $("#id_where_"+id+"").fadeIn();
+            }
+        });
+        delete workroom;
+        delete id;
+    });
+
+
 
 // добавить запчасть
     $('button[id^=parts_add_]').click(function(){
