@@ -517,7 +517,7 @@ function add_parts () {
         'id_from' => $this->session->userdata['user_id_sc'],
         'id_where' => $this->session->userdata['user_id_sc'],
         'id_sc' => $this->session->userdata['user_id_sc'],
-        'id_kvitancy' => $this->session->userdata['id_kvitancy'],
+        'id_kvitancy' => $this->input->post('id_kvitancy'),
 
 
     );
@@ -708,22 +708,30 @@ function add_store(){
 
 
 // проверкам аппарат_p на занятость
-    function check_app_p($aparat_p) {
+    function check_app_p($aparat_p, $id_aparat) {
 
 //$sql = Filter::select("SELECT aparat_name FROM aparaty WHERE aparat_name='".mysql_escape_string($app)."'");
         $this->db->select('*');
-        $this->db->from('aparat_p');
-        $this->db->where('title', $aparat_p);
+        $this->db->from('aparaty');
+        $this->db->join('aparat_p', 'aparaty.id_aparat = aparat_p.id_aparat');
+        $this->db->where('aparat_p.title', $aparat_p);
+        $this->db->where('aparaty.id_aparat', $id_aparat);
+
         $query = $this->db->get();
 
+        //$r = $query->result_array();
+
+        //var_dump( $this->db->last_query() );die;
         return $query->result_array();
+
 
     }
 
 //добавить aparat_p
     function add_aparat_p () {
         if ($this->input->post('aparat_p')) {
-            $check_app = $this->check_app_p($this->clearData($this->input->post('aparat_p')));
+            $check_app = $this->check_app_p($this->clearData($this->input->post('aparat_p')), $this->input->post('id_aparat'));
+           //var_dump($check_app);exit;
             if( count($check_app) > 0 ) {
 
                 echo '0';

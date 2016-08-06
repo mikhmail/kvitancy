@@ -701,19 +701,19 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                 <div style="margin-bottom: 20px;" class="tab-pane" id="tab5_<?=$row['id_kvitancy']?>">
                 <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Добавить запчасть</a>
                 <div class="row-fluid hide">
-                    <fieldset id = "parts">
+                    <fieldset id = "parts_<?=$row['id_kvitancy']?>">
 
                         <div class="control-group">
                             <label for="id_proizvod" class="control-label">Производитель</label>
                             <div class="controls">
-                                <?php echo form_dropdown('id_proizvod_zap', $options_proizvoditel, $row['id_proizvod'], 'id="add_id_proizvod_zap" class="select-container" disabled');?>
+                                <?php echo form_dropdown('id_proizvod_zap', $options_proizvoditel, $row['id_proizvod'], 'id="id_proizvod_zap_'.$row['id_kvitancy'].'" class="select-container" disabled');?>
                             </div>
                         </div>
 
                         <div class="control-group">
                             <label for="id_aparat" class="control-label">Аппарат</label>
                             <div class="controls">
-                                <?php echo form_dropdown('id_aparat_zap', $options_ap, $row['id_aparat'], 'id="add_id_aparat_zap" title='.$row['id_kvitancy'].' class="select-container" disabled');?>
+                                <?php echo form_dropdown('id_aparat_zap', $options_ap, $row['id_aparat'], 'id="id_aparat_zap_'.$row['id_kvitancy'].'" title='.$row['id_kvitancy'].' class="select-container" disabled');?>
                             </div>
                         </div>
 
@@ -723,18 +723,21 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                 <? $o_aparat_p =  $this->kvitancy_model->show_aparat_p ($row['id_aparat']);
 
                                 $options_aparat_p = array('' => "Выбрать");
-
+                                if (count($o_aparat_p) > 0) {
                                 foreach ($o_aparat_p as $array) {
                                     $options_aparat_p[$array['id_aparat_p']] = $array['title'];
+                                    }
                                 }
                                 ?>
 
-                                <?php echo form_dropdown('id_aparat_p_zap', $options_aparat_p, '', 'id="add_id_aparat_p_zap" class="select-container"');?>
+                                <?php echo form_dropdown('id_aparat_p_zap', $options_aparat_p, '', 'id="id_aparat_p_zap_'.$row['id_kvitancy'].'" class="select-container"');?>
+
                                 <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
-					<span name="aparat_p_span" style="display: none;">
-						<input class="" name="aparat_p_name" id="aparat_p_name_zap" type="text" placeholder="Введите название">
-						<input class="btn btn-mini btn-success margin-bottom-10px" name="submit" id="add_aparat_p_zap" type="button" value="Добавить">
-					</span>
+
+                                <span name="aparat_p_span" style="display: none;">
+                                    <input class="" name="aparat_p_name" id="add_aparat_p_name_zap_<?=$row['id_kvitancy']?>" type="text" placeholder="Введите название">
+                                    <input class="btn btn-mini btn-success margin-bottom-10px" name=<?=$row['id_kvitancy']?> id="add_aparat_p_button_<?=$row['id_kvitancy']?>" type="button" value="Добавить">
+                                </span>
 
                             </div>
                         </div>
@@ -742,14 +745,14 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                         <div class="control-group">
                             <label for="name" class="control-label">Описание/Название</label>
                             <div class="controls">
-                                <textarea rows="2" name="name" id="zap_name" value=""></textarea>
+                                <textarea rows="2" name="name" id="zap_name_<?=$row['id_kvitancy']?>" value=""></textarea>
                             </div>
                         </div>
 
 
 
                         <div class="form-actions">
-                            <button class="btn btn-primary" type="button" id="zap_add">Добавить</button>
+                            <button class="btn btn-primary" type="button" id="zap_add_<?=$row['id_kvitancy']?>" name="<?=$row['id_kvitancy']?>">Добавить</button>
                         </div>
                     </fieldset>
                 </div>
