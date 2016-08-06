@@ -756,6 +756,52 @@ $('input[id^=save_price_]').click(function(){
 // end of save price
 
 
+// add parts 2 store - добавить запчасть на склад из запчастей.
+    $('[id^=add_2_store_from_parts_]').click(function(){
+
+
+
+        $("[id^='parts_add_2_store_']").find("input,select,textarea").each(function () {
+
+            if ( ! $(this).val() ) { alert ('Надо выбрать значение '+$(this).attr("name")+'.'); $(this).focus(); exit; }
+
+        });
+
+        var id = this.name;
+        //alert(id);exit;
+        var name = $("#name_parts_"+id+"").val();
+        var serial = $("#serial_parts_"+id+"").val();
+        var vid = $("#vid_parts_"+id+"").val();
+        var id_sost = $("#id_sost_parts_"+id+"").val();
+        var cost = $("#cost_parts_"+id+"").val();
+
+
+        if(id && cost && name && id_sost) {
+            $.post(""+base_url+"ajx/add_parts2store", {
+                id:id,
+                name:name,
+                serial:serial,
+                vid:vid,
+                id_sost:id_sost,
+                cost:cost
+            })
+                .done(function(data) {
+                    //alert (data);
+                    if (data == 0) {
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
+                        $("#parts_"+id+"").focus();
+                    } else {
+                        alert('Добавлено!');
+                        $("[id^='parts_add_2_store_']").find("input,select,textarea").each(function () {
+                            $(this).attr('value', '');
+                            location.reload();
+                        });
+                    }
+                });
+        }
+    });
+// end of parts 2 store
+
 
 // add cash
     $('button[id=plus_add]').click(function(){

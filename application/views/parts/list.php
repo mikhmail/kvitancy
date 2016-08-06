@@ -145,8 +145,8 @@ if (count($store) > 0) {//var_dump($store);die;
                     <th class="yellow header headerSortDown">Запчасть</th>
                     <th class="yellow header headerSortDown">Описание</th>
                     <th class="yellow header headerSortDown">Номер квитанции</th>
-                    <th class="yellow header headerSortDown">Статус</th>
-                    <th class="yellow header headerSortDown">Склад</th>
+                    <th class="yellow header headerSortDown">Статус квитанции</th>
+                    <th class="yellow header headerSortDown">Сервис</th>
                     <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Добавлено</th>
 
@@ -160,9 +160,9 @@ if (count($store) > 0) {//var_dump($store);die;
                 <?php
                 foreach($store as $row)
                 {?>
-                   <tr id="store_tr_<?=$row['store_id']?>">
+                   <tr id="parts_tr_<?=$row['store_id']?>">
                     <td><p class="text-center"><?=$row['store_id']?></p></td>
-                    <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> | <strong><?=$row['title']?></strong></td>
+                    <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> => <strong><?=$row['title']?></strong></td>
                     <td><p class="text-center"><?=$row['name']?></p></td>
                        <td><p class="text-center"><?=$row['id_kvitancy']?></p></td>
 
@@ -170,7 +170,7 @@ if (count($store) > 0) {//var_dump($store);die;
                             <?
                             $sost = $this->parts_model->get_sost($row['id_kvitancy']);
                             ?>
-                           
+
                             <span style="background-color:<?=$sost[0]['background']?>" class="label"><?=$sost[0]['name_sost']?></span>
                         </p></td>
 
@@ -202,15 +202,66 @@ if (count($store) > 0) {//var_dump($store);die;
                         ?>
                         </p>
                     </td>
-                    <td><p class="text-center"><?=$row['date_priemka']?> / <?=$row['user_name']?> /  <?=$row['name_sc']?></p></td>
+                    <td><p class="text-center"><?=$row['date_priemka']?> / <?=$row['user_name']?></p></td>
 
-                    <td><p class="text-center">
-                        <? if($row['status'] != 0) echo '
-                    <a id="add_parts2store_'.$row['store_id'].'" class="btn btn-primary">Поставить на склад</a>
+                    <td>
+                        <? if($row['status'] != 0) {?>
 
-                    <a href="'.site_url("parts").'/delete/'.$row['store_id'].'" class="btn btn-danger">Удалить</a>
-                            '; else echo '<a href="'.site_url("parts").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>';?>
-                    </p></td>
+                    <button id="add_parts2store_<?=$row['id_kvitancy']?>" class="btn btn-primary" onclick="anichange(this); return false"><i class="icon-plus icon-white"></i>Поставить на склад</button>
+                        <div class="hide">
+                        <fieldset id="parts_add_2_store_<?=$row['store_id']?>">
+                            <div class="control-group">
+                                <label for="name" class="control-label">Описание/Название</label>
+                                <div class="controls">
+                                    <textarea id="name_parts_<?=$row['store_id']?>" rows="2" name="Название"><?=$row['name']?></textarea>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="inputError" class="control-label">Серийный номер</label>
+                                <div class="controls">
+                                    <input type="text" id="serial_parts_<?=$row['store_id']?>" name="Серийный номер" value="">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="vid" class="control-label">Внешний вид</label>
+                                <div class="controls">
+                                    <input type="text" id="vid_parts_<?=$row['store_id']?>" name="Внешний вид" value="Новый">
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="id_sost" class="control-label">Состояние</label>
+                                <div class="controls">
+                                    <?php
+                                    $options_sost = array('' => "Выбрать", '1' => "Новый",'0' => "БУ");
+                                    echo form_dropdown('Состояние', $options_sost, '', 'id="id_sost_parts_'.$row['store_id'].'"');
+                                    ?>
+                                </div>
+                            </div>
+
+                            <div class="control-group">
+                                <label for="cost" class="control-label">Себестоимость(цена покупки)</label>
+                                <div class="controls">
+                                    <input type="number" step="1" min="0" name="Себестоимость" value="" id="cost_parts_<?=$row['store_id']?>">
+                                </div>
+                            </div>
+
+
+
+                            <div class="form-actions">
+                                <button id="add_2_store_from_parts_<?=$row['store_id']?>" name="<?=$row['store_id']?>" class="btn btn-success" type="submit">Добавить на скдад</button>
+
+                            </div>
+                        </fieldset>
+                        </div>
+
+                        <a href="<?=site_url("parts")?>/delete/<?=$row['store_id']?>" class="btn btn-danger">Удалить</a>
+
+                        <?}
+                            else echo '<a href="'.site_url("parts").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>';?>
+                    </td>
 
 
 

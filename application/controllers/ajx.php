@@ -1135,5 +1135,62 @@ function update_ajax_store ()
     }
 
 
+function add_parts2store ()
+    {
+        $id = $this->input->post('id');
+
+        $this->db->select('*');
+        $this->db->from('parts');
+        $this->db->where('id', $id);
+        $query = $this->db->get();
+
+        $store = $query->result_array();
+
+        $data_to_store = array(
+            'name' => $this->input->post('name'),
+            'id_aparat' => $store[0]["id_aparat"],
+            'id_aparat_p' =>  $store[0]["id_aparat_p"],
+            'id_proizvod' => $store[0]["id_proizvod"],
+            'model' => '',
+            'serial' => $this->input->post('serial'),
+            'vid' => $this->input->post('vid'),
+            'id_sost' => $this->input->post('id_sost'),
+            'user_id' => $this->session->userdata['user_id'],
+            'date_priemka' => date("Y-m-j"),
+            'cost' => $this->input->post('cost'),
+            'price' => $store[0]["price"],
+            'status' => 1,
+
+            'update_user' => $this->session->userdata['user_id'],
+            'update_time' => date("d-m-Y, H:i:s"),
+            'id_resp' => $this->session->userdata['user_id'],
+            'id_from' => $this->session->userdata['user_id_sc'],
+            'id_where' => $this->session->userdata['user_id_sc'],
+            'id_sc' => $this->session->userdata['user_id_sc']
+
+        );
+
+
+        $this->db->insert('store', $data_to_store);
+            if ($this->db->insert_id()) {
+                echo 1;
+
+                $data = array(
+                    'update_time' => date("d-m-Y, H:i:s"),
+                    'update_user' => $this->session->userdata('user_id'),
+                    'status' => 0
+                );
+                $this->db->where('id', $id);
+                $ret = $this->db->update('parts', $data);
+
+            }else{
+                echo 0;
+            };
+
+
+
+    }
+
+
 //end class
 }
