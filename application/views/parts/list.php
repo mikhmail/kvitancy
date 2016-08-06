@@ -142,18 +142,14 @@ if (count($store) > 0) {//var_dump($store);die;
                 <thead>
                 <tr>
                     <th class="header">#</th>
-                    <th class="yellow header headerSortDown">Название</th>
+                    <th class="yellow header headerSortDown">Запчасть</th>
                     <th class="yellow header headerSortDown">Описание</th>
                     <th class="yellow header headerSortDown">Номер квитанции</th>
-                    <th class="yellow header headerSortDown">Внешний вид</th>
-                    <th class="yellow header headerSortDown">Состояние</th>
-
-                    <th class="yellow header headerSortDown">Себестоимость</th>
-                    <th class="yellow header headerSortDown">Цена</th>
+                    <th class="yellow header headerSortDown">Статус</th>
                     <th class="yellow header headerSortDown">Склад</th>
                     <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Добавлено</th>
-                    <th class="yellow header headerSortDown">Обновлено</th>
+
 
 
                     <th class="yellow header headerSortDown">Управление</th>
@@ -168,11 +164,16 @@ if (count($store) > 0) {//var_dump($store);die;
                     <td><p class="text-center"><?=$row['store_id']?></p></td>
                     <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> | <strong><?=$row['title']?></strong></td>
                     <td><p class="text-center"><?=$row['name']?></p></td>
-                    <td><p class="text-center"><?=$row['id_kvitancy']?></p></td>
-                    <td><p class="text-center"><?=$row['vid']?></p></td>
-                    <td><p class="text-center"><? if($row['id_sost'] == 1) echo 'Новый'; else echo 'Б.У.';?></p></td>
-                    <td><p class="text-center"><?=$row['cost']?></p></td>
-                    <td><p class="text-center"><?=$row['price']?></p></td>
+                       <td><p class="text-center"><?=$row['id_kvitancy']?></p></td>
+
+                       <td><p class="text-center">
+                            <?
+                            $sost = $this->parts_model->get_sost($row['id_kvitancy']);
+                            ?>
+                           
+                            <span style="background-color:<?=$sost[0]['background']?>" class="label"><?=$sost[0]['name_sost']?></span>
+                        </p></td>
+
                     <td><p class="text-center">
 
                         <? if ($row['status'] == 0) {
@@ -202,19 +203,13 @@ if (count($store) > 0) {//var_dump($store);die;
                         </p>
                     </td>
                     <td><p class="text-center"><?=$row['date_priemka']?> / <?=$row['user_name']?> /  <?=$row['name_sc']?></p></td>
-                    <td><p class="text-center"><?=$row['update_time']?> / <?
-                        foreach ($users as $rows)
-                        {
-                            if ($rows['id'] == $row['update_user']) echo $rows['user_name'];
-                        }?>
-                        </p>
-                    </td>
+
                     <td><p class="text-center">
                         <? if($row['status'] != 0) echo '
-                    <a id="setup_'.$row['store_id'].'" class="btn btn-primary btn-mini">Списать</a>
-                    <a href="'.site_url("store").'/update/'.$row['store_id'].'" class="btn btn-info btn-mini">Изменить</a>
-                    <a href="'.site_url("store").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>
-                            '; else echo '<a href="'.site_url("store").'/return_store/'.$row['store_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>
+                    <a id="add_parts2store_'.$row['store_id'].'" class="btn btn-primary">Поставить на склад</a>
+
+                    <a href="'.site_url("parts").'/delete/'.$row['store_id'].'" class="btn btn-danger">Удалить</a>
+                            '; else echo '<a href="'.site_url("parts").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>';?>
                     </p></td>
 
 

@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/assets/func.js" afterPath="$PROJECT_DIR$/assets/func.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/parts/list.php" afterPath="$PROJECT_DIR$/application/views/parts/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/parts.php" afterPath="$PROJECT_DIR$/application/controllers/parts.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/parts_model.php" afterPath="$PROJECT_DIR$/application/models/parts_model.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="kvitancy.iws" />
@@ -44,7 +43,7 @@
       <file leaf-file-name="func.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/assets/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="519" column="35" selection-start="17446" selection-end="17446" vertical-scroll-proportion="0.0" vertical-offset="10828" max-vertical-offset="21054">
+            <state line="697" column="22" selection-start="23120" selection-end="23120" vertical-scroll-proportion="-13.533334" vertical-offset="14928" max-vertical-offset="21054">
               <folding />
             </state>
           </provider>
@@ -53,8 +52,10 @@
       <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="737" column="96" selection-start="40535" selection-end="40557" vertical-scroll-proportion="-12.0" vertical-offset="15842" max-vertical-offset="22286">
+            <state line="333" column="44" selection-start="10620" selection-end="10804" vertical-scroll-proportion="-23.35484" vertical-offset="6602" max-vertical-offset="22286">
               <folding>
+                <element signature="n#style#0;n#span#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#2;n#div#4;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#4;n#div#0;n#!!top" expanded="true" />
                 <marker date="1470474094398" expanded="false" signature="13415:13435" placeholder="..." />
                 <marker date="1470474094398" expanded="true" signature="13495:16372" placeholder="..." />
                 <marker date="1470474094398" expanded="true" signature="13552:13867" placeholder="..." />
@@ -193,28 +194,37 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="kvitancy_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="12" column="34" selection-start="262" selection-end="262" vertical-scroll-proportion="-8.5161295" vertical-offset="0" max-vertical-offset="13134">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="parts.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/parts.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="621" column="38" selection-start="19943" selection-end="19943" vertical-scroll-proportion="5.870968" vertical-offset="13844" max-vertical-offset="17842">
+            <state line="18" column="12" selection-start="365" selection-end="400" vertical-scroll-proportion="-12.774194" vertical-offset="0" max-vertical-offset="17842">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ajx.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="ajx.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="710" column="22" selection-start="23321" selection-end="23341" vertical-scroll-proportion="0.11809318" vertical-offset="15511" max-vertical-offset="25168">
+            <state line="783" column="34" selection-start="25458" selection-end="25739" vertical-scroll-proportion="-5.7540984" vertical-offset="16875" max-vertical-offset="25168">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/application/views/parts/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="168" column="77" selection-start="6234" selection-end="6234" vertical-scroll-proportion="-21.290323" vertical-offset="3036" max-vertical-offset="5192">
+            <state line="172" column="27" selection-start="6354" selection-end="6354" vertical-scroll-proportion="0.7156348" vertical-offset="3102" max-vertical-offset="5082">
               <folding />
             </state>
           </provider>
@@ -223,7 +233,7 @@
       <file leaf-file-name="parts_model.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/models/parts_model.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="11" selection-start="2042" selection-end="2115" vertical-scroll-proportion="-17.741936" vertical-offset="1452" max-vertical-offset="7722">
+            <state line="371" column="48" selection-start="8902" selection-end="8902" vertical-scroll-proportion="-11.377049" vertical-offset="7468" max-vertical-offset="8492">
               <folding />
             </state>
           </provider>
@@ -296,12 +306,12 @@
         <option value="$PROJECT_DIR$/application/models/kvitancy_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/application/models/parts_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/parts.php" />
-        <option value="$PROJECT_DIR$/application/views/parts/list.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/assets/func.js" />
+        <option value="$PROJECT_DIR$/application/controllers/parts.php" />
+        <option value="$PROJECT_DIR$/application/models/parts_model.php" />
+        <option value="$PROJECT_DIR$/application/views/parts/list.php" />
       </list>
     </option>
   </component>
@@ -386,6 +396,64 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tickets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -782,11 +850,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="568" column="33" selection-start="14053" selection-end="14079" vertical-scroll-proportion="0.33053514" vertical-offset="12181" max-vertical-offset="13134" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/assets/styles.css">
       <provider selected="true" editor-type-id="text-editor">
         <state line="338" column="22" selection-start="6502" selection-end="6502" vertical-scroll-proportion="0.0" vertical-offset="6527" max-vertical-offset="7590">
@@ -825,24 +888,33 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/parts_model.php">
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="11" selection-start="2042" selection-end="2115" vertical-scroll-proportion="-17.741936" vertical-offset="1452" max-vertical-offset="7722">
+        <state line="697" column="22" selection-start="23120" selection-end="23120" vertical-scroll-proportion="-13.533334" vertical-offset="14928" max-vertical-offset="21054">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/parts/list.php">
+    <entry file="file://$PROJECT_DIR$/application/models/sost_remonta_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="168" column="77" selection-start="6234" selection-end="6234" vertical-scroll-proportion="-21.290323" vertical-offset="3036" max-vertical-offset="5192">
+        <state line="20" column="28" selection-start="379" selection-end="536" vertical-scroll-proportion="0.46758768" vertical-offset="0" max-vertical-offset="3630">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/parts_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="371" column="48" selection-start="8902" selection-end="8902" vertical-scroll-proportion="-11.377049" vertical-offset="7468" max-vertical-offset="8492">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="737" column="96" selection-start="40535" selection-end="40557" vertical-scroll-proportion="-12.0" vertical-offset="15842" max-vertical-offset="22286">
+        <state line="333" column="44" selection-start="10620" selection-end="10804" vertical-scroll-proportion="-23.35484" vertical-offset="6602" max-vertical-offset="22286">
           <folding>
+            <element signature="n#style#0;n#span#0;n#th#0;n#tr#0;n#table#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#1;n#div#2;n#div#4;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#span#0;n#p#0;n#td#1;n#tr#0;n#table#0;n#a#0;n#td#0;n#tr#1;n#table#0;n#div#0;n#div#1;n#div#2;n#div#4;n#div#0;n#!!top" expanded="true" />
             <marker date="1470474094398" expanded="false" signature="13415:13435" placeholder="..." />
             <marker date="1470474094398" expanded="true" signature="13495:16372" placeholder="..." />
             <marker date="1470474094398" expanded="true" signature="13552:13867" placeholder="..." />
@@ -980,23 +1052,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/parts.php">
+    <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="621" column="38" selection-start="19943" selection-end="19943" vertical-scroll-proportion="5.870968" vertical-offset="13844" max-vertical-offset="17842">
+        <state line="12" column="34" selection-start="262" selection-end="262" vertical-scroll-proportion="-8.5161295" vertical-offset="0" max-vertical-offset="13134">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
+    <entry file="file://$PROJECT_DIR$/application/controllers/parts.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="519" column="35" selection-start="17446" selection-end="17446" vertical-scroll-proportion="0.0" vertical-offset="10828" max-vertical-offset="21054">
+        <state line="18" column="12" selection-start="365" selection-end="400" vertical-scroll-proportion="-12.774194" vertical-offset="0" max-vertical-offset="17842">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="710" column="22" selection-start="23321" selection-end="23341" vertical-scroll-proportion="0.11809318" vertical-offset="15511" max-vertical-offset="25168">
+        <state line="783" column="34" selection-start="25458" selection-end="25739" vertical-scroll-proportion="-5.7540984" vertical-offset="16875" max-vertical-offset="25168">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/parts/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="172" column="27" selection-start="6354" selection-end="6354" vertical-scroll-proportion="0.7156348" vertical-offset="3102" max-vertical-offset="5082">
           <folding />
         </state>
       </provider>

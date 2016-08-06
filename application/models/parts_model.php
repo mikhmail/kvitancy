@@ -5,6 +5,7 @@ class Parts_model extends CI_Model {
     public function __construct() { parent::__construct();
 
         $this->load->database();
+        $this->load->model('kvitancy_model');
     }
 
 
@@ -318,7 +319,7 @@ service.name_sc
 
     function delete_store($id){
         $this->db->where('id', $id);
-        $this->db->delete('store');
+        $this->db->delete('parts');
     }
 
     function update_store($id, $data)
@@ -339,6 +340,40 @@ service.name_sc
     {
         if ( $this->db->insert('store', $data) )
                 return $id = $this->db->insert_id();
+    }
+
+    function get_sost ($id_kvitancy) {
+
+        $kvitancy = $this->kvitancy_model->get_kvitancy(
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            '',
+            $id_kvitancy,
+            '',
+            $count = null
+        );
+
+        if($kvitancy){
+
+            $id_sost = $kvitancy[0]['id_sost'];
+
+            $this->db->select('*');
+            $this->db->from('sost_remonta');
+            $this->db->where('id_sost', $id_sost);
+            $query = $this->db->get();
+                return $query->result_array();
+        }
+
     }
 
 
