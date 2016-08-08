@@ -121,6 +121,10 @@
                                         <a href="<?php echo base_url(); ?>store">Склад</a>
                                     </li>
 
+                                    <li <?php if($this->uri->segment(1) == 'parts'){echo 'class="active"';}?>>
+                                        <a href="<?php echo base_url(); ?>parts">Запчасти</a>
+                                    </li>
+
                                     <li <?php if($this->uri->segment(1) == 'cash'){echo 'class="active"';}?>>
                                         <a href="<?php echo base_url(); ?>cash">Касса</a>
                                     </li>

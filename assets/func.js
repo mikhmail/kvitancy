@@ -62,6 +62,27 @@ var id = this.name;
         delete status;
         delete id;
     });
+// end смена ответственный
+
+// смена ответственный в запчастях
+    $('select[id^=parts_resp_]').change(function(){
+
+        var status = $('#'+this.id+' option:selected').val();
+        var id = this.name;
+        //alert(status);exit;
+        $.ajax({
+            url: ""+base_url+"ajx/change_resp_parts/"+status+"/"+id+"",
+            success: function(data) {
+
+                $("#parts_resp_"+id+"").fadeOut("slow");
+                $("#parts_resp_"+id+"").fadeIn();
+            }
+        });
+        delete status;
+        delete id;
+    });
+// end of смена ответственный в запчастях
+
 
 // смена мастерской где техника
     $('select[id^=id_where_]').change(function(){
@@ -679,6 +700,24 @@ $( "#search_user" ).keyup(function() {
 
 
 
+// вывод под каталога аппарата в самой квитанции
+    $("[id^=kvitancy_store_id_aparat_]").change(function(){
+        var id_kvitancy = this.title;
+        //alert (id_kvitancy);exit;
+        $("#kvitancy_store_id_aparat_p_"+id_kvitancy+"").load(""+base_url+"ajx/show_aparat_p", { id_aparat: $("#kvitancy_store_id_aparat_"+id_kvitancy+" option:selected").val() });
+    });
+//end вывод под каталога аппарата в самой квитанции
+
+
+// вывод online store в самое квитанции
+    $("[id^=kvitancy_store_id_aparat_p_]").change(function(){
+        var id_kvitancy = this.title;
+        var id_aparat_p = $(this).find('option:selected').val();
+        //alert (id_aparat_p);exit;
+        $("#store_modal_"+id_kvitancy+"").load(""+base_url+"ajx/show_store", { id_aparat_p:id_aparat_p, id_kvitancy:id_kvitancy  });
+    });
+//end online store в самое квитанции
+
 //chzn select
     $(function() {
         $(".chzn-select").chosen();
@@ -973,6 +1012,7 @@ function fill_proizvod(thisValue) {
 
 function fill_store(store_id, id_kvitancy) {
 
+    if (confirm('Хотите списать эту запчасть? \nНа квитанцию '+id_kvitancy+'?')) {
     $.post(""+base_url+"ajx/get_store_by_id", {
         id:store_id
     })
@@ -994,5 +1034,5 @@ function fill_store(store_id, id_kvitancy) {
                     });
 
         });
-
+    }
 }

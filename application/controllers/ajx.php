@@ -194,7 +194,19 @@ class Ajx extends CI_Controller {
         $ret = $this->db->update('kvitancy', $data);
     }
 
+    function change_resp_parts ($id_responsible, $id, $update_user=NULL )
+    {
+        $update_user = $this->session->userdata('user_id');
+        $data = array(
+            'id_resp' => $id_responsible,
+            'update_time' => date("d-m-Y, H:i:s"),
+            'update_user' => $update_user
+        );
 
+
+        $this->db->where('id', $id);
+        $ret = $this->db->update('parts', $data);
+    }
 
     function update_part ()
     {

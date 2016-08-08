@@ -193,14 +193,24 @@ if (count($store) > 0) {//var_dump($store);die;
                             }?>
 
                     </p></td>
-                    <td><p class="text-center">
-                        <?
-                        foreach ($users as $rows)
-                        {
-                            if ($rows['id'] == $row['id_resp']) echo $rows['user_name'];
-                        }
-                        ?>
-                        </p>
+                    <td>
+                        <div class="span3 text-center">
+                            <?
+                            $options_id_responsible = array('' => "Выбрать ответственного");
+
+                            foreach ($users as $array) {
+                                $options_id_responsible[$array['id']] = $array['user_name'];
+                            }
+
+                            if ($row['id_resp']) {
+                                $id_responsible_selected = $row['id_resp'];
+                            }else{
+                                $id_responsible_selected='';
+                            }?>
+
+                            <?=form_dropdown($row['store_id'], $options_id_responsible, $id_responsible_selected, 'id=parts_resp_' . $row['store_id'] . ' class=""')?>
+                        </div>
+
                     </td>
                     <td><p class="text-center"><?=$row['date_priemka']?> / <?=$row['user_name']?></p></td>
 

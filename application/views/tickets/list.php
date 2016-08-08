@@ -592,7 +592,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             <div class="span10">
                                                 <div class="pull-left">
                                                     <i class="icon-chevron-right icon"></i>
-                                                    <b>Добавить на склад новую запчасть и списать на эту квитанцию</b></div>
+                                                    <b>Мгновенно(!) добавить на склад новую запчасть и списать на эту квитанцию</b></div>
                                             </div>
 
 
@@ -615,34 +615,32 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     <button id="parts_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
                                                 </div>
                                             </div>
-                                            <div class="span8 margin-top-20px margin-bottom-10px">
 
+                                            <div class="span8 margin-top-20px margin-bottom-10px">
                                                 <i class="icon-chevron-right icon"></i>
                                                         <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</a>
                                                         <div class="row-fluid hide">
                                                             <div class="modal-header">
 
-                                                                <h3>Склад</h3>
+                                                        <h3>Склад</h3>
                                                             </div>
                                                             <div class="modal-body">
-                                                                <div class="row-fluid">
-                                                                    <div class="span5">
-                                                                        <?php echo form_dropdown('id_aparat', $options_ap, '', 'id="store_add_id_aparat" class="chzn-select"');?>
-                                                                    </div>
-                                                                    <div class="span5" id="store_select">
-                                                                        <?php echo form_dropdown('id_aparat_p', array('' => "-"), '', 'id="store_add_id_aparat_p" title='.$row['id_kvitancy'].' class="select-container"');?>
-                                                                    </div>
+                                                                    <div class="row-fluid">
+                                                                        <div class="span5">
+                                                                            <?php echo form_dropdown('id_aparat', $options_ap, '', 'id="kvitancy_store_id_aparat_'.$row['id_kvitancy'].'" title='.$row['id_kvitancy'].' class="chzn-select"');?>
+                                                                        </div>
+                                                                        <div class="span5" id="kvitancy_store_select_<?=$row['id_kvitancy']?>">
+                                                                            <?php echo form_dropdown('id_aparat_p', array('' => "-"), '', 'id="kvitancy_store_id_aparat_p_'.$row['id_kvitancy'].'" title='.$row['id_kvitancy'].' class="select-container"');?>
+                                                                        </div>
 
-                                                                </div>
-                                                                <div class="row-fluid" id="store_modal">
-
+                                                                    </div>
+                                                                    <div class="row-fluid" id="store_modal_<?=$row['id_kvitancy']?>">
                                                                 </div>
                                                             </div>
-
                                                         </div>
-
-
                                             </div>
+
+
                                             <div class="span10">
                                                 <div class="pull-left"><b>Установленные запчасти</b></div>
                                             </div>
@@ -743,7 +741,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                         </div>
 
                         <div class="control-group">
-                            <label for="name" class="control-label">Описание/Название</label>
+                            <label for="name" class="control-label">Описание/Название/Маркировка</label>
                             <div class="controls">
                                 <textarea rows="2" name="name" id="zap_name_<?=$row['id_kvitancy']?>" value=""></textarea>
                             </div>
@@ -756,6 +754,55 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                         </div>
                     </fieldset>
                 </div>
+
+                    <div class="row-fluid">
+                        <div class="span10">
+                            <div class="pull-left"><b>Заказанные запчасти</b></div>
+                        </div>
+                        <table table table-bordered table-condensed id="table_parts_<?=$row['id_kvitancy']?>">
+                            <thead>
+                            <tr>
+                                <th>Название</th>
+                                <th>Описание</th>
+
+                                <th>Ответственный</th>
+                                <th>Дата</th>
+                                <th>Статус</th>
+
+
+                            </tr>
+                            </thead>
+
+                            <?
+                            $store = $this->kvitancy_model->get_parts($row['id_kvitancy']);
+
+                            if(count($store)>0){
+                                foreach($store as $parts){
+                                    $user = $this->users_model->get_users_by_id ($parts['id_resp']);
+                                    $aparat_p = $this->kvitancy_model->get_aparat_p_by_id ($parts['id_aparat_p']);
+                                    ?>
+                                    <tr id="part_tr_<?=$parts['id']?>">
+                                        <td><?=$aparat_p[0]['title']?></td>
+                                        <td><?=$parts['name']?></td>
+
+                                        <td><?=$user[0]['user_name']?></td>
+                                        <td><?=$parts['date_priemka']?></td>
+
+                                        <td>
+                                            <? if ($parts['status'] == 1) {
+                                                ?><span class="label label-success">Актуально</span><?
+                                            }else{
+                                                ?><span class="label">Не актуально</span><?
+                                            }?>
+                                        </td>
+
+
+
+                                    </tr>
+                                <?}}?>
+
+                        </table>
+                    </div>
 
                 </div><!-- end запчаст  -->
             <div style="margin-bottom: 20px;" class="tab-pane" id="tab6_<?=$row['id_kvitancy']?>">
