@@ -727,14 +727,14 @@ class Parts extends CI_Controller {
             //form validation
             $this->form_validation->set_rules('name', 'name', 'required');
             $this->form_validation->set_rules('id_aparat', 'id_aparat', 'required|numeric');
-            //$this->form_validation->set_rules('id_aparat_p', 'id_aparat_p', 'required|numeric');
+            $this->form_validation->set_rules('id_aparat_p', 'id_aparat_p', 'required|numeric');
             $this->form_validation->set_rules('id_proizvod', 'id_proizvod', 'required|numeric');
-            $this->form_validation->set_rules('id_sost', 'id_sost', 'required|numeric');
-            $this->form_validation->set_rules('cost', 'cost', 'required|numeric');
-            $this->form_validation->set_rules('price', 'price', 'required|numeric');
+            //$this->form_validation->set_rules('id_sost', 'id_sost', 'required|numeric');
+            //$this->form_validation->set_rules('cost', 'cost', 'required|numeric');
+            //$this->form_validation->set_rules('price', 'price', 'required|numeric');
             $this->form_validation->set_rules('id_resp', 'id_resp', 'required|numeric');
-            $this->form_validation->set_rules('id_where', 'id_where', 'required|numeric');
-            $this->form_validation->set_rules('count', 'count', 'required|numeric');
+            //$this->form_validation->set_rules('id_where', 'id_where', 'required|numeric');
+            //$this->form_validation->set_rules('count', 'count', 'required|numeric');
 
 
 
@@ -749,13 +749,13 @@ class Parts extends CI_Controller {
                     'id_aparat_p' => $this->input->post('id_aparat_p'),
                     'id_proizvod' => $this->input->post('id_proizvod'),
                     'model' => '',
-                    'serial' => $this->input->post('serial'),
-                    'vid' => $this->input->post('vid'),
-                    'id_sost' => $this->input->post('id_sost'),
+                    'serial' => '',
+                    'vid' => '',
+                    'id_sost' => '',
                     'user_id' => $this->session->userdata['user_id'],
                     'date_priemka' => date("Y-m-j"),
-                    'cost' => $this->input->post('cost'),
-                    'price' => $this->input->post('price'),
+                    'cost' => '',
+                    'price' => '',
                     'status' => 1,
 
                     'update_user' => $this->session->userdata['user_id'],
@@ -767,12 +767,9 @@ class Parts extends CI_Controller {
 
                 );
 
-                $count =  $this->input->post('count');
-                if($count>=1) {
-                    for($i=1;$i<=$count;$i++) {
-                        $id = $this->parts_model->add_store($data_to_store);
-                    }
-                }
+
+
+               $id = $this->parts_model->add_store($data_to_store);
 
 
                 if($id == TRUE){
@@ -782,7 +779,7 @@ class Parts extends CI_Controller {
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }
-                redirect('store');
+                redirect('parts');
 
             }//validation run
 
@@ -796,7 +793,7 @@ class Parts extends CI_Controller {
         $data['aparat'] = $this->aparaty_model->get_aparaty();
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
         //load the view
-        $data['main_content'] = 'store/add';
+        $data['main_content'] = 'parts/add';
         $this->load->view('includes/template', $data);
 
     }//add

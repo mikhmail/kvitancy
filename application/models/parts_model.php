@@ -338,7 +338,7 @@ service.name_sc
 
     function add_store($data)
     {
-        if ( $this->db->insert('store', $data) )
+        if ( $this->db->insert('parts', $data) )
                 return $id = $this->db->insert_id();
     }
 

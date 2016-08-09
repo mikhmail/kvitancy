@@ -25,6 +25,7 @@
       $attributes = array('class' => 'form-signin');
       echo form_open(base_url(). 'login/validate_credentials', $attributes);
       echo '<h2 class="form-signin-heading">Please sign in</h2>';
+      ?><p>Login: admin, password: admin</p><?
       echo form_input('user_name', '', 'placeholder="Username"');
       echo form_password('password', '', 'placeholder="Password"');?>
 
