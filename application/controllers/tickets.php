@@ -117,7 +117,8 @@ class Tickets extends CI_Controller
                 'id_sc' => '',
                 'id_kvitancy' => '',
                 'id_remonta' => '',
-                'id_responsible' => ''
+                'id_responsible' => '',
+                'id_where' => '',
 
             );
             }
@@ -144,6 +145,8 @@ class Tickets extends CI_Controller
             $id_kvitancy = $this->input->post("id_kvitancy");
             $id_remonta = $this->input->post("id_remonta");
             $id_responsible = $this->input->post("id_responsible");
+            $id_where = $this->input->post("id_where");
+
 
 
             // SEARCH
@@ -324,6 +327,18 @@ class Tickets extends CI_Controller
             $data['id_responsible_selected'] = $id_responsible;
             // end ID_resp
 
+            // ID_where
+            if ($this->input->post("id_where")) {
+                $filter_session_data['id_where'] = $id_where;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_where = $this->session->userdata('id_where');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $id_where = '';
+            }
+            $data['id_where_selected'] = $id_where;
+            // end ID_where
 
             // ID_SC
             switch ($this->session->userdata('id_group')) {
@@ -381,6 +396,7 @@ class Tickets extends CI_Controller
                 $id_kvitancy,
                 $id_remonta,
                 $id_responsible,
+                $id_where,
                 1
             );
 
@@ -402,6 +418,7 @@ class Tickets extends CI_Controller
                 $id_kvitancy,
                 $id_remonta,
                 $id_responsible,
+                $id_where,
                 $count = null
             );
 
@@ -430,7 +447,9 @@ class Tickets extends CI_Controller
                 'id_sc' => '',
                 'id_kvitancy' => '',
                 'id_remonta' => '',
-                'id_responsible' => ''
+                'id_responsible' => '',
+                'id_where' => ''
+
 
             );
 
@@ -453,6 +472,8 @@ class Tickets extends CI_Controller
             $data["id_kvitancy_selected"] = '';
             $data["id_remonta_selected"] = '';
             $data["id_responsible_selected"] = '';
+            $data["id_where_selected"] = '';
+
             //end pre selected options
 
             // $var for select to db
@@ -472,6 +493,8 @@ class Tickets extends CI_Controller
             $id_kvitancy = null;
             $id_remonta = null;
             $id_responsible = null;
+            $id_where = null;
+
 
             /*WHAT USER SEE? */
 
@@ -513,6 +536,7 @@ class Tickets extends CI_Controller
                 $id_kvitancy,
                 $id_remonta,
                 $id_responsible,
+                $id_where,
                 1
             );
             // end fetch count kvitancys from db
@@ -535,6 +559,7 @@ class Tickets extends CI_Controller
                 $id_kvitancy,
                 $id_remonta,
                 $id_responsible,
+                $id_where,
                 $count = null
             );
 
@@ -560,7 +585,7 @@ class Tickets extends CI_Controller
         $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
 
-        $data['users'] = $this->users_model->get_users('', '', '', '', '', '');
+        $data['users'] = $this->users_model->get_users('', '', '', '', '', '', '');
 
         $data['aparats'] = $this->kvitancy_model->get_kvitancy(
                             $search_string = null,
@@ -579,6 +604,7 @@ class Tickets extends CI_Controller
                             $id_kvitancy = null,
                             $id_remonta = null,
                             $id_responsible = null,
+                            $id_where=null,
                             $count = null
         );
 
@@ -644,7 +670,7 @@ class Tickets extends CI_Controller
                 }
 
 
-                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
+                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', 2);
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
@@ -682,7 +708,7 @@ class Tickets extends CI_Controller
     }
 
     //index
-
+/*
     public function view()
     {
 
@@ -884,7 +910,7 @@ class Tickets extends CI_Controller
         $this->load->view('includes/template', $data);
     }
 
-
+*/
     /**
      * Update item by his id
      * @return void

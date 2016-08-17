@@ -97,16 +97,11 @@ service.name_sc
         //$this->db->join('membership', 'store.id_mechanic = membership.id');
 
 
+
+
         if($search_string){
 
-            if ($id_sc != null){
-                $this->db->where('store.id_sc', $id_sc);
-            }
-
-
-                $this->db->where('store.status', 1);
-
-
+            $this->db->where('store.status', 1);
 
             $where = "(store.model LIKE '%$search_string%' OR store.name LIKE '%$search_string%' OR store.serial LIKE '%$search_string%')";
 
@@ -131,9 +126,7 @@ service.name_sc
         elseif ($id_kvitancy) {
 
 
-            if ($id_sc != null){
-                $this->db->where('store.id_sc', $id_sc);
-            }
+
             $this->db->where('store.id_kvitancy', $id_kvitancy);
 
             $query = $this->db->get();
@@ -155,9 +148,7 @@ service.name_sc
             }
 
 
-        if ($id_sc != null){
-            $this->db->where('store.id_sc', $id_sc);
-        }
+
         if ($id_aparat != null){
             $this->db->where('store.id_aparat', $id_aparat);
         }
@@ -198,6 +189,10 @@ service.name_sc
             $this->db->order_by('store.id', $order_type);
         }
 
+        if ($id_sc != null){
+            $this->db->where('store.id_sc', $id_sc);
+        }
+
 
         if ($count OR $summ) {$limit_start= null; $limit_end=null;
         }else {
@@ -212,7 +207,7 @@ service.name_sc
 
 
         $query = $this->db->get();
-        //return($this->db->last_query());exit;
+        //echo $this->db->last_query();exit;
 
         if ($query->num_rows() > 0) {
             if ($count) {return $query->num_rows(); }

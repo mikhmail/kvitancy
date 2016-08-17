@@ -59,8 +59,17 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class=""');
 
             ?>
-
             <?
+            $options_id_where = array('' => "Выбрать где-техника");
+
+            foreach ($sc as $array) {
+                $options_id_where[$array['id_sc']] = $array['name_sc'];
+            }
+            echo form_dropdown('id_where', $options_id_where, $id_where_selected, 'class=""');
+
+            ?>
+
+    <?
             $options_id_meh = array('' => "Выбрать механика");
 
             foreach ($meh as $array) {
@@ -367,7 +376,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                 </ul>
                                 <div class="tab-content">
                                     <div style="margin-bottom: 20px;" class="tab-pane active" id="tab1_<?=$row['id_kvitancy']?>">
-
+                                        <table class="table table-bordered table-condensed"><tbody><tr><td>
                                     <div class="span3">
                                         <label for="status_<?=$row['id_kvitancy']?>">Статус ремонта</label>
                                         <?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class=""')?>
@@ -406,6 +415,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             <label for="id_where_<?=$row['id_kvitancy']?>">Мастерская (где техника)</label>
                                             <?=form_dropdown($row['id_kvitancy'], $options_id_sc, $id_where_selected, 'id=id_where_' . $row['id_kvitancy'] . ' class=""')?>
                                     </div>
+                                            </td></tr></tbody></table>
                                     </div>
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab2_<?=$row['id_kvitancy']?>">
                                         <table class="table table-bordered table-condensed">

@@ -29,9 +29,7 @@ class Store extends CI_Controller {
 
 
 
-        if (!$this->users_model->is_admin($this->session->userdata('user_name'))) {
-            redirect('admin/login');
-        }
+       
     }
 
     public function index()
@@ -607,16 +605,51 @@ class Store extends CI_Controller {
 
         $this->pagination->initialize($config);
 
+        /*Что видит юзер id_group */
+        switch ($this->session->userdata('id_group')) {
+            case 1: // админ
+
+                $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', '');
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', '');
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
+                $data["id_sc_selected"] = '';
+                break;
+
+
+            case 2: // приемщик
+
+                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+                break;
+
+
+            case 3: // инженер
+
+                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+                break;
+
+            default: //мало ли кто еще :)
+
+                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+        }
+
+        /* END Что видит юзер id_group */
+
         //load the view
         $data['order'] = 'id_kvitancy';
-
         $data['ap'] = $this->aparaty_model->get_aparaty();
-        $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
-        $data['users'] = $this->users_model->get_users('', '', '', '', '', '');
-        $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
-
-
+        //$data['users'] = $this->users_model->get_users('', '', '', '', '', '');
+        //$data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+        //$data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
 
         /*Загрузка шаблона*/
         $data['main_content'] = 'store/list';
@@ -686,7 +719,7 @@ class Store extends CI_Controller {
                     'cost' => $this->input->post('cost'),
                     'price' => $this->input->post('price'),
                     'id_resp' => $this->input->post('id_resp'),
-                    'id_where' => $this->input->post('id_where'),
+                    'id_sc' => $this->input->post('id_where'),
                     'serial' => $this->input->post('serial'),
                     'vid' => $this->input->post('vid')
                 );
@@ -762,8 +795,8 @@ class Store extends CI_Controller {
                     'update_time' => date("j-m-Y, H:i:s"),
                     'id_resp' => $this->session->userdata['user_id'],
                     'id_from' => $this->session->userdata['user_id_sc'],
-                    'id_where' => $this->session->userdata['user_id_sc'],
-                    'id_sc' => $this->session->userdata['user_id_sc']
+                    'id_where' => $this->input->post('id_where'),
+                    'id_sc' => $this->input->post('id_where')
 
                 );
 
@@ -788,11 +821,49 @@ class Store extends CI_Controller {
 
         }
 
+        /*Что видит юзер id_group */
+        switch ($this->session->userdata('id_group')) {
+            case 1: // админ
+
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', '');
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
+                $data["id_sc_selected"] = '';
+                break;
+
+
+            case 2: // приемщик
+
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '','',$this->session->userdata('user_id_sc'));
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+                break;
+
+
+            case 3: // инженер
+
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '','',$this->session->userdata('user_id_sc'));
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+                break;
+
+            default: //мало ли кто еще :)
+
+                $data['resp'] = $this->users_model->get_users('', '', '', '', '','',$this->session->userdata('user_id_sc'));
+                $data['users'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
+                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+        }
+
+        /* END Что видит юзер id_group */
+
 
 
         //product data
-        $data['sc'] = $this->service_centers_model->get_service_centers();
-        $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
+        //$data['sc'] = $this->service_centers_model->get_service_centers();
+        //$data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
         $data['aparat'] = $this->aparaty_model->get_aparaty();
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
         //load the view

@@ -198,6 +198,7 @@ public function get_kvitancy(
 							$id_kvitancy=null,
 							$id_remonta=null,
                             $id_responsible=null,
+							$id_where=null,
 							$count=null
 							)
     {
@@ -340,6 +341,9 @@ service.rab_sc
 		if ($id_sc != null){
 					$this->db->where('kvitancy.id_sc', $id_sc);
 				}
+		if ($id_where != null){
+			$this->db->where('kvitancy.id_where', $id_where);
+		}
 		if ($id_aparat != null){
 					$this->db->where('kvitancy.id_aparat', $id_aparat);
 				}

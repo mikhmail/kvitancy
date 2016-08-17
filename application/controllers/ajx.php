@@ -341,21 +341,23 @@ class Ajx extends CI_Controller {
 								   'id_proizvod' => $this->input->post('id_proizvod'),
 								   'model' => $this->clearData($this->input->post('model')),
 								   'ser_nomer' => $this->clearData($this->input->post('ser_nomer')),
+                                   'id_remonta' => $this->input->post('id_remonta'),
 								   'neispravnost' => $this->clearData($this->input->post('neispravnost')),
+                                   'vid' => $this->clearData($this->input->post('vid')),
 								   'komplektnost' => $this->clearData($this->input->post('komplektnost')),
 								   'date_priemka' => $date = date("Y-m-d"),
 								   'date_okonchan' => '',
 								   'date_vydachi' => '',
 								   'id_sost' => 1,
-								   'vid' => $this->clearData($this->input->post('vid')),
-								   'id_remonta' => $this->input->post('id_remonta'),
 								   'id_sc' => $this->input->post('id_sc'),
 								   'primechaniya' => $this->clearData($this->input->post('primechaniya')),
-								   'id_where' => $this->input->post('id_where'),
 								   'update_time' => date("d-m-Y, H:i:s"),
 								   'update_user' => $this->session->userdata['user_id'],
-								   'whereid' => $this->input->post('id_sc')
-								   );
+                                   'id_where' => $this->input->post('id_sc'),
+                                    'id_responsible' => $this->session->userdata['user_id']
+
+
+                    );
 		
 					
 					if ( $this->db->insert('kvitancy', $data_kvit) )
@@ -433,7 +435,9 @@ function look_apparat () {
                 '',
                 $id_kvitancy,
                 '',
-                $count = null
+                '',
+
+        $count = null
             );
 
             // Если длинна строки больше чем 0? Там что то есть
@@ -825,6 +829,25 @@ function show_store () {
             $id_aparat_p = $this->input->post('id_aparat_p');
             $id_kvit = $this->input->post('id_kvitancy');
 
+            switch ($this->session->userdata('id_group')) {
+                case 1: // админ
+                    $id_sc = null;
+                    break;
+
+
+                case 2: // приемщик
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+
+                case 3: // инженер
+                    $id_sc = $this->session->userdata('user_id_sc');
+                    break;
+
+                default:
+                    $id_sc = $this->session->userdata('user_id_sc');
+            }
+
             $store = $this->store_model->get_store (
                     $search_string=null,
                     $order=null,
@@ -834,7 +857,7 @@ function show_store () {
                     $start_date=null,
                     $end_date=null,
                     $id_aparat=null,
-                    $id_aparat_p = $id_aparat_p,
+                    $id_aparat_p,
                     $id_proizvod=null,
 
                     $id_sost=null,
@@ -842,7 +865,7 @@ function show_store () {
                     $id_resp=null,
 
                     $id_where=null,
-                    $id_sc=null,
+                    $id_sc,
 
                     $id_kvitancy=null,
                     $status=1,
@@ -901,7 +924,7 @@ foreach($store as $row)
     $sc = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
     foreach ($sc as $rows)
     {
-        if ($rows['id_sc'] == $row['id_where']) $id_where = $rows['name_sc'];
+        if ($rows['id_sc'] == $row['id_sc']) $id_where = $rows['name_sc'];
     }
 
     $users = $this->users_model->get_users('', '', '', '', '', '', '');
@@ -987,6 +1010,8 @@ function update_ajax_store ()
         '',
         $id_kvitancy,
         '',
+        '',
+
         $count = null
     );
     //print_r($kvitancy);exit;
@@ -1052,6 +1077,8 @@ function update_ajax_store ()
             '',
             $id_kvitancy,
             '',
+            '',
+
             $count = null
         );
         //print_r($kvitancy[0]['id_sc']);exit;

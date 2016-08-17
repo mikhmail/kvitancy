@@ -186,7 +186,7 @@ if (count($store) > 0) {//var_dump($store);die;
 
                                 foreach ($sc as $rows)
                                 {
-                                    if ($rows['id_sc'] == $row['id_where']) echo $rows['name_sc'];
+                                    if ($rows['id_sc'] == $row['id_sc']) echo $rows['name_sc'];
                                 }
 
                             }?>
@@ -210,11 +210,29 @@ if (count($store) > 0) {//var_dump($store);die;
                         </p>
                     </td>
                     <td><p class="text-center">
-                        <? if($row['status'] != 0) echo '
-                    <a id="setup_'.$row['store_id'].'" class="btn btn-primary btn-mini">Списать</a>
-                    <a href="'.site_url("store").'/update/'.$row['store_id'].'" class="btn btn-info btn-mini">Изменить</a>
-                    <a href="'.site_url("store").'/delete/'.$row['store_id'].'" class="btn btn-danger btn-mini">Удалить</a>
-                            '; else echo '<a href="'.site_url("store").'/return_store/'.$row['store_id'].'" class="btn btn-info btn-mini">Вернуть на склад</a>';?>
+                        <?
+                        if($row['status'] != 0) {
+                            if ($this->session->userdata('id_group') == 2) {
+                                echo '
+                    <a id="setup_' . $row['store_id'] . '" class="btn btn-primary btn-mini">Списать</a>
+                    <a href="' . site_url("store") . '/update/' . $row['store_id'] . '" class="btn btn-info btn-mini">Изменить</a>
+                            ';
+
+                            } elseif ($this->session->userdata('id_group') == 1){
+                                echo '
+                    <a id="setup_' . $row['store_id'] . '" class="btn btn-primary btn-mini">Списать</a>
+                    <a href="' . site_url("store") . '/update/' . $row['store_id'] . '" class="btn btn-info btn-mini">Изменить</a>
+                    <a href="' . site_url("store") . '/delete/' . $row['store_id'] . '" class="btn btn-danger btn-mini">Удалить</a>
+                            ';
+                            }else{
+                                echo '
+                    <a id="setup_' . $row['store_id'] . '" class="btn btn-primary btn-mini">Списать</a>
+                            ';
+                            }
+                        }
+                        else
+                            echo '<a href="' . site_url("store") . '/return_store/' . $row['store_id'] . '" class="btn btn-info btn-mini">Вернуть на склад</a>';
+                        ?>
                     </p></td>
 
 
