@@ -330,25 +330,7 @@ class Works extends CI_Controller {
 
 
             // ID_SC
-            switch ($this->session->userdata('id_group')) {
-                case 1: // админ
-                    $id_sc = $this->input->post("id_sc");
-                    break;
 
-
-                case 2: // приемщик
-                    $id_sc = $this->session->userdata('user_id_sc');
-                    break;
-
-
-                case 3: // инженер
-                    $id_sc = $this->session->userdata('user_id_sc');
-                    break;
-
-                default:
-                    $id_sc = $this->session->userdata('user_id_sc');
-
-            }
 
             if ($id_sc) {
                 $filter_session_data['id_sc'] = $id_sc;
@@ -476,26 +458,7 @@ class Works extends CI_Controller {
             $id_sc = '';
             $summ=null;
 
-            /*WHAT USER SEE? */
-
-            switch ($this->session->userdata('id_group')) {
-                case 1: // админ
-                    $id_sc = $this->input->post("id_sc");
-                    break;
-
-
-                case 2: // приемщик
-                    $id_sc = $this->session->userdata('user_id_sc');
-                    break;
-
-
-                case 3: // инженер
-                    $id_sc = $this->session->userdata('user_id_sc');
-                    break;
-
-                default:
-                    $id_sc = $this->session->userdata('user_id_sc');
-            }
+           
 
             /*WHAT USER SEE? */
 
@@ -516,7 +479,8 @@ class Works extends CI_Controller {
                 'id_aparat' => '',
                 'id_aparat_p' => '',
                 'id_proizvod' => '',
-                'id_kvitancy' => ''
+                'id_kvitancy' => '',
+                'id_sc' => ''
 
             );
 

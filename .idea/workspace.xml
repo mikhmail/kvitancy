@@ -2,16 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="33fea846-9bed-46b0-8ce2-012440c2000d" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/ajx.php" afterPath="$PROJECT_DIR$/application/controllers/ajx.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/parts.php" afterPath="$PROJECT_DIR$/application/controllers/parts.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/store.php" afterPath="$PROJECT_DIR$/application/controllers/store.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/tickets.php" afterPath="$PROJECT_DIR$/application/controllers/tickets.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/kvitancy_model.php" afterPath="$PROJECT_DIR$/application/models/kvitancy_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/models/store_model.php" afterPath="$PROJECT_DIR$/application/models/store_model.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/admin/groups/list.php" afterPath="$PROJECT_DIR$/application/views/admin/groups/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/store/list.php" afterPath="$PROJECT_DIR$/application/views/store/list.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/views/tickets/list.php" afterPath="$PROJECT_DIR$/application/views/tickets/list.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/application/controllers/works.php" afterPath="$PROJECT_DIR$/application/controllers/works.php" />
     </list>
     <ignored path="kvitancy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -33,69 +24,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file leaf-file-name="tickets.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <file leaf-file-name="works.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/controllers/works.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="474" column="27" selection-start-line="474" selection-start-column="27" selection-end-line="474" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ajx.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="516">
-              <caret line="355" column="77" selection-start-line="355" selection-start-column="77" selection-end-line="355" selection-end-column="77" />
-              <folding>
-                <marker date="1471450849215" expanded="true" signature="6808:7065" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="11724:11957" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="11998:12186" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="14501:14734" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="14775:14963" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="18644:18877" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="18918:19106" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="20349:20582" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="20601:20941" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="20624:20812" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="22902:23433" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="28440:28935" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="28464:28922" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="28485:28897" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="31664:31955" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="31719:31937" ph="..." />
-                <marker date="1471450849215" expanded="true" signature="31832:31918" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="func.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/assets/func.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="448">
-              <caret line="408" column="7" selection-start-line="408" selection-start-column="7" selection-end-line="408" selection-end-column="7" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="kvitancy_model.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="419" column="27" selection-start-line="419" selection-start-column="13" selection-end-line="419" selection-end-column="27" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="list.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-21421">
-              <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+            <state relative-caret-position="-912">
+              <caret line="460" column="11" selection-start-line="460" selection-start-column="11" selection-end-line="460" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -137,6 +70,7 @@
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
+        <option value="$PROJECT_DIR$/application/controllers/works.php" />
       </list>
     </option>
   </component>
@@ -240,6 +174,38 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -350,7 +316,7 @@
       <workItem from="1471435481668" duration="80000" />
       <workItem from="1471435605914" duration="4014000" />
       <workItem from="1471443312407" duration="39000" />
-      <workItem from="1471443849881" duration="6781000" />
+      <workItem from="1471443849881" duration="7135000" />
     </task>
     <task id="LOCAL-00001" summary="Сделал backup">
       <created>1471435952906</created>
@@ -363,7 +329,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="25038000" />
+    <option name="totallyTimeSpent" value="25392000" />
   </component>
   <component name="TodoView" selected-index="0">
     <todo-panel id="selected-file">
@@ -448,13 +414,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/models/stat_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="225" column="48" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/parts/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -781,6 +740,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-21421">
+          <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/kvitancy_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="442">
@@ -789,10 +756,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="474" column="27" selection-start-line="474" selection-start-column="27" selection-end-line="474" selection-end-column="27" />
+        <state relative-caret-position="448">
+          <caret line="408" column="7" selection-start-line="408" selection-start-column="7" selection-end-line="408" selection-end-column="7" />
           <folding />
         </state>
       </provider>
@@ -823,18 +790,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
+    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="448">
-          <caret line="408" column="7" selection-start-line="408" selection-start-column="7" selection-end-line="408" selection-end-column="7" />
+        <state relative-caret-position="504">
+          <caret line="474" column="27" selection-start-line="474" selection-start-column="27" selection-end-line="474" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+    <entry file="file://$PROJECT_DIR$/application/controllers/works.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-21421">
-          <caret line="65" column="33" selection-start-line="65" selection-start-column="33" selection-end-line="65" selection-end-column="33" />
+        <state relative-caret-position="-912">
+          <caret line="460" column="11" selection-start-line="460" selection-start-column="11" selection-end-line="460" selection-end-column="11" />
           <folding />
         </state>
       </provider>
