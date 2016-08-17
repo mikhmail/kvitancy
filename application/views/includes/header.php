@@ -61,83 +61,188 @@
                             </ul>
                         </li>
                     </ul>
-                    <? if ($this->session->userdata('id_group') == 1) {?>
-                    <ul class="nav">
-                         <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Меню <b class="caret"></b></a>
-                                <ul class="dropdown-menu">
+                    <?
 
-                                    <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>tickets">Заявки</a>
-                                    </li>
+                        switch ($this->session->userdata('id_group')) {
+                        case 1: // админ
+                        ?>
+                            <ul class="nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Меню <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
 
-                                    <li <?php if($this->uri->segment(2) == 'users'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/users">Пользователи</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>tickets">Заявки</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'groups'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/groups">Роли</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'users'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/users">Пользователи</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'devices'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/devices">Аппараты</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'groups'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/groups">Роли</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'brands'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/brands">Производители</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'devices'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/devices">Аппараты</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'status'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/status">Состояния ремонта</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'brands'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/brands">Производители</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'types'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/types">Виды ремонта</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'status'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/status">Состояния ремонта</a>
+                                        </li>
+
+                                        <li <?php if($this->uri->segment(2) == 'types'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/types">Виды ремонта</a>
+                                        </li>
 
 
-                                    <li <?php if($this->uri->segment(2) == 'service_centers'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/service_centers">Сервисные центры</a>
-                                    </li>
-
+                                        <li <?php if($this->uri->segment(2) == 'service_centers'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/service_centers">Сервисные центры</a>
+                                        </li>
+                                        <!--
                                     <li <?php if($this->uri->segment(2) == 'cities'){echo 'class="active"';}?>>
                                         <a href="<?php echo base_url(); ?>admin/cities">Города</a>
                                     </li>
+                                    -->
+                                        <li <?php if($this->uri->segment(2) == 'clients'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/clients">Клиенты</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(2) == 'clients'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/clients">Клиенты</a>
-                                    </li>
-
-                                    <li <?php if($this->uri->segment(2) == 'comments'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/comments">Комментарии</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'comments'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/comments">Комментарии</a>
+                                        </li>
 
 
-                                    <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>admin/tickets">Заявки-Админ</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/tickets">Заявки-Админ</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(1) == 'store'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>store">Склад</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(1) == 'store'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>store">Склад</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(1) == 'parts'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>parts">Запчасти</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(1) == 'parts'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>parts">Запчасти</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(1) == 'cash'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>cash">Касса</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(1) == 'cash'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>cash">Касса</a>
+                                        </li>
 
-                                    <li <?php if($this->uri->segment(1) == 'stat'){echo 'class="active"';}?>>
-                                        <a href="<?php echo base_url(); ?>stat">Статистика</a>
-                                    </li>
+                                        <li <?php if($this->uri->segment(1) == 'stat'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>stat">Статистика</a>
+                                        </li>
 
-                                </ul>
-                            </li>
+                                        <li <?php if($this->uri->segment(1) == 'backup'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>backup">Резервная копия</a>
+                                        </li>
 
-                        </ul>
-                    <?}?>
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                            <?
+                        break;
+
+
+                        case 2: // приемщик
+                            ?>
+                            <ul class="nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Меню <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>tickets">Заявки</a>
+                                        </li>
+
+
+                                        <li <?php if($this->uri->segment(2) == 'devices'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/devices">Аппараты</a>
+                                        </li>
+
+                                        <li <?php if($this->uri->segment(2) == 'brands'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>admin/brands">Производители</a>
+                                        </li>
+
+
+
+                                        <li <?php if($this->uri->segment(1) == 'store'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>store">Склад</a>
+                                        </li>
+
+                                        <li <?php if($this->uri->segment(1) == 'parts'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>parts">Запчасти</a>
+                                        </li>
+
+                                        <li <?php if($this->uri->segment(1) == 'cash'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>cash">Касса</a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                            <?
+                        break;
+
+
+                        case 3: // инженер
+                            ?>
+                            <ul class="nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Меню <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+
+                                        <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>tickets">Заявки</a>
+                                        </li>
+
+
+                                        <li <?php if($this->uri->segment(1) == 'store'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>store">Склад</a>
+                                        </li>
+
+                                        <li <?php if($this->uri->segment(1) == 'parts'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>parts">Запчасти</a>
+                                        </li>
+
+
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                            <?
+                        break;
+
+                        default:
+                            ?>
+                            <ul class="nav">
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Меню <b class="caret"></b></a>
+                                    <ul class="dropdown-menu">
+                                        <li <?php if($this->uri->segment(2) == 'tickets'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>tickets">Заявки</a>
+                                        </li>
+                                    </ul>
+                                </li>
+
+                            </ul>
+
+                            <?
+
+                        }
+                    ?>
+
+
                 </div>
                 <!--/.nav-collapse -->
             </div>

@@ -175,5 +175,8 @@ $route['stat/update/(:any)'] = 'stat/update/$1';
 $route['stat/delete/(:any)'] = 'stat/delete/$1';
 $route['stat/(:any)'] = 'stat/index'; //$1 = page number
 
+
+$route['backup/(:any)'] = 'backup/index/$1'; //$1 = page number
+
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

@@ -106,7 +106,7 @@ class Login extends CI_Controller {
         $remember = $this->input->post('remember');
 		if($remember)
 		{
-        $data['new_expiration'] = 60*60*24*30;//30 days
+        $data['new_expiration'] = 60*60*24*3;//3 days
         $this->session->sess_expiration = $data['new_expiration'];
 		}
 			//var_dump($data);die;
