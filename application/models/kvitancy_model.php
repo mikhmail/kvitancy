@@ -278,6 +278,7 @@ service.rab_sc
                 $this->db->where('kvitancy.id_sc', $id_sc);
             }
 
+
             $where = "(kvitancy.model LIKE '%$search_string%' OR user.phone LIKE '%$search_string%' OR user.fam LIKE '%$search_string%')";
 
             $this->db->where($where);
@@ -380,7 +381,7 @@ service.rab_sc
         
 		
 	$query = $this->db->get();
-		//return($this->db->last_query());die;
+		//echo ($this->db->last_query());die;
 		
 		if ($query->num_rows() > 0) {
 			if ($count) {return $query->num_rows(); }

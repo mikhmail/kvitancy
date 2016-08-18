@@ -100,6 +100,10 @@ service.name_sc
 
 
         if($search_string){
+            
+            if ($id_sc != null){
+                $this->db->where('store.id_sc', $id_sc);
+            }
 
             $this->db->where('store.status', 1);
 
@@ -125,7 +129,9 @@ service.name_sc
 
         elseif ($id_kvitancy) {
 
-
+            if ($id_sc != null){
+                $this->db->where('store.id_sc', $id_sc);
+            }
 
             $this->db->where('store.id_kvitancy', $id_kvitancy);
 

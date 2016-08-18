@@ -62,7 +62,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             <?
             $options_id_where = array('' => "Выбрать где-техника");
 
-            foreach ($sc as $array) {
+            foreach ($where as $array) {
                 $options_id_where[$array['id_sc']] = $array['name_sc'];
             }
             echo form_dropdown('id_where', $options_id_where, $id_where_selected, 'class=""');
@@ -411,9 +411,15 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             $id_where_selected = $row['id_where'];
                                         }else{
                                             $id_where_selected='';
-                                        }?>
+                                        }
+                                        if ($this->session->userdata('id_group') == 3){
+                                            $disabled= 'disabled';
+                                        }else{
+                                            $disabled='';
+                                        }
+                                        ?>
                                             <label for="id_where_<?=$row['id_kvitancy']?>">Мастерская (где техника)</label>
-                                            <?=form_dropdown($row['id_kvitancy'], $options_id_sc, $id_where_selected, 'id=id_where_' . $row['id_kvitancy'] . ' class=""')?>
+                                            <?=form_dropdown($row['id_kvitancy'], $options_id_where, $id_where_selected, 'id=id_where_' . $row['id_kvitancy'] . ' class="" ' . $disabled . '')?>
                                     </div>
                                             </td></tr></tbody></table>
                                     </div>

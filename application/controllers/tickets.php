@@ -327,18 +327,20 @@ class Tickets extends CI_Controller
             $data['id_responsible_selected'] = $id_responsible;
             // end ID_resp
 
+            // ID_sc
+           if ($this->uri->segment(2)) {
+                $id_sc = $this->session->userdata('id_sc');
+            }
+            $data['id_sc_selected'] = $id_sc;
+            // end ID_SC
+
             // ID_where
-            if ($this->input->post("id_where")) {
-                $filter_session_data['id_where'] = $id_where;
-            } //we have something stored in the session?
-            elseif ($this->uri->segment(2)) {
+           if ($this->uri->segment(2)) {
                 $id_where = $this->session->userdata('id_where');
-            } else {
-                //if we have nothing inside session, so it's the default "Asc"
-                $id_where = '';
             }
             $data['id_where_selected'] = $id_where;
             // end ID_where
+
 
             // ID_SC
             switch ($this->session->userdata('id_group')) {
@@ -348,19 +350,107 @@ class Tickets extends CI_Controller
 
 
                 case 2: // приемщик
-                    $id_sc = $this->session->userdata('user_id_sc');
+
+                    if (!$id_where AND !$id_sc) {
+                             $id_where = $this->session->userdata('user_id_sc');
+
+                    }elseif ($id_where AND $id_sc) {
+                        if ($id_where == $this->session->userdata('user_id_sc') AND $id_sc != $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = $this->input->post("id_where");
+
+                        }elseif ($id_where != $this->session->userdata('user_id_sc') AND $id_sc == $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = $this->input->post("id_where");
+
+                        }elseif ($id_where == $this->session->userdata('user_id_sc') AND $id_sc == $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = $this->input->post("id_where");
+
+                        }elseif ($id_where != $this->session->userdata('user_id_sc') AND $id_sc != $this->session->userdata('user_id_sc')) {
+                            $id_where = $this->session->userdata('user_id_sc');
+                            $id_sc = '';
+                        }
+
+                    }elseif (!$id_where AND $id_sc) {
+                        if ($id_sc == $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = '';
+
+                        }else{
+                            $id_sc = '';
+                            $id_where = $this->session->userdata('user_id_sc');
+                        }
+
+                    }elseif ($id_where AND !$id_sc) {
+                        if ($id_where == $this->session->userdata('user_id_sc')) {
+                            $id_where = $this->input->post("id_where");
+                            $id_sc = '';
+
+                        }else{
+                            $id_sc = '';
+                            $id_where = $this->session->userdata('user_id_sc');
+                        }
+                    }
+
                     break;
 
 
                 case 3: // инженер
-                    $id_sc = $this->session->userdata('user_id_sc');
+
+                    $id_mechanic = $this->session->userdata('user_id');
+
+                    if (!$id_where AND !$id_sc) {
+                        $id_where = $this->session->userdata('user_id_sc');
+
+                    }elseif ($id_where AND $id_sc) {
+                        if ($id_where == $this->session->userdata('user_id_sc') AND $id_sc != $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = $this->input->post("id_where");
+
+                        }elseif ($id_where != $this->session->userdata('user_id_sc') AND $id_sc == $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = $this->input->post("id_where");
+
+                        }elseif ($id_where == $this->session->userdata('user_id_sc') AND $id_sc == $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = $this->input->post("id_where");
+
+                        }elseif ($id_where != $this->session->userdata('user_id_sc') AND $id_sc != $this->session->userdata('user_id_sc')) {
+                            $id_where = $this->session->userdata('user_id_sc');
+                            $id_sc = '';
+                        }
+
+                    }elseif (!$id_where AND $id_sc) {
+                        if ($id_sc == $this->session->userdata('user_id_sc')) {
+                            $id_sc = $this->input->post("id_sc");
+                            $id_where = '';
+
+                        }else{
+                            $id_sc = '';
+                            $id_where = $this->session->userdata('user_id_sc');
+                        }
+
+                    }elseif ($id_where AND !$id_sc) {
+                        if ($id_where == $this->session->userdata('user_id_sc')) {
+                            $id_where = $this->input->post("id_where");
+                            $id_sc = '';
+
+                        }else{
+                            $id_sc = '';
+                            $id_where = $this->session->userdata('user_id_sc');
+                        }
+                    }
+
                     break;
 
                 default:
-                    $id_sc = $this->session->userdata('user_id_sc');
+
+                    break;
 
             }
 
+            // ID_sc
             if ($id_sc) {
                 $filter_session_data['id_sc'] = $id_sc;
             } //we have something stored in the session?
@@ -371,6 +461,19 @@ class Tickets extends CI_Controller
             $data['id_sc_selected'] = $id_sc;
             // end ID_SC
 
+            // ID_where
+            if ($id_where) {
+                $filter_session_data['id_where'] = $id_where;
+
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $id_where = $this->session->userdata('id_where');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $id_where = '';
+            }
+            $data['id_where_selected'] = $id_where;
+            // end ID_where
 
             //save session data into the session
             if (isset($filter_session_data)) {
@@ -422,6 +525,26 @@ class Tickets extends CI_Controller
                 $count = null
             );
 
+            $data['aparats'] = $this->kvitancy_model->get_kvitancy(
+                $search_string = null,
+                $order = 'aparat.aparat_name',
+                $order_type = 'Asc',
+                $limit_start = null,
+                $limit_end = null,
+                $date,
+                $start_date,
+                $end_date,
+                $id_mechanic,
+                $id_aparat,
+                $id_proizvod,
+                $id_sost = $sost_in_remont,
+                $id_sc,
+                $id_kvitancy = null,
+                $id_remonta,
+                $id_responsible,
+                $id_where,
+                $count = null
+            );
 
             $config['total_rows'] = $data['count_kvitancys'];
 
@@ -464,7 +587,7 @@ class Tickets extends CI_Controller
             $data['date_selected'] = 'date_priemka';
             $data['start_date'] = ''; // date("d")
             $data['end_date'] = date("Y-m-d");
-            //$data["id_sc_selected"] = '';
+            $data["id_sc_selected"] = '';
             $data["id_mechanic_selected"] = '';
             $data["id_proizvod_selected"] = '';
             $data["id_aparat_selected"] = '';
@@ -505,12 +628,17 @@ class Tickets extends CI_Controller
 
 
                 case 2: // приемщик
-                    $id_sc = $this->session->userdata('user_id_sc');
+                    $id_sc = '';
+                    $id_where = $this->session->userdata('user_id_sc');
                     break;
 
 
                 case 3: // инженер
-                    $id_sc = $this->session->userdata('user_id_sc');
+                    $id_sc='';
+                    //$id_sc = $this->session->userdata('user_id_sc');
+                    //$id_mechanic = $this->session->userdata('user_id');
+                    $id_mechanic = $this->session->userdata('user_id');
+                    $id_where = $this->session->userdata('user_id_sc');
                     break;
 
                 default:
@@ -563,6 +691,28 @@ class Tickets extends CI_Controller
                 $count = null
             );
 
+            $data['aparats'] = $this->kvitancy_model->get_kvitancy(
+                $search_string = null,
+                $order = 'aparat.aparat_name',
+                $order_type = 'Asc',
+                $limit_start = null,
+                $limit_end = null,
+                $date,
+                $start_date,
+                $end_date,
+                $id_mechanic,
+                $id_aparat,
+                $id_proizvod,
+                $id_sost = $sost_in_remont,
+                $id_sc,
+                $id_kvitancy = null,
+                $id_remonta,
+                $id_responsible,
+                $id_where,
+                $count = null
+            );
+
+
 
 
         } //end else if POST
@@ -587,26 +737,6 @@ class Tickets extends CI_Controller
 
         $data['users'] = $this->users_model->get_users('', '', '', '', '', '', '');
 
-        $data['aparats'] = $this->kvitancy_model->get_kvitancy(
-                            $search_string = null,
-                            $order = 'aparat.aparat_name',
-                            $order_type = 'Asc',
-                            $limit_start = null,
-                            $limit_end = null,
-                            $date = null,
-                            $start_date = null,
-                            $end_date = null,
-                            $id_mechanic = null,
-                            $id_aparat = null,
-                            $id_proizvod = null,
-                            $id_sost = $sost_in_remont,
-                            $id_sc,
-                            $id_kvitancy = null,
-                            $id_remonta = null,
-                            $id_responsible = null,
-                            $id_where=null,
-                            $count = null
-        );
 
         /*Что видит юзер id_group */
         switch ($this->session->userdata('id_group')) {
@@ -627,7 +757,8 @@ class Tickets extends CI_Controller
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', '');
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
-                $data["id_sc_selected"] = '';
+
+                $data['where'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
             break;
 
 
@@ -649,8 +780,9 @@ class Tickets extends CI_Controller
 
                 $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
-                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
-                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+                //$data["id_where_selected"] = $this->session->userdata('user_id_sc');
+                $data['where'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
             break;
 
 
@@ -670,32 +802,15 @@ class Tickets extends CI_Controller
                 }
 
 
-                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', 2);
+                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
-                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+                $data["id_mechanic_selected"] = $this->session->userdata('user_id');
+                $data['where'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
                 break;
 
             default: //мало ли кто еще :)
-
-
-                if($this->session->userdata('show_my_tickets') == 1) {
-                    $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                } else {
-                    $data['my_kvitancy'] = array();
-                }
-
-                if($this->session->userdata('show_call_tickets') == 1) {
-                    $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat($this->session->userdata('user_id_sc'));
-                } else {
-                    $data['soglasovat'] = array();
-                }
-
-
-                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','',$this->session->userdata('user_id_sc'));
-                $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
-                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
-                $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
+                break;
         }
 
         /* END Что видит юзер id_group */
