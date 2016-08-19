@@ -273,7 +273,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
             <div class="row-fluid">
 
-                <legend>Найдено <strong><?=$count_kvitancys?></strong>
+                <legend>Показано <?=$start?> - <?=$end?> из <strong><?=$count_kvitancys?></strong>
 
                     <div class="pagination pull-right">
                         <?=$this->pagination->create_links()?>

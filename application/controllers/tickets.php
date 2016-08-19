@@ -46,13 +46,13 @@ class Tickets extends CI_Controller
 
         $page = $this->uri->segment(2);
         //pagination settings
-        $config['per_page'] = 20;
+        $config['per_page'] = 25;
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
         $config['display_pages'] = TRUE;
         $config['uri_segment'] = 2;
         $config['first_url'] = '1';
-        //$config['num_links'] = 10;
+        $config['num_links'] = 2;
         //$config['display_pages'] = TRUE;
 
         $config['full_tag_open'] = '<ul>';
@@ -378,7 +378,7 @@ class Tickets extends CI_Controller
                             $id_where = '';
 
                         }else{
-                            $id_sc = '';
+                            $id_sc = $this->input->post("id_sc");
                             $id_where = $this->session->userdata('user_id_sc');
                         }
 
@@ -387,9 +387,9 @@ class Tickets extends CI_Controller
                             $id_where = $this->input->post("id_where");
                             $id_sc = '';
 
-                        }else{
-                            $id_sc = '';
-                            $id_where = $this->session->userdata('user_id_sc');
+                        }else{ // что наход в другом сц но из моего сц
+                            $id_sc = $this->session->userdata('user_id_sc'); // ставим свой сц
+                            $id_where = $this->input->post("id_where"); // и чужое место
                         }
                     }
 
@@ -427,7 +427,7 @@ class Tickets extends CI_Controller
                             $id_where = '';
 
                         }else{
-                            $id_sc = '';
+                            $id_sc = $this->input->post("id_sc");
                             $id_where = $this->session->userdata('user_id_sc');
                         }
 
@@ -436,9 +436,9 @@ class Tickets extends CI_Controller
                             $id_where = $this->input->post("id_where");
                             $id_sc = '';
 
-                        }else{
-                            $id_sc = '';
-                            $id_where = $this->session->userdata('user_id_sc');
+                        }else{ // что наход в другом сц но из моего сц
+                            $id_sc = $this->session->userdata('user_id_sc'); // ставим свой сц
+                            $id_where = $this->input->post("id_where"); // и чужое место
                         }
                     }
 
@@ -481,6 +481,8 @@ class Tickets extends CI_Controller
             }
 
 
+
+
             //fetch sql data into arrays
             $data['count_kvitancys'] = $this->kvitancy_model->get_kvitancy(
                 $search_string,
@@ -502,6 +504,15 @@ class Tickets extends CI_Controller
                 $id_where,
                 1
             );
+
+            $data['end'] = $page*$config['per_page'];
+
+            $data['start'] = $data['end'] - $config['per_page'];
+                if ($data['start'] == 0)  {$data['start'] = 1;}
+
+
+                if ($data['end'] > $data['count_kvitancys']) {$data['end'] = $data['count_kvitancys'];}
+
 
             $data['kvitancys'] = $this->kvitancy_model->get_kvitancy(
 
@@ -547,6 +558,7 @@ class Tickets extends CI_Controller
             );
 
             $config['total_rows'] = $data['count_kvitancys'];
+
 
 
         } // !end--------------------------POST------------------------------------- //
@@ -646,6 +658,7 @@ class Tickets extends CI_Controller
             }
 
 
+
             //fetch count kvitancys from db
             $data['count_kvitancys'] = $this->kvitancy_model->get_kvitancy(
                 $search_string,
@@ -667,7 +680,15 @@ class Tickets extends CI_Controller
                 $id_where,
                 1
             );
-            // end fetch count kvitancys from db
+
+
+            $data['start'] = ($limit_start+$limit_end)-$limit_start;
+            if ($date['start'] == 0)  {$data['start'] = 1;}
+
+            $data['end'] = $limit_start+$limit_end;
+            if ($data['end'] > $data['count_kvitancys']) {$data['end'] = $data['count_kvitancys'];}
+
+
 
             //fetch kvitancys from db
             $data['kvitancys'] = $this->kvitancy_model->get_kvitancy(
@@ -714,14 +735,10 @@ class Tickets extends CI_Controller
 
 
 
-
         } //end else if POST
 
         $config['total_rows'] = $data['count_kvitancys'];
         $this->pagination->initialize($config);
-
-
-        //var_dump($this->session->userdata);die;test
 
 
 
@@ -760,7 +777,6 @@ class Tickets extends CI_Controller
 
                 $data['where'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
             break;
-
 
             case 2: // приемщик
 
