@@ -14,8 +14,17 @@
 | path to your installation.
 |
 */
-//$config['base_url']	= 'http://ciadm';
 
+require FCPATH.'/config.php';
+
+$config['per_page'] = $tickets_per_page;
+
+if ($config['per_page'] <1) {
+    $config['per_page'] = 20;
+}
+
+
+/*DONT change! */
 $config['base_url']	= "http://".$_SERVER['HTTP_HOST'].str_replace( str_replace("\\", "/", $_SERVER['DOCUMENT_ROOT']), '', str_replace("\\", "/", str_replace(SELF, '', FCPATH)) );
 
 

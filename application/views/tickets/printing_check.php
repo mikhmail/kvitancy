@@ -37,7 +37,7 @@ $data   = array(
 				$sc[0]["rab_sc"],
 				$sc[0]["site"],
 				$sc[0]["mail_sc"],
-				$manufacture[0]["nomer_kvitancy"],
+				$manufacture[0]["id_kvitancy"],
 				$aparat[0]["aparat_name"],
 				$proizvod[0]["name_proizvod"],
 				$manufacture[0]["model"],

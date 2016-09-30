@@ -1,5 +1,6 @@
 <?php
 
+
 /*
  *---------------------------------------------------------------
  * APPLICATION ENVIRONMENT
@@ -34,6 +35,7 @@ if (defined('ENVIRONMENT'))
 	{
 		case 'development':
 			error_reporting(E_ALL);
+			ini_set('display_errors', 1);
 		break;
 	
 		case 'testing':
@@ -224,8 +226,43 @@ unset($base_url);
  * And away we go...
  *
  */
-require_once BASEPATH.'core/CodeIgniter.php';
 
+////////////////////////INSTALL///////////////////////////////////
+$install = FCPATH . 'install';
+require FCPATH.'/config.php';
+
+$mysqli = new mysqli("$hostname", "$username", "$password", "$database");
+
+
+// check connection details
+	if($mysqli->connect_errno)
+	{
+		?>
+		<p>Unable to connect to the database</p>
+		<p>Check database settings in /config.php</p>
+		<p>Or goto: <a href="<?echo BASE_URL.'/install';?>">install</a></p>
+		
+		<?
+		//header('Location: '. BASE_URL.'/install');
+		exit;
+		
+	}
+	
+
+	elseif (file_exists($install)) {
+			echo 'Delete Install folder ' . $install;
+			echo "<script language='JavaScript' type='text/javascript'>alert('Delete Install folder')</script>";
+			exit;
+		} 
+	
+	
+	
+	///////////////END INSTALL//////////////////////////////////////
+		
+		
+
+
+require_once BASEPATH.'core/CodeIgniter.php';
 
 /* End of file index.php */
 /* Location: ./index.php */

@@ -130,6 +130,9 @@ class CI_Loader {
 		$this->_ci_view_paths = array(APPPATH.'views/'	=> TRUE);
 
 		log_message('debug', "Loader Class Initialized");
+		
+		
+	
 	}
 
 	// --------------------------------------------------------------------

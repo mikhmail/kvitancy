@@ -1,15 +1,16 @@
 <?php  if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
+require FCPATH.'/config.php';
 
 // The following values will probably need to be changed.
-$db['default']['username'] = "root";
-$db['default']['password'] = "";
-$db['default']['database'] = "kvitancy";
-
+$db['default']['username'] = $username;
+$db['default']['password'] = $password;
+$db['default']['database'] = $database;
+$db['default']['hostname'] = $hostname;
 
 
 // The following values can probably stay the same.
-$db['default']['hostname'] = "localhost";
+
 $db['default']['dbdriver'] = "mysqli"; //Updated to latest driver.
 $db['default']['dbprefix'] = "";
 $db['default']['pconnect'] = TRUE;

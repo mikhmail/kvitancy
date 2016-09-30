@@ -46,7 +46,8 @@ class Tickets extends CI_Controller
 
         $page = $this->uri->segment(2);
         //pagination settings
-        $config['per_page'] = 25;
+        //$config['per_page'] = 20;
+        $config['per_page'] = $this->config->item('per_page');
         $config['base_url'] = base_url() . 'tickets/';
         $config['use_page_numbers'] = TRUE;
         $config['display_pages'] = TRUE;
@@ -505,13 +506,22 @@ class Tickets extends CI_Controller
                 1
             );
 
-            $data['end'] = $page*$config['per_page'];
+            if ($page !=0) {
+                $data['end'] = $page*$config['per_page'];
+            }else{
+                $data['end'] = $config['per_page'];
+            }
 
             $data['start'] = $data['end'] - $config['per_page'];
-                if ($data['start'] == 0)  {$data['start'] = 1;}
+            if ($data['start'] <= 0 )  {$data['start'] = 1;}
 
+            if ($data['count_kvitancys'] <= $data['end']) {
+                $data['end'] = $data['count_kvitancys'];
+            }
 
-                if ($data['end'] > $data['count_kvitancys']) {$data['end'] = $data['count_kvitancys'];}
+            if ($data['count_kvitancys'] == 1) {
+                $data['end'] = 1;
+            }
 
 
             $data['kvitancys'] = $this->kvitancy_model->get_kvitancy(
@@ -682,11 +692,13 @@ class Tickets extends CI_Controller
             );
 
 
-            $data['start'] = ($limit_start+$limit_end)-$limit_start;
-            if ($date['start'] == 0)  {$data['start'] = 1;}
+            $data['end'] = $page*$config['per_page'];
+                $data['start'] = $data['end'] - $config['per_page'];
+                    if ($data['start'] <= 0 )  {$data['start'] = 1;}
+                    if ($data['end'] > $data['count_kvitancys']) {$data['end'] = $data['count_kvitancys'];}
+                    if ($data['end'] <= 0 ) {$data['end'] = $config['per_page'];}
 
-            $data['end'] = $limit_start+$limit_end;
-            if ($data['end'] > $data['count_kvitancys']) {$data['end'] = $data['count_kvitancys'];}
+
 
 
 

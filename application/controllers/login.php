@@ -9,48 +9,14 @@ class Login extends CI_Controller {
 		
 	function index()
 	{
-
-		$install = FCPATH . 'install';
-			
-		include(APPPATH.'config/database'.EXT);
-		$dbname = $db['default']['database'];
-		$user = $db['default']['username'];
-		$pwd = $db['default']['password'];
-		$host = $db['default']['hostname'];
-
-		$dsn = "mysqli://$user:$pwd@$host/$dbname";
-		 
-	// Load database and dbutil
-		$this->load->database($dsn);
-		$this->load->dbutil();
- 
-	// check connection details
-	if(! $this->dbutil->database_exists($dbname))
-	{
-		// if connection details incorrect show error
-		//echo 'Incorrect database information provided IN ' . APPPATH.'config/database'.EXT;
-		//echo "<script language='JavaScript' type='text/javascript'>alert('Incorrect database information provided')</script>";
-		//echo "<script language='JavaScript' type='text/javascript'>window.location.replace('/install')</script>";
-		redirect(BASE_URL . 'install');
-		exit;
 		
-	}
-	
 
-	elseif (file_exists($install)) {
-			echo 'Delete Install folder ' . $install;
-			echo "<script language='JavaScript' type='text/javascript'>alert('Delete Install folder')</script>";
-			exit;
-		} 
-	
-	
-	else {
 			if($this->session->userdata('is_logged_in')){
 				redirect('tickets');
 				}else{
 					$this->load->view('login');	
 					}
-		}
+		
 
 	}
 
