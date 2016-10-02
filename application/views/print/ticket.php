@@ -1,6 +1,17 @@
 <div class="container top">
 
+    <ul class="breadcrumb">
+        <li>
+            <a href="<?php echo site_url("printing"); ?>">
+                <?php echo ucfirst($this->uri->segment(1));?>
+            </a>
+            <span class="divider">/</span>
+        </li>
 
+        <a href="#">
+            <?php echo ucfirst($this->uri->segment(2));?>
+        </a>
+    </ul>
 
     <div class="page-header">
         <h2>

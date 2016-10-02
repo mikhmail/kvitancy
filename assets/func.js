@@ -946,12 +946,28 @@ var objName = $(obj).next();
 function anichange_kvitancy (obj) {
     var objName = $(obj).next();
     var objPrev = $(obj).prev();
+    var tr = $(obj).parent().parent();
+    //console.log(tr);exit
     if ( $(objName).css('display') == 'none' ) {
+
              $(objName).animate({height: 'show'}, 400);
              $(obj).css('font-weight','bold');
+
+
+        $(tr).siblings().each(function() {
+            $(tr).css('opacity','1');
+            $(this).css('opacity','0.2');
+        });
+
+
     } else {
+
         $(objName).animate({height: 'hide'}, 200);
         $(obj).css('font-weight','normal');
+        $(tr).siblings().each(function() {
+            $(this).css('opacity','1');
+        });
+
 
     }
 }
