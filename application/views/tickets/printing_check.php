@@ -2,10 +2,12 @@
 <?
 
 
-$htm = 'print_check.htm';
+//$htm = 'print_check.htm';
 
-// меняем в шаблоне значение переменных
-$html  = file_get_contents('print_check.htm');
+// пїЅпїЅпїЅпїЅпїЅпїЅ пїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
+//$html  = file_get_contents('print_check.htm');
+$html = strip_slashes($text->value);
+
 $search = array(
 				"[name_sc]",
 				"[adres_sc]",

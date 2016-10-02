@@ -47,6 +47,7 @@ class Kvitancy_model extends CI_Model {
 		
 		$this->db->select('*');
 		$this->db->from('kvitancy');
+		$this->db->join('vid_remonta', 'kvitancy.id_remonta = vid_remonta.id_remonta');
 		$this->db->where('id_kvitancy', $id);
 		$query = $this->db->get();
 		

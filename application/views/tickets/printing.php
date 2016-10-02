@@ -2,8 +2,9 @@
 <?
 
 
-$htm = 'print_kvitancy.htm';
-$html  = file_get_contents($htm);
+//$htm = 'print_kvitancy.htm';
+//$html  = file_get_contents($htm);
+$html = strip_slashes($text->value);
 $search = array(
 				"[name_sc]",
 				"[adres_sc]",
@@ -40,7 +41,7 @@ $data   = array(
 				$proizvod[0]["name_proizvod"],
 				$manufacture[0]["model"],
 				$manufacture[0]["ser_nomer"],
-				$manufacture[0]["id_remonta"],
+				$manufacture[0]["name_remonta"],
 				$manufacture[0]["date_priemka"],
 				$manufacture[0]["neispravnost"],
 				$manufacture[0]["vid"],

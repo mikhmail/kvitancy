@@ -140,7 +140,9 @@
                                         <li <?php if($this->uri->segment(1) == 'backup'){echo 'class="active"';}?>>
                                             <a href="<?php echo base_url(); ?>backup">Резервная копия</a>
                                         </li>
-
+                                        <li <?php if($this->uri->segment(1) == 'printing'){echo 'class="active"';}?>>
+                                            <a href="<?php echo base_url(); ?>printing">Шаблоны</a>
+                                        </li>
                                     </ul>
                                 </li>
 

@@ -1175,8 +1175,8 @@ class Tickets extends CI_Controller
         if ($id) {
         //if we are updating, and the data did not pass trough the validation
         //the code below wel reload the current data
-
-
+            $this->load->model('print_model');
+            $data['text'] = $this->print_model->get_ticket();
         //product data 
         $data['manufacture'] = $this->kvitancy_model->get_kvitancy_by_id($id);
 
@@ -1206,7 +1206,8 @@ class Tickets extends CI_Controller
         //if we are updating, and the data did not pass trough the validation
         //the code below wel reload the current data
 
-
+        $this->load->model('print_model');
+        $data['text'] = $this->print_model->get_check();
         //product data 
         $data['manufacture'] = $this->kvitancy_model->get_kvitancy_by_id($id);
 
