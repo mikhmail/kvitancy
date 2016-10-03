@@ -46,6 +46,11 @@
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>profile">Профиль</a>
                                 </li>
+                                <?if($this->session->userdata('id_group') == 1){?>
+                                <li>
+                                    <a tabindex="-1" href="<?php echo base_url(); ?>settings">Настройки</a>
+                                </li>
+                                <?}?>
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>works">Мои ремонты</a>
                                 </li>

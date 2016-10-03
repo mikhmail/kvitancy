@@ -602,5 +602,28 @@ function show_aparat_p ($id_aparat) {
         }
     }
 
+	public function get_tickets_per_page()
+	{
+		return $this->db
+			->get_where('settings',array('name' => 'tickets_per_page'))
+			->row()->value;
+	}
+
+	function update_tickets_per_page($data)
+	{
+		$this->db->where('name', 'tickets_per_page');
+		$this->db->update('settings', $data);
+		//echo $this->db->last_query();die;
+
+		$report = array();
+		$report['error'] = $this->db->_error_number();
+		$report['message'] = $this->db->_error_message();
+		if($report !== 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 }//end class
 ?>

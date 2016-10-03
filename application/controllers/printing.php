@@ -4,6 +4,17 @@ class Printing extends CI_Controller {
 
 	public function __construct() {
 		parent::__construct();
+
+		if(!$this->session->userdata('is_logged_in')){
+			redirect('admin/login');
+		}
+
+
+
+		if (!$this->users_model->is_admin($this->session->userdata('user_name'))) {
+			redirect('admin/login');
+		}
+
 		$this->load->model('print_model');
 	}
 

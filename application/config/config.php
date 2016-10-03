@@ -15,18 +15,14 @@
 |
 */
 
-require FCPATH.'/config.php';
 
-$config['per_page'] = $tickets_per_page;
-
-if ($config['per_page'] <1) {
-    $config['per_page'] = 20;
-}
 
 
 /*DONT change! */
-$config['base_url']	= "http://".$_SERVER['HTTP_HOST'].str_replace( str_replace("\\", "/", $_SERVER['DOCUMENT_ROOT']), '', str_replace("\\", "/", str_replace(SELF, '', FCPATH)) );
-
+//$config['base_url']	= "http://".$_SERVER['HTTP_HOST'].str_replace( str_replace("\\", "/", $_SERVER['DOCUMENT_ROOT']), '', str_replace("\\", "/", str_replace(SELF, '', FCPATH)) );
+$config['base_url'] = ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == "on") ? "https" : "http");
+$config['base_url'] .= "://".$_SERVER['HTTP_HOST'];
+$config['base_url'] .= str_replace(basename($_SERVER['SCRIPT_NAME']),"",$_SERVER['SCRIPT_NAME']);
 
 /*
 |--------------------------------------------------------------------------
