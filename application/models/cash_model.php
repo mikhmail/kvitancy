@@ -40,6 +40,8 @@ cash.update_date,
 
 cash.plus,
 cash.id_kvitancy,
+cash.total,
+
 
 service.name_sc,
 service.id_sc

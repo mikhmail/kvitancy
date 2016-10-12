@@ -156,6 +156,8 @@
                     <th class="header">#</th>
                     <th class="yellow header headerSortDown">Приход +</th>
                     <th class="yellow header headerSortDown">Расход -</th>
+                    <th class="yellow header headerSortDown">Сумма</th>
+
                     <th class="header">#квитанции</th>
                     <th class="yellow header headerSortDown">Описание</th>
                     <th class="yellow header headerSortDown">Ответственный</th>
@@ -175,7 +177,10 @@
                         <td><p class="text-center"><?=$row['cash_id']?></p></td>
                         <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+'.$row['plus'];?></div></td>
                         <td style="text-align: center"><div class="label label-important"><? if($row['plus']<0) echo $row['plus'];?></div></td>
+                        <td style="text-align: center"><p class="text-center"><? if($row['total']) echo $row['total']; ?></p></td>
+
                         <td style="text-align: center"><p class="text-center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></p></td>
+
                         <td><?=$row['name']?></td>
 
                         <td style="text-align: center"><p class="text-center"><?

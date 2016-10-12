@@ -1099,8 +1099,22 @@ function update_ajax_store ()
 
             );
             //$ret = $this->db->insert('cash', $data);
+            $start_date = date('Y') . '-'. date('m') . '-01';
+            $end_date = date("Y-m-d");
+
+            /*
+            //$query = $this->db->query('SELECT SUM(cash.plus) AS summ FROM cash WHERE cash.update_date >="'.$start_date.'%" AND cash.update_date <= "'.$end_date.'%"');
+
+            $this->db->select_sum('plus');
+            $this->db->where(" cash.update_date >='".$start_date."%' AND cash.update_date <= '".$end_date."%' ", NULL, FALSE);
+            $query = $this->db->get('cash')->result();
+            //var_dump($query[0]->plus);die;
+            $summ = (int)$query[0]->plus + $price;
+
+            */
 
             $ret = $this->db->update('kvitancy', array('full_cost' => $price), array('id_kvitancy' => $id_kvitancy));
+            //$ret2 = $this->db->update('cash', array('total' => $summ), array('id_kvitancy' => $id_kvitancy));
 
             if ($ret) echo 1;
         }else{
@@ -1144,7 +1158,7 @@ function update_ajax_store ()
                 'id_sc' => $this->session->userdata('user_id_sc')
             );
             $ret = $this->db->insert('cash', $data);
-
+            $id = $this->db->insert_id();
             /*
             $data2 = array(
                 'update_time' => date("d-m-Y, H:i:s"),
@@ -1154,6 +1168,19 @@ function update_ajax_store ()
             $this->db->where('id_kvitancy', $id_kvitancy);
             $ret2 = $this->db->update('kvitancy', $data2);
             */
+
+
+            $start_date = date('Y') . '-'. date('m') . '-01';
+            $end_date = date("Y-m-d");
+
+            $this->db->select_sum('plus');
+            $this->db->where(" cash.update_date >='".$start_date."%' AND cash.update_date <= '".$end_date."%' ", NULL, FALSE);
+            $query = $this->db->get('cash')->result();
+            $summ = (int)$query[0]->plus + $price;
+            $ret2 = $this->db->update('cash', array('total' => $summ), array('id' => $id));
+
+
+
 
             if ($ret) echo 1;
         }else{

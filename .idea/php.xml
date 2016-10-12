@@ -1,5 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="PhpProjectConfiguration">
+    <sdk>
+      <PhpSdkConfig version="5.5.37" home="D:\openserver\modules\php\PHP-5.5">
+        <include_paths>
+          <path value="." />
+          <path value="$PROJECT_DIR$/../../modules/php/PHP-5.5" />
+          <path value="$PROJECT_DIR$/../../modules/php/PHP-5.5/PEAR/pear" />
+        </include_paths>
+      </PhpSdkConfig>
+    </sdk>
+  </component>
   <component name="PhpProjectSharedConfiguration" php_language_level="5.5.0" />
 </project>
 
