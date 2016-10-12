@@ -181,7 +181,22 @@ var id = this.name;
           }
       }
 
+    if (confirm('Добавить в кассу запись?\n-'+cost+', Закупка запчасти для '+id_kvitancy+'')) {
+        $.post(""+base_url+"ajx/add_cash", {
+                plus:'-'+cost,
+                id_kvitancy:id_kvitancy,
+                name:'Закупка ['+name+'] '+text
+            })
+                .done(function(data) {
+                    //alert (data);
+                    if (data == 0) {
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
 
+                    } else {
+                        alert('Добавлено!');
+                    }
+                });
+    }
 // end of добавить запчасть
 });
 
@@ -787,10 +802,31 @@ $('input[id^=save_price_]').click(function(){
                         alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
                         $("#price_"+id+"").focus();
                     } else {
+                        //alert('Добавлено!');
+                    }
+                });
+
+        if (confirm('Добавить в кассу запись?\n+'+price+', Получено от клиента, '+id+'')) {
+        $.post(""+base_url+"ajx/add_cash", {
+                plus:price,
+                id_kvitancy:id,
+                name:'Получено от клиента'
+            })
+                .done(function(data) {
+                    //alert (data);
+                    if (data == 0) {
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
+
+                    } else {
                         alert('Добавлено!');
                     }
                 });
-            }
+        }
+
+  }
+
+
+    
 });
 // end of save price
 

@@ -321,7 +321,8 @@ class Ajx extends CI_Controller {
 									   'otch' => $this->clearData($this->input->post('otch')),
 									   'phone' => $this->clearData($this->input->post('phone')),
 									   'mail' => $this->clearData($this->input->post('mail')),
-									   'adres' => $this->clearData($this->input->post('adres'))
+									   'adres' => $this->clearData($this->input->post('adres')),
+									   'id_sc' => $this->session->userdata('user_id_sc')
 						);
 		
 		if ( $this->db->insert('users', $user) )
@@ -665,7 +666,7 @@ function add_store(){
         'user_id' => $this->session->userdata['user_id'],
         'date_priemka' => date("Y-m-j"),
         'cost' => $this->input->post('cost'),
-        'price' => $this->input->post('price'),
+        'price' => $this->input->post('cost'),
         'status' => 0,
         'id_kvitancy' => $this->input->post('id_kvitancy'),
         'update_user' => $this->session->userdata['user_id'],
@@ -690,7 +691,7 @@ function add_store(){
                      <td>' . $this->clearData($this->input->post('text')) . '</td>
                      <td>' . $sost . '</td>
                      <td>' . $this->input->post('cost') . '</td>
-                     <td>' . $this->input->post('price') . '</td>
+                     <!--<td>' . $this->input->post('price') . '</td>-->
                      <td>' . $this->session->userdata['user_name'] . '</td>
                      <td>' . date('d-m-Y, H:i:s') . '</td>
 
@@ -1084,9 +1085,9 @@ function update_ajax_store ()
         //print_r($kvitancy[0]['id_sc']);exit;
         $id_sc = $kvitancy[0]['id_sc'];
 
-        $check = $this->db->get_where('cash', array('id_kvitancy' => $id_kvitancy));
+        //$check = $this->db->get_where('cash', array('id_kvitancy' => $id_kvitancy));
 
-        if($price AND $id_kvitancy AND count($check->result_array())<1 ){
+        if($price AND $id_kvitancy){
             $data = array(
                 'update_time' => date("H:i:s"),
                 'update_date' => date("Y-m-d"),
@@ -1097,7 +1098,10 @@ function update_ajax_store ()
                 'id_sc' => $id_sc,
 
             );
-            $ret = $this->db->insert('cash', $data);
+            //$ret = $this->db->insert('cash', $data);
+
+            $ret = $this->db->update('kvitancy', array('full_cost' => $price), array('id_kvitancy' => $id_kvitancy));
+
             if ($ret) echo 1;
         }else{
             echo 0;

@@ -420,6 +420,9 @@ class Stat extends CI_Controller
             );
 
             $data['summ'] = $this->stat_model->get_summ($summa);
+            $data['store'] = $this->stat_model->get_all_store($summa);
+            $data['works'] = $this->stat_model->get_all_works($summa);
+
 
             $config['total_rows'] = $data['count_kvitancys'];
 
@@ -575,6 +578,8 @@ class Stat extends CI_Controller
             );
 
             $data['summ'] = $this->stat_model->get_summ($summa);
+            $data['store'] = $this->stat_model->get_all_store($summa);
+            $data['works'] = $this->stat_model->get_all_works($summa);
 
 
         } //end else if POST
@@ -623,7 +628,7 @@ class Stat extends CI_Controller
         );
         */
 
-        /*Что видит юзер id_group */
+        /*Что видит юзер id_group  */
         switch ($this->session->userdata('id_group')) {
             case 1: // админ
 

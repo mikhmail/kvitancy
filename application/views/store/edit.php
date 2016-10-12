@@ -155,19 +155,19 @@
             </div>
 
             <div class="control-group">
-                <label for="inputError" class="control-label">Себестоимость</label>
+                <label for="inputError" class="control-label">Себестоимость(Цена покупки)</label>
                 <div class="controls">
                     <input type="text" id="" name="cost" value="<?php echo $store[0]['cost']; ?>" >
                 </div>
             </div>
-
+<!--
             <div class="control-group">
                 <label for="inputError" class="control-label">Цена</label>
                 <div class="controls">
                     <input type="text" id="" name="price" value="<?php echo $store[0]['price']; ?>" >
                 </div>
             </div>
-
+-->
 
 
 

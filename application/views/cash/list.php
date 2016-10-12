@@ -19,6 +19,7 @@
             Касса ручная
             <!--<a  href="<?php echo site_url("cash").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
         </h2>
+        <p>Касса не связана с базой заявок, нужна для учёта и контроля денежных приходов и расходов</p>
     </div>
 
     <div class="row-fluid">
@@ -34,10 +35,10 @@
         <div class="span10">
 
 
-            <input type="number" min="-99999999" step="0.1" name="plus" id="plus" title="Можно вводить с минусом, например: -500" autocomplete="off" placeholder="Сумма*" class="span2" style="border: 1px solid rgb(173, 61, 61);">
-            <input type="text" name="name"  id="name" placeholder="Описание*" class="span4" style="border: 1px solid rgb(173, 61, 61);">
+            <input type="number" min="-99999999" step="0.1" name="plus" id="plus" title="Можно вводить с минусом, например: -500" autocomplete="off" placeholder="Сумма* (500 или -500)" class="span2" style="border: 1px solid rgb(173, 61, 61);">
+            <input type="text" name="name"  id="name" placeholder="Описание*: например -'закупка запчасти'" class="span4" style="border: 1px solid rgb(173, 61, 61);">
 
-            <input type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции" class="span2">
+            <input class="span4" type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции (не обязательно)" title="Номер квитанции (не обязательно)" class="span2">
 
             <div class="btn-group margin-bottom-10px">
                 <button id="plus_add" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>

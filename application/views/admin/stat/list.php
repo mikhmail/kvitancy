@@ -18,6 +18,7 @@
         Статистика
         <!--<a  href="<?php echo site_url("cash").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>-->
     </h2>
+    <p>Работает правильно при условиях заполнения: 1)суммы полученной от клиента. 2)установленных запчастей. 3)выполненных работ</p>
 </div>
 
 
@@ -166,7 +167,8 @@ if(count($count_kvitancys)>=1) {?>
 
 <div class="row-fluid">
 
-    <legend>Найдено <strong><?=$count_kvitancys?></strong> записей на сумму <strong><?echo $summ;?></strong>
+    <legend>Найдено <strong><?=$count_kvitancys?> квитанций. </strong>Прибыль: <strong><?echo $summ;?>.</strong>
+        Запчасти: <strong><?echo $store;?>.</strong> Работы: <strong><?echo $works;?>.</strong>
 
         <div class="pagination pull-right">
             <?=$this->pagination->create_links()?>
@@ -204,7 +206,7 @@ if(count($count_kvitancys)>=1) {?>
                 <th class="span2">Сервис</th>
                 <th class="span2">Запчасти</th>
                 <th class="span2">Работы</th>
-                <th class="span2">Касса</th>
+                <th class="span2">Приход</th>
                 <th class="span3">Прибыль</th>
             </tr>
         </table>
@@ -271,16 +273,16 @@ if(count($count_kvitancys)>=1) {?>
                     <td class="span2">
                         <? if(count($cash) >0) {?>
                             <ul>
-                            <? foreach ($cash as $csh){?>
-                                <li><?=$csh["name"]?>: <strong><?=$csh["plus"];$pro_cash += $csh["plus"];?></strong> by <?=$csh["user_name"]?></li>
-                            <?}?>
+                            <? foreach ($cash as $csh){if ($csh["full_cost"] != '0.00'){?>
+                                <li>Получено от клиента: <strong><?=$csh["full_cost"];$pro_cash += $csh["full_cost"];?></strong></li>
+                            <?}}?>
                             </ul>
                             <?}?>
                     </td>
 
                     <td class="span3">
                         <?if(count($store)>0 OR count($work)>0 OR count($cash) >0) {?>
-                        Касса[<b><?=$pro_cash?></b>] - Запчасти[<b><?=$sum_store?></b>] - Работы[<b><?=$sum_work?></b>] = <b><?=$pro_cash-$sum_work-$sum_store;?></b>
+                        Приход [<b><?=$pro_cash?></b>] - Запчасти[<b><?=$sum_store?></b>] - Работы[<b><?=$sum_work?></b>] = <b><?=$pro_cash-$sum_work-$sum_store;?></b>
                     <?}?>
                     </td>
 

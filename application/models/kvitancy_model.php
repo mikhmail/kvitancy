@@ -86,13 +86,19 @@ class Kvitancy_model extends CI_Model {
 	public function get_my_kvitancy ($user_id, $id_sc=null)
     {	
     if($user_id){
+	
+		$call = $this->sost_remonta_model->get_sost_remonta_in_remont();
+		
 		$this->db->select('kvitancy.id_kvitancy, kvitancy.model, aparaty.aparat_name, proizvoditel.name_proizvod');
 		
 		$this->db->join('aparaty', 'kvitancy.id_aparat = aparaty.id_aparat');
 		$this->db->join('proizvoditel', 'kvitancy.id_proizvod = proizvoditel.id_proizvod');
+        $this->db->join('sost_remonta', 'kvitancy.id_sost = sost_remonta.id_sost');
 		
 		$this->db->from('kvitancy');
 		$this->db->where('id_responsible', $user_id);
+	    $this->db->where_in('kvitancy.id_sost',  $call);
+			
         if($id_sc) $this->db->where('id_sc', $id_sc);
 
         $query = $this->db->get();
@@ -462,6 +468,7 @@ service.rab_sc
 			
 			$this->db->join('membership', 'comments.id_user = membership.id');
 			$this->db->where('comments.id_kvitancy', $id_kvitancy);
+			$this->db->order_by('id_comment', 'Desc');
 			
 			$query = $this->db->get();
 			return $query->result_array();
@@ -624,6 +631,52 @@ function show_aparat_p ($id_aparat) {
 			return false;
 		}
 	}
+	
+	
+	
+	public function get_count_today($arr)
+	{
+		//var_dump($arr);die;
+		
+		$return = array();
+		foreach ($arr as $name_sc => $id_sc){
+			
+			$this->db->select('*');
+			$this->db->from('kvitancy');
+			$this->db->where('date_priemka', date('Y-d-m'));
+			$this->db->where('id_sc', $id_sc);
+			$query = $this->db->get();
+			
+			$return[$name_sc] = $query->num_rows();        
+				
+		}
+		return $return;
+			
+	}
+	
+	public function get_count_month($arr)
+	{
+		//var_dump($arr);die;
+		
+		$return = array();
+		foreach ($arr as $name_sc => $id_sc){
+			
+			$this->db->select('*');
+			$this->db->from('kvitancy');
+			$this->db->where("date_priemka >= '".date('Y')."-".date('m')."-01' ");
+			$this->db->where('id_sc', $id_sc);
+			
+			$query = $this->db->get();
+			
+			$return[$name_sc] = $query->num_rows();        
+				
+		}
+		return $return;
+			
+	}
+	
+	
+	
 
 }//end class
 ?>

@@ -518,6 +518,7 @@ class Tickets extends CI_Controller
             if ($data['count_kvitancys'] <= $data['end']) {
                 $data['end'] = $data['count_kvitancys'];
             }
+					
 
             if ($data['count_kvitancys'] == 1) {
                 $data['end'] = 1;
@@ -692,11 +693,24 @@ class Tickets extends CI_Controller
             );
 
 
-            $data['end'] = $page*$config['per_page'];
-                $data['start'] = $data['end'] - $config['per_page'];
-                    if ($data['start'] <= 0 )  {$data['start'] = 1;}
-                    if ($data['end'] > $data['count_kvitancys']) {$data['end'] = $data['count_kvitancys'];}
-                    if ($data['end'] <= 0 ) {$data['end'] = $config['per_page'];}
+            if ($page !=0) {
+                $data['end'] = $page*$config['per_page'];
+            }else{
+                $data['end'] = $config['per_page'];
+            }
+
+            $data['start'] = $data['end'] - $config['per_page'];
+            if ($data['start'] <= 0 )  {$data['start'] = 1;}
+
+            if ($data['count_kvitancys'] <= $data['end']) {
+                $data['end'] = $data['count_kvitancys'];
+            }
+					
+
+            if ($data['count_kvitancys'] == 1) {
+                $data['end'] = 1;
+            }
+
 
 
 
@@ -788,6 +802,18 @@ class Tickets extends CI_Controller
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
 
                 $data['where'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+				
+				$sc = array();
+				foreach ($data['sc'] as $arr_sc){
+					$sc[$arr_sc['name_sc']] = $arr_sc['id_sc'];
+				}
+				//var_dump($sc);die;
+				
+				$data['count_today'] = $this->kvitancy_model->get_count_today($sc);
+				$data['count_month'] = $this->kvitancy_model->get_count_month($sc);
+				//var_dump($data['count_month']);die;
+                
+				
             break;
 
             case 2: // приемщик
@@ -811,6 +837,18 @@ class Tickets extends CI_Controller
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
                 //$data["id_where_selected"] = $this->session->userdata('user_id_sc');
                 $data['where'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+				
+				$sc = array();
+				foreach ($data['sc'] as $arr_sc){
+					if ($arr_sc['id_sc'] == $this->session->userdata('user_id_sc')) {
+						$sc[$arr_sc['name_sc']] = $arr_sc['id_sc'];
+					}
+				}
+				
+				$data['count_today'] =  $this->kvitancy_model->get_count_today($sc);
+				$data['count_month'] = $this->kvitancy_model->get_count_month($sc);
+				//var_dump($data['count_today']);die;
+                
             break;
 
 
@@ -835,6 +873,17 @@ class Tickets extends CI_Controller
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_mechanic_selected"] = $this->session->userdata('user_id');
                 $data['where'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
+				
+				$sc = array();
+				foreach ($data['sc'] as $arr_sc){
+					if ($arr_sc['id_sc'] == $this->session->userdata('user_id_sc')) {
+						$sc[$arr_sc['name_sc']] = $arr_sc['id_sc'];
+					}
+				}
+				
+				$data['count_today'] =  $this->kvitancy_model->get_count_today($sc);
+				$data['count_month'] = $this->kvitancy_model->get_count_month($sc);
+				
                 break;
 
             default: //мало ли кто еще :)
@@ -1236,7 +1285,7 @@ class Tickets extends CI_Controller
             //form validation
             $this->form_validation->set_rules('fam', 'fam', 'required');
             $this->form_validation->set_rules('imya', 'imya', 'required');
-            $this->form_validation->set_rules('phone', 'phone', 'required|numeric');
+            $this->form_validation->set_rules('phone', 'phone', 'required');
             $this->form_validation->set_rules('id_sc', 'id_sc', 'required|numeric');
 
 

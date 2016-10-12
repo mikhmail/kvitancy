@@ -172,6 +172,7 @@ class Cash extends CI_Controller {
                 }else{
                     //$start_date = date('Y') . '-'. $m . '-31';
                     $start_date = date('Y') . '-'. date('m') . '-01';
+					//$start_date = date("Y-m-d");
                 }
 
             } else {
@@ -463,6 +464,7 @@ class Cash extends CI_Controller {
             $data['order_type_selected'] = 'Desc';
             $data['order_selected'] = 'id';
             $data['start_date_selected'] = date('Y') . '-'. date('m') . '-01';
+			//$data['start_date_selected'] = date("Y-m-d");
             $data['end_date_selected'] = date("Y-m-d");
             $data['id_aparat_selected'] = '';
             $data['id_aparat_p_selected'] = '';

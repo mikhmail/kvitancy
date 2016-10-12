@@ -17,14 +17,14 @@
     <orderEntry type="module-library">
       <library name="PHARS">
         <CLASSES>
-          <root url="phar://$MODULE_DIR$/../../modules/php/PHP-5.5/pharcommand.phar" />
-          <root url="phar://$MODULE_DIR$/../../modules/php/PHP-5.5/composer.phar" />
-          <root url="phar://$MODULE_DIR$/../../modules/php/PHP-5.5/PEAR/go-pear.phar" />
+          <root url="phar://D:/openserver/modules/php/PHP-5.5/pharcommand.phar" />
+          <root url="phar://D:/openserver/modules/php/PHP-5.5/composer.phar" />
+          <root url="phar://D:/openserver/modules/php/PHP-5.5/PEAR/go-pear.phar" />
         </CLASSES>
         <SOURCES>
-          <root url="phar://$MODULE_DIR$/../../modules/php/PHP-5.5/pharcommand.phar" />
-          <root url="phar://$MODULE_DIR$/../../modules/php/PHP-5.5/composer.phar" />
-          <root url="phar://$MODULE_DIR$/../../modules/php/PHP-5.5/PEAR/go-pear.phar" />
+          <root url="phar://D:/openserver/modules/php/PHP-5.5/pharcommand.phar" />
+          <root url="phar://D:/openserver/modules/php/PHP-5.5/composer.phar" />
+          <root url="phar://D:/openserver/modules/php/PHP-5.5/PEAR/go-pear.phar" />
         </SOURCES>
       </library>
     </orderEntry>

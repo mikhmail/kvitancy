@@ -274,6 +274,10 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
             <div class="row-fluid">
 
                 <legend>Показано <?=$start?> - <?=$end?> из <strong><?=$count_kvitancys?></strong>
+				<div class="text-center">
+				Приемок <b>сегодня</b>:: <?foreach ($count_today as $scc => $vl) {echo $scc .' <sup><span class="badge badge-success">'. $vl.'</span></sup> ';}?> , <b>за месяц</b>::
+				<?foreach ($count_month as $scc => $vl) {echo $scc .' <sup><span class="badge badge-success">'. $vl.'</span></sup> ';}?>
+				</div>
 
                     <div class="pagination pull-right">
                         <?=$this->pagination->create_links()?>
@@ -359,7 +363,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </p>
                                         </td>
                                         <td class="span2"><p class="text-center"><?=$row['name_sc']?></p></td>
-                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' '.$row['phone']?></p></td>
+                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' <br> '.$row['phone']?></p></td>
                                     </tr>
                                 </table>
                             </a>
@@ -388,7 +392,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             $id_mechanic_selected='';
                                         }?>
                                         <label for="meh_<?=$row['id_kvitancy']?>">Механик</label>
-                                        <?=form_dropdown($row['id_kvitancy'], $options_id_meh, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class=""')?>
+                                        <?=form_dropdown($row['id_kvitancy'], $options_id_responsible, $id_mechanic_selected, 'id=meh_' . $row['id_kvitancy'] . ' class=""')?>
                                     </div>
                                     <div class="span3">
                                         <?
@@ -498,13 +502,16 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                     <?if ($this->session->userdata('id_group') == 1 OR $this->session->userdata('id_group') == 2) {?>
                                         <div class="row-fluid" name="price" style="margin-bottom: 20px;">
-                                            <h4>Касса</h4>
-                                            <!--<div class="span6">
+
+                                            <div class="span12">
                                                 Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
                                                 <input class="btn margin-bottom-10px btn btn-success" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
                                             </div>
 
 
+                                            <h4>Касса</h4>
+
+                                            <!--
                                             <div class="span10">
                                                 Фактическая сумма за ремонт [Выполненные работы инженера + Установленные запчасти]:
                                                 <span class="label label-important"><strong><?=$this->kvitancy_model->get_sum($row['id_kvitancy']);?></strong></span>
@@ -625,13 +632,15 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     <option value="0">Б.У.</option>
                                                 </select>
                                                 <input type="number" min=0 step="0.1" name="store_cost_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Себестоимость" class="span2">
-                                                <input type="number" min=0 step="0.1" name="store_price_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Цена" class="span2">
+                                                <!--<input type="number" min=0 step="0.1" name="store_price_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Цена" class="span2">-->
                                                 <input type="text" name="store_text_<?=$row['id_kvitancy']?>"autocomplete="off" placeholder="Описание:тип, цвет, размер, и тд">
                                                 <div class="btn-group margin-bottom-10px">
                                                     <button id="parts_add_<?=$row['id_kvitancy']?>" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
                                                 </div>
                                             </div>
-
+                                             <div class="span10">
+                                                 <b>ИЛИ</b>
+                                            </div>
                                             <div class="span8 margin-top-20px margin-bottom-10px">
                                                 <i class="icon-chevron-right icon"></i>
                                                         <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Выбрать запчасть со склада</a>
@@ -669,7 +678,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                         <th>Состояне</th>
 
                                                         <th>Себестоимость</th>
-                                                        <th>Цена</th>
+                                                        <!--<th>Цена</th>-->
                                                         <th>Ответственный</th>
                                                         <th>Дата</th>
                                                         <th></th>
@@ -688,7 +697,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                             <td><?=$parts['name']?></td>
                                                             <td><? if($parts['id_sost'] == 1) {echo 'Новый';} else echo 'Б.У.';?></td>
                                                             <td><?=$parts['cost']?></td>
-                                                            <td><?=$parts['price']?></td>
+                                                            <!--<td><?=$parts['price']?></td>-->
                                                             <td><?=$user[0]['user_name']?></td>
                                                             <td><?=$parts['date_priemka']?></td>
 
@@ -713,7 +722,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         </div><!--end remont -->
                 <!--start zapchsti -->
                 <div style="margin-bottom: 20px;" class="tab-pane" id="tab5_<?=$row['id_kvitancy']?>">
-                <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Добавить запчасть</a>
+                <a href="#" onclick="anichange(this); return false" class="btn btn-primary"><i class="icon-barcode icon-white"></i>Заказать новую запчасть</a>
                 <div class="row-fluid hide">
                     <fieldset id = "parts_<?=$row['id_kvitancy']?>">
 
@@ -749,7 +758,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                 <a href="#" class="btn btn-mini" onclick="anichange(this); return false"><i class="icon-plus"></i></a>
 
                                 <span name="aparat_p_span" style="display: none;">
-                                    <input class="" name="aparat_p_name" id="add_aparat_p_name_zap_<?=$row['id_kvitancy']?>" type="text" placeholder="Введите название">
+                                    <input class="" name="aparat_p_name" id="add_aparat_p_name_zap_<?=$row['id_kvitancy']?>" type="text" placeholder="Введите название запчасти">
                                     <input class="btn btn-mini btn-success margin-bottom-10px" name=<?=$row['id_kvitancy']?> id="add_aparat_p_button_<?=$row['id_kvitancy']?>" type="button" value="Добавить">
                                 </span>
 

@@ -228,8 +228,9 @@ service.rab_sc
 
             $cash = $this->stat_model->get_cash($row['id_kvitancy']);
                 foreach ($cash as $csh){
-                    $cash_summ += $csh["plus"];
+                    $cash_summ += $csh["full_cost"];
                 }
+
 
             $work = $this->stat_model->get_work($row['id_kvitancy']);
                 foreach ($work as $works){
@@ -243,10 +244,62 @@ service.rab_sc
     }
 
 
+
+        public function get_all_works($kvitancys){
+
+
+        $work_summ=0;
+
+        //var_dump($kvitancys);die;
+        if (count($kvitancys)>0){
+        foreach($kvitancys as $row){
+
+            $work = $this->stat_model->get_work($row['id_kvitancy']);
+                foreach ($work as $works){
+                    $work_summ += $works["cost"];
+                }
+
+        }
+        //echo  $store_summ;die;
+        return $profit =  $work_summ;
+    }else return NULL;
+    }
+
+
+
+    public function get_all_store($kvitancys){
+
+        $store_summ =0;
+        
+        //var_dump($kvitancys);die;
+        if (count($kvitancys)>0){
+        foreach($kvitancys as $row){
+
+            $store = $this->stat_model->get_store($row['id_kvitancy']);
+                foreach ($store as $str){
+                    $store_summ += $str["cost"];
+                }
+
+
+        }
+        //echo  $store_summ;die;
+        return $profit =  $store_summ;
+    }else return NULL;
+    }
+
+
     public function get_cash ($id_kvitancy){
+        /*
         $this->db->select('*');
         $this->db->from('cash');
         $this->db->join('membership', 'cash.update_user = membership.id');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $query = $this->db->get();
+        return $query->result_array();
+        */
+
+        $this->db->select('full_cost');
+        $this->db->from('kvitancy');
         $this->db->where('id_kvitancy', $id_kvitancy);
         $query = $this->db->get();
         return $query->result_array();

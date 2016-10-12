@@ -149,7 +149,7 @@ if (count($store) > 0) {//var_dump($store);die;
                     <th class="yellow header headerSortDown">Состояние</th>
 
                     <th class="yellow header headerSortDown">Себестоимость</th>
-                    <th class="yellow header headerSortDown">Цена</th>
+                    <!--<th class="yellow header headerSortDown">Цена</th>-->
                     <th class="yellow header headerSortDown">Склад</th>
                     <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Добавлено</th>
@@ -172,7 +172,7 @@ if (count($store) > 0) {//var_dump($store);die;
                     <td><p class="text-center"><?=$row['vid']?></p></td>
                     <td><p class="text-center"><? if($row['id_sost'] == 1) echo 'Новый'; else echo 'Б.У.';?></p></td>
                     <td><p class="text-center"><?=$row['cost']?></p></td>
-                    <td><p class="text-center"><?=$row['price']?></p></td>
+                    <!--<td><p class="text-center"><?=$row['price']?></p></td>-->
                     <td><p class="text-center">
 
                         <? if ($row['status'] == 0) {
