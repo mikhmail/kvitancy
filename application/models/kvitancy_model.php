@@ -674,6 +674,31 @@ function show_aparat_p ($id_aparat) {
 		return $return;
 			
 	}
+
+
+    public function get_work_type()
+    {
+        return $this->db
+            ->get_where('settings',array('name' => 'work_type'))
+            ->row()->value;
+    }
+
+    function update_work_type($data)
+	{
+		$this->db->where('name', 'work_type');
+		$this->db->update('settings', $data);
+		//echo $this->db->last_query();die;
+
+		$report = array();
+		$report['error'] = $this->db->_error_number();
+		$report['message'] = $this->db->_error_message();
+		if($report !== 0){
+			return true;
+		}else{
+			return false;
+		}
+	}
+
 	
 	
 	

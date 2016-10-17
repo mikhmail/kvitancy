@@ -206,6 +206,8 @@ class Admin_users extends CI_Controller {
             $this->form_validation->set_rules('groups_dostupa_id', 'groups_dostupa_id', 'required');
 			$this->form_validation->set_rules('id_sc', 'service center', 'required');
             $this->form_validation->set_rules('active', 'active', 'required');
+            $this->form_validation->set_rules('work_type', 'work_type', 'required');
+
 			
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
 
@@ -220,7 +222,12 @@ class Admin_users extends CI_Controller {
                     'id_group' => $this->input->post('groups_dostupa_id'),
 					'id_sc' => $this->input->post('id_sc'),
 					'pass_word' => trim(md5($this->input->post('pass_word'))),
-                    'active' => $this->input->post('active')
+                    'active' => (int)$this->input->post('active'),
+                    'percent' => (int)$this->input->post('percent'),
+                    'work_type' => (int)$this->input->post('work_type')
+
+
+
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->users_model->store_users($data_to_store)){
@@ -260,6 +267,8 @@ class Admin_users extends CI_Controller {
             $this->form_validation->set_rules('groups_dostupa_id', 'groups_dostupa_id', 'required');
 			$this->form_validation->set_rules('id_sc', 'service center', 'required');
             $this->form_validation->set_rules('active', 'active', 'required');
+            $this->form_validation->set_rules('work_type', 'work_type', 'required');
+
 
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
@@ -275,14 +284,24 @@ class Admin_users extends CI_Controller {
                     'id_group' => $this->input->post('groups_dostupa_id'),
 					'id_sc' => $this->input->post('id_sc'),
                     'active' => $this->input->post('active'),
-                    'pass_word' => trim(md5($this->input->post('pass_word')))
-
-
-
+                    'pass_word' => trim(md5($this->input->post('pass_word'))),
+                    'percent' => (int)$this->input->post('percent'),
+                    'work_type' => (int)$this->input->post('work_type')
                 );
                 //if the insert has returned true then we show the flash message
                 if($this->users_model->update_users($id, $data_to_store) == TRUE){
                     $this->session->set_flashdata('flash_message', 'updated');
+
+
+                $data = array(
+                    'user_name' => $this->input->post('user_name'),
+                    'id_group' => $this->input->post('groups_dostupa_id'),
+                    'user_id_sc' => $this->input->post('id_sc'),
+                    'work_type' => (int)$this->input->post('work_type')
+			    );
+                $this->session->set_userdata($data);
+
+
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
                 }

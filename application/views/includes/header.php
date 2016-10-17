@@ -51,10 +51,16 @@
                                     <a tabindex="-1" href="<?php echo base_url(); ?>settings">Настройки</a>
                                 </li>
                                 <?}?>
+
+                                <?if($this->session->userdata('work_type') == 1){?>
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>works">Мои ремонты</a>
                                 </li>
-
+                                <?}elseif($this->session->userdata('work_type') == 2){?>
+                                <li>
+                                    <a tabindex="-1" href="<?php echo base_url(); ?>percent">Мои ремонты</a>
+                                </li>
+                                <?}?>
                                 <li>
                                     <a tabindex="-1" href="<?php echo base_url(); ?>login/cache_delete">Очистка кеша</a>
                                 </li>

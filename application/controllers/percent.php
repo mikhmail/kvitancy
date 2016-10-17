@@ -1,6 +1,6 @@
 <?php
 
-class Stat extends CI_Controller
+class Percent extends CI_Controller
 {
 
     /**
@@ -8,7 +8,7 @@ class Stat extends CI_Controller
      * which are manipulated by this controller
      * @constant string
      */
-    const VIEW_FOLDER = 'stat';
+    const VIEW_FOLDER = 'percent';
 
     /**
      * Responsable for auto load the model
@@ -34,9 +34,11 @@ class Stat extends CI_Controller
         if (!$this->session->userdata('is_logged_in')) {
             redirect('admin/login');
         }
-        if (!$this->users_model->is_admin($this->session->userdata('user_name'))) {
-            redirect('admin/login');
+
+        if ($this->session->userdata('work_type') == 1) {
+            redirect('works');
         }
+
 
     }
 
@@ -360,7 +362,7 @@ class Stat extends CI_Controller
                 $date,
                 $start_date,
                 $end_date,
-                $id_mechanic,
+                $this->session->userdata('user_id'),
                 $id_aparat,
                 $id_proizvod,
                 $id_sost,
@@ -383,7 +385,7 @@ class Stat extends CI_Controller
                 $date,
                 $start_date,
                 $end_date,
-                $id_mechanic,
+                $this->session->userdata('user_id'),
                 $id_aparat,
                 $id_proizvod,
                 $id_sost,
@@ -406,7 +408,7 @@ class Stat extends CI_Controller
                 $date,
                 $start_date,
                 $end_date,
-                $id_mechanic,
+                $this->session->userdata('user_id'),
                 $id_aparat,
                 $id_proizvod,
                 $id_sost,
@@ -421,7 +423,7 @@ class Stat extends CI_Controller
 
             $data['summ'] = $this->stat_model->get_summ($summa);
             $data['store'] = $this->stat_model->get_all_store($summa);
-            $data['works'] = $this->stat_model->get_all_works($summa);
+            //$data['works'] = $this->stat_model->get_all_works($summa);
 
 
             $config['total_rows'] = $data['count_kvitancys'];
@@ -435,7 +437,7 @@ class Stat extends CI_Controller
             $filter_session_data = array(
                 'search_string' => '',
                 'order' => 'id_kvitancy',
-                'order_type' => 'ASC',
+                'order_type' => 'Desc',
                 'limit_start' => '',
                 'limit_end' => '',
                 'date' => 'date_priemka',
@@ -457,12 +459,12 @@ class Stat extends CI_Controller
             //pre selected options from session
             $data['search_string_selected'] = '';
             $data['order'] = 'id_kvitancy';
-            $order_type = $data['order_type'] = $data['order_type_selected'] = 'Asc';
+            $order_type = $data['order_type'] = $data['order_type_selected'] = 'Desc';
             $data['date_selected'] = 'date_priemka';
             $data['start_date'] = date('Y') . '-'. date('m') . '-01';
             $data['end_date'] = date("Y-m-d");
             //$data["id_sc_selected"] = '';
-            $data["id_mechanic_selected"] = '';
+            $data["id_mechanic_selected"] = $this->session->userdata('user_id');
             $data["id_proizvod_selected"] = '';
             $data["id_aparat_selected"] = '';
             $data["id_sost_selected"] = '';
@@ -473,7 +475,7 @@ class Stat extends CI_Controller
             // $var for select to db
             $search_string = null;
             $order = 'id_kvitancy';
-            $order_type = 'Asc';
+            $order_type = 'Desc';
             $limit_start = $config['per_page']; //при навигациии надо включить
             //$limit_start=null;
             //$limit_end;
@@ -519,7 +521,7 @@ class Stat extends CI_Controller
                 $date,
                 $start_date,
                 $end_date,
-                $id_mechanic,
+                $this->session->userdata('user_id'),
                 $id_aparat,
                 $id_proizvod,
                 $id_sost,
@@ -542,7 +544,7 @@ class Stat extends CI_Controller
                 $date,
                 $start_date,
                 $end_date,
-                $id_mechanic,
+                $this->session->userdata('user_id'),
                 $id_aparat,
                 $id_proizvod,
                 $id_sost,
@@ -554,6 +556,7 @@ class Stat extends CI_Controller
 
             );
 
+
             $summa = $this->stat_model->get_kvitancy(
 
                 $search_string,
@@ -564,7 +567,7 @@ class Stat extends CI_Controller
                 $date,
                 $start_date,
                 $end_date,
-                $id_mechanic,
+                $this->session->userdata('user_id'),
                 $id_aparat,
                 $id_proizvod,
                 $id_sost,
@@ -577,9 +580,9 @@ class Stat extends CI_Controller
 
             );
 
-            $data['summ'] = $this->stat_model->get_summ($summa);
-            $data['store'] = $this->stat_model->get_all_store($summa);
-            $data['works'] = $this->stat_model->get_all_works($summa);
+            $data['summ'] = $this->stat_model->get_percent_summ($summa);
+            //$data['store'] = $this->stat_model->get_all_store($summa);
+            //$data['works'] = $this->stat_model->get_all_works($summa);
 
 
         } //end else if POST
@@ -644,7 +647,7 @@ class Stat extends CI_Controller
                     $data['soglasovat'] = array();
                 }
 
-                $data['meh'] = $this->users_model->get_users('', '', '', '', '', '', '');
+                $data['meh'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
                 $data["id_sc_selected"] = '';
@@ -689,7 +692,7 @@ class Stat extends CI_Controller
                 }
 
 
-                $data['meh'] = $this->users_model->get_users('3', '', '', '', '','', $this->session->userdata('user_id_sc'));
+                $data['meh'] = $this->users_model->get_users('', '', '', '', '','', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
                 $data["id_sc_selected"] = $this->session->userdata('user_id_sc');
@@ -720,441 +723,14 @@ class Stat extends CI_Controller
         /* END Что видит юзер id_group */
 
         /*Загрузка шаблона*/
-        $data['main_content'] = 'admin/stat/list';
+        $data['main_content'] = 'admin/percent/list';
         $this->load->view('includes/template', $data);
 
 
-    }
+    }// end index
 
-    //index
 
-    public function view()
-    {
 
-        //pagination settings
-        $config['per_page'] = 7;
-
-        $config['base_url'] = base_url() . 'tickets/';
-        $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 3;
-        $config['full_tag_open'] = '<ul>';
-        $config['full_tag_close'] = '</ul>';
-        $config['num_tag_open'] = '<li>';
-        $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="active"><a>';
-        $config['cur_tag_close'] = '</a></li>';
-        $config['uri_segment'] = 2;
-        $config['display_pages'] = FALSE;
-
-        //limit end
-        $page = $this->uri->segment(2);
-
-
-        //math to get the initial record to be select in the database
-        $limit_end = ($page * $config['per_page']) - $config['per_page'];
-        if ($limit_end < 0) {
-            $limit_end = 0;
-        }
-
-        $data['order'] = 'id_kvitancy';
-
-
-//product id
-        $id_kvitancy = $this->uri->segment(3);
-
-        //var_dump ($id_kvitancy);die;
-
-        //clear session data in session
-
-        $this->session->unset_userdata();
-
-
-        //pre selected options
-        $data['search_string_selected'] = '';
-        $data['order'] = 'id_kvitancy';
-        $order_type = $data['order_type'] = $data['order_type_selected'] = 'Desc';
-        $data['date_selected'] = 'date_priemka';
-        $data['start_date'] = date("Y-m-d", strtotime('-' . date("d") . 'days')); // date("d")
-        $data['end_date'] = date("Y-m-d");
-        $data["id_sc_selected"] = '';
-        $data["id_mechanic_selected"] = '';
-        $data["id_proizvod_selected"] = '';
-        $data["id_aparat_selected"] = '';
-        $data["id_sost_selected"] = '';
-        $data["id_kvitancy_selected"] = $id_kvitancy;
-        $data["id_remonta_selected"] = '';
-        $search_string = null;
-        $order = 'id_kvitancy';
-        $order_type = 'Desc';
-        $limit_start = $config['per_page'];
-        //$limit_end;
-        $date = 'date_priemka';
-        $start_date = date("Y-m-d", strtotime('-' . date("d") . 'days')); // date("d")
-        $end_date = date("Y-m-d");
-        $id_mechanic = null;
-        $id_aparat = null;
-        $id_proizvod = null;
-        $id_sost = null;
-        $id_sc = null;
-
-        $id_remonta = null;
-
-        $filter_session_data = array(
-            'search_string' => $search_string,
-            'order' => $order,
-            'order_type' => $order_type,
-            'limit_start' => $limit_start,
-            'limit_end' => $limit_end,
-            'date' => $date,
-            'start_date' => $start_date,
-            'end_date' => $end_date,
-            'id_mechanic' => $id_mechanic,
-            'id_aparat' => $id_aparat,
-            'id_proizvod' => $id_proizvod,
-            'id_sost' => $id_sost,
-            'id_sc' => $id_sc,
-            'id_kvitancy' => $id_kvitancy,
-            'id_remonta' => $id_remonta
-
-        );
-
-        //save session data into the session
-        if (isset($filter_session_data)) {
-            $this->session->set_userdata($filter_session_data);
-        }
-
-        //fetch sql data into arrays
-        $data['count_kvitancys'] = $this->kvitancy_model->get_kvitancy(
-            $search_string,
-            $order,
-            $order_type,
-            $limit_start,
-            $limit_end,
-            $date,
-            $start_date,
-            $end_date,
-            $id_mechanic,
-            $id_aparat,
-            $id_proizvod,
-            $id_sost,
-            $id_sc,
-            $id_kvitancy,
-            $id_remonta,
-            1
-        );
-
-        $data['kvitancys'] = $this->kvitancy_model->get_kvitancy(
-            $search_string,
-            $order,
-            $order_type,
-            $limit_start,
-            $limit_end,
-            $date,
-            $start_date,
-            $end_date,
-            $id_mechanic,
-            $id_aparat,
-            $id_proizvod,
-            $id_sost,
-            $id_sc,
-            $id_kvitancy,
-            $id_remonta,
-            $count = null
-        );
-
-        $data['aparats'] = $this->kvitancy_model->get_kvitancy(
-
-            $search_string = null,
-            $order = null,
-            $order_type = null,
-            $limit_start = null,
-            $limit_end = null,
-            $date = null,
-            $start_date = null,
-            $end_date = null,
-            $id_mechanic = null,
-            $id_aparat = null,
-            $id_proizvod = null,
-            $id_sost = array('1', '3', '4', '6'),
-            $id_sc = null,
-            $id_kvitancy = null,
-            $id_remonta = null,
-            $count = null
-        );
-
-
-        $config['total_rows'] = $data['count_kvitancys'];
-
-
-        //LOAD WIEW
-        //!isset($search_string) && !isset($order)
-
-        //initializate the panination helper
-        $this->pagination->initialize($config);
-
-        //var_dump($this->session->userdata('id_group'));die;
-        switch ($this->session->userdata('id_group')) {
-            case 1: // админ
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'));
-                $data['soglasovat'] = '';
-                break;
-
-
-            case 2: // приемщик
-                $data['soglasovat'] = $this->kvitancy_model->get_kvitancy_soglasovat();
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                break;
-
-
-            case 3: // инженер
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                $data['soglasovat'] = '';
-                break;
-
-            default: //мало ли кто еще :)
-                $data['my_kvitancy'] = $this->kvitancy_model->get_my_kvitancy($this->session->userdata('user_id'), $this->session->userdata('user_id_sc'));
-                $data['soglasovat'] = '';
-        }
-
-
-        //load the view
-        $data['ap'] = $this->aparaty_model->get_aparaty();
-        $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
-        $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
-        $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
-        $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
-        $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
-        $data['main_content'] = 'admin/stat/list';
-        $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
-        $this->load->view('includes/template', $data);
-    }
-
-
-    /**
-     * Update item by his id
-     * @return void
-     */
-    public function update()
-    {
-        //product id
-        $id = $this->uri->segment(3);
-
-        //if save button was clicked, get the data sent via post
-        if ($this->input->server('REQUEST_METHOD') === 'POST') {
-            //form validation
-            $this->form_validation->set_rules('id_aparat', 'id_aparat', 'required');
-            $this->form_validation->set_rules('id_proizvod', 'id_proizvod', 'required');
-            $this->form_validation->set_rules('model', 'Модель', 'required');
-            $this->form_validation->set_rules('ser_nomer', 'ser_nomer', 'required');
-
-            $this->form_validation->set_rules('neispravnost', 'neispravnost', 'required');
-            $this->form_validation->set_rules('komplektnost', 'komplektnost', 'required');
-            $this->form_validation->set_rules('id_remonta', 'id_remonta', 'required|numeric');
-            $this->form_validation->set_rules('id_sc', 'id_sc', 'required|numeric');
-
-
-            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
-            //if the form has passed through the validation
-            if ($this->form_validation->run()) {
-
-                $data_to_store = array(
-                    'id_aparat' => $this->input->post('id_aparat'),
-                    'id_proizvod' => $this->input->post('id_proizvod'),
-                    'model' => $this->input->post('model'),
-                    'ser_nomer' => $this->input->post('ser_nomer'),
-                    'neispravnost' => $this->input->post('neispravnost'),
-                    'komplektnost' => $this->input->post('komplektnost'),
-                    'id_remonta' => $this->input->post('id_remonta'),
-                    'id_sc' => $this->input->post('id_sc'),
-                    'primechaniya' => $this->input->post('primechaniya')
-
-                );
-                //if the insert has returned true then we show the flash message
-                if ($this->kvitancy_model->update_kvitancy($id, $data_to_store) == TRUE) {
-
-                    //var_dump($data_to_store);
-                    $this->session->set_flashdata('flash_message', 'updated');
-                } else {
-                    $this->session->set_flashdata('flash_message', 'not_updated');
-                }
-                redirect('tickets/update/' . $id . '');
-
-            }
-            //validation run
-
-        }
-
-        //if we are updating, and the data did not pass trough the validation
-        //the code below wel reload the current data
-
-        //$data['gorod'] = $this->gorod_model->get_gorod();
-        $data['aparaty'] = $this->aparaty_model->get_aparaty();
-        $data['proizvod'] = $this->proizvoditel_model->get_proizvoditel();
-        $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
-        //$data['sc'] = $this->service_centers_model->get_service_centers();
-
-        switch ($this->session->userdata('id_group')) {
-            case 1: // админ
-                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
-                break;
-
-
-            case 2: // приемщик
-                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
-                break;
-
-
-            case 3: // инженер
-                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
-                break;
-
-            default: //мало ли кто еще :)
-                $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', $this->session->userdata('user_id_sc'));
-
-        }
-
-
-
-
-
-        //product data
-        $data['manufacture'] = $this->kvitancy_model->get_kvitancy_by_id($id);
-        //load the view
-        $data['main_content'] = 'tickets/edit';
-        $this->load->view('includes/template', $data);
-
-    }//update
-
-    /**
-     * Delete product by his id
-     * @return void
-     */
-    public function delete()
-    {
-
-        $id = $this->uri->segment(4);
-        $this->kvitancy_model->delete_kvitancy($id);
-        redirect('admin/kvitancy');
-    }
-
-    //edit
-
-
-    public function printing()
-    {
-        //product id
-        $id = $this->uri->segment(3);
-        if ($id) {
-            //if we are updating, and the data did not pass trough the validation
-            //the code below wel reload the current data
-
-
-            //product data
-            $data['manufacture'] = $this->kvitancy_model->get_kvitancy_by_id($id);
-
-            $id_clienta = $this->kvitancy_model->get_client_by_id($id);
-            $data['client'] = $this->clients_model->get_clients_by_id($id_clienta[0]['user_id']);
-
-            $data['sc'] = $this->service_centers_model->get_service_centers_by_id($data['manufacture'][0]['id_sc']);
-
-            $data['aparat'] = $this->aparaty_model->get_aparaty_by_id($data['manufacture'][0]['id_aparat']);
-            $data['proizvod'] = $this->proizvoditel_model->get_proizvoditel_by_id($data['manufacture'][0]['id_proizvod']);
-
-            //load the view
-            $data['main_content'] = 'tickets/printing';
-            $this->load->view('includes/print', $data);
-
-        } else {
-            die();
-        }
-    }
-
-
-    public function printing_check()
-    {
-        //product id
-        $id = $this->uri->segment(3);
-
-        //if we are updating, and the data did not pass trough the validation
-        //the code below wel reload the current data
-
-
-        //product data
-        $data['manufacture'] = $this->kvitancy_model->get_kvitancy_by_id($id);
-
-        $id_clienta = $this->kvitancy_model->get_client_by_id($id);
-        $data['client'] = $this->clients_model->get_clients_by_id($id_clienta[0]['user_id']);
-
-        $data['sc'] = $this->service_centers_model->get_service_centers_by_id($data['manufacture'][0]['id_sc']);
-
-        $data['aparat'] = $this->aparaty_model->get_aparaty_by_id($data['manufacture'][0]['id_aparat']);
-        $data['proizvod'] = $this->proizvoditel_model->get_proizvoditel_by_id($data['manufacture'][0]['id_proizvod']);
-
-        //load the view
-        $data['main_content'] = 'tickets/printing_check';
-        $this->load->view('includes/print', $data);
-
-    }
-
-    public function update_client()
-    {
-        //product id
-        $id = $this->uri->segment(3);
-
-        //if save button was clicked, get the data sent via post
-        if ($this->input->server('REQUEST_METHOD') === 'POST')
-        {
-            //form validation
-            $this->form_validation->set_rules('fam', 'fam', 'required');
-            $this->form_validation->set_rules('imya', 'imya', 'required');
-            $this->form_validation->set_rules('phone', 'phone', 'required|numeric');
-            $this->form_validation->set_rules('id_sc', 'id_sc', 'required|numeric');
-
-
-            $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
-            //if the form has passed through the validation
-            if ($this->form_validation->run())
-            {
-
-                $data_to_store = array(
-                    'fam' => $this->input->post('fam'),
-                    'imya' => $this->input->post('imya'),
-                    'otch' => $this->input->post('otch'),
-                    'id_group' => $this->input->post('id_group'),
-                    'mail' => $this->input->post('mail'),
-                    'phone' => $this->input->post('phone'),
-                    'adres' => $this->input->post('adres'),
-                    'id_sc' => $this->input->post('id_sc')
-
-
-
-
-                );
-                //if the insert has returned true then we show the flash message
-                if($this->clients_model->update_clients($id, $data_to_store) == TRUE){
-
-                    //var_dump($data_to_store);
-                    $this->session->set_flashdata('flash_message', 'updated');
-                }else{
-                    $this->session->set_flashdata('flash_message', 'not_updated');
-                }
-                redirect('tickets/update_client/'.$id.'');
-
-            }//validation run
-
-        }
-
-        $data['gorod'] = $this->gorod_model->get_gorod();
-
-        //product data
-        $data['manufacture'] = $this->clients_model->get_clients_by_id($id);
-        $data['sc'] = $this->service_centers_model->get_service_centers();
-        //load the view
-        $data['main_content'] = 'tickets/update_client';
-        $this->load->view('includes/template', $data);
-
-    }//update
-
-}
+}//end class
 
 ?>

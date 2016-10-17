@@ -45,15 +45,62 @@
     echo validation_errors();
     echo form_open('/settings/update_tickets_per_page');?>
     <fieldset>
+        <h4>Введите количество показываемых квитанций на странице.</h4>
         <div class="control-group">
-            <label for="inputError" class="control-label">Введите количество показываемых квитанций на странице.</label>
+            <label for="inputError" class="control-label"></label>
             <div class="controls">
                 <input class="" type="number" name="count_per_page" value="<?php echo stripslashes($count_per_page); ?>">
                 <button class="btn btn-primary" type="submit">Сохранить</button>
             </div>
         </div>
-
     </fieldset>
     <?php echo form_close(); ?>
+
+<!--
+     <?php
+    //form data
+    $attributes = array('class' => 'form-horizontal', 'id' => '');
+    //form validation
+    echo validation_errors();
+    echo form_open('/settings/update_work_type');
+
+    $type_array = array(
+        1=>'мастер получает определенную сумму за каждую выполненную работу',
+        2=>'мастер получает % от чистой прибилы заказа',
+        3=>'мастер получает фиксированную сумму заработной платы'
+    );
+
+    ?>
+    <fieldset>
+        <h4>Выберите режим подсчета заработка мастера. </h4>
+        <div class="control-group">
+            <?foreach($type_array as $key => $value){?>
+                    <label for="inputError" class="control-label">
+
+                        <?
+                        $checked = false;
+                        if ($key == (int)$work_type) {$checked = true;}
+                        $data = array(
+                            'name'        => 'work_type',
+                            'id'          => '',
+                            'value'       => $key,
+                            'checked'     => $checked,
+                            'style'       => 'margin:10px',
+                            );
+
+                        echo form_radio($data);
+                        echo $value;
+                        ?>
+                        </label>
+                    <?}?>
+               
+
+          <button class="btn btn-primary" type="submit">Сохранить</button>
+                </div>
+    </fieldset>
+    <?php echo form_close(); ?>
+
+-->
+
 
 </div>

@@ -57,6 +57,9 @@ class Login extends CI_Controller {
 		$id_sc = $user_arr[0]["id_sc"];
         $show_my_tickets = $user_arr[0]["show_my_tickets"];
         $show_call_tickets = $user_arr[0]["show_call_tickets"];
+        $work_type = $user_arr[0]["work_type"];
+        $percent = $user_arr[0]["percent"];
+
 
 
             $data = array(
@@ -66,7 +69,11 @@ class Login extends CI_Controller {
 				'user_id_sc' => $id_sc,
 				'is_logged_in' => true,
                 'show_call_tickets' => $show_call_tickets,
-                'show_my_tickets' => $show_my_tickets
+                'show_my_tickets' => $show_my_tickets,
+                'work_type' => $work_type,
+                'percent' => $percent,
+
+                                
 			);
 
         $remember = $this->input->post('remember');

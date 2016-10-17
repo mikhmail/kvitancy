@@ -243,6 +243,33 @@ service.rab_sc
     }else return NULL;
     }
 
+        public function get_percent_summ($kvitancys){
+
+        $store_summ =0;
+        $cash_summ=0;
+
+        //var_dump($kvitancys);die;
+        if (count($kvitancys)>0){
+        foreach($kvitancys as $row){
+
+            $store = $this->stat_model->get_store($row['id_kvitancy']);
+                foreach ($store as $str){
+                    $store_summ += $str["cost"];
+                }
+
+            $cash = $this->stat_model->get_cash($row['id_kvitancy']);
+                foreach ($cash as $csh){
+                    $cash_summ += $csh["full_cost"];
+                }
+
+
+
+
+        }
+        //echo  $store_summ;die;
+        return $profit =  (($cash_summ - $store_summ)*$this->session->userdata('percent'))/100;
+    }else return NULL;
+    }
 
 
         public function get_all_works($kvitancys){

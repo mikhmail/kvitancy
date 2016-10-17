@@ -546,6 +546,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <?}?>
                                         <div class="devider-blue">
                                         </div>
+                                    <?if($this->session->userdata('work_type') == 1){?>
                                         <div class="row-fluid" name="work" style="margin-bottom: 20px;">
                                             <h4>Выполненные работы</h4>
                                             <div class="span10">
@@ -609,6 +610,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                         <div class="devider-blue">
                                         </div>
+                                        <?}?>
 
                                         <div class="row-fluid" name="parts" style="margin-bottom: 20px;">
                                             <h4>Списать запчасти</h4>

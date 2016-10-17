@@ -123,6 +123,40 @@
                     <?php echo form_dropdown('active', array('1' => "Да", '2' => "Нет"), '', 'class="span2"');?>
                 </div>
             </div>
+
+            <div class="control-group">
+                <label for="active" class="control-label">Процент от прибыли</label>
+                <div class="controls">
+                     <input type="text" name="percent" value="<?php echo set_value('percent'); ?>">
+                </div>
+            </div>
+
+             <? $type_array = array(
+                1=>'мастер получает определенную сумму за каждую выполненную работу',
+                2=>'мастер получает % от чистой прибилы заказа',
+                3=>'мастер получает фиксированную сумму заработной платы'
+            );?>
+            <?foreach($type_array as $key => $value){?>
+                <div class="control-group">
+                    <label for="inputError" class="">
+
+                        <?
+                        $checked = false;
+                        
+                        $data = array(
+                            'name'        => 'work_type',
+                            'id'          => '',
+                            'value'       => $key,
+                            'checked'     => $checked,
+                            'style'       => 'margin:10px',
+                            );
+
+                        echo form_radio($data);
+                        echo $value;
+                        ?>
+                        </label>
+                </div>
+                    <?}?>
 		  
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Сохранить</button>

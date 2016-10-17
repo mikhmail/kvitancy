@@ -797,7 +797,7 @@ class Tickets extends CI_Controller
                     $data['soglasovat'] = array();
                 }
 
-                $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', '');
+                $data['meh'] = $this->users_model->get_users('', '', '', '', '', '', '');
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', '');
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '');
 
@@ -832,7 +832,7 @@ class Tickets extends CI_Controller
 
 
 
-                $data['meh'] = $this->users_model->get_users('3', '', '', '', '', '', $this->session->userdata('user_id_sc'));
+                $data['meh'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['resp'] = $this->users_model->get_users('', '', '', '', '', '', $this->session->userdata('user_id_sc'));
                 $data['sc'] = $this->service_centers_model->get_service_centers('', '', 'Asc', '', '', '');
                 //$data["id_where_selected"] = $this->session->userdata('user_id_sc');

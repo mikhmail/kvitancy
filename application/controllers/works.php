@@ -14,7 +14,7 @@ class Works extends CI_Controller {
      */
     public function __construct() { parent::__construct();
 
-
+    //var_dump($this->session->userdata);die;
 
         $this->load->model('works_model');
         $this->load->model('users_model');
@@ -25,6 +25,10 @@ class Works extends CI_Controller {
 
         if(!$this->session->userdata('is_logged_in')){
             redirect('admin/login');
+        }
+
+        if ($this->session->userdata('work_type') == 2) {
+            redirect('percent');
         }
 
     }

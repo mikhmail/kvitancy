@@ -21,6 +21,10 @@ class Settings extends CI_Controller {
 	public function index()
 	{
 		$data['count_per_page'] = $this->kvitancy_model->get_tickets_per_page();
+        $data['work_type'] = $this->kvitancy_model->get_work_type();
+
+
+        
 		/*Загрузка шаблона*/
 		$data['main_content'] = 'settings/index';
 		$this->load->view('includes/template', $data);
@@ -39,6 +43,17 @@ class Settings extends CI_Controller {
 
 	}
 
+    
+   public function update_work_type (){
+
+		$data = array('value' => (int)($_POST['work_type']));
+
+		$this->kvitancy_model->update_work_type($data);
+
+		redirect('settings');
+
+
+	}
 
 
 
