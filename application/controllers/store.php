@@ -764,7 +764,7 @@ class Store extends CI_Controller {
             $this->form_validation->set_rules('id_proizvod', 'id_proizvod', 'required|numeric');
             $this->form_validation->set_rules('id_sost', 'id_sost', 'required|numeric');
             $this->form_validation->set_rules('cost', 'cost', 'required|numeric');
-            $this->form_validation->set_rules('price', 'price', 'required|numeric');
+            //$this->form_validation->set_rules('price', 'price', 'required|numeric');
             $this->form_validation->set_rules('id_resp', 'id_resp', 'required|numeric');
             $this->form_validation->set_rules('id_where', 'id_where', 'required|numeric');
             $this->form_validation->set_rules('count', 'count', 'required|numeric');

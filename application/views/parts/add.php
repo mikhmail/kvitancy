@@ -134,6 +134,14 @@
             </div>
         </div>
 
+        <div class="control-group">
+            <label for="id_resp" class="control-label">Номер квитанции</label>
+            <div class="controls">
+                <input class="" name="id_kvitancy" id="" type="text" placeholder="не обязательно">
+
+            </div>
+        </div>
+
 
 
         <div class="form-actions">

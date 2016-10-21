@@ -15,10 +15,10 @@
     </ul>
 
     <div class="page-header users-header">
-        <h2>
-            Запчасти
+        <h2>Необходимые запчасти, которые надо купить</h2>
+        <p>После покупки запчасти можно будет поставить на склад.</p>
             <a  href="<?php echo site_url("parts").'/'; ?>add" class="btn btn-success pull-right">Добавить</a>
-        </h2>
+
     </div>
 
     <div class="row-fluid">

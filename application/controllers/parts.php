@@ -796,7 +796,8 @@ class Parts extends CI_Controller {
                     'id_resp' => $this->session->userdata['user_id'],
                     'id_from' => $this->session->userdata['user_id_sc'],
                     'id_where' => $this->session->userdata['user_id_sc'],
-                    'id_sc' => $this->session->userdata['user_id_sc']
+                    'id_sc' => $this->session->userdata['user_id_sc'],
+                    'id_kvitancy' => $this->input->post('id_kvitancy')
 
                 );
 
