@@ -1143,6 +1143,7 @@ function update_ajax_store ()
         $id_kvitancy = $this->input->post('id_kvitancy');
         $plus = $this->input->post('plus');
         $name =  $this->input->post('name');
+        $type = $this->input->post('type');
 
 
 
@@ -1155,7 +1156,9 @@ function update_ajax_store ()
                 'id_kvitancy' => $id_kvitancy,
                 'plus' => $plus,
                 'name' => $name,
-                'id_sc' => $this->session->userdata('user_id_sc')
+                'id_sc' => $this->session->userdata('user_id_sc'),
+                'cash_type' => $type
+
             );
             $ret = $this->db->insert('cash', $data);
             $id = $this->db->insert_id();

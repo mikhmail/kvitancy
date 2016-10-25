@@ -113,6 +113,7 @@ class Cash extends CI_Controller {
             $id_kvitancy = $this->input->post("id_kvitancy");
             $id_sc = $this->input->post("id_sc");
             $id_responsible = $this->input->post("id_responsible");
+            $cash_type = $this->input->post("cash_type");
 
 
 
@@ -144,6 +145,20 @@ class Cash extends CI_Controller {
             }
             $data['order_type_selected'] = $order_type;
             // end ORDER type
+
+
+             // cash_type type
+            if ($this->input->post("cash_type")) {
+                $filter_session_data['cash_type'] = $cash_type;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $cash_type = $this->session->userdata('cash_type');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $cash_type = '';
+            }
+            $data['cash_type_selected'] = $cash_type;
+            // end cash_type type
 
             // ORDER
             if ($this->input->post("order")) {
@@ -381,12 +396,15 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
+                $cash_type,
 
                 1,
                 $summ=null
             );
 
-            $data['summ'] = $this->cash_model->get_works(
+            $data['summ'] = array();
+
+            $data['summ']['nal'] = $this->cash_model->get_works(
                 $search_string,
                 $order,
                 $order_type,
@@ -401,6 +419,28 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
+                0,
+                0,
+                $summ=1
+            );
+
+
+            $data['summ']['bez'] = $this->cash_model->get_works(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_aparat_p,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+                $id_responsible,
+                1,
                 0,
                 $summ=1
             );
@@ -421,6 +461,7 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
+                $cash_type,
                 $count = null,
                 $summ=null
             );
@@ -447,7 +488,8 @@ class Cash extends CI_Controller {
                     'id_proizvod' => '',
                     'id_kvitancy' => '',
                     'id_sc' => '',
-                    'id_responsible' =>''
+                    'id_responsible' =>'',
+                    'cash_type' => ''
 
                 );
 
@@ -477,6 +519,7 @@ class Cash extends CI_Controller {
             $data['id_kvitancy_selected'] = '';
             $data['id_sc_selected'] = '';
             $data['id_responsible_selected'] = '';
+            $data['cash_type_selected'] = '';
 
             //end pre selected options
 
@@ -495,6 +538,8 @@ class Cash extends CI_Controller {
             $id_kvitancy = '';
             $id_sc = '';
             $id_responsible = '';
+            $cash_type='2';
+
             $summ=null;
 
             /*WHAT USER SEE? */
@@ -543,12 +588,15 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
+                $cash_type,
 
                 1,
                 $summ=null
             );
 
-            $data['summ'] = $this->cash_model->get_works(
+            $data['summ'] = array();
+            
+            $data['summ']['nal'] = $this->cash_model->get_works(
                 $search_string,
                 $order,
                 $order_type,
@@ -563,6 +611,28 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
+                0,
+                0,
+                $summ=1
+            );
+
+
+            $data['summ']['bez'] = $this->cash_model->get_works(
+                $search_string,
+                $order,
+                $order_type,
+                $limit_start,
+                $limit_end,
+                $start_date,
+                $end_date,
+                $id_aparat,
+                $id_aparat_p,
+                $id_proizvod,
+
+                $id_kvitancy,
+                $id_sc,
+                $id_responsible,
+                1,
                 0,
                 $summ=1
             );
@@ -583,6 +653,7 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
+                $cash_type,
                 $count = null,
                 $summ=null
             );
@@ -705,6 +776,8 @@ class Cash extends CI_Controller {
             $this->form_validation->set_rules('minus', 'minus', 'required|numeric');
             $this->form_validation->set_rules('name', 'name', 'required');
             $this->form_validation->set_rules('id_kvitancy', 'id_kvitancy', 'required|numeric');
+            $this->form_validation->set_rules('type', 'type', 'required|numeric');
+
 
 
             $this->form_validation->set_error_delimiters('<div class="alert alert-error"><a class="close" data-dismiss="alert">×</a><strong>', '</strong></div>');
@@ -723,10 +796,12 @@ class Cash extends CI_Controller {
                     'id_resp' => $this->input->post('id_resp'),
                     'id_where' => $this->input->post('id_where'),
                     'serial' => $this->input->post('serial'),
-                    'vid' => $this->input->post('vid')
+                    'vid' => $this->input->post('vid'),
+                    'cash_type' => $this->input->post('type')
+
                 );
                 //if the insert has returned true then we show the flash message
-                if($this->works_model->update_store($id, $data_to_store) == TRUE){
+                if($this->cash_model->update_cash($id, $data_to_store) == TRUE){
 
                     //var_dump($data_to_store);
                     $this->session->set_flashdata('flash_message', 'updated');

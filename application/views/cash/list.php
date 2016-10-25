@@ -38,7 +38,14 @@
             <input type="number" min="-99999999" step="0.1" name="plus" id="plus" title="Можно вводить с минусом, например: -500" autocomplete="off" placeholder="Сумма* (500 или -500)" class="span2" style="border: 1px solid rgb(173, 61, 61);">
             <input type="text" name="name"  id="name" placeholder="Описание*: например -'закупка запчасти'" class="span4" style="border: 1px solid rgb(173, 61, 61);">
 
-            <input class="span4" type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции (не обязательно)" title="Номер квитанции (не обязательно)" class="span2">
+            <input class="span3" type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции (не обязательно)" title="Номер квитанции (не обязательно)" class="span2">
+
+            <select name="type" id="type">
+                <option value="2">-выбрать-</option>
+
+                <option value="0">Наличные</option>
+                <option value="1">Безналичные</option>
+            </select>
 
             <div class="btn-group margin-bottom-10px">
                 <button id="plus_add" class="btn btn-success"><i class="icon-plus icon-white"></i>Добавить</button>
@@ -93,12 +100,13 @@
 
                 foreach ($resp as $array) {
                     $options_id_responsible[$array['id']] = $array['user_name'];
-                }?>
-                <? echo form_dropdown('id_responsible', $options_id_responsible, $id_responsible_selected, 'class=""');?>
+                }
+               echo form_dropdown('id_responsible', $options_id_responsible, $id_responsible_selected, 'class=""');
 
+                $options_cash_type = array('2' => "Выбрать тип", '1' => "Безналичные", '0' => "Наличные", );
+               echo form_dropdown('cash_type', $options_cash_type, $cash_type_selected, 'class=""');
 
-                <label class="control-label" style="display: none" for="order">Сортировать по:</label>
-                <?
+                ?><label class="control-label" style="display: none" for="order">Сортировать по:</label><?
 
                 $options_works = array( 'cash.id' => 'по ID');
                 echo form_dropdown('order', $options_works, $order_selected, 'class="span2" style="display: none"');
@@ -131,7 +139,7 @@
         </div>
     </div>
     <div class="row-fluid">
-        <legend>Найдено <strong><?=$count_works?></strong> записей, на сумму <strong><?=$summ[0]['SUM']?></strong>
+        <legend>Найдено <strong><?=$count_works?></strong> записей, на сумму: наличные = <strong><?=$summ['nal'][0]['SUM']?></strong>, безналичные = <strong><?=$summ['bez'][0]['SUM']?></strong>
 
             <div class="pagination pull-right">
                 <?=$this->pagination->create_links()?>
@@ -156,7 +164,10 @@
                     <th class="header">#</th>
                     <th class="yellow header headerSortDown">Приход +</th>
                     <th class="yellow header headerSortDown">Расход -</th>
-                    <th class="yellow header headerSortDown">Сумма</th>
+                    <th class="yellow header headerSortDown">Тип</th>
+                    <!--<th class="yellow header headerSortDown">Контрольная сумма</th>-->
+
+
 
                     <th class="header">#квитанции</th>
                     <th class="yellow header headerSortDown">Описание</th>
@@ -177,7 +188,11 @@
                         <td><p class="text-center"><?=$row['cash_id']?></p></td>
                         <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+'.$row['plus'];?></div></td>
                         <td style="text-align: center"><div class="label label-important"><? if($row['plus']<0) echo $row['plus'];?></div></td>
-                        <td style="text-align: center"><p class="text-center"><? if($row['total']) echo $row['total']; ?></p></td>
+
+                        <td style="text-align: center"><div class="label"><? if($row['cash_type']==0) {echo 'Наличные';}else{echo 'Без наличные';}?></div></td>
+
+
+                        <!--<td style="text-align: center"><p class="text-center"><? if($row['total']) echo $row['total']; ?></p></td>-->
 
                         <td style="text-align: center"><p class="text-center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></p></td>
 

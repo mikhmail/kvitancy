@@ -22,6 +22,7 @@ class cash_model extends CI_Model {
         $id_kvitancy=null,
         $id_sc=null,
         $id_responsible=null,
+        $type=null,
         $count=null,
         $summ=null
     )
@@ -41,6 +42,7 @@ cash.update_date,
 cash.plus,
 cash.id_kvitancy,
 cash.total,
+cash.cash_type,
 
 
 service.name_sc,
@@ -121,6 +123,10 @@ service.id_sc
             $this->db->where('cash.update_user', $id_responsible);
         }
 
+        if ($type != '2'){
+            $this->db->where('cash.cash_type', $type);
+        }
+
         if($order != null){
             $this->db->order_by($order, $order_type);
         }else{
@@ -174,7 +180,7 @@ service.id_sc
         }
     }
 
-    function add_works($data)
+    function add_cash($data)
     {
         if ( $this->db->insert('works', $data) )
             return $id = $this->db->insert_id();
