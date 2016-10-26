@@ -36,10 +36,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="171" column="155" selection-start="5236" selection-end="5236" vertical-scroll-proportion="0.5708108">
+            <state line="171" column="155" selection-start="5236" selection-end="5236" vertical-scroll-proportion="-17.032259">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="func.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/func.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="839" column="14" selection-start="28247" selection-end="28247" vertical-scroll-proportion="0.5220667">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/views/parts/list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="221" column="78" selection-start="8667" selection-end="8667" vertical-scroll-proportion="-13.5161295">
               <folding />
             </state>
           </provider>
@@ -76,14 +94,14 @@
         <option value="$PROJECT_DIR$/application/controllers/store.php" />
         <option value="$PROJECT_DIR$/application/views/parts/add.php" />
         <option value="$PROJECT_DIR$/application/controllers/parts.php" />
-        <option value="$PROJECT_DIR$/application/views/parts/list.php" />
         <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
         <option value="$PROJECT_DIR$/application/models/cash_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/cash.php" />
         <option value="$PROJECT_DIR$/application/views/cash/list.php" />
-        <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/application/models/stat_model.php" />
         <option value="$PROJECT_DIR$/application/views/admin/stat/list.php" />
+        <option value="$PROJECT_DIR$/application/views/parts/list.php" />
+        <option value="$PROJECT_DIR$/assets/func.js" />
       </list>
     </option>
   </component>
@@ -219,69 +237,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="admin" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="stat" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
+              <option name="myItemId" value="parts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -531,11 +487,6 @@
         <state line="612" column="43" selection-start="30942" selection-end="30942" vertical-scroll-proportion="-3.614054" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/parts/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="888" selection-end="888" vertical-scroll-proportion="0.023783784" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/views/parts/add.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="139" column="96" selection-start="4647" selection-end="4647" vertical-scroll-proportion="0.0" />
@@ -571,14 +522,16 @@
         <state line="629" column="24" selection-start="20012" selection-end="20012" vertical-scroll-proportion="0.023012552" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/func.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="808" column="124" selection-start="27481" selection-end="27481" vertical-scroll-proportion="0.35146442" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/stat.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="581" column="53" selection-start="19229" selection-end="19242" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="171" column="155" selection-start="5236" selection-end="5236" vertical-scroll-proportion="-17.032259">
           <folding />
         </state>
       </provider>
@@ -590,9 +543,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/admin/stat/list.php">
+    <entry file="file://$PROJECT_DIR$/application/views/parts/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="171" column="155" selection-start="5236" selection-end="5236" vertical-scroll-proportion="0.5708108">
+        <state line="221" column="78" selection-start="8667" selection-end="8667" vertical-scroll-proportion="-13.5161295">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="839" column="14" selection-start="28247" selection-end="28247" vertical-scroll-proportion="0.5220667">
           <folding />
         </state>
       </provider>

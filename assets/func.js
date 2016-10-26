@@ -835,14 +835,14 @@ $('input[id^=save_price_]').click(function(){
     $('[id^=add_2_store_from_parts_]').click(function(){
 
 
+        var id = this.name;
 
-        $("[id^='parts_add_2_store_']").find("input,select,textarea").each(function () {
+        $("[id='parts_add_2_store_"+id+"']").find("input,select,textarea").each(function () {
 
             if ( ! $(this).val() ) { alert ('Надо выбрать значение '+$(this).attr("name")+'.'); $(this).focus(); exit; }
 
         });
 
-        var id = this.name;
         //alert(id);exit;
         var name = $("#name_parts_"+id+"").val();
         var serial = $("#serial_parts_"+id+"").val();
