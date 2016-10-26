@@ -168,8 +168,8 @@ if(count($count_kvitancys)>=1) {?>
 
 <div class="row-fluid">
 
-    <legend>Найдено <strong><?=$count_kvitancys?> квитанций. </strong>Прибыль: <strong><?echo $summ;?>.</strong>
-        Запчасти: <strong><?echo $store;?>.</strong> Работы: <strong><?echo $works;?>.</strong>
+    <legend>Найдено <strong><?=$count_kvitancys?> квитанций. </strong>Оборот: <strong><?echo $summ;?>.</strong>
+            Запчасти: <strong><?echo $store;?>.</strong> Работы: <strong><?echo $works;?>.</strong> Прибыль: <strong><?echo $summ-$store-$works;?></strong>
 
         <div class="pagination pull-right">
             <?=$this->pagination->create_links()?>
@@ -244,7 +244,8 @@ if(count($count_kvitancys)>=1) {?>
                     <?
                     $store = $this->stat_model->get_store($row['id_kvitancy']);
                     $cash = $this->stat_model->get_cash($row['id_kvitancy']);
-                    $work = $this->stat_model->get_work($row['id_kvitancy']);
+                    $work = $this->stat_model->get_works($row['id_kvitancy']);
+                    //Wvar_dump($work);
                     //$profit = 0;
                     $sum_store = 0;
                     $sum_work = 0;
@@ -261,16 +262,27 @@ if(count($count_kvitancys)>=1) {?>
                         <?}?>
                     </td>
 
+                    <?if (isset($work[0]['full_cost'])){?>
+                    <td class="span2">
+                        <? if ($work[0]['full_cost'] !=0.00) {?>
+
+                           <? foreach ($work as $works){?>
+                               <?=$works["user_name"]?>: (<?=$works["full_cost"]?>×<?=$works["percent"]?>%)/100 =  <strong><?=($works["full_cost"]*$works["percent"])/100;$sum_work += ($works["full_cost"]*$works["percent"])/100;?></strong></li>
+                            <?}?>
+
+                           <?}?>
+                    </td>
+                    <?}else{?>
                     <td class="span2">
                         <? if(count($work)>0) {?>
                         <ul>
                            <? foreach ($work as $works){?>
-                                <li><?=$works["name"]?>: <strong><?=$works["cost"];$sum_work += $works["cost"];?></strong> by <?=$works["user_name"]?></li>
+                                <li><?=$works["name"]?>: <strong><?=$works["cost"];$sum_work += $works["cost"];?></strong> by <?=$works["user_name"]?>
                             <?}?>
                         </ul>
                            <?}?>
                     </td>
-
+                    <?}?>
                     <td class="span2">
                         <? if(count($cash) >0) {?>
                             <ul>

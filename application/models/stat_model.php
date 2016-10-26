@@ -281,10 +281,46 @@ service.rab_sc
         if (count($kvitancys)>0){
         foreach($kvitancys as $row){
 
-            $work = $this->stat_model->get_work($row['id_kvitancy']);
-                foreach ($work as $works){
-                    $work_summ += $works["cost"];
-                }
+        $this->db->select('membership.percent, membership.work_type, kvitancy.id_mechanic');
+        $this->db->from('kvitancy');
+        $this->db->where('id_kvitancy', $row['id_kvitancy']);
+        $this->db->join('membership', 'kvitancy.id_mechanic = membership.id');
+        $query = $this->db->get();
+        $arr = $query->result_array();
+        //var_dump($arr);
+
+        if (count($arr)>0) {
+        $work_type = $arr[0]['work_type'];
+
+        switch ($work_type) {
+                case 1: // мастер получает определенную сумму за каждую выполненную работу
+                   $work = $this->stat_model->get_work($row['id_kvitancy']);
+                    foreach ($work as $works){
+                        $work_summ += $works["cost"];
+                    }
+                    break;
+
+
+                case 2: // мастер получает % от чистой прибилы заказа
+                    $percent = $this->stat_model->get_percent($row['id_kvitancy']);
+                    foreach ($percent as $percents){
+                        $work_summ += ($percents["full_cost"]*$percents["percent"])/100;
+                    }
+                    break;
+
+                case 3: // мастер получает фиксированную сумму заработной платы
+                    return null;
+                    break;
+
+                default:
+                    return null;
+            }
+
+        }else{
+            continue;
+        }
+
+
 
         }
         //echo  $store_summ;die;
@@ -341,6 +377,15 @@ service.rab_sc
         return $query->result_array();
     }
 
+    public function get_percent ($id_kvitancy){
+        $this->db->select('kvitancy.full_cost, membership.user_name, membership.percent');
+        $this->db->from('kvitancy');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $this->db->join('membership', 'kvitancy.id_mechanic = membership.id');
+        $query = $this->db->get();
+        return $query->result_array();
+    }
+
     public function get_store ($id_kvitancy){
         $this->db->select('*');
         $this->db->from('store'); // склад
@@ -350,6 +395,43 @@ service.rab_sc
         return $query->result_array();
     }
 
+
+    public function get_works($id_kvitancy){
+        $this->db->select('membership.percent, membership.work_type, kvitancy.id_mechanic');
+        $this->db->from('kvitancy');
+        $this->db->where('id_kvitancy', $id_kvitancy);
+        $this->db->join('membership', 'kvitancy.id_mechanic = membership.id');
+        $query = $this->db->get();
+        $arr = $query->result_array();
+        //var_dump($arr);
+
+        if (count($arr)>0) {
+        $work_type = $arr[0]['work_type'];
+
+        switch ($work_type) {
+                case 1: // мастер получает определенную сумму за каждую выполненную работу
+                   return $this->get_work ($id_kvitancy);
+                    break;
+
+
+                case 2: // мастер получает % от чистой прибилы заказа
+                    return $this->get_percent($id_kvitancy);
+                    break;
+
+
+                case 3: // мастер получает фиксированную сумму заработной платы
+                    return null;
+                    break;
+
+                default:
+                    return null;
+            }
+
+        }else{
+            return null;
+        }
+
+    }
 
 }//end class
 ?>
