@@ -114,7 +114,8 @@ class Store extends CI_Controller {
                 $this->session->set_userdata($filter_session_data);
             }
 
-
+                //var_dump($this->session->userdata);die;
+		
             $search_string = $this->input->post("search_string");
             $order = $this->input->post("order");
             $order_type = $this->input->post("order_type");
@@ -132,19 +133,19 @@ class Store extends CI_Controller {
             $id_status = $this->input->post("id_status");
             $id_kvitancy = $this->input->post("id_kvitancy");
 
-
+            //echo $id_status;die;
             // id_status
-            if (($this->input->post("id_status")) OR $this->input->post("id_status")==0) {
+            if ( isset($id_status) ) {
                 $filter_session_data['id_status'] = $id_status;
             }
-            elseif ($this->uri->segment(2)) {
-                if ($this->session->userdata('id_status')) {
-                    $id_status = $this->session->userdata('id_status');
+            elseif ($this->uri->segment(2)) { //var_dump($this->session->userdata);die;
+                if ( $this->session->userdata('id_status') != '' ) {
+                    	$id_status = $this->session->userdata('id_status');
                 }else{
-                    $id_status = '';
+                    	$id_status = 1;
                 }
             } else {
-                $id_status = '';
+                	$id_status = 1;
             }
             $data['id_status_selected'] = $id_status;
 
