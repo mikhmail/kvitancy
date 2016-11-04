@@ -132,7 +132,7 @@ class Parts extends CI_Controller {
 
 
             // id_status
-            if (($this->input->post("id_status")) OR $this->input->post("id_status")==0) {
+            if ( $this->input->post("id_status") ) {
                 $filter_session_data['id_status'] = $id_status;
             }
             elseif ($this->uri->segment(2)) {
@@ -142,7 +142,7 @@ class Parts extends CI_Controller {
                     $id_status = '';
                 }
             } else {
-                $id_status = '';
+                $id_status = 1;
             }
             $data['id_status_selected'] = $id_status;
 
@@ -551,7 +551,7 @@ class Parts extends CI_Controller {
                 1,
                 $summ=null
             );
-
+        /*
             $data['summ'] = $this->parts_model->get_store(
                 $search_string,
                 $order,
@@ -573,7 +573,7 @@ class Parts extends CI_Controller {
                 0,
                 $summ=1
             );
-
+*/
             $data['store'] = $this->parts_model->get_store(
 
                 $search_string,
@@ -603,6 +603,7 @@ class Parts extends CI_Controller {
 
         $this->pagination->initialize($config);
 
+        //var_dump($this->pagination);die;
         /*Что видит юзер id_group */
         switch ($this->session->userdata('id_group')) {
             case 1: // админ

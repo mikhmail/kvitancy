@@ -239,7 +239,9 @@ service.rab_sc
 
         }
         //echo  $store_summ;die;
-        return $profit =  $cash_summ - $work_summ -  $store_summ;
+        //return $profit =  $cash_summ - $work_summ -  $store_summ;
+          return $cash_summ;
+            
     }else return NULL;
     }
 

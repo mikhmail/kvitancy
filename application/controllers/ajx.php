@@ -1021,7 +1021,7 @@ function update_ajax_store ()
             'update_time' => date("d-m-Y, H:i:s"),
             'update_user' => $this->session->userdata('user_id'),
             'id_kvitancy' => $id_kvitancy,
-            'status' => 0,
+            'status' => 2,
         );
         $this->db->where('id', $id);
         $ret = $this->db->update('store', $data);
@@ -1251,7 +1251,7 @@ function add_parts2store ()
                 $data = array(
                     'update_time' => date("d-m-Y, H:i:s"),
                     'update_user' => $this->session->userdata('user_id'),
-                    'status' => 0
+                    'status' => 2
                 );
                 $this->db->where('id', $id);
                 $ret = $this->db->update('parts', $data);

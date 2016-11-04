@@ -122,19 +122,19 @@
                     <?php echo form_dropdown('active', array('1' => "Да", '2' => "Нет"), $product[0]['active'], 'class="span2"');?>
                 </div>
             </div>
-
+<!--
            <div class="control-group">
                 <label for="active" class="control-label">Процент от прибыли</label>
                 <div class="controls">
                      <input type="text" name="percent" value="<?php echo $product[0]['percent']; ?>">
                 </div>
             </div>
-
+-->
 
             <? $type_array = array(
-                1=>'мастер получает определенную сумму за каждую выполненную работу',
+                1=>'мастер получает определенную сумму за каждую выполненную работу по заказу',
                 2=>'мастер получает % от чистой прибилы заказа',
-                3=>'мастер получает фиксированную сумму заработной платы'
+                3=>'мастер получает фиксированную сумму заработной платы в месяц'
             );?>
             <?foreach($type_array as $key => $value){?>
                 <div class="control-group">
@@ -153,9 +153,23 @@
 
                         echo form_radio($data);
                         echo $value;
+
                         ?>
                         </label>
                 </div>
+
+           <? if ($key == 2){
+                            ?>
+
+        <div class="control-group">
+                <label for="active" class="control-label">Процент от прибыли</label>
+                <div class="controls">
+                     <input type="text" name="percent" value="<?php echo $product[0]['percent']; ?>">
+                </div>
+            </div>
+
+                            <?
+                        }?>
                     <?}?>
 
 

@@ -44,7 +44,7 @@
                 echo form_open('parts', $attributes);
 
 
-                $options_status = array('' => "Что показать", '1' => "Актуально", '0' => "Списано",);
+                $options_status = array('' => "Что показать", '1' => "Актуально", '2' => "Списано",);
                 echo form_dropdown('id_status', $options_status, $id_status_selected, 'class="chzn-select"');
 
 
@@ -142,6 +142,8 @@ if (count($store) > 0) {//var_dump($store);die;
                 <thead>
                 <tr>
                     <th class="header">#</th>
+                    <th class="header">Статус</th>
+
                     <th class="yellow header headerSortDown">Запчасть</th>
                     <th class="yellow header headerSortDown">Описание</th>
                     <th class="yellow header headerSortDown">Номер квитанции</th>
@@ -162,6 +164,8 @@ if (count($store) > 0) {//var_dump($store);die;
                 {?>
                    <tr id="parts_tr_<?=$row['store_id']?>">
                     <td><p class="text-center"><?=$row['store_id']?></p></td>
+                    <td><p class="text-center label"><?if ($row['status'] == 1) {echo 'Актуально';}else{echo 'Не актуально';}?></p></td>
+
                     <td><?=$row['aparat_name']?> <?=$row['name_proizvod']?> => <strong><?=$row['title']?></strong></td>
                     <td><p class="text-center"><?=$row['name']?></p></td>
                        <td><p class="text-center"><?=$row['id_kvitancy']?></p></td>

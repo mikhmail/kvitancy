@@ -168,7 +168,7 @@ if(count($count_kvitancys)>=1) {?>
 
 <div class="row-fluid">
 
-    <legend>Найдено <strong><?=$count_kvitancys?> квитанций. </strong>Оборот: <strong><?echo $summ;?>.</strong>
+    <legend>Найдено <strong><?=$count_kvitancys?> квитанций. </strong>Приход: <strong><?echo $summ;?>.</strong>
             Запчасти: <strong><?echo $store;?>.</strong> Работы: <strong><?echo $works;?>.</strong> Прибыль: <strong><?echo $summ-$store-$works;?></strong>
 
         <div class="pagination pull-right">

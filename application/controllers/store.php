@@ -86,6 +86,9 @@ class Store extends CI_Controller {
             $order = $this->input->post('order');
             $order_type = $this->input->post('order_type');
 
+            $filter_session_data = array();
+
+            if ($this->input->post()) {
             /*Очистка масива для сесиии*/
             if ($this->input->post()) {
 
@@ -109,9 +112,10 @@ class Store extends CI_Controller {
                     'id_kvitancy' => '',
                     'id_status' => ''                );
             }
-            //save session data into the session
-            if (isset($filter_session_data)) {
-                $this->session->set_userdata($filter_session_data);
+                //save session data into the session
+                if (isset($filter_session_data)) {
+                    $this->session->set_userdata($filter_session_data);
+                }
             }
 
                 //var_dump($this->session->userdata);die;
@@ -130,12 +134,13 @@ class Store extends CI_Controller {
             $store_user_id = $this->input->post("store_user_id");
             $id_where = $this->input->post("id_where");
             $id_resp = $this->input->post("id_resp");
-            $id_status = $this->input->post("id_status");
+            $id_status = $this->input->post('id_status', false);
             $id_kvitancy = $this->input->post("id_kvitancy");
 
+           
             //echo $id_status;die;
             // id_status
-            if ( isset($id_status) ) {
+            if ( $id_status ) {
                 $filter_session_data['id_status'] = $id_status;
             }
             elseif ($this->uri->segment(2)) { //var_dump($this->session->userdata);die;
@@ -453,7 +458,7 @@ class Store extends CI_Controller {
             $data['store_user_id_selected'] = '';
             $data['id_resp_selected'] = '';
             $data['id_where_selected'] = '';
-            $data['status_selected'] = 1;
+
             $data['id_kvitancy_selected'] = '';
             $data['id_sc_selected'] = '';
             $data['id_status_selected'] = 1;
@@ -524,7 +529,7 @@ class Store extends CI_Controller {
                 'id_where' => '',
                 'id_sc' => '',
                 'id_kvitancy' => '',
-                'id_status' => ''
+                'id_status' => 1
             );
 
             //save session data into the session

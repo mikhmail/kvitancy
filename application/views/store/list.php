@@ -44,7 +44,7 @@
                 echo form_open('store', $attributes);
 
 
-                $options_status = array('' => "Что показать", '1' => "На складе", '0' => "Списано",);
+                $options_status = array('' => "Что показать", '1' => "На складе", '2' => "Списано",);
                 echo form_dropdown('id_status', $options_status, $id_status_selected, 'class="chzn-select"');
 
 
