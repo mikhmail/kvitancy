@@ -6,7 +6,7 @@ class Ajx extends CI_Controller {
 	{
 		parent::__construct();
 
-        if(!$this->session->userdata('user_id')){
+        if(!$this->session->userdata('is_logged_in')){
             redirect('admin/login');
         }
 
@@ -284,7 +284,7 @@ class Ajx extends CI_Controller {
 		
 		$arr = $this->kvitancy_model->get_comment_by_id($this->db->insert_id());
 		foreach($arr as $rowc)
-				{	echo '<li id=li_' . $rowc['id_comment'] . '>' . $rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka ' . $rowc['user_name'] . ' пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment'] . '</b></font>';
+				{	echo '<li id=li_' . $rowc['id_comment'] . '>' . $rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka ' . $rowc['user_name'] . ' пишет: ' . '<br><font color="#0066CC"><b>' .nl2br(strtr($rowc['comment'], array('\r' => chr(13), '\n' => chr(10)))) . '</b></font>';
 					
 				}
 			}

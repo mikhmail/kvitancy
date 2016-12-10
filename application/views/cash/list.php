@@ -1,4 +1,4 @@
-<? //var_dump($works);die;?>
+<? 			//var_dump($order_type_selected);die;?>
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
 
     <ul class="breadcrumb">
@@ -165,7 +165,7 @@
                     <th class="yellow header headerSortDown">Приход +</th>
                     <th class="yellow header headerSortDown">Расход -</th>
                     <th class="yellow header headerSortDown">Тип</th>
-                    <!--<th class="yellow header headerSortDown">Контрольная сумма</th>-->
+                    <th class="yellow header headerSortDown">Контрольная сумма</th>
 
 
 
@@ -182,8 +182,12 @@
                 </thead>
                 <tbody>
                 <?php
+					$arrayLength = count($works);
+					$counter = 0;
                 foreach($works as $row)
-                {?>
+                {
+                    $counter++;
+                    ?>
                     <tr>
                         <td><p class="text-center"><?=$row['cash_id']?></p></td>
                         <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+'.$row['plus'];?></div></td>
@@ -192,7 +196,7 @@
                         <td style="text-align: center"><div class="label"><? if($row['cash_type']==0) {echo 'Наличные';}else{echo 'Без наличные';}?></div></td>
 
 
-                        <!--<td style="text-align: center"><p class="text-center"><? if($row['total']) echo $row['total']; ?></p></td>-->
+                        <td style="text-align: center"><p class="text-center"><? if(isset($row['total'])) echo $row['total']; ?></p></td>
 
                         <td style="text-align: center"><p class="text-center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></p></td>
 
@@ -210,13 +214,19 @@
 
 
                         <td style="text-align: center"><p class="text-center">
-                            <? echo '
+                    <? 
+        
 
-                    <a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>
 
-                    ';?>
+					if($counter == 1) {
+                     echo '
 
-                        </p></td>
+                    <!--<a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>-->
+
+                    ';}?>
+
+                        </p>
+						</td>
 
 
 

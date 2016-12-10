@@ -122,7 +122,28 @@ class Tickets extends CI_Controller
                 'id_where' => '',
 
             );
-            }
+            }else{
+			$filter_session_data = array(
+                'search_string' => '',
+                'order' => '',
+                'order_type' => 'Desc',
+                'limit_start' => '',
+                'limit_end' => '',
+                'date' => '',
+                'start_date' => '',
+                'end_date' => '',
+                'id_mechanic' => '',
+                'id_aparat' => '',
+                'id_proizvod' => '',
+                'id_sost' => '',
+                'id_sc' => '',
+                'id_kvitancy' => '',
+                'id_remonta' => '',
+                'id_responsible' => '',
+                'id_where' => '',
+
+            );
+			}
             //save session data into the session
             if (isset($filter_session_data)) {
                 $this->session->set_userdata($filter_session_data);
@@ -811,7 +832,7 @@ class Tickets extends CI_Controller
 				
 				$data['count_today'] = $this->kvitancy_model->get_count_today($sc);
 				$data['count_month'] = $this->kvitancy_model->get_count_month($sc);
-				//var_dump($data['count_month']);die;
+				//var_dump($data['count_today']);die;
                 
 				
             break;
@@ -1137,6 +1158,8 @@ class Tickets extends CI_Controller
                     'ser_nomer' => $this->input->post('ser_nomer'),
                     'neispravnost' => $this->input->post('neispravnost'),
                     'komplektnost' => $this->input->post('komplektnost'),
+                    'vid' => $this->input->post('vid'),
+
                     'id_remonta' => $this->input->post('id_remonta'),
                     'id_sc' => $this->input->post('id_sc'),
                     'primechaniya' => $this->input->post('primechaniya'),

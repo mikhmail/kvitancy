@@ -999,7 +999,7 @@ function anichange_kvitancy (obj) {
 
         $(tr).siblings().each(function() {
             $(tr).css('opacity','1');
-            $(this).css('opacity','0.2');
+            $(this).css('opacity','0.5');
         });
 
 

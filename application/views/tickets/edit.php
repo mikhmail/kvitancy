@@ -144,6 +144,13 @@
               <textarea id="" rows="4" name="komplektnost"><?php echo $manufacture[0]['komplektnost']; ?></textarea>
             </div>
           </div>
+
+        <div class="control-group">
+            <label for="komplektnost" class="control-label">Внешний вид</label>
+            <div class="controls">
+              <textarea id="" rows="4" name="vid"><?php echo $manufacture[0]['vid']; ?></textarea>
+            </div>
+          </div>
 		
 		<div class="control-group">
             <label for="id_remonta" class="control-label">Вид ремонта</label>

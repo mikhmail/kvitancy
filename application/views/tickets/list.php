@@ -480,7 +480,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                         <?foreach($comments as $rowc)
                                                         {?>
 
-                                                            <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka <b>' . $rowc['user_name'] . '</b> пишет: ' . '<br><font color="#0066CC"><b>' . $rowc['comment']?></b></font>
+                                                            <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka <b>' . $rowc['user_name'] . '</b> пишет: ' . '<br><font color="#0066CC"><b>' . nl2br(strtr($rowc['comment'], array('\r' => chr(13), '\n' => chr(10)))) ?></b></font>
 
                                                                 <? if ($rowc['id_user'] == $this->session->userdata['user_id'])
                                                                 {?>
@@ -491,7 +491,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     </ul>
 
 
-                                                    <textarea name="comment_<?=$row['id_kvitancy']?>"></textarea>
+                                                    <textarea style="width: 30em;" rows="3" cols="20" name="comment_<?=$row['id_kvitancy']?>"></textarea>
                                                     <input class="btn btn-success btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
                                                 </td>
                                             </tr>

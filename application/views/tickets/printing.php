@@ -25,7 +25,9 @@ $search = array(
 				"[phone]",
 				"[fam]",
 				"[imya]",
-				"[otch]"
+				"[otch]",
+                "[adres]"
+
 				
 				);
 				
@@ -49,7 +51,8 @@ $data   = array(
 				$client[0]["phone"],
 				$client[0]["fam"],
 				$client[0]["imya"],
-				$client[0]["otch"]
+				$client[0]["otch"],
+                $client[0]["adres"]
 				
 				);
 

@@ -641,9 +641,9 @@ function show_aparat_p ($id_aparat) {
 		$return = array();
 		foreach ($arr as $name_sc => $id_sc){
 			
-			$this->db->select('*');
+			$this->db->select('id_kvitancy');
 			$this->db->from('kvitancy');
-			$this->db->where('date_priemka', date('Y-d-m'));
+			$this->db->where('date_priemka', date('Y-m-d'));
 			$this->db->where('id_sc', $id_sc);
 			$query = $this->db->get();
 			
@@ -661,7 +661,7 @@ function show_aparat_p ($id_aparat) {
 		$return = array();
 		foreach ($arr as $name_sc => $id_sc){
 			
-			$this->db->select('*');
+			$this->db->select('id_kvitancy');
 			$this->db->from('kvitancy');
 			$this->db->where("date_priemka >= '".date('Y')."-".date('m')."-01' ");
 			$this->db->where('id_sc', $id_sc);
