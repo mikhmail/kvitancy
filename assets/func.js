@@ -180,7 +180,7 @@ var id = this.name;
                 });
           }
       }
-
+	/*
     if (confirm('Добавить в кассу запись?\n-'+cost+', Закупка запчасти для '+id_kvitancy+'')) {
         $.post(""+base_url+"ajx/add_cash", {
                 plus:'-'+cost,
@@ -197,6 +197,7 @@ var id = this.name;
                     }
                 });
     }
+	*/
 // end of добавить запчасть
 });
 
@@ -309,7 +310,7 @@ var id = parseInt(arr[1]);
 $.post(""+base_url+"ajx/add_comment", {id:id, comment:comment})
 	.done(function(data) {
 	
-	$("#ul_"+id+"").append(data);
+	$("#ul_"+id+"").prepend(data);
 	$('textarea[name=comment_'+id+']').val('');
 		});
 	});
@@ -688,12 +689,13 @@ $( "#search_user" ).keyup(function() {
 // END of поиск пользователя при добавлении квинтации.	
 
 // Подсветить все выбранные value
+/*
     $("form#myform").find("select").filter('[value != ""]').each(function () {
 
        $(this).attr("class","selected-values");
 
     });
-
+*/
 // END of Подсветить все выбранные value
 
 // вывод под каталога аппарата
@@ -790,6 +792,7 @@ $('input[id^=save_price_]').click(function(){
         parts = this.id.split('_');
         var id = parts[2];
         var price = $("#price_"+id+"").val();
+        var cash_type = $("#cash_type_"+id+" option:selected").val();
 
             if(price) {
                 $.post(""+base_url+"ajx/save_price", {
@@ -805,12 +808,13 @@ $('input[id^=save_price_]').click(function(){
                         //alert('Добавлено!');
                     }
                 });
-
-        if (confirm('Добавить в кассу запись?\n+'+price+', Получено от клиента, '+id+'\nЗапись будет добавлена "Наличные",\nЕсли Вы получили "безналичные", добавьте запись в кассу вручную.')) {
+    if (cash_type == 0){
+        if (confirm('Добавить в кассу запись?\n+'+price+', Получено от клиента, '+id+'\nЗапись будет добавлена "Наличные"')) {
         $.post(""+base_url+"ajx/add_cash", {
                 plus:price,
                 id_kvitancy:id,
-                name:'Получено от клиента'
+                name:'Получено от клиента',
+                cash_type:cash_type
             })
                 .done(function(data) {
                     //alert (data);
@@ -822,7 +826,25 @@ $('input[id^=save_price_]').click(function(){
                     }
                 });
         }
+     }else{
+             if (confirm('Добавить в кассу запись?\n+'+price+', Получено от клиента, '+id+'\nЗапись будет добавлена "Безналичные"')) {
+            $.post(""+base_url+"ajx/add_cash", {
+                plus:price,
+                id_kvitancy:id,
+                name:'Получено от клиента',
+                cash_type:cash_type
+            })
+                .done(function(data) {
+                    //alert (data);
+                    if (data == 0) {
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
 
+                    } else {
+                        alert('Добавлено!');
+                    }
+                });
+        }
+    }
   }
 
 
@@ -1013,6 +1035,41 @@ function anichange_kvitancy (obj) {
 
 
     }
+}
+
+
+function anichange_kvitancy_new (id_kvitancy) {
+
+    //var table = $(obj).parent().parent().parent().parent();
+    var table = $('table#anichange_'+id_kvitancy+'');
+    var objName = table.next();
+    var obj = table;
+    var tr = $(obj).parent().parent();
+    //console.log(objName);exit;
+
+        if ( $(objName).css('display') == 'none' ) {
+
+             $(objName).animate({height: 'show'}, 400);
+             $(obj).css('font-weight','bold');
+
+
+        $(tr).siblings().each(function() {
+            $(tr).css('opacity','1');
+            $(this).css('opacity','0.5');
+        });
+
+
+    } else {
+
+        $(objName).animate({height: 'hide'}, 200);
+        $(obj).css('font-weight','normal');
+        $(tr).siblings().each(function() {
+            $(this).css('opacity','1');
+        });
+
+
+    }
+
 }
 
 function look_apparat(inputString) {

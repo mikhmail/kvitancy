@@ -263,7 +263,10 @@ service.adres_sc,
 service.phone_sc,
 service.kontakt_sc,
 service.mail_sc,
-service.rab_sc
+service.rab_sc,
+
+vid_remonta.name_remonta
+
 		');
 		
 		
@@ -276,7 +279,7 @@ service.rab_sc
 		$this->db->join('users user', 'kvitancy.user_id = user.user_id');
 		$this->db->join('sost_remonta sost', 'kvitancy.id_sost = sost.id_sost');
 		$this->db->join('service_centers service', 'kvitancy.id_sc = service.id_sc');
-		//$this->db->join('membership', 'kvitancy.id_mechanic = membership.id');
+		$this->db->join('vid_remonta', 'kvitancy.id_remonta = vid_remonta.id_remonta');
 
 		
 		if($search_string){

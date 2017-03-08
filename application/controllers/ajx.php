@@ -6,10 +6,12 @@ class Ajx extends CI_Controller {
 	{
 		parent::__construct();
 
+        /*
         if(!$this->session->userdata('is_logged_in')){
             redirect('admin/login');
         }
-
+        */
+        
 		$this->load->model('kvitancy_model');
         $this->load->model('users_model');
         $this->load->model('store_model');
@@ -1143,7 +1145,7 @@ function update_ajax_store ()
         $id_kvitancy = $this->input->post('id_kvitancy');
         $plus = $this->input->post('plus');
         $name =  $this->input->post('name');
-        $type = $this->input->post('type');
+        $cash_type = $this->input->post('cash_type');
 
 
 
@@ -1157,7 +1159,7 @@ function update_ajax_store ()
                 'plus' => $plus,
                 'name' => $name,
                 'id_sc' => $this->session->userdata('user_id_sc'),
-                'cash_type' => $type
+                'cash_type' => $cash_type
 
             );
             $ret = $this->db->insert('cash', $data);

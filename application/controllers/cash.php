@@ -95,22 +95,7 @@ class Cash extends CI_Controller {
                     'id_responsible' => ''
 
                 );
-            }else{
-			$filter_session_data = array(
-                    'search_string' => '',
-                    'order' => '',
-                    'order_type' => 'Desc',
-                    'limit_start' => '',
-                    'start_date' => '',
-                    'end_date' => '',
-                    'id_aparat' => '',
-                    'id_sc' => '',
-                    'id_kvitancy' => '',
-                    'id_sc' => '',
-                    'id_responsible' => ''
-
-                );
-			}
+            }
             //save session data into the session
             if (isset($filter_session_data)) {
                 $this->session->set_userdata($filter_session_data);

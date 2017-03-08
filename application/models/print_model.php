@@ -41,6 +41,21 @@ class Print_model extends CI_Model
             ->row();
     }
 
+    public function get_invoice()
+    {
+        return $this->db
+            ->get_where('settings',array('name' => 'invoice'))
+            ->row();
+    }
+
+
+    public function get_works()
+    {
+        return $this->db
+            ->get_where('settings',array('name' => 'works'))
+            ->row();
+    }
+
     function update_check($data)
     {
         $this->db->where('name', 'check');

@@ -58,7 +58,7 @@ echo form_open('stat', array('class' => 'form-inline', 'id' => 'myform'));
         foreach ($sc as $array) {
             $options_id_sc[$array['id_sc']] = $array['name_sc'];
         }
-        echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class=""');
+        echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class="chzn-select"');
 
         ?>
 
@@ -68,7 +68,7 @@ echo form_open('stat', array('class' => 'form-inline', 'id' => 'myform'));
         foreach ($meh as $array) {
             $options_id_meh[$array['id']] = $array['user_name'];
         }
-        echo form_dropdown('id_mechanic', $options_id_meh, $id_mechanic_selected, 'class=""');
+        echo form_dropdown('id_mechanic', $options_id_meh, $id_mechanic_selected, 'class="chzn-select"');
         ?>
 
         <?
@@ -78,7 +78,7 @@ echo form_open('stat', array('class' => 'form-inline', 'id' => 'myform'));
         foreach ($ap as $array) {
             $options_ap[$array['id_aparat']] = $array['aparat_name'];
         }
-        echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class=""');
+        echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="chzn-select"');
         ?>
 
 
@@ -91,7 +91,7 @@ echo form_open('stat', array('class' => 'form-inline', 'id' => 'myform'));
             $options_proizvoditel[$array['id_proizvod']] = $array['name_proizvod'];
         }
 
-        echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class=""');
+        echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="chzn-select"');
         ?>
 
 
@@ -102,7 +102,7 @@ echo form_open('stat', array('class' => 'form-inline', 'id' => 'myform'));
         foreach ($sost as $array) {
             $options_sost[$array['id_sost']] = $array['name_sost'];
         }
-        echo form_dropdown('id_sost', $options_sost, $id_sost_selected, 'class=""');
+        echo form_dropdown('id_sost', $options_sost, $id_sost_selected, 'class="chzn-select"');
 
         ?>
 
@@ -114,14 +114,14 @@ echo form_open('stat', array('class' => 'form-inline', 'id' => 'myform'));
         foreach ($remont as $array) {
             $options_id_remonta[$array['id_remonta']] = $array['name_remonta'];
         }
-        echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class=""');
+        echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class="chzn-select"');
 
         ?>
 
         <?
         //echo form_label('Сортировать как: ');
         $options_order_type = array('Desc' => 'С конца', 'Asc' => 'С начала');
-        echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class=""');
+        echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="chzn-select"');
         ?>
 
         <?
@@ -294,8 +294,10 @@ if(count($count_kvitancys)>=1) {?>
                     </td>
 
                     <td class="span3">
-                        <?if(count($store)>0 OR count($work)>0 OR count($cash) >0) {?>
-                        Приход [<b><?=$pro_cash?></b>] - Запчасти[<b><?=$sum_store?></b>] - Работы[<b><?=$sum_work?></b>] = <b><?=$pro_cash-$sum_work-$sum_store;?></b>
+                        <?if(count($store)>0 OR count($work)>0 OR count($cash) >0) {
+                        $pr = $pro_cash-$sum_work-$sum_store;
+                        ?>
+                        Приход [<b><?=$pro_cash?></b>] - Запчасти[<b><?=$sum_store?></b>] - Работы[<b><?=$sum_work?></b>] = <?if($pr <0) { ?><span style="color: red;"><b><?=$pr;?></b></span><?}else{echo $pr;}?>
                     <?}?>
                     </td>
 

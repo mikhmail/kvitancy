@@ -106,14 +106,14 @@
          <div class="control-group">
             <label for="id_aparat" class="control-label">Аппарат</label>
            <div class="controls">
-              <?php echo form_dropdown('id_aparat', $options_aparaty, $manufacture[0]['id_aparat'], 'class="span2"');?>
+              <?php echo form_dropdown('id_aparat', $options_aparaty, $manufacture[0]['id_aparat'], 'class="span2 chzn-select"');?>
             </div>
          </div>
          
 		 <div class="control-group">
             <label for="id_proizvod" class="control-label">Производитель</label>
            <div class="controls">
-              <?php echo form_dropdown('id_proizvod', $options_proizvod, $manufacture[0]['id_proizvod'], 'class="span2"');?>
+              <?php echo form_dropdown('id_proizvod', $options_proizvod, $manufacture[0]['id_proizvod'], 'class="span2 chzn-select"');?>
             </div>
          </div>
          

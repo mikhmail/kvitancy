@@ -122,28 +122,7 @@ class Tickets extends CI_Controller
                 'id_where' => '',
 
             );
-            }else{
-			$filter_session_data = array(
-                'search_string' => '',
-                'order' => '',
-                'order_type' => 'Desc',
-                'limit_start' => '',
-                'limit_end' => '',
-                'date' => '',
-                'start_date' => '',
-                'end_date' => '',
-                'id_mechanic' => '',
-                'id_aparat' => '',
-                'id_proizvod' => '',
-                'id_sost' => '',
-                'id_sc' => '',
-                'id_kvitancy' => '',
-                'id_remonta' => '',
-                'id_responsible' => '',
-                'id_where' => '',
-
-            );
-			}
+            }
             //save session data into the session
             if (isset($filter_session_data)) {
                 $this->session->set_userdata($filter_session_data);
@@ -306,6 +285,8 @@ class Tickets extends CI_Controller
                             }
             $data['id_sost_selected'] = $id_sost;
             if ($id_sost == '') $id_sost = $sost_in_remont;
+            if ($id_sost == 'all') $id_sost = '';
+
             // end ID_SOST
 
 
@@ -1293,6 +1274,63 @@ class Tickets extends CI_Controller
 
         //load the view
         $data['main_content'] = 'tickets/printing_check';
+        $this->load->view('includes/print', $data);
+
+    }
+
+
+
+    public function printing_invoice()
+    {
+        //product id
+        $id = $this->uri->segment(3);
+
+        //if we are updating, and the data did not pass trough the validation
+        //the code below wel reload the current data
+
+        $this->load->model('print_model');
+        $data['text'] = $this->print_model->get_invoice();
+        //product data
+        $data['manufacture'] = $this->kvitancy_model->get_kvitancy_by_id($id);
+
+        $id_clienta = $this->kvitancy_model->get_client_by_id($id);
+        $data['client'] = $this->clients_model->get_clients_by_id($id_clienta[0]['user_id']);
+
+        $data['sc'] = $this->service_centers_model->get_service_centers_by_id($data['manufacture'][0]['id_sc']);
+
+        $data['aparat'] = $this->aparaty_model->get_aparaty_by_id($data['manufacture'][0]['id_aparat']);
+        $data['proizvod'] = $this->proizvoditel_model->get_proizvoditel_by_id($data['manufacture'][0]['id_proizvod']);
+
+        //load the view
+        $data['main_content'] = 'tickets/printing_invoice';
+        $this->load->view('includes/print', $data);
+
+    }
+
+
+    public function printing_works()
+    {
+        //product id
+        $id = $this->uri->segment(3);
+
+        //if we are updating, and the data did not pass trough the validation
+        //the code below wel reload the current data
+
+        $this->load->model('print_model');
+        $data['text'] = $this->print_model->get_works();
+        //product data
+        $data['manufacture'] = $this->kvitancy_model->get_kvitancy_by_id($id);
+
+        $id_clienta = $this->kvitancy_model->get_client_by_id($id);
+        $data['client'] = $this->clients_model->get_clients_by_id($id_clienta[0]['user_id']);
+
+        $data['sc'] = $this->service_centers_model->get_service_centers_by_id($data['manufacture'][0]['id_sc']);
+
+        $data['aparat'] = $this->aparaty_model->get_aparaty_by_id($data['manufacture'][0]['id_aparat']);
+        $data['proizvod'] = $this->proizvoditel_model->get_proizvoditel_by_id($data['manufacture'][0]['id_proizvod']);
+
+        //load the view
+        $data['main_content'] = 'tickets/printing_works';
         $this->load->view('includes/print', $data);
 
     }

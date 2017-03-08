@@ -41,6 +41,29 @@ class sost_remonta_model extends CI_Model {
         return $sost;
     }
 
+
+
+    public function get_sost_remonta_out_remont()
+    {
+        $this->db->select('id_sost');
+        $this->db->from('sost_remonta');
+        $this->db->where('type', 0); //type = 1 - in temont, 0 - vidan
+        $query = $this->db->get();
+
+        $sost = array();
+        foreach($query->result_array() as $key => $arr) {
+            foreach($arr as $value){
+                $sost[]= $value;
+            }
+
+        }
+
+        return $sost;
+    }
+
+
+
+    
     public function get_sost_remonta_call()
     {
         $this->db->select('id_sost');

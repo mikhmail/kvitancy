@@ -56,7 +56,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             foreach ($sc as $array) {
                 $options_id_sc[$array['id_sc']] = $array['name_sc'];
             }
-            echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class=""');
+            echo form_dropdown('id_sc', $options_id_sc, $id_sc_selected, 'class="chzn-select"');
 
             ?>
             <?
@@ -65,7 +65,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             foreach ($where as $array) {
                 $options_id_where[$array['id_sc']] = $array['name_sc'];
             }
-            echo form_dropdown('id_where', $options_id_where, $id_where_selected, 'class=""');
+            echo form_dropdown('id_where', $options_id_where, $id_where_selected, 'class="chzn-select"');
 
             ?>
 
@@ -75,7 +75,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             foreach ($meh as $array) {
             $options_id_meh[$array['id']] = $array['user_name'];
             }
-            echo form_dropdown('id_mechanic', $options_id_meh, $id_mechanic_selected, 'class=""');
+            echo form_dropdown('id_mechanic', $options_id_meh, $id_mechanic_selected, 'class="chzn-select"');
             ?>
 
             <?
@@ -84,7 +84,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             foreach ($resp as $array) {
                 $options_id_responsible[$array['id']] = $array['user_name'];
             }?>
-            <? echo form_dropdown('id_responsible', $options_id_responsible, $id_responsible_selected, 'class=""');?>
+            <? echo form_dropdown('id_responsible', $options_id_responsible, $id_responsible_selected, 'class="chzn-select"');?>
 
     <?
        // echo form_label('Аппарат: ');
@@ -93,7 +93,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
         foreach ($ap as $array) {
             $options_ap[$array['id_aparat']] = $array['aparat_name'];
         }
-        echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class=""');
+        echo form_dropdown('id_aparat', $options_ap, $id_aparat_selected, 'class="chzn-select"');
         ?>
 
 
@@ -106,18 +106,18 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
             $options_proizvoditel[$array['id_proizvod']] = $array['name_proizvod'];
         }
 
-        echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class=""');
+        echo form_dropdown('id_proizvod', $options_proizvoditel, $id_proizvod_selected, 'class="chzn-select"');
         ?>
 
 
 
         <?
         //echo form_label('Состояние: ');
-        $options_sost = array('' => "Все [что в ремонте]");
+        $options_sost = array('' => "Все [что в ремонте]", 'all' => "Все");
         foreach ($sost as $array) {
             $options_sost[$array['id_sost']] = $array['name_sost'];
         }
-        echo form_dropdown('id_sost', $options_sost, $id_sost_selected, 'class=""');
+        echo form_dropdown('id_sost', $options_sost, $id_sost_selected, 'class="chzn-select"');
 
         ?>
 
@@ -129,14 +129,14 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
         foreach ($remont as $array) {
             $options_id_remonta[$array['id_remonta']] = $array['name_remonta'];
         }
-        echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class=""');
+        echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class="chzn-select"');
 
         ?>
 
         <?
         //echo form_label('Сортировать как: ');
         $options_order_type = array('Desc' => 'С конца', 'Asc' => 'С начала');
-        echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class=""');
+        echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="chzn-select"');
         ?>
 
         <?
@@ -334,19 +334,23 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                     <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
                     <tr>
                         <td>
-                            <a href="#" onclick="anichange_kvitancy(this); return false">
-                                <table class="table table-condensed">
+                            <!--<a href="#" onclick="anichange_kvitancy_new(<?=$row['id_kvitancy']?>); return false">-->
+                                <table class="table table-condensed" id="anichange_<?=$row['id_kvitancy']?>">
                                     <tr>
                                         <td class="span2">
-                                            <p class="text-center">
-                                                <span class="label label-info"># <?=$row['id_kvitancy']?></span>
-                                            </p>
+                                            <a href="#" onclick="anichange_kvitancy_new(<?=$row['id_kvitancy']?>); return false">
+                                                <p class="text-center">
+                                                    <!--<span style="letter-spacing: 0.3em;" class="label label-info">-->
+                                                        # <?=$row['id_kvitancy']?>
+                                                    <!--</span>-->
+                                                </p>
+                                            </a>
                                         </td>
                                         <td class="span2"><p class="text-center">
-                                            <span id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span>
+                                            <span title="<?=$row['name_sost']?>" id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span>
                                             </p>
                                         </td>
-                                        <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
+                                        <td class="span3"><span title="<?=$row['name_remonta']?>" class="label label-info pull-left"><?=strtoupper(mb_substr($row['name_remonta'],0,1,'UTF-8'))?></span> &nbsp; <?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
                                         <td class="span3"><?=$row['neispravnost']?></td>
 
                                         <td class="span2"><p class="text-center"><?=$row['date_priemka']?></p></td>
@@ -363,10 +367,10 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </p>
                                         </td>
                                         <td class="span2"><p class="text-center"><?=$row['name_sc']?></p></td>
-                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' <br> '.$row['phone']?></p></td>
+                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' '.$row['otch'].' <br> <a href="tel:38'.$row['phone'].'">'.$row['phone']?></a></p></td>
                                     </tr>
                                 </table>
-                            </a>
+                            <!--</a>-->
                             <div style="display: none; margin-bottom: 20px; padding: 10px;">
                                 <ul class="nav nav-tabs">
                                     <li class="active"><a href="#tab1_<?=$row['id_kvitancy']?>" data-toggle="tab">Опции</a></li>
@@ -471,7 +475,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </tr>
                                         </table>
                                     </div>
-
+                                    <!-- комментарии -->
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab3_<?=$row['id_kvitancy']?>">
                                         <table class="table table-bordered table-condensed">
                                             <tr>
@@ -497,14 +501,21 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </tr>
                                         </table>
                                     </div>
-
+                                    <!-- ремонт -->
                                     <div style="margin-bottom: 20px;" class="tab-pane" id="tab4_<?=$row['id_kvitancy']?>">
 
                                     <?if ($this->session->userdata('id_group') == 1 OR $this->session->userdata('id_group') == 2) {?>
                                         <div class="row-fluid" name="price" style="margin-bottom: 20px;">
 
                                             <div class="span12">
-                                                Сумма, полученная от клиента за ремонт: <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
+                                                Сумма, полученная от клиента за ремонт:
+                                                <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
+
+                                                <select id="cash_type_<?=$row['id_kvitancy']?>" class="span2">
+                                                    <option value="0" selected>Наличные</option>
+                                                    <option value="1">Безналичные</option>
+                                                </select>
+
                                                 <input class="btn margin-bottom-10px btn btn-success" type="button" value="Сохранить" id="save_price_<?=$row['id_kvitancy']?>">
                                             </div>
 
