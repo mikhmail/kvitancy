@@ -22,7 +22,7 @@
 
 
 <?php
-
+//var_dump($this->session);die;
 echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
 
