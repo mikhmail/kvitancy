@@ -350,7 +350,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             <span title="<?=$row['name_sost']?>" id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span>
                                             </p>
                                         </td>
-                                        <td class="span3"><span title="<?=$row['name_remonta']?>" class="label label-info pull-left"><?=strtoupper(mb_substr($row['name_remonta'],0,1,'UTF-8'))?></span> &nbsp; <?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
+                                        <!--<td class="span3"><span title="<?=$row['name_remonta']?>" class="label label-info pull-left"><?=strtoupper(mb_substr($row['name_remonta'],0,1,'UTF-8'))?></span> &nbsp; <?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>-->
+                                        <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?></td>
+
                                         <td class="span3"><?=$row['neispravnost']?></td>
 
                                         <td class="span2"><p class="text-center"><?=$row['date_priemka']?></p></td>
@@ -367,7 +369,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </p>
                                         </td>
                                         <td class="span2"><p class="text-center"><?=$row['name_sc']?></p></td>
-                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' '.$row['otch'].' <br> <a href="tel:38'.$row['phone'].'">'.$row['phone']?></a></p></td>
+                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' '.$row['otch'].' <br> <a href="tel:38'.$row['phone'].'">'.$row['phone']?></a><br><span class="" style="color: #468847;font-size: small;""><?=$row['adres']?></span></p></td>
                                     </tr>
                                 </table>
                             <!--</a>-->
