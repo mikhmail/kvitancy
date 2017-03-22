@@ -25,10 +25,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="371" column="250" selection-start="13896" selection-end="13896" vertical-scroll-proportion="0.7135135">
+            <state line="371" column="250" selection-start="13896" selection-end="13896" vertical-scroll-proportion="-21.290323">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/application/views/store/list.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="179" column="44" selection-start="7031" selection-end="7031" vertical-scroll-proportion="1.1178378">
               <folding />
             </state>
           </provider>
@@ -48,7 +57,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/views/tickets/printing_check.php" />
         <option value="$PROJECT_DIR$/application/models/sost_remonta_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/stat.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
@@ -64,6 +72,7 @@
         <option value="$PROJECT_DIR$/assets/func.js" />
         <option value="$PROJECT_DIR$/application/config/config.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
+        <option value="$PROJECT_DIR$/application/views/store/list.php" />
       </list>
     </option>
   </component>
@@ -199,6 +208,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tickets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="store" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -451,11 +482,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1332" column="55" selection-start="48159" selection-end="48159" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/print_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="54" column="57" selection-start="1203" selection-end="1203" vertical-scroll-proportion="0.0" />
@@ -528,7 +554,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="371" column="250" selection-start="13896" selection-end="13896" vertical-scroll-proportion="0.7135135">
+        <state line="371" column="250" selection-start="13896" selection-end="13896" vertical-scroll-proportion="-21.290323">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/store/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="179" column="44" selection-start="7031" selection-end="7031" vertical-scroll-proportion="1.1178378">
           <folding />
         </state>
       </provider>

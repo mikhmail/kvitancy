@@ -175,7 +175,7 @@ if (count($store) > 0) {//var_dump($store);die;
                     <!--<td><p class="text-center"><?=$row['price']?></p></td>-->
                     <td><p class="text-center">
 
-                        <? if ($row['status'] == 0) {
+                        <? if ($row['status'] != 1) {
                                 if($row['id_kvitancy']){?>
                                     Списан #<?=$row['id_kvitancy']?>
                                  <? }else{ ?>
@@ -211,7 +211,7 @@ if (count($store) > 0) {//var_dump($store);die;
                     </td>
                     <td><p class="text-center">
                         <?
-                        if($row['status'] != 0) {
+                        if($row['status'] == 1) {
                             if ($this->session->userdata('id_group') == 2) {
                                 echo '
                     <a id="setup_' . $row['store_id'] . '" class="btn btn-primary btn-mini">Списать</a>
