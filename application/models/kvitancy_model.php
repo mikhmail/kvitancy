@@ -289,7 +289,7 @@ vid_remonta.name_remonta
             }
 
 
-            $where = "(kvitancy.model LIKE '%$search_string%' OR user.phone LIKE '%$search_string%' OR user.fam LIKE '%$search_string%')";
+            $where = "(kvitancy.model LIKE '%$search_string%' OR user.phone LIKE '%$search_string%' OR user.fam LIKE '%$search_string%' OR user.adres LIKE '%$search_string%')";
 
             $this->db->where($where);
 

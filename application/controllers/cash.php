@@ -21,6 +21,8 @@ class Cash extends CI_Controller {
         $this->load->model('aparaty_model');
         $this->load->model('proizvoditel_model');
         $this->load->model('service_centers_model');
+        $this->load->model('kvitancy_model');
+
 
 
         if(!$this->session->userdata('is_logged_in')){

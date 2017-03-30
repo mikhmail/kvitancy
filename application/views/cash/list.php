@@ -169,7 +169,7 @@
 
 
 
-                    <th class="header">#квитанции</th>
+                    <th class="header">Квитанция</th>
                     <th class="yellow header headerSortDown">Описание</th>
                     <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Дата</th>
@@ -197,8 +197,34 @@
 
 
                         <td style="text-align: center"><p class="text-center"><? if(isset($row['total'])) echo $row['total']; ?></p></td>
+                        <td>
+                        <?
+                           if($row['id_kvitancy']) {
+                           $kvitancy = $this->kvitancy_model->get_kvitancy(
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            '',
+                            $row['id_kvitancy'],
+                            '',
+                            '',
+                            $count = null
+                        );
+                      ?>
 
-                        <td style="text-align: center"><p class="text-center"><? if($row['id_kvitancy']) echo $row['id_kvitancy']; ?></p></td>
+                        <? echo $row['id_kvitancy']; ?> - <?=$kvitancy[0]['aparat_name'].' '.$kvitancy[0]['name_proizvod'].' '.$kvitancy[0]['model']?>
+                        
+                        <?}?>
+                        </td>
 
                         <td><?=$row['name']?></td>
 
