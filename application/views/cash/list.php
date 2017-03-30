@@ -243,11 +243,11 @@
                     <? 
         
 
-
+                    //echo $counter;
 					if($counter == 1) {
                      echo '
 
-                    <!--<a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>-->
+                    <a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>
 
                     ';}?>
 

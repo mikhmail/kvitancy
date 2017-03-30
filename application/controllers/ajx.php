@@ -1145,7 +1145,7 @@ function update_ajax_store ()
         $id_kvitancy = $this->input->post('id_kvitancy');
         $plus = $this->input->post('plus');
         $name =  $this->input->post('name');
-        $cash_type = $this->input->post('cash_type');
+        $cash_type = $this->input->post('type');
 
 
 
