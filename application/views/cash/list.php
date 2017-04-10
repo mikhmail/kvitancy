@@ -1,4 +1,4 @@
-<? 			//var_dump($order_type_selected);die;?>
+<? 			//var_dump($this->pagination);die;?>
 <div class="container-fluid" xmlns="http://www.w3.org/1999/html">
 
     <ul class="breadcrumb">

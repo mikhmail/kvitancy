@@ -68,6 +68,8 @@ service.id_sc
 
             $this->db->where($where);
 
+        if ($count OR $summ) {$limit_start= null; $limit_end=null;
+        }else {
             if($limit_start && $limit_end){
                 $this->db->limit($limit_start, $limit_end);
             }
@@ -75,6 +77,9 @@ service.id_sc
                 $this->db->limit($limit_start, $limit_end);
             }
 
+        }
+
+            $this->db->order_by('cash.id', 'DESC');
 
             $query = $this->db->get();
             //return($this->db->last_query());die;

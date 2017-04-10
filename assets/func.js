@@ -814,7 +814,7 @@ $('input[id^=save_price_]').click(function(){
                 plus:price,
                 id_kvitancy:id,
                 name:'Получено от клиента',
-                cash_type:cash_type
+                type:cash_type
             })
                 .done(function(data) {
                     //alert (data);
@@ -832,7 +832,7 @@ $('input[id^=save_price_]').click(function(){
                 plus:price,
                 id_kvitancy:id,
                 name:'Получено от клиента',
-                cash_type:cash_type
+                type:cash_type
             })
                 .done(function(data) {
                     //alert (data);

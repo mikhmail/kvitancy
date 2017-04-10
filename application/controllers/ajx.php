@@ -1062,7 +1062,7 @@ function update_ajax_store ()
     {
         $id_kvitancy = $this->input->post('id');
         $price = $this->input->post('price');
-
+        $cash_type = $this->input->post('cash_type');
 
         $kvitancy = $this->kvitancy_model->get_kvitancy(
             '',
@@ -1098,6 +1098,7 @@ function update_ajax_store ()
                 'plus' => $price,
                 'name' => 'Получено от клиента',
                 'id_sc' => $id_sc,
+                'cash_type' => $cash_type
 
             );
             //$ret = $this->db->insert('cash', $data);

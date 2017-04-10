@@ -399,8 +399,7 @@ class Cash extends CI_Controller {
                 $id_sc,
                 $id_responsible,
                 $cash_type,
-
-                1,
+                $count=1,
                 $summ=null
             );
 
@@ -470,8 +469,8 @@ class Cash extends CI_Controller {
 
 
 
-            $config['total_rows'] = $data['count_works'];
-
+            //$config['total_rows'] = $data['count_works'];
+            //$this->pagination->initialize($config);
 
         } // !end--------------------------POST------------------------------------- //
 
