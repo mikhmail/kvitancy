@@ -1076,7 +1076,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                         <input autocomplete="off" name="mail" id="mail" type="text" placeholder="E-MAIL">
                     </div>
                     <div class="span4">
-                        <input autocomplete="off" name="adres" name="adres" type="text" placeholder="Адрес">
+                        <input autocomplete="off" name="adres" name="adres" id="adres" type="text" placeholder="Адрес">
                     </div>
                 </div>
 

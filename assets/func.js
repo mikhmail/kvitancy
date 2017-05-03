@@ -979,11 +979,14 @@ function fill_apparat_p(thisValue) {
 }
 
 function fill_user(thisValue) {
-			
+
+			$('#user_id').val('');
+
 			var parts=new Array();
 			var response = thisValue;
 			
 			parts = response.split('-');
+
 			$('#user_id').val(parts[0]);
 			$('#fam').val(parts[1]);
 			$('#imya').val(parts[2]);

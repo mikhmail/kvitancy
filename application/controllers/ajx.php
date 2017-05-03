@@ -596,7 +596,7 @@ function look_proizvod () {
 
 
 
-
+// поиск пользователя при добавлении квинтации.
 function search_user () {
     if ($this->input->post('queryString')) {
         $queryString = $this->input->post('queryString');
@@ -627,14 +627,14 @@ function search_user () {
 		
         if($row) {
             
-		$div = "\r\n<div  style='position:absolute; background:#fff; overflow:auto; height:99px; width:450px; z-index:1; margin-top:7px; margin-left:0px; border:1px solid #5aa8cc; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; padding:6px; ' id='proizvod_box' >\r\n\r\n<div  style='position:relative; cursor:pointer; color:#def0f8; font:bold 16px Arial; height:15px; width:46px; z-index:2; margin:2px 0 -15px 360px; border:0px solid red; text-shadow:#162b35 2px 2px 3px;' onclick=\"document.getElementById('user_box').style.display='none';\">Закрыть</div>\r\n
+		$div = "\r\n<div  style='position:absolute; background:#fff; overflow:auto; height:99px; width:600px; z-index:1; margin-top:7px; margin-left:0px; border:1px solid #5aa8cc; border-radius: 6px; -webkit-border-radius: 6px; -moz-border-radius: 6px; padding:6px; ' id='proizvod_box' >\r\n\r\n<div  style='position:relative; cursor:pointer; color:#def0f8; font:bold 14px Arial; height:15px; width:46px; z-index:10; margin:2px 0 -8px 500px; border:0px solid red; text-shadow:#162b35 2px 2px 3px;' onclick=\"document.getElementById('user_box').style.display='none';\">Закрыть</div>\r\n
 		<ul class='".__FILE__."' id='user_ul'>";
         foreach ($row as $a=>$row9)
 			{
                 $adres = str_replace(array('"', '&quot;'), '', $row9["adres"]);
 		
     $div .= '<li style=\'padding:8px 0 0 0; cursor:pointer; height:14px; font-size:12px;\' onclick=\'fill_user("'.$row9["user_id"].'-'.$row9["fam"].'-'.$row9["imya"].'-'.$row9["otch"].'-'.$row9["mail"].'-'.$adres.'-'.$row9["phone"].'")\'>
-					&nbsp;'.$row9["fam"].' '.$row9["imya"].' '.$row9["otch"].', тел.'.$row9["phone"].'&nbsp;</li>';
+					&nbsp;'.$row9["fam"].' '.$row9["imya"].' '.$row9["otch"].', <span style="color:blue;">тел.'.$row9["phone"].'</span>, <span style="color:green;">'.$row9["adres"].'</span>&nbsp;</li>';
          
 			}
 		$div .= "</ul></div>";
