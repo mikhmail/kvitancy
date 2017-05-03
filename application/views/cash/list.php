@@ -168,9 +168,9 @@
                     <th class="yellow header headerSortDown">Контрольная сумма</th>
 
 
-
-                    <th class="header">Квитанция</th>
                     <th class="yellow header headerSortDown">Описание</th>
+                    <th class="header">Квитанция</th>
+
                     <th class="yellow header headerSortDown">Ответственный</th>
                     <th class="yellow header headerSortDown">Дата</th>
                     <th class="yellow header headerSortDown">СЦ</th>
@@ -197,6 +197,9 @@
 
 
                         <td style="text-align: center"><p class="text-center"><? if(isset($row['total'])) echo $row['total']; ?></p></td>
+
+                         <td><?=$row['name']?></td>
+
                         <td>
                         <?
                            if($row['id_kvitancy']) {
@@ -226,7 +229,7 @@
                         <?}?>
                         </td>
 
-                        <td><?=$row['name']?></td>
+
 
                         <td style="text-align: center"><p class="text-center"><?
                             foreach ($users as $rows)

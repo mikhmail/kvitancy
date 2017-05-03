@@ -54,7 +54,7 @@ class Stat extends CI_Controller
         $config['base_url'] = base_url() . 'stat/';
         $config['use_page_numbers'] = TRUE;
         //$config['num_links'] = 10;
-        $config['first_url'] = '1';
+        $config['first_url'] = '';
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
@@ -168,7 +168,7 @@ class Stat extends CI_Controller
                 $order_type = $this->session->userdata('order_type');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
-                $order_type = 'Desc';
+                $order_type = 'Asc';
             }
             $data['order_type_selected'] = $order_type;
             // end ORDER

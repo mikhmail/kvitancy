@@ -120,7 +120,7 @@ echo form_open('stat', array('class' => 'form-inline', 'id' => 'myform'));
 
         <?
         //echo form_label('Сортировать как: ');
-        $options_order_type = array('Desc' => 'С конца', 'Asc' => 'С начала');
+        $options_order_type = array('Asc' => 'С начала', 'Desc' => 'С конца');
         echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class="chzn-select"');
         ?>
 

@@ -143,7 +143,7 @@ class Cash extends CI_Controller {
                 $order_type = $this->session->userdata('order_type');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
-                $order_type = 'Asc';
+                $order_type = 'DESC';
             }
             $data['order_type_selected'] = $order_type;
             // end ORDER type
@@ -481,7 +481,7 @@ class Cash extends CI_Controller {
                 $filter_session_data = array(
                     'search_string' => '',
                     'order' => 'cash.id',
-                    'order_type' => '',
+                    'order_type' => 'DESC',
                     'limit_start' => '',
                     'start_date' => '',
                     'end_date' => '',
