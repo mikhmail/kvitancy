@@ -777,7 +777,7 @@ class Tickets extends CI_Controller
 
         //$data['meh'] = $this->users_model->get_users('3', '', '', '', '', '');
         $data['proizvoditel'] = $this->proizvoditel_model->get_proizvoditel('', '', '', '', '');
-        $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', '', '', '', '');
+        $data['sost'] = $this->sost_remonta_model->get_sost_remonta('', 'name_sost', '', '', '');
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
 
         $data['users'] = $this->users_model->get_users('', '', '', '', '', '', '');
