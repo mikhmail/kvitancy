@@ -292,7 +292,7 @@ class Admin_users extends CI_Controller {
                 if($this->users_model->update_users($id, $data_to_store) == TRUE){
                     $this->session->set_flashdata('flash_message', 'updated');
 
-
+            /*
                 $data = array(
                     'user_name' => $this->input->post('user_name'),
                     'id_group' => $this->input->post('groups_dostupa_id'),
@@ -300,7 +300,7 @@ class Admin_users extends CI_Controller {
                     'work_type' => (int)$this->input->post('work_type')
 			    );
                 $this->session->set_userdata($data);
-
+            */
 
                 }else{
                     $this->session->set_flashdata('flash_message', 'not_updated');
