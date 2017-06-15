@@ -1058,7 +1058,8 @@ function anichange_kvitancy_new (id_kvitancy) {
              $(objName).animate({height: 'show'}, 400);
              $(obj).css('font-weight','bold');
 
-
+        $(table).css('background-color','#f9f9f9');
+            
         $(tr).siblings().each(function() {
             $(tr).css('opacity','1');
             $(this).css('opacity','0.5');
@@ -1072,6 +1073,8 @@ function anichange_kvitancy_new (id_kvitancy) {
         $(tr).siblings().each(function() {
             $(this).css('opacity','1');
         });
+
+        $(table).css('background-color','#fff');
 
 
     }
