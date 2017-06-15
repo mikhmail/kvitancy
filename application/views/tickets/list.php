@@ -514,7 +514,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
 
                                                 <select id="cash_type_<?=$row['id_kvitancy']?>" class="span2">
-                                                    <option value="0" selected>Наличные</option>
+                                                    <option value="" selected>-выбрать тип-</option>
+                                                    <option value="0">Наличные</option>
                                                     <option value="1">Безналичные</option>
                                                 </select>
 

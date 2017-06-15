@@ -793,6 +793,9 @@ $('input[id^=save_price_]').click(function(){
         var id = parts[2];
         var price = $("#price_"+id+"").val();
         var cash_type = $("#cash_type_"+id+" option:selected").val();
+        if(cash_type.length == 0 || price == 0.00) {
+            alert('Надо ввести значение и выбрать тип.');exit;
+        }
 
             if(price) {
                 $.post(""+base_url+"ajx/save_price", {
