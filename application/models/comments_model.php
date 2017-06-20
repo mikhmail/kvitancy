@@ -45,7 +45,7 @@ class Comments_model extends CI_Model {
     public function get_comments($search_string=null, $order=null, $order_type='Asc', $limit_start=null, $limit_end=null)
     {
 	    
-		
+		//echo $search_string;die;
 
 		$this->db->select('*');
 		
@@ -80,7 +80,8 @@ class Comments_model extends CI_Model {
         }
         
 	$query = $this->db->get();
-		
+		//echo $this->db->last_query();die;
+
 		if ($query->num_rows() > 0) {
 			return $query->result_array();
 		}

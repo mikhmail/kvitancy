@@ -1145,7 +1145,9 @@ class Tickets extends CI_Controller
                     'id_sc' => $this->input->post('id_sc'),
                     'primechaniya' => $this->input->post('primechaniya'),
                     'update_time' => date("j-m-Y, H:i:s"),
-                    'update_user' => $this->session->userdata('user_id')
+                    'update_user' => $this->session->userdata('user_id'),
+                    'user_id' => $this->input->post('user_id')
+
 
 
 
@@ -1171,7 +1173,9 @@ class Tickets extends CI_Controller
         //$data['gorod'] = $this->gorod_model->get_gorod();
         $data['aparaty'] = $this->aparaty_model->get_aparaty();
         $data['proizvod'] = $this->proizvoditel_model->get_proizvoditel();
+        $data['client'] = $this->clients_model->get_clients();
         $data['remont'] = $this->vid_remonta_model->get_vid_remonta();
+
         //$data['sc'] = $this->service_centers_model->get_service_centers();
 
         switch ($this->session->userdata('id_group')) {

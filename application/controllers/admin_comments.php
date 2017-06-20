@@ -47,7 +47,7 @@ class Admin_comments extends CI_Controller {
     {
 
         //all the posts sent by the view
-        $search_string = $this->input->post('search_string');        
+        $search_string = $this->input->post('search_string');
         $order = $this->input->post('order'); 
         $order_type = $this->input->post('order_type'); 
 
@@ -117,7 +117,7 @@ class Admin_comments extends CI_Controller {
         //if any filter post was sent but we are in some page, we must load the session data
 
         //filtered && || paginated
-        if($search_string !== false && $order !== false || $this->uri->segment(3) == true){
+        if ($this->input->post() OR $this->uri->segment(3)) {
            
             /*
             The comments here are the same for line 79 until 99
@@ -140,6 +140,8 @@ class Admin_comments extends CI_Controller {
                 $order = $this->session->userdata('order');
             }
             $data['order'] = $order;
+
+            //echo $search_string;die;
 
             //save session data into the session
             if(isset($filter_session_data)){
@@ -166,6 +168,7 @@ class Admin_comments extends CI_Controller {
             }
 
         }else{
+            //echo 1;die;
 
             //clean filter data inside section
             $filter_session_data['manufacture_selected'] = null;

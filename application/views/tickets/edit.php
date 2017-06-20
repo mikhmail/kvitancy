@@ -78,7 +78,12 @@
       {
         $options_sc[$row['id_sc']] = $row['name_sc'];
       }
-	  
+
+      $options_client = array('' => "Выбрать");
+	  foreach ($client as $row)
+      {
+        $options_client[$row['user_id']] = $row['fam'] .' '. $row['imya'];
+      }
 	  
       //form validation
       echo validation_errors();
@@ -172,7 +177,14 @@
               <textarea id="" rows="2" name="primechaniya"><?php echo $manufacture[0]['primechaniya']; ?></textarea>
             </div>
           </div>
-		  
+
+        <div class="control-group">
+            <label for="id_sc" class="control-label">Клиент</label>
+            <div class="controls">
+              <?php echo form_dropdown('user_id', $options_client, $manufacture[0]['user_id'], 'class="span2 chzn-select"');?>
+            </div>
+          </div>
+
 		  
           <div class="form-actions">
             <button class="btn btn-primary" type="submit">Сохранить</button>
