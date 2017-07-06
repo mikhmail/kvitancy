@@ -129,7 +129,7 @@ class Tickets extends CI_Controller
             }
 
 
-            $search_string = $this->input->post("search_string");
+            $search_string = trim($this->input->post("search_string"));
             $order = 'id_kvitancy';
             $order_type = $this->input->post("order_type");
             $limit_start = $config['per_page']; //при навигациии надо включить

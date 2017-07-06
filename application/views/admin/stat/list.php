@@ -216,7 +216,7 @@ if(count($count_kvitancys)>=1) {?>
 
 <?  if(count($kvitancys) >= 1) {
     foreach($kvitancys as $row) { ?>
-        <? //$comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
+        <? $comments = $this->kvitancy_model->get_comments($row['id_kvitancy']); ?>
 
 
 
@@ -225,9 +225,12 @@ if(count($count_kvitancys)>=1) {?>
 
             <table class="table">
                 <tr class="chart-bottom-heading">
-                    <td class="span2"><span class="label label-info"># <?=$row['id_kvitancy']?></span></td>
+                    <td class="span2"><a href="#" onclick="anichange_kvitancy_stat(<?=$row['id_kvitancy']?>); return false"># <?=$row['id_kvitancy']?></a></td>
                     <td class="span2"><span id="background_<?=$row['id_kvitancy']?>" style="background-color:<?=$row['background']?>" class="label"><?=$row['name_sost']?></span></td>
-                    <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?> - <?=$row['neispravnost']?></td>
+                    <td class="span3"><?=$row['aparat_name'].' '.$row['name_proizvod'].' '.$row['model']?> - <?=$row['neispravnost']?>
+                    <br>
+                        <span style="color: #468847;font-size: smaller;"><? echo $row['fam'].' '.$row['imya'].','.$row['adres']; ?></span>
+                    </td>
                     <!--<td class="span3"><?=$row['neispravnost']?></td>-->
                     <td class="span2"><?=$row['date_priemka']?></td>
                     <td class="span2">
@@ -304,6 +307,28 @@ if(count($count_kvitancys)>=1) {?>
 
                 </tr>
             </table>
+
+            <div style="margin-bottom: 20px; padding: 10px; display: none;" id="<?=$row['id_kvitancy']?>">
+                                        <table class="table table-bordered table-condensed">
+                                            <tr>
+                                                <td>
+                                                    <ul id="ul_<?=$row['id_kvitancy']?>">
+                                                        <?foreach($comments as $rowc)
+                                                        {?>
+
+                                                            <li id="li_<?=$rowc['id_comment']?>" ><?=$rowc['date'] . ' ' . $rowc['first_name'] . ' ' . $rowc['last_name'] . ' aka <b>' . $rowc['user_name'] . '</b> пишет: ' . '<br><font color="#0066CC"><b>' . nl2br(strtr($rowc['comment'], array('\r' => chr(13), '\n' => chr(10)))) ?></b></font>
+
+
+                                                            </li>
+                                                        <?}?>
+                                                    </ul>
+
+
+                                                   
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </div>
 
 
         </td>

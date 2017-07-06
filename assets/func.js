@@ -1081,6 +1081,37 @@ function anichange_kvitancy_new (id_kvitancy) {
 
 }
 
+
+function anichange_kvitancy_stat (obj) {
+    var objName = $('div#'+obj+'');
+    var objPrev = $(obj).prev();
+    var tr = $(obj).parent().parent();
+    //console.log(tr);exit
+    if ( $(objName).css('display') == 'none' ) {
+
+             $(objName).animate({height: 'show'}, 400);
+             $(obj).css('font-weight','bold');
+
+
+        $(tr).siblings().each(function() {
+            $(tr).css('opacity','1');
+            $(this).css('opacity','0.5');
+        });
+
+
+    } else {
+
+        $(objName).animate({height: 'hide'}, 200);
+        $(obj).css('font-weight','normal');
+        $(tr).siblings().each(function() {
+            $(this).css('opacity','1');
+        });
+
+
+    }
+}
+
+
 function look_apparat(inputString) {
                 if(inputString.length > 10) {
                         $('#apparat_box').hide();
