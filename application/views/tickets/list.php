@@ -112,6 +112,13 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
 
         <?
+        $options_sost_ajax = array();
+        foreach ($sost as $array) {
+            $options_sost_ajax[$array['id_sost']] = $array['name_sost'];
+        }
+        ?>
+
+        <?
         //echo form_label('Состояние: ');
         $options_sost = array('' => "Все [что в ремонте]", 'all' => "Все");
         foreach ($sost as $array) {
@@ -389,7 +396,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <table class="table table-bordered table-condensed"><tbody><tr><td>
                                     <div class="span3">
                                         <label for="status_<?=$row['id_kvitancy']?>">Статус ремонта</label>
-                                        <?=form_dropdown($row['id_kvitancy'], $options_sost, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class=""')?>
+                                        <?=form_dropdown($row['id_kvitancy'], $options_sost_ajax, $row['id_sost'], 'id=status_' . $row['id_kvitancy'] . ' class=""')?>
                                       </div>
                                     <div class="span3">
                                         <?if ($row['id_mechanic']) {
