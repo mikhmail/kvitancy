@@ -10,6 +10,7 @@ class cash_model extends CI_Model {
 
     public function get_works (
         $search_string=null,
+        $search,
         $order=null,
         $order_type=null,
         $limit_start=null,
@@ -138,6 +139,12 @@ service.id_sc
             $this->db->order_by('cash.id', $order_type);
         }
 
+
+        if ($search != null){
+            $where = "(cash.name LIKE '%$search%')";
+                $this->db->where($where);
+
+        }
 
         if ($count OR $summ) {$limit_start= null; $limit_end=null;
         }else {

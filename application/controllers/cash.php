@@ -86,6 +86,7 @@ class Cash extends CI_Controller {
 
                 $filter_session_data = array(
                     'search_string' => '',
+                    'search' => '',
                     'order' => '',
                     'order_type' => '',
                     'limit_start' => '',
@@ -106,6 +107,8 @@ class Cash extends CI_Controller {
 
 
             $search_string = $this->input->post("search_string");
+            $search = $this->input->post("search");
+
             $order = $this->input->post("order");
             $order_type = $this->input->post("order_type");
             $limit_start = $config['per_page']; //при навигациии надо включить
@@ -122,7 +125,7 @@ class Cash extends CI_Controller {
 
 
 
-            // SEARCH
+            // all SEARCH  string
             if ($this->input->post("search_string")) {
                 $filter_session_data['search_string'] = $search_string;
             } //we have something stored in the session?
@@ -135,6 +138,18 @@ class Cash extends CI_Controller {
             $data['search_string_selected'] = $search_string;
             // end SEARCH
 
+            // SEARCH
+            if ($this->input->post("search")) {
+                $filter_session_data['search'] = $search;
+            } //we have something stored in the session?
+            elseif ($this->uri->segment(2)) {
+                $search = $this->session->userdata('search');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $search = '';
+            }
+            $data['search_selected'] = $search;
+            // end SEARCH
 
             // ORDER type
             if ($this->input->post("order_type")) {
@@ -386,6 +401,7 @@ class Cash extends CI_Controller {
             //fetch sql data into arrays
             $data['count_works'] = $this->cash_model->get_works(
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,
@@ -408,6 +424,7 @@ class Cash extends CI_Controller {
 
             $data['summ']['nal'] = $this->cash_model->get_works(
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,
@@ -429,6 +446,7 @@ class Cash extends CI_Controller {
 
             $data['summ']['bez'] = $this->cash_model->get_works(
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,
@@ -450,6 +468,7 @@ class Cash extends CI_Controller {
             $data['works'] = $this->cash_model->get_works(
 
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,
@@ -481,6 +500,8 @@ class Cash extends CI_Controller {
             /*Очистка масива для сесиии*/
                 $filter_session_data = array(
                     'search_string' => '',
+                    'search' => '',
+
                     'order' => 'cash.id',
                     'order_type' => 'DESC',
                     'limit_start' => '',
@@ -505,6 +526,8 @@ class Cash extends CI_Controller {
             $m = date("m");
 
             $data['search_string_selected'] = '';
+            $data['search_selected'] = '';
+
             $data['order_type_selected'] = 'Desc';
             $data['order_selected'] = 'id';
             $data['start_date_selected'] = date('Y') . '-'. date('m') . '-01';
@@ -529,6 +552,8 @@ class Cash extends CI_Controller {
 
 
             $search_string = '';
+            $search = '';
+
             $order = '';
             $order_type = 'Desc';
             $limit_start = $config['per_page']; //при навигациии надо включить
@@ -577,6 +602,7 @@ class Cash extends CI_Controller {
             //fetch sql data into arrays
             $data['count_works'] = $this->cash_model->get_works(
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,
@@ -600,6 +626,7 @@ class Cash extends CI_Controller {
             
             $data['summ']['nal'] = $this->cash_model->get_works(
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,
@@ -621,6 +648,7 @@ class Cash extends CI_Controller {
 
             $data['summ']['bez'] = $this->cash_model->get_works(
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,
@@ -642,6 +670,7 @@ class Cash extends CI_Controller {
             $data['works'] = $this->cash_model->get_works(
 
                 $search_string,
+                $search,
                 $order,
                 $order_type,
                 $limit_start,

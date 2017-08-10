@@ -51,12 +51,11 @@ class Admin_tickets extends CI_Controller {
         //pagination settings
         $config['per_page'] = 20;
 
-        $config['base_url'] = base_url().'admin/tickets';
+        $config['base_url'] = base_url().'admin/tickets/';
         $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 20;
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 4;
-
+        $config['first_url'] = '1';
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';

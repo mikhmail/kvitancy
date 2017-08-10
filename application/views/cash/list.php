@@ -116,7 +116,15 @@
                 $options_order_type = array('Asc' => 'По возрастанию', 'Desc' => 'По убыванию');
                 echo form_dropdown('order_type', $options_order_type, $order_type_selected, 'class=""');
 
-                //echo form_submit($data_submit);
+                $options_search = array(
+                    'type'  => 'input',
+                    'name'  => 'search',
+                    'id'    => '',
+                    'value' => $search_selected,
+                    'placeholder' => 'Поиск',
+                    'class' => 'search-query');
+                echo form_input($options_search);
+
                 ?>
                 <input type="submit" name="mysubmit" value="Показать" class="btn btn-info">
 
@@ -135,7 +143,7 @@
 
             <div class="pull-right">
                 <input type="text" name="search_string" value="<?if($search_string_selected) echo $search_string_selected;?>" placeholder="Поиск по описанию" title="Поиск по описанию" class="search-query">
-                </label><input type="submit" name="mysubmit" value="Поиск" class="btn btn-info">    </div>
+                </label><input type="submit" name="mysubmit" value="Общий поиск" class="btn btn-info">    </div>
         </div>
     </div>
     <div class="row-fluid">
