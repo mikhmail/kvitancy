@@ -230,10 +230,11 @@
                             '',
                             $count = null
                         );
-                      ?>
 
-                        <? echo $row['id_kvitancy']; ?> - <?=$kvitancy[0]['aparat_name'].' '.$kvitancy[0]['name_proizvod'].' '.$kvitancy[0]['model']?>
-                        
+                        $client = $this->clients_model->get_clients_by_id($kvitancy[0]['user_id']);
+
+                         echo $row['id_kvitancy']; ?> - <?=$kvitancy[0]['aparat_name'].' '.$kvitancy[0]['name_proizvod'].' '.$kvitancy[0]['model']?>
+                         <br><span style="color: #468847;font-size: smaller;"><?=$client[0]['adres']?></span>
                         <?}?>
                         </td>
 

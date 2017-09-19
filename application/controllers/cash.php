@@ -22,6 +22,8 @@ class Cash extends CI_Controller {
         $this->load->model('proizvoditel_model');
         $this->load->model('service_centers_model');
         $this->load->model('kvitancy_model');
+        $this->load->model('clients_model');
+
 
 
 

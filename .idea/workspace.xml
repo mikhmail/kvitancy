@@ -26,9 +26,27 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="list.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+        <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="557" column="142" selection-start="27374" selection-end="27374" vertical-scroll-proportion="0.68824166">
+            <state line="236" column="100" selection-start="9574" selection-end="9574" vertical-scroll-proportion="0.78640777">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="clients_model.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/models/clients_model.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="22" column="43" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="cash.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="35" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -59,11 +77,11 @@
         <option value="$PROJECT_DIR$/application/controllers/admin_tickets.php" />
         <option value="$PROJECT_DIR$/application/controllers/stat.php" />
         <option value="$PROJECT_DIR$/application/controllers/parts.php" />
-        <option value="$PROJECT_DIR$/application/views/cash/list.php" />
         <option value="$PROJECT_DIR$/application/models/cash_model.php" />
-        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
         <option value="$PROJECT_DIR$/application/controllers/login.php" />
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
+        <option value="$PROJECT_DIR$/application/controllers/cash.php" />
+        <option value="$PROJECT_DIR$/application/views/cash/list.php" />
       </list>
     </option>
   </component>
@@ -205,6 +223,64 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="tickets" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cash" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="models" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="kvitancy" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="application" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -476,26 +552,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.9935275" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="68" column="59" selection-start="1973" selection-end="1973" vertical-scroll-proportion="0.02296451" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="125" column="51" selection-start="5074" selection-end="5074" vertical-scroll-proportion="0.02373247" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="143" column="47" selection-start="3344" selection-end="3344" vertical-scroll-proportion="0.022657055" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/models/clients_model.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="34" selection-start="396" selection-end="396" vertical-scroll-proportion="0.43048403" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="85" column="17" selection-start="2107" selection-end="2174" vertical-scroll-proportion="0.838311" />
@@ -511,6 +567,34 @@
     <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="557" column="142" selection-start="27374" selection-end="27374" vertical-scroll-proportion="0.68824166">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/cash_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="143" column="47" selection-start="3344" selection-end="3344" vertical-scroll-proportion="2.5602472">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/cash.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="35" selection-start="671" selection-end="671" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/models/clients_model.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="43" selection-start="489" selection-end="489" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/cash/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="236" column="100" selection-start="9574" selection-end="9574" vertical-scroll-proportion="0.78640777">
           <folding />
         </state>
       </provider>
