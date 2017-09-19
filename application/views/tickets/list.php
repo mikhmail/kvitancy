@@ -544,6 +544,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                 <table table table-bordered table-condensed id="table_cash_<?=$row['id_kvitancy']?>">
                                                     <th>Название</th>
                                                     <th>Сумма</th>
+                                                    <th>Форма денег</th>
                                                     <th>Ответственный</th>
                                                     <th>Дата</th>
 
@@ -554,6 +555,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                             <tr id="cash_tr_<?=$csh['id']?>">
                                                                 <td><?=$csh['name']?></td>
                                                                 <td><?=$csh['plus']?></td>
+                                                                <td><? if($csh['cash_type'] == 1) {echo 'Безналичные';} else {echo 'Наличные';} ?></td>
                                                                 <td><?=$csh['user_name']?></td>
                                                                 <td><?=$csh['update_date']?>, <?=$csh['update_time']?></td>
 
