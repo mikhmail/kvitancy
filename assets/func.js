@@ -814,7 +814,7 @@ $('input[id^=save_price_]').click(function(){
     if (cash_type == 0){
         if (confirm('Добавить в кассу запись?\n+'+price+', Получено от клиента, '+id+'\nЗапись будет добавлена "Наличные"')) {
         $.post(""+base_url+"ajx/add_cash", {
-                plus:price,
+                price:price,
                 id_kvitancy:id,
                 name:'Получено от клиента',
                 type:cash_type
@@ -832,7 +832,7 @@ $('input[id^=save_price_]').click(function(){
      }else{
              if (confirm('Добавить в кассу запись?\n+'+price+', Получено от клиента, '+id+'\nЗапись будет добавлена "Безналичные"')) {
             $.post(""+base_url+"ajx/add_cash", {
-                plus:price,
+                price:price,
                 id_kvitancy:id,
                 name:'Получено от клиента',
                 type:cash_type

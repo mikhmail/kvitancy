@@ -517,8 +517,8 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <div class="row-fluid" name="price" style="margin-bottom: 20px;">
 
                                             <div class="span12">
-                                                Сумма, полученная от клиента за ремонт:
-                                                <input type="number" min=0 step="0.1" value="<?if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
+                                                Добавить <b>новую запись</b>, сумма полученная от клиента:
+                                                <input type="number" min=0 step="0.1" value="<? //if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
 
                                                 <select id="cash_type_<?=$row['id_kvitancy']?>" class="span2">
                                                     <option value="" selected>-выбрать тип-</option>
@@ -530,7 +530,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </div>
 
 
-                                            <h4>Касса</h4>
+                                            <h4>Касса по этой квитанции</h4>
 
                                             <!--
                                             <div class="span10">
@@ -562,9 +562,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                             </tr>
                                                         <?}}?>
                                                 </table>
-
+                                                <br>
+                                                  <p>Общая сумма, полученная от клиента за ремонт: <b><? if($row['full_cost']) echo $row['full_cost'];?></b></p>
                                             </div>
-
                                         </div>
                                         <?}?>
                                         <div class="devider-blue">

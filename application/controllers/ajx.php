@@ -1116,7 +1116,12 @@ function update_ajax_store ()
 
             */
 
-            $ret = $this->db->update('kvitancy', array('full_cost' => $price), array('id_kvitancy' => $id_kvitancy));
+            //$ret = $this->db->update('kvitancy', array('full_cost' => 'full_cost + ' . $price), array('id_kvitancy' => $id_kvitancy));
+
+            $this->db->set('full_cost', 'full_cost + '.$price, FALSE);
+            $this->db->where('id_kvitancy', $id_kvitancy);
+            $ret = $this->db->update('kvitancy');
+            //echo $this->db->last_query();die;
             //$ret2 = $this->db->update('cash', array('total' => $summ), array('id_kvitancy' => $id_kvitancy));
 
             if ($ret) echo 1;
@@ -1144,26 +1149,25 @@ function update_ajax_store ()
     function add_cash ()
     {
         $id_kvitancy = $this->input->post('id_kvitancy');
-        $plus = $this->input->post('plus');
         $name =  $this->input->post('name');
         $cash_type = $this->input->post('type');
+        $price = $this->input->post('price');
 
 
 
-
-        if ($plus AND $name) {
+        if ($price AND $name) {
             $data = array(
                 'update_time' => date("H:i:s"),
                 'update_date' => date("Y-m-d"),
                 'update_user' => $this->session->userdata('user_id'),
                 'id_kvitancy' => $id_kvitancy,
-                'plus' => $plus,
+                'plus' => $price,
                 'name' => $name,
                 'id_sc' => $this->session->userdata('user_id_sc'),
                 'cash_type' => $cash_type
 
             );
-            $ret = $this->db->insert('cash', $data);
+            $ret = $this->db->insert('cash', $data);    // добавлеям запись в кассу
             $id = $this->db->insert_id();
             /*
             $data2 = array(
@@ -1175,20 +1179,20 @@ function update_ajax_store ()
             $ret2 = $this->db->update('kvitancy', $data2);
             */
 
-
+            // сколько стало денег в кассе?
             $start_date = date('Y') . '-'. date('m') . '-01';
             $end_date = date("Y-m-d");
 
             $this->db->select_sum('plus');
             $this->db->where(" cash.update_date >='".$start_date."%' AND cash.update_date <= '".$end_date."%' ", NULL, FALSE);
             $query = $this->db->get('cash')->result();
-            $summ = (int)$query[0]->plus + $price;
-            $ret2 = $this->db->update('cash', array('total' => $summ), array('id' => $id));
+            $summ = (int)$query[0]->plus;
+            $ret2 = $this->db->update('cash', array('total' => $summ), array('id' => $id));    // обновляем сколько стало денег в кассе?
+            echo  $this->db->last_query();exit;
 
 
 
-
-            if ($ret) echo 1;
+            if ($ret and $ret2) echo 1;
         }else{
             echo 0;
         }
