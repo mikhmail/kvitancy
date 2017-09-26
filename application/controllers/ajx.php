@@ -1154,7 +1154,6 @@ function update_ajax_store ()
         $price = $this->input->post('price');
 
 
-
         if ($price AND $name) {
             $data = array(
                 'update_time' => date("H:i:s"),
@@ -1169,6 +1168,7 @@ function update_ajax_store ()
             );
             $ret = $this->db->insert('cash', $data);    // добавлеям запись в кассу
             $id = $this->db->insert_id();
+            //echo  $this->db->last_query();exit;
             /*
             $data2 = array(
                 'update_time' => date("d-m-Y, H:i:s"),
@@ -1188,7 +1188,7 @@ function update_ajax_store ()
             $query = $this->db->get('cash')->result();
             $summ = (int)$query[0]->plus;
             $ret2 = $this->db->update('cash', array('total' => $summ), array('id' => $id));    // обновляем сколько стало денег в кассе?
-            echo  $this->db->last_query();exit;
+            //echo  $this->db->last_query();exit;
 
 
 

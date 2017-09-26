@@ -923,7 +923,7 @@ $('input[id^=save_price_]').click(function(){
        // alert (plus_select);exit;
         if(plus && name ) {
             $.post(""+base_url+"ajx/add_cash", {
-                plus:plus,
+                price:plus,
                 id_kvitancy:id_kvitancy,
                 name:name,
                 type:type

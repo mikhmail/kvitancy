@@ -248,7 +248,7 @@ if(count($count_kvitancys)>=1) {?>
                     $store = $this->stat_model->get_store($row['id_kvitancy']);
                     $cash = $this->stat_model->get_cash($row['id_kvitancy']);
                     $work = $this->stat_model->get_works($row['id_kvitancy']);
-                    //Wvar_dump($work);
+                    //var_dump($cash);
                     //$profit = 0;
                     $sum_store = 0;
                     $sum_work = 0;

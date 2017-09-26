@@ -551,7 +551,10 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     <?
                                                     $cash = $this->kvitancy_model->get_cash($row['id_kvitancy']);
                                                     if(count($cash)>0){
-                                                        foreach($cash as $csh){ ?>
+                                                        $csh_sum = 0;
+                                                        foreach($cash as $csh){
+                                                            $csh_sum += $csh['plus'];
+                                                            ?>
                                                             <tr id="cash_tr_<?=$csh['id']?>">
                                                                 <td><?=$csh['name']?></td>
                                                                 <td><?=$csh['plus']?></td>
@@ -563,7 +566,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                         <?}}?>
                                                 </table>
                                                 <br>
-                                                  <p>Общая сумма, полученная от клиента за ремонт: <b><? if($row['full_cost']) echo $row['full_cost'];?></b></p>
+                                                  <p>Общая сумма, полученная от клиента за ремонт: <b><? if($csh_sum) echo $csh_sum;?></b></p>
                                             </div>
                                         </div>
                                         <?}?>

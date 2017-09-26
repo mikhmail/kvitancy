@@ -355,19 +355,20 @@ service.rab_sc
 
     public function get_cash ($id_kvitancy){
         /*
-        $this->db->select('*');
-        $this->db->from('cash');
-        $this->db->join('membership', 'cash.update_user = membership.id');
-        $this->db->where('id_kvitancy', $id_kvitancy);
-        $query = $this->db->get();
-        return $query->result_array();
-        */
 
         $this->db->select('full_cost');
         $this->db->from('kvitancy');
         $this->db->where('id_kvitancy', $id_kvitancy);
         $query = $this->db->get();
         return $query->result_array();
+        */
+                $this->db->select('SUM(plus) as full_cost');
+                $this->db->from('cash');
+                $this->db->where('id_kvitancy', $id_kvitancy);
+                $query = $this->db->get();
+                return $query->result_array();
+
+
     }
 
     public function get_work ($id_kvitancy){
