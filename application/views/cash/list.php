@@ -256,8 +256,9 @@
         
 
                     //echo $counter;
-					if($counter == 1) {
-                     echo '
+					if($counter == 1 AND $this->input->post()==false AND $this->uri->segment(2)==false) {
+                    //if($counter == 1){
+                    echo '
 
                     <a href="'.site_url("cash").'/delete/'.$row['cash_id'].'" class="btn btn-danger btn-mini">Удалить</a>
 

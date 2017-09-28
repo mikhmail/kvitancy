@@ -180,6 +180,7 @@ class Cash extends CI_Controller {
             $data['cash_type_selected'] = $cash_type;
             // end cash_type type
 
+            //var_dump($cash_type);die;
             // ORDER
             if ($this->input->post("order")) {
                 $filter_session_data['order'] = $order;
@@ -440,7 +441,7 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
-                0,
+                $cash_type,
                 0,
                 $summ=1
             );
@@ -462,7 +463,7 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
-                1,
+                $cash_type,
                 0,
                 $summ=1
             );

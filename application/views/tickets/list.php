@@ -550,8 +550,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                                     <?
                                                     $cash = $this->kvitancy_model->get_cash($row['id_kvitancy']);
+                                                    $csh_sum = 0;
                                                     if(count($cash)>0){
-                                                        $csh_sum = 0;
+
                                                         foreach($cash as $csh){
                                                             $csh_sum += $csh['plus'];
                                                             ?>
