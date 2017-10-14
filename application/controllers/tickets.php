@@ -546,7 +546,7 @@ class Tickets extends CI_Controller
                 $id_remonta,
                 $id_responsible,
                 $id_where,
-                $count = null
+                null
             );
 
             $data['aparats'] = $this->kvitancy_model->get_kvitancy(
@@ -567,7 +567,7 @@ class Tickets extends CI_Controller
                 $id_remonta,
                 $id_responsible,
                 $id_where,
-                $count = null
+                null
             );
 
             $config['total_rows'] = $data['count_kvitancys'];
@@ -737,7 +737,7 @@ class Tickets extends CI_Controller
                 $id_remonta,
                 $id_responsible,
                 $id_where,
-                $count = null
+                null
             );
 
             $data['aparats'] = $this->kvitancy_model->get_kvitancy(
@@ -758,7 +758,7 @@ class Tickets extends CI_Controller
                 $id_remonta,
                 $id_responsible,
                 $id_where,
-                $count = null
+                null
             );
 
 
