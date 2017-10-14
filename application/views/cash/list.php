@@ -40,10 +40,11 @@
 
             <input class="span3" type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции (не обязательно)" title="Номер квитанции (не обязательно)" class="span2">
 
-            <select name="type" id="type">
-                <option value="2">-выбрать-</option>
 
-                <option value="0">Наличные</option>
+            <select name="type" id="type">
+                <option value="">-выбрать-</option>
+
+                <option value="2">Наличные</option>
                 <option value="1">Безналичные</option>
             </select>
 
@@ -103,7 +104,7 @@
                 }
                echo form_dropdown('id_responsible', $options_id_responsible, $id_responsible_selected, 'class=""');
 
-                $options_cash_type = array('2' => "Выбрать тип", '1' => "Безналичные", '0' => "Наличные", );
+                $options_cash_type = array('' => "Выбрать тип", '1' => "Безналичные", '2' => "Наличные", );
                echo form_dropdown('cash_type', $options_cash_type, $cash_type_selected, 'class=""');
 
                 ?><label class="control-label" style="display: none" for="order">Сортировать по:</label><?

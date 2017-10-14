@@ -41,6 +41,7 @@ class Cash extends CI_Controller {
         $config['use_page_numbers'] = TRUE;
         $config['display_pages'] = TRUE;
         $config['first_url'] = '1';
+        $config['cur_page'] = (int)$this->uri->segment(2);
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
         $config['num_tag_open'] = '<li>';
@@ -400,7 +401,7 @@ class Cash extends CI_Controller {
                 $this->session->set_userdata($filter_session_data);
             }
 
-
+ //var_dump($cash_type);die;
             //fetch sql data into arrays
             $data['count_works'] = $this->cash_model->get_works(
                 $search_string,
@@ -419,8 +420,8 @@ class Cash extends CI_Controller {
                 $id_sc,
                 $id_responsible,
                 $cash_type,
-                $count=1,
-                $summ=null
+                1,
+                null
             );
 
             $data['summ'] = array();
@@ -441,9 +442,9 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
-                $cash_type,
                 0,
-                $summ=1
+                null,
+                1
             );
 
 
@@ -463,9 +464,9 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
-                $cash_type,
-                0,
-                $summ=1
+                1,
+                null,
+                1
             );
 
             $data['works'] = $this->cash_model->get_works(
@@ -486,14 +487,10 @@ class Cash extends CI_Controller {
                 $id_sc,
                 $id_responsible,
                 $cash_type,
-                $count = null,
-                $summ=null
+                null,
+                null
             );
 
-
-
-            //$config['total_rows'] = $data['count_works'];
-            //$this->pagination->initialize($config);
 
         } // !end--------------------------POST------------------------------------- //
 
@@ -568,7 +565,7 @@ class Cash extends CI_Controller {
             $id_kvitancy = '';
             $id_sc = '';
             $id_responsible = '';
-            $cash_type='2';
+            $cash_type='';
 
             $summ=null;
 
@@ -615,12 +612,10 @@ class Cash extends CI_Controller {
                 $id_aparat,
                 $id_aparat_p,
                 $id_proizvod,
-
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
                 $cash_type,
-
                 1,
                 $summ=null
             );
@@ -643,7 +638,7 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
-                0,
+                2,
                 0,
                 $summ=1
             );
@@ -697,7 +692,7 @@ class Cash extends CI_Controller {
         $config['total_rows'] = $data['count_works'];
 
         $this->pagination->initialize($config);
-
+        //var_dump($data['works']);die;
         //load the view
         $data['order'] = 'id_kvitancy';
 
