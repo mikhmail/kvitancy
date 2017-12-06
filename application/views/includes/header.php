@@ -66,7 +66,7 @@
                                 </li>
                                 <li class="divider"></li>
                                 <li>
-                                    <a tabindex="-1" href="<?php echo base_url(); ?>admin/logout">Выход</a>
+                                    <a tabindex="-1" href="<?php echo base_url(); ?>logout">Выход</a>
                                 </li>
 
                             </ul>

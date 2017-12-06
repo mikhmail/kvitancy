@@ -123,11 +123,19 @@ class Admin extends CI_Controller {
     * Destroy the session, and logout the user.
     * @return void
     */		
-	function logout()
-	{
+function logout()
+	{	
+		//var_dump($this->session->set_userdata);die;
+		$this->db->cache_delete_all();
+		
 		$this->session->sess_destroy();
-		redirect('login');
+		
+		$this->session->set_userdata(array('is_logged_in' => false));
+		
+		redirect('/login');
 	}
+	
+	
 function cache_delete()
 	{
 		$this->db->cache_delete_all();

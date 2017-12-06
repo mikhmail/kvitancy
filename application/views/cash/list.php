@@ -202,7 +202,7 @@
                         <td style="text-align: center"><div class="label label-success"><? if($row['plus']>= 0) echo '+'.$row['plus'];?></div></td>
                         <td style="text-align: center"><div class="label label-important"><? if($row['plus']<0) echo $row['plus'];?></div></td>
 
-                        <td style="text-align: center"><div class="label"><? if($row['cash_type']==0) {echo 'Наличные';}else{echo 'Без наличные';}?></div></td>
+                        <td style="text-align: center"><div class="label"><? if($row['cash_type']==2) {echo 'Наличные';}else{echo 'Без наличные';}?></div></td>
 
 
                         <td style="text-align: center"><p class="text-center"><? if(isset($row['total'])) echo $row['total']; ?></p></td>

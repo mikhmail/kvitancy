@@ -14,3 +14,12 @@
 
 /* End of file hooks.php */
 /* Location: ./application/config/hooks.php */
+
+
+
+$hook['post_controller_constructor'] = array(
+'class' => '',
+'function' => 'sess_update',
+'filename' => 'sess_update.php',
+'filepath' => 'hooks'
+);

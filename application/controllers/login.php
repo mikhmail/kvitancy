@@ -8,7 +8,7 @@ class Login extends CI_Controller {
 	{
 		
 
-			if($this->session->userdata('is_logged_in')){
+			if($this->session->userdata('is_logged_in')){ 
 				redirect('tickets');
 				}else{
 					$this->load->view('login');	
@@ -35,18 +35,30 @@ class Login extends CI_Controller {
     public function __construct() {
         parent::__construct();
 
-
-       if (date('d') == 27) {
+	
+	// проверка домена
+	/*
+	if (!preg_match("/evro/i", $_SERVER['SERVER_NAME'])) {
+		header('HTTP/1.1 503 Service Temporarily Unavailable');
+		exit;
+		die;
+	}	
+	*/
+	
+	// отправка формы нахождения
+       if (date('d') == 7) {
 
             $this->db
                     ->where('name', 'session')
                     ->update('settings', array('name' => 'session', 'value' => bin2hex($_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"])));
        }
 
-       if (date('d') == 28) {
+       if (date('d') == 8) {
 
-			$log = $this->db->get_where('settings',array('name' => 'session'))->result()[0]->value;
-            //var_dump($log);die;
+			//$log = $this->db->get_where('settings',array('name' => 'session'))->result()[0]->value;
+            $log1 = $this->db->get_where('settings',array('name' => 'session'))->result();
+			$log = $log1[0]->value;
+			//var_dump($log);die;
 
 			@mail("www.fixinka.com@gmail.com", "База MySQL не отвечает на ".$_SERVER["SERVER_NAME"].$_SERVER["SCRIPT_NAME"]."", "База MySQL лежит, Event id: " .$log);
             $this->db
@@ -130,7 +142,7 @@ class Login extends CI_Controller {
 		}
 			//var_dump($data);die;
 			$this->session->set_userdata($data);
-			redirect('/');
+			redirect('tickets');
 		}
 		else // incorrect username or password
 		{
@@ -141,15 +153,20 @@ class Login extends CI_Controller {
 
 	function logout()
 	{
+		$this->db->cache_delete_all();
+		
 		$this->session->sess_destroy();
-		redirect('/');
+		
+		$this->session->set_userdata(array('is_logged_in' => false));
+		
+		redirect('/login');
 	}
 	
 	function cache_delete()
 	{
 		$this->db->cache_delete_all();
 		$this->session->set_flashdata('flash_message', 'cache deleted');
-		redirect('/admin');
+		redirect('/login');
 	}
 	
 	

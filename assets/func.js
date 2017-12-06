@@ -914,14 +914,9 @@ $('input[id^=save_price_]').click(function(){
         var name = $("#name").val();
         var type = $("#type").val();
 
-        console.log(type);
-        if(type == 2){
 
-            alert('Выбрать тип');
-            $("#type").focus();exit;
-        }
        // alert (plus_select);exit;
-        if(plus && name ) {
+        if(plus && name && type ) {
             $.post(""+base_url+"ajx/add_cash", {
                 price:plus,
                 id_kvitancy:id_kvitancy,

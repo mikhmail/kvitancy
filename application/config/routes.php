@@ -99,9 +99,6 @@ $route['tickets/update/(:any)'] = 'tickets/update/$1';
 $route['tickets/delete/(:any)'] = 'tickets/delete/$1';
 $route['tickets/printing/(:any)'] = 'tickets/printing/$1';
 $route['tickets/printing_check/(:any)'] = 'tickets/printing_check/$1';
-$route['tickets/printing_invoice/(:any)'] = 'tickets/printing_invoice/$1';
-$route['tickets/printing_works/(:any)'] = 'tickets/printing_works/$1';
-
 $route['tickets/view/(:any)'] = 'tickets/view/$1';
 $route['tickets/show/(:any)'] = 'tickets/show/$1';
 $route['tickets/update_client'] = 'tickets/update_client';

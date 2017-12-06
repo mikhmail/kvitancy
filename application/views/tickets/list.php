@@ -522,7 +522,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                                 <select id="cash_type_<?=$row['id_kvitancy']?>" class="span2">
                                                     <option value="" selected>-выбрать тип-</option>
-                                                    <option value="0">Наличные</option>
+                                                    <option value="2">Наличные</option>
                                                     <option value="1">Безналичные</option>
                                                 </select>
 

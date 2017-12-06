@@ -442,7 +442,7 @@ class Cash extends CI_Controller {
                 $id_kvitancy,
                 $id_sc,
                 $id_responsible,
-                0,
+                2,
                 null,
                 1
             );

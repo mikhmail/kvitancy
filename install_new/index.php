@@ -99,7 +99,7 @@ if($_POST) {
                                 <div class="control-group">
                                     <label class="control-label" for="focusedInput">Имя сервера</label>
                                     <div class="controls">
-                                        <input class="input-xlarge focused" id="focusedInput" type="text" name="hostname" placeholder="localhost">
+                                        <input class="input-xlarge focused" id="focusedInput" type="text" name="hostname" placeholder="">
                                     </div>
                                 </div>
 
