@@ -205,7 +205,9 @@
                         <td style="text-align: center"><div class="label"><? if($row['cash_type']==2) {echo 'Наличные';}else{echo 'Без наличные';}?></div></td>
 
 
-                        <td style="text-align: center"><p class="text-center"><? if(isset($row['total'])) echo $row['total']; ?></p></td>
+                        <td style="text-align: center"><p class="text-center">
+                        <?if(($row['total_cash'])) echo $row['total_cash'].' + '; if(($row['total_non_cash'])) echo $row['total_non_cash'].' = '; if(isset($row['total'])) echo $row['total']; ?>
+                        </p></td>
 
                          <td><?=$row['name']?></td>
 

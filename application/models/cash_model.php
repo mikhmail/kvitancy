@@ -43,6 +43,9 @@ cash.update_date,
 cash.plus,
 cash.id_kvitancy,
 cash.total,
+cash.total_cash,
+cash.total_non_cash,
+
 cash.cash_type,
 
 

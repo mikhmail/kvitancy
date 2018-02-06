@@ -786,7 +786,7 @@ $( "#search_user" ).keyup(function() {
     });
 //end setup store
 
-// save price - Сумма, полученная от клиента за ремонт
+// save price - Сумма, полученная от клиента за ремонт   tickets view
 $('input[id^=save_price_]').click(function(){
         var parts=new Array();
         parts = this.id.split('_');
@@ -903,7 +903,7 @@ $('input[id^=save_price_]').click(function(){
 // end of parts 2 store
 
 
-// add cash
+// add cash in cash view
     $('button[id=plus_add]').click(function(){
 
 

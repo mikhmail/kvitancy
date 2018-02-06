@@ -1169,17 +1169,9 @@ function update_ajax_store ()
             $ret = $this->db->insert('cash', $data);    // добавлеям запись в кассу
             $id = $this->db->insert_id();
             //echo  $this->db->last_query();exit;
-            /*
-            $data2 = array(
-                'update_time' => date("d-m-Y, H:i:s"),
-                'update_user' => $this->session->userdata('user_id'),
-                'full_cost' => $plus,
-                );
-            $this->db->where('id_kvitancy', $id_kvitancy);
-            $ret2 = $this->db->update('kvitancy', $data2);
-            */
 
             // сколько стало денег в кассе?
+            //total summ
             $start_date = date('Y') . '-'. date('m') . '-01';
             $end_date = date("Y-m-d");
 
@@ -1190,28 +1182,28 @@ function update_ajax_store ()
             $ret2 = $this->db->update('cash', array('total' => $summ), array('id' => $id));    // обновляем сколько стало денег в кассе?
             //echo  $this->db->last_query();exit;
 
+            // only cash
+            $this->db->select_sum('plus');
+            $this->db->where(" cash.update_date >='".$start_date."%' AND cash.update_date <= '".$end_date."%' ", NULL, FALSE);
+            $this->db->where(" cash_type=2 ", NULL, FALSE);
+            $query = $this->db->get('cash')->result();
+            $summ_cash = (int)$query[0]->plus;
+            $ret3 = $this->db->update('cash', array('total_cash' => $summ_cash), array('id' => $id));
+            //echo  $this->db->last_query();exit;
 
+            // only non-cash
+            $this->db->select_sum('plus');
+            $this->db->where(" cash.update_date >='".$start_date."%' AND cash.update_date <= '".$end_date."%' ", NULL, FALSE);
+            $this->db->where(" cash_type=1 ", NULL, FALSE);
+            $query = $this->db->get('cash')->result();
+            $summ_non_cash = (int)$query[0]->plus;
+            $ret4 = $this->db->update('cash', array('total_non_cash' => $summ_non_cash), array('id' => $id));
+            //echo  $this->db->last_query();exit;
 
-            if ($ret and $ret2) echo 1;
+            if ($ret and $ret2 and $ret3 and $ret4) echo 1;
         }else{
             echo 0;
         }
-
-        /*
-        if($price AND $id_kvitancy){
-            $data = array(
-                'update_time' => date("d-m-Y, H:i:s"),
-                'update_user' => $this->session->userdata('user_id'),
-                'full_cost' => $price
-            );
-            $this->db->where('id_kvitancy', $id_kvitancy);
-            $ret = $this->db->update('kvitancy', $data);
-        if ($ret) echo 1;
-        }else{
-            echo 0;
-        }
-        */
-
     }
 
 
