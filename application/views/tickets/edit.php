@@ -82,7 +82,7 @@
       $options_client = array('' => "Выбрать");
 	  foreach ($client as $row)
       {
-        $options_client[$row['user_id']] = $row['fam'] .' '. $row['imya'];
+        $options_client[$row['user_id']] = $row['fam'] .' '. $row['imya'].' '. $row['adres'];
       }
 	  
       //form validation

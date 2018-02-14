@@ -206,7 +206,7 @@
 
 
                         <td style="text-align: center"><p class="text-center">
-                        <?if(($row['total_cash'])) echo $row['total_cash'].' + '; if(($row['total_non_cash'])) echo $row['total_non_cash'].' = '; if(isset($row['total'])) echo $row['total']; ?>
+                        <?if(($row['total_cash'])) echo $row['total_cash'].'<sup><small>нал</small></sup> + '; if(($row['total_non_cash'])) echo $row['total_non_cash'].'<sup><small>безнал</small></sup> = '; if(isset($row['total'])) echo $row['total']; ?>
                         </p></td>
 
                          <td><?=$row['name']?></td>
