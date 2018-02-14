@@ -108,27 +108,25 @@ class Admin_clients extends CI_Controller {
         $data['order_type_selected'] = $order_type;        
 
 
-        //we must avoid a page reload with the previous session data
-        //if any filter post was sent, then it's the first time we load the content
-        //in this case we clean the session filter data
-        //if any filter post was sent but we are in some page, we must load the session data
 
-        //filtered && || paginated
-        if($search_string !== false && $order !== false || $this->uri->segment(3) == true){
+        //var_dump($order_type);die;
+        if($search_string !== false && $order_type !== false ){
            
-            /*
-            The comments here are the same for line 79 until 99
+              //var_dump($search_string);die;
 
-            if post is not null, we store it in session data array
-            if is null, we use the session data already stored
-            we save order into the the var to load the view with the param already selected       
-            */
-            if($search_string){
-                $filter_session_data['search_string_selected'] = $search_string;
-            }else{
-                $search_string = $this->session->userdata('search_string_selected');
+            // SEARCH
+            if ($this->input->post("search_string")) {
+                $filter_session_data['search_string'] = $search_string;
+            } //we have something stored in the session?
+            elseif ($this->session->userdata('search_string')) {
+                $search_string = $this->session->userdata('search_string');
+            } else {
+                //if we have nothing inside session, so it's the default "Asc"
+                $search_string = '';
             }
             $data['search_string_selected'] = $search_string;
+            // end SEARCH
+
 
             if($order){
                 $filter_session_data['order'] = $order;
@@ -146,6 +144,7 @@ class Admin_clients extends CI_Controller {
             //fetch sql data into arrays
             $data['count_products']= $this->clients_model->count_clients($search_string, $order);
             $config['total_rows'] = $data['count_products'];
+
 
             //fetch sql data into arrays
             if($search_string){

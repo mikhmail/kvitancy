@@ -36,12 +36,18 @@ class Clients_model extends CI_Model {
     */
     public function get_clients($search_string=null, $order=null, $order_type='Asc', $limit_start=null, $limit_end=null)
     {
-	    
+	    //var_dump($search_string);die;
 		$this->db->select('*');
 		$this->db->from('users');
 
 		if($search_string){
 			$this->db->like('fam', $search_string);
+            $this->db->or_like('imya', $search_string);
+            $this->db->or_like('phone', $search_string);
+            $this->db->or_like('adres', $search_string);
+
+
+
 		}
 		$this->db->group_by('user_id');
 
