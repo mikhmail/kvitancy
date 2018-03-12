@@ -61,7 +61,8 @@ class Aparaty_model extends CI_Model {
         }
         
 		$query = $this->db->get();
-		
+		//echo $this->db->last_query();die;
+
 		return $query->result_array(); 	
     }
 

@@ -98,22 +98,22 @@ class Admin_devices extends CI_Controller {
         //in this case we clean the session filter data
         //if any filter post was sent but we are in some page, we must load the session data
 
-        //filtered && || paginated
-        if($search_string !== false && $order !== false || $this->uri->segment(3) == true){
-           
-            /*
-            The comments here are the same for line 79 until 99
+        //var_dump($search_string);die;
 
-            if post is not null, we store it in session data array
-            if is null, we use the session data already stored
-            we save order into the the var to load the view with the param already selected       
-            */
+        //filtered && || paginated
+        if($search_string !== false || $this->uri->segment(3) == true){
+           
+
+
             if($search_string){
                 $filter_session_data['search_string_selected'] = $search_string;
             }else{
                 $search_string = $this->session->userdata('search_string_selected');
             }
             $data['search_string_selected'] = $search_string;
+
+
+
 
             if($order){
                 $filter_session_data['order'] = $order;
@@ -123,11 +123,14 @@ class Admin_devices extends CI_Controller {
             }
             $data['order'] = $order;
 
+            //var_dump($search_string);die;
+
             //save session data into the session
             if(isset($filter_session_data)){
               $this->session->set_userdata($filter_session_data);    
             }
             
+
             //fetch sql data into arrays
             $data['count_products']= $this->aparaty_model->count_aparaty($search_string, $order);
             $config['total_rows'] = $data['count_products'];
