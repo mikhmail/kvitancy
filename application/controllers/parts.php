@@ -663,7 +663,7 @@ class Parts extends CI_Controller {
     {
         //product id
         $id = $this->uri->segment(3);
-        var_dump($id);die;
+        //var_dump($id);die;
             $this->parts_model->delete_store($id);
                 redirect('parts');
 

@@ -376,7 +376,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                             </p>
                                         </td>
                                         <td class="span2"><p class="text-center"><?=$row['name_sc']?></p></td>
-                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' '.$row['otch'].' <br> <a href="tel:38'.$row['phone'].'">'.$row['phone']?></a><br><span class="" style="color: #468847;font-size: small;""><?=$row['adres']?></span></p></td>
+                                        <td class="span3"><p class="text-center"><?=$row['fam'].' '.$row['imya'].' '.$row['otch'].' <br> <a href="tel:'.$row['phone'].'">'.$row['phone']?></a><br><span class="" style="color: #468847;font-size: small;""><?=$row['adres']?></span></p></td>
                                     </tr>
                                 </table>
                             <!--</a>-->

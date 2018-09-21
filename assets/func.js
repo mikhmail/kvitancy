@@ -811,7 +811,7 @@ $('input[id^=save_price_]').click(function(){
                         //alert('Добавлено!');
                     }
                 });
-    if (cash_type == 0){
+    if (cash_type == 2){
         if (confirm('Добавить в кассу запись?\n+'+price+', Получено от клиента, '+id+'\nЗапись будет добавлена "Наличные"')) {
         $.post(""+base_url+"ajx/add_cash", {
                 price:price,

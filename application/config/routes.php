@@ -159,6 +159,7 @@ $route['store/(:any)'] = 'store/index'; //$1 = page number
 
 $route['parts'] = 'parts/index';
 $route['parts/add'] = 'parts/add';
+$route['parts/delete/(:any)'] = 'parts/delete/$1';
 $route['parts/(:any)'] = 'parts/index'; //$1 = page number
 
 

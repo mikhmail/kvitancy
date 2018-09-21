@@ -186,7 +186,7 @@ class Tickets extends CI_Controller
                 $date = $this->session->userdata('date');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
-                $date = 'priemka';
+                $date = 'date_priemka';
             }
             $data['date_selected'] = $date;
             // end DATE type
