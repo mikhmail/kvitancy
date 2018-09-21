@@ -489,6 +489,10 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                         <table class="table table-bordered table-condensed">
                                             <tr>
                                                 <td>
+                                                    <!--добавить коммент -->
+                                                <textarea style="width: 30em;" rows="3" cols="20" name="comment_<?=$row['id_kvitancy']?>"></textarea>
+                                                <input class="btn btn-success btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
+
                                                     <ul id="ul_<?=$row['id_kvitancy']?>">
                                                         <?foreach($comments as $rowc)
                                                         {?>
@@ -503,9 +507,6 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                         <?}?>
                                                     </ul>
 
-
-                                                    <textarea style="width: 30em;" rows="3" cols="20" name="comment_<?=$row['id_kvitancy']?>"></textarea>
-                                                    <input class="btn btn-success btn-mini" type="button" name="comment" id="comment_<?=$row['id_kvitancy']?>" value="Добавить комментарий"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -518,7 +519,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
                                             <div class="span12">
                                                 Добавить <b>новую запись</b>, сумма полученная от клиента:
-                                                <input type="number" min=0 step="0.1" value="<? //if($row['full_cost']) echo $row['full_cost'];?>" id="price_<?=$row['id_kvitancy']?>" class="span2">
+                                                <input type="number" min=0 step="10" title="Можно вводить с минусом, например: -500" autocomplete="off" placeholder="Сумма* (500 или -500)" id="price_<?=$row['id_kvitancy']?>" class="span2">
 
                                                 <select id="cash_type_<?=$row['id_kvitancy']?>" class="span2">
                                                     <option value="" selected>-выбрать тип-</option>
