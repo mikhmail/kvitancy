@@ -1048,7 +1048,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                 <div class="span12">
                     <div class="span4">
 
-                        <?php  echo form_dropdown('id_remonta', $options_id_remonta, $id_remonta_selected, 'class="" id="id_remonta" required="required" title="Тип ремонта"');?>
+                        <?php  echo form_dropdown('id_remonta', $options_id_remonta, 2, 'class="" id="id_remonta" required="required" title="Тип ремонта"');?>
                     </div>
                     <div class="span4">
 
