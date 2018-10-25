@@ -36,7 +36,7 @@
 
 
             <input type="number" min="-99999999" step="0.1" name="plus" id="plus" title="Можно вводить с минусом, например: -500" autocomplete="off" placeholder="Сумма* (500 или -500)" class="span2" style="border: 1px solid rgb(173, 61, 61);">
-            <input type="text" name="name"  id="name" placeholder="Описание*: например -'закупка запчасти'" class="span4" style="border: 1px solid rgb(173, 61, 61);">
+            <input type="text" name="name" autocomplete="off" id="name" placeholder="Описание*: например -'закупка запчасти'" class="span4" style="border: 1px solid rgb(173, 61, 61);">
 
             <input class="span3" type="number" min=1 step="1" name="id_kvitancy"  id="id_kvitancy" autocomplete="off" placeholder="Номер квитанции (не обязательно)" title="Номер квитанции (не обязательно)" class="span2">
 
@@ -119,6 +119,7 @@
 
                 $options_search = array(
                     'type'  => 'input',
+                    'autocomplete' => 'off',
                     'name'  => 'search',
                     'id'    => '',
                     'value' => $search_selected,
@@ -143,7 +144,7 @@
             </div>
 
             <div class="pull-right">
-                <input type="text" name="search_string" value="<?if($search_string_selected) echo $search_string_selected;?>" placeholder="Поиск по описанию" title="Поиск по описанию" class="search-query">
+                <input type="text" autocomplete="off" name="search_string" value="<?if($search_string_selected) echo $search_string_selected;?>" placeholder="Поиск по описанию" title="Поиск по описанию" class="search-query">
                 </label><input type="submit" name="mysubmit" value="Общий поиск" class="btn btn-info">    </div>
         </div>
     </div>

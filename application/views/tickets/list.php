@@ -159,7 +159,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
 
     <div class="pull-left">
 
-        <input type="number" step="1" min="1" name="id_kvitancy" value="" placeholder="Введите номер квитанции">
+        <input type="number" step="1" min="1" name="id_kvitancy" value="" autocomplete="off" placeholder="Введите номер квитанции">
 
         <?
         echo form_label('', 'mysubmit');
@@ -170,7 +170,7 @@ echo form_open('tickets', array('class' => 'form-inline', 'id' => 'myform'));
     <div class="pull-right">
         <?
         //echo form_label('Поиск:', 'search_string');
-        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск по фамилии, модели, телефоне, адресу" title="Поиск по фамилии, модели, телефоне, адресу" class="search-query" style="width: 310px;"');
+        echo form_input('search_string', $search_string_selected, 'placeholder="Поиск по фамилии, модели, телефоне, адресу" title="Поиск по фамилии, модели, телефоне, адресу" autocomplete="off" class="search-query" style="width: 310px;"');
         ?>
         <?
         echo form_label('', 'mysubmit');
