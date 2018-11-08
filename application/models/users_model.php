@@ -132,7 +132,9 @@ class Users_model extends CI_Model {
 		$this->db->select('membership.user_name');
 		$this->db->select('membership.id_group');
 		$this->db->select('membership.id_sc');
-		
+
+        $this->db->where('membership.active', 1);
+
 		//$this->db->select('groups_dostupa.name as groups_dostupa_name');
 		$this->db->from('membership');
 		if($groups_dostupa_id != null && $groups_dostupa_id != 0){

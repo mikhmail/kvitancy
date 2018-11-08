@@ -296,6 +296,7 @@ class Tickets extends CI_Controller
             if ($this->input->post("id_kvitancy")) {
                 $search_string = '';
                 $data['search_string_selected']= '';
+                $filter_session_data['search_string']= '';
                 $filter_session_data['id_kvitancy'] = $id_kvitancy;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
