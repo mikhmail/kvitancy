@@ -8,20 +8,23 @@ var id = this.name;
 		$.ajax({
 		  url: ""+base_url+"ajx/change_status/"+status+"/"+id+"",
 		  success: function(data) {
-			
-			 $("#status_"+id+"").fadeOut("slow");
-			 $("#status_"+id+"").fadeIn();
+             obj = eval("(function(){return " + data + ";})()");
 
-              obj = eval("(function(){return " + data + ";})()");
-              console.log(obj.id_sost);
-              console.log(obj.name_sost);
-              console.log(obj.background);
+             if(obj.type == 1){
 
-              $("span#background_"+id+"").html(obj.name_sost);
-              $("span#background_"+id+"").css('background-color',obj.background);
+                 $("#status_"+id+"").fadeOut("slow");
+                 $("#status_"+id+"").fadeIn();
 
+                  $("span#background_"+id+"").html(obj.name_sost);
+                  $("span#background_"+id+"").css('background-color',obj.background);
 
+             }else{
+                 alert('При закрытии квитанции, надо выбрать механика!');
+                 location.reload();
 
+             }
+
+              //console.log(data);
               //alert(data);
 		  }
 		});

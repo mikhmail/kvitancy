@@ -25,29 +25,24 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="list.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+      <file leaf-file-name="func.js" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/assets/func.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="25" selection-start="2348" selection-end="2348" vertical-scroll-proportion="-11.0">
+            <state line="26" column="16" selection-start="845" selection-end="845" vertical-scroll-proportion="0.6753247">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tickets.php" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
+      <file leaf-file-name="ajx.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="841" column="28" selection-start="29904" selection-end="29915" vertical-scroll-proportion="-10.96">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="users_model.php" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="135" column="49" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.30697674">
-              <folding />
+            <state line="78" column="57" selection-start="2170" selection-end="2170" vertical-scroll-proportion="0.0">
+              <folding>
+                <marker date="1541690050488" expanded="true" signature="26829:27324" placeholder="..." />
+                <marker date="1541690050488" expanded="true" signature="26853:27311" placeholder="..." />
+                <marker date="1541690050488" expanded="true" signature="26874:27286" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -66,8 +61,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/application/controllers/admin_devices.php" />
-        <option value="$PROJECT_DIR$/application/models/aparaty_model.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_brands.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_cities.php" />
         <option value="$PROJECT_DIR$/application/controllers/admin_groups.php" />
@@ -82,6 +75,8 @@
         <option value="$PROJECT_DIR$/application/views/tickets/list.php" />
         <option value="$PROJECT_DIR$/application/controllers/tickets.php" />
         <option value="$PROJECT_DIR$/application/models/users_model.php" />
+        <option value="$PROJECT_DIR$/application/controllers/ajx.php" />
+        <option value="$PROJECT_DIR$/assets/func.js" />
       </list>
     </option>
   </component>
@@ -200,25 +195,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="kvitancy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,16 +421,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_tickets.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="36" selection-start="3707" selection-end="3707" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/application/controllers/admin_types.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="91" column="36" selection-start="2840" selection-end="2840" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/admin_users.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="105" column="36" selection-start="3414" selection-end="3414" vertical-scroll-proportion="0.0" />
@@ -509,13 +476,6 @@
         <state line="62" column="66" selection-start="2293" selection-end="2293" vertical-scroll-proportion="1.6715686" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="25" selection-start="2348" selection-end="2348" vertical-scroll-proportion="-11.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/application/controllers/tickets.php">
       <provider selected="true" editor-type-id="text-editor">
         <state line="841" column="28" selection-start="29904" selection-end="29915" vertical-scroll-proportion="-10.96">
@@ -525,7 +485,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/application/models/users_model.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="135" column="49" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.30697674">
+        <state line="135" column="49" selection-start="3565" selection-end="3565" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/views/tickets/list.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="398" column="122" selection-start="15835" selection-end="15842" vertical-scroll-proportion="-18.451612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/application/controllers/ajx.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="78" column="57" selection-start="2170" selection-end="2170" vertical-scroll-proportion="0.0">
+          <folding>
+            <marker date="1541690050488" expanded="true" signature="26829:27324" placeholder="..." />
+            <marker date="1541690050488" expanded="true" signature="26853:27311" placeholder="..." />
+            <marker date="1541690050488" expanded="true" signature="26874:27286" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/func.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="26" column="16" selection-start="845" selection-end="845" vertical-scroll-proportion="0.6753247">
           <folding />
         </state>
       </provider>

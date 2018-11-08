@@ -48,6 +48,7 @@ class Ajx extends CI_Controller {
     $type = $this->kvitancy_model->get_type_sost_remonta ($id_sost);
     $sost_remonta = $this->sost_remonta_model->get_sost_remonta_by_id($id_sost);
 
+
         if ($type[0]["type"] == 1) {
         $data = array(
             'id_sost' => $id_sost,
@@ -56,7 +57,10 @@ class Ajx extends CI_Controller {
             'update_time' => date("d-m-Y, H:i:s"),
             'update_user' => $update_user
         );
+           $id_mechanic = 1;
     }else{
+            $id_mechanic = (int)$this->db->select('id_mechanic')->where('id_kvitancy',$id_kvitancy)->get('kvitancy')->result()[0]->id_mechanic;
+            //var_dump($id_mechanic);die;
 
             $data = array(
                 'id_sost' => $id_sost,
@@ -68,88 +72,14 @@ class Ajx extends CI_Controller {
 
         }
 
-    /*
-	if ($id_sost == 1) {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => '',
-					   'date_vydachi' => '',
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
-	}
-	elseif ($id_sost == 3) {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => '',
-					   'date_vydachi' => '',
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
-	}
-	elseif ($id_sost == 4) {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => date("Y-m-j"),
-					   'date_vydachi' => '',
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
-	}
-	elseif ($id_sost == 6) {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => date("Y-m-j"),
-					   'date_vydachi' => '',
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
-	}
-	elseif ($id_sost == 7 or $id_sost == 8 or $id_sost == 9) {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => '',
-					   'date_vydachi' => date("Y-m-j"),
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
-	}						
-	elseif ($id_sost == 10) {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => '',
-					   'date_vydachi' => '',
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
-	}							
-	elseif ($id_sost == 17) {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => '',
-					   'date_vydachi' => '',
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
-	}
-	else {
-	$data = array(
-					   'id_sost' => $id_sost,
-					   'date_okonchan' => '',
-					   'date_vydachi' => '',
-                        'update_time' => date("d-m-Y, H:i:s"),
-                        'update_user' => $update_user
-					   );
 
-	}	  
-    */
-		
-		
-			
-		$this->db->where('id_kvitancy', $id_kvitancy);
-		$ret = $this->db->update('kvitancy', $data);
-        if ($ret) echo json_encode($sost_remonta[0]);
-		
+		if ($id_mechanic) {
+            $this->db->where('id_kvitancy', $id_kvitancy);
+            $ret = $this->db->update('kvitancy', $data);
+            if ($ret) echo json_encode($sost_remonta[0]);
+        }else{
+            echo 1;
+        }
 	}
 		
 	
