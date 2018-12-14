@@ -9,18 +9,24 @@ var id = this.name;
 		  url: ""+base_url+"ajx/change_status/"+status+"/"+id+"",
 		  success: function(data) {
              obj = eval("(function(){return " + data + ";})()");
+             if (data == 1){
 
-             if(obj.type == 1){
+                alert('При закрытии квитанции, надо выбрать механика!');
+                 $("#status_"+id+" option[selected]").removeAttr("selected");
+                 $("#status_"+id+" option")
+                 .removeAttr('selected')
+                    .filter('[value=2]')
+                         .attr('selected', true);
+
+                 $("#meh_"+id+"").focus();
+
+             }else{
 
                  $("#status_"+id+"").fadeOut("slow");
                  $("#status_"+id+"").fadeIn();
 
                   $("span#background_"+id+"").html(obj.name_sost);
                   $("span#background_"+id+"").css('background-color',obj.background);
-
-             }else{
-                 alert('При закрытии квитанции, надо выбрать механика!');
-                 location.reload();
 
              }
 
