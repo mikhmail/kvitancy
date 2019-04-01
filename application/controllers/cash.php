@@ -88,18 +88,17 @@ class Cash extends CI_Controller {
             if ($this->input->post()) {
 
                 $filter_session_data = array(
-                    'search_string' => '',
-                    'search' => '',
-                    'order' => '',
-                    'order_type' => '',
-                    'limit_start' => '',
-                    'start_date' => '',
-                    'end_date' => '',
-                    'id_aparat' => '',
-                    'id_sc' => '',
-                    'id_kvitancy' => '',
-                    'id_sc' => '',
-                    'id_responsible' => ''
+                    'cash_search_string' => '',
+                    'cash_search' => '',
+                    'cash_order' => '',
+                    'cash_order_type' => '',
+                    'cash_limit_start' => '',
+                    'cash_start_date' => '',
+                    'cash_end_date' => '',
+                    'cash_id_aparat' => '',
+                    'cash_id_sc' => '',
+                    'cash_id_kvitancy' => '',
+                    'cash_id_responsible' => ''
 
                 );
             }
@@ -130,10 +129,10 @@ class Cash extends CI_Controller {
 
             // all SEARCH  string
             if ($this->input->post("search_string")) {
-                $filter_session_data['search_string'] = $search_string;
+                $filter_session_data['cash_search_string'] = $search_string;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $search_string = $this->session->userdata('search_string');
+                $search_string = $this->session->userdata('cash_search_string');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $search_string = '';
@@ -143,10 +142,10 @@ class Cash extends CI_Controller {
 
             // SEARCH
             if ($this->input->post("search")) {
-                $filter_session_data['search'] = $search;
+                $filter_session_data['cash_search'] = $search;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $search = $this->session->userdata('search');
+                $search = $this->session->userdata('cash_search');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $search = '';
@@ -156,10 +155,10 @@ class Cash extends CI_Controller {
 
             // ORDER type
             if ($this->input->post("order_type")) {
-                $filter_session_data['order_type'] = $order_type;
+                $filter_session_data['cash_order_type'] = $order_type;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $order_type = $this->session->userdata('order_type');
+                $order_type = $this->session->userdata('cash_order_type');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $order_type = 'DESC';
@@ -170,10 +169,10 @@ class Cash extends CI_Controller {
 
              // cash_type type
             if ($this->input->post("cash_type")) {
-                $filter_session_data['cash_type'] = $cash_type;
+                $filter_session_data['cash_cash_type'] = $cash_type;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $cash_type = $this->session->userdata('cash_type');
+                $cash_type = $this->session->userdata('cash_cash_type');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $cash_type = '';
@@ -184,10 +183,10 @@ class Cash extends CI_Controller {
             //var_dump($cash_type);die;
             // ORDER
             if ($this->input->post("order")) {
-                $filter_session_data['order'] = $order;
+                $filter_session_data['cash_order'] = $order;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $order = $this->session->userdata('order');
+                $order = $this->session->userdata('cash_order');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $order = 'id';
@@ -201,11 +200,11 @@ class Cash extends CI_Controller {
 
             // START_DATE
             if ($this->input->post("start_date")) {
-                $filter_session_data['start_date'] = $start_date;
+                $filter_session_data['cash_start_date'] = $start_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                if ($this->session->userdata('start_date')) {
-                    $start_date = $this->session->userdata('start_date');
+                if ($this->session->userdata('cash_start_date')) {
+                    $start_date = $this->session->userdata('cash_start_date');
                 }else{
                     //$start_date = date('Y') . '-'. $m . '-31';
                     $start_date = date('Y') . '-'. date('m') . '-01';
@@ -221,11 +220,11 @@ class Cash extends CI_Controller {
 
             // END_DATE
             if ($this->input->post("end_date")) {
-                $filter_session_data['end_date'] = $end_date;
+                $filter_session_data['cash_end_date'] = $end_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                if ($this->session->userdata('end_date')) {
-                    $end_date = $this->session->userdata('end_date');
+                if ($this->session->userdata('cash_end_date')) {
+                    $end_date = $this->session->userdata('cash_end_date');
                 }else{
                     $end_date = date("Y-m-d");
                 }
@@ -242,10 +241,10 @@ class Cash extends CI_Controller {
 
             // ID_APARAT
             if ($this->input->post("id_aparat")) {
-                $filter_session_data['id_aparat'] = $id_aparat;
+                $filter_session_data['cash_id_aparat'] = $id_aparat;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_aparat = $this->session->userdata('id_aparat');
+                $id_aparat = $this->session->userdata('cash_id_aparat');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_aparat = '';
@@ -255,10 +254,10 @@ class Cash extends CI_Controller {
 
             // ID_APARAT_P
             if ($this->input->post("id_aparat_p")) {
-                $filter_session_data['id_aparat_p'] = $id_aparat_p;
+                $filter_session_data['cash_id_aparat_p'] = $id_aparat_p;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_aparat_p = $this->session->userdata('id_aparat_p');
+                $id_aparat_p = $this->session->userdata('cash_id_aparat_p');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_aparat_p = '';
@@ -268,10 +267,10 @@ class Cash extends CI_Controller {
 
             // ID_PROIZVOD
             if ($this->input->post("id_proizvod")) {
-                $filter_session_data['id_proizvod'] = $id_proizvod;
+                $filter_session_data['cash_id_proizvod'] = $id_proizvod;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_proizvod = $this->session->userdata('id_proizvod');
+                $id_proizvod = $this->session->userdata('cash_id_proizvod');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_proizvod = '';
@@ -282,10 +281,10 @@ class Cash extends CI_Controller {
 
             // ID_SOST
             if ($this->input->post("id_sost")) {
-                $filter_session_data['id_sost'] = $id_sost;
+                $filter_session_data['cash_id_sost'] = $id_sost;
             }
             elseif ($this->uri->segment(2)) {
-                $id_sost = $this->session->userdata('id_sost');
+                $id_sost = $this->session->userdata('cash_id_sost');
 
             } else {
                 $id_sost = '';
@@ -296,10 +295,10 @@ class Cash extends CI_Controller {
 
             // store_user_id
             if ($this->input->post("store_user_id")) {
-                $filter_session_data['store_user_id'] = $store_user_id;
+                $filter_session_data['cash_store_user_id'] = $store_user_id;
             }
             elseif ($this->uri->segment(2)) {
-                $store_user_id = $this->session->userdata('store_user_id');
+                $store_user_id = $this->session->userdata('cash_store_user_id');
 
             } else {
                 $store_user_id = '';
@@ -310,10 +309,10 @@ class Cash extends CI_Controller {
 
             // id_resp
             if ($this->input->post("id_responsible")) {
-                $filter_session_data['id_responsible'] = $id_responsible;
+                $filter_session_data['cash_id_responsible'] = $id_responsible;
             }
             elseif ($this->uri->segment(2)) {
-                $id_responsible = $this->session->userdata('id_responsible');
+                $id_responsible = $this->session->userdata('cash_id_responsible');
 
             } else {
                 $id_responsible = '';
@@ -323,10 +322,10 @@ class Cash extends CI_Controller {
 
             // id_where
             if ($this->input->post("id_where")) {
-                $filter_session_data['id_where'] = $id_where;
+                $filter_session_data['cash_id_where'] = $id_where;
             }
             elseif ($this->uri->segment(2)) {
-                $id_where = $this->session->userdata('id_where');
+                $id_where = $this->session->userdata('cash_id_where');
 
             } else {
                 $id_where = '';
@@ -336,10 +335,10 @@ class Cash extends CI_Controller {
 
             // status
             if ($this->input->post("status")) {
-                $filter_session_data['status'] = $status;
+                $filter_session_data['cash_status'] = $status;
             }
             elseif ($this->uri->segment(2)) {
-                $status = $this->session->userdata('status');
+                $status = $this->session->userdata('cash_status');
 
             } else {
                 $status = '1';
@@ -350,10 +349,10 @@ class Cash extends CI_Controller {
 
             // ID_KVITANCY
             if ($this->input->post("id_kvitancy")) {
-                $filter_session_data['id_kvitancy'] = $id_kvitancy;
+                $filter_session_data['cash_id_kvitancy'] = $id_kvitancy;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_kvitancy = $this->session->userdata('id_kvitancy');
+                $id_kvitancy = $this->session->userdata('cash_id_kvitancy');
                 //$id_kvitancy = '';
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
@@ -386,10 +385,10 @@ class Cash extends CI_Controller {
             }
 
             if ($id_sc) {
-                $filter_session_data['id_sc'] = $id_sc;
+                $filter_session_data['cash_id_sc'] = $id_sc;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_sc = $this->session->userdata('id_sc');
+                $id_sc = $this->session->userdata('cash_id_sc');
             } else {  $id_sc = ''; }
 
             $data['id_sc_selected'] = $id_sc;
@@ -491,7 +490,7 @@ class Cash extends CI_Controller {
                 null
             );
 
-
+        //var_dump($this->session->userdata);die;
         } // !end--------------------------POST------------------------------------- //
 
         else{
@@ -499,23 +498,23 @@ class Cash extends CI_Controller {
 
             /*Очистка масива для сесиии*/
                 $filter_session_data = array(
-                    'search_string' => '',
-                    'search' => '',
+                    'cash_search_string' => '',
+                    'cash_search' => '',
 
-                    'order' => 'cash.id',
-                    'order_type' => 'DESC',
-                    'limit_start' => '',
-                    'start_date' => '',
-                    'end_date' => '',
-                    'id_sc' => '',
-                    'id_proizvod' => '',
-                    'id_kvitancy' => '',
-                    'id_sc' => '',
-                    'id_responsible' =>'',
-                    'cash_type' => ''
+                    'cash_order' => 'cash.id',
+                    'cash_order_type' => 'DESC',
+                    'cash_limit_start' => '',
+                    'cash_start_date' => '',
+                    'cash_end_date' => '',
+                    'cash_id_sc' => '',
+                    'cash_id_proizvod' => '',
+                    'cash_id_kvitancy' => '',
+                    'cash_id_sc' => '',
+                    'cash_id_responsible' =>'',
+                    'cash_cash_type' => ''
 
                 );
-
+             //var_dump($this->session->userdata);die;
             //save session data into the session
             if (isset($filter_session_data)) {
                 $this->session->set_userdata($filter_session_data);

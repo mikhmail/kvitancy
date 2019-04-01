@@ -44,6 +44,7 @@ class Tickets extends CI_Controller
     {
 
 
+
         $page = $this->uri->segment(2);
         //pagination settings
         //$config['per_page'] = 20;
@@ -103,23 +104,23 @@ class Tickets extends CI_Controller
             if ($this->input->post()) {
 
             $filter_session_data = array(
-                'search_string' => '',
-                'order' => '',
-                'order_type' => '',
-                'limit_start' => '',
-                'limit_end' => '',
-                'date' => '',
-                'start_date' => '',
-                'end_date' => '',
-                'id_mechanic' => '',
-                'id_aparat' => '',
-                'id_proizvod' => '',
-                'id_sost' => '',
-                'id_sc' => '',
-                'id_kvitancy' => '',
-                'id_remonta' => '',
-                'id_responsible' => '',
-                'id_where' => '',
+                'tickets_search_string' => '',
+                'tickets_order' => '',
+                'tickets_order_type' => '',
+                'tickets_limit_start' => '',
+                'tickets_limit_end' => '',
+                'tickets_date' => '',
+                'tickets_start_date' => '',
+                'tickets_end_date' => '',
+                'tickets_id_mechanic' => '',
+                'tickets_id_aparat' => '',
+                'tickets_id_proizvod' => '',
+                'tickets_id_sost' => '',
+                'tickets_id_sc' => '',
+                'tickets_id_kvitancy' => '',
+                'tickets_id_remonta' => '',
+                'tickets_id_responsible' => '',
+                'tickets_id_where' => '',
 
             );
             }
@@ -152,12 +153,12 @@ class Tickets extends CI_Controller
 
             // SEARCH
             if ($this->input->post("search_string")) {
-                $filter_session_data['search_string'] = $search_string;
+                $filter_session_data['tickets_search_string'] = $search_string;
                 $data['id_kvitancy_selected'] = '';
                 $id_kvitancy = '';
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $search_string = $this->session->userdata('search_string');
+                $search_string = $this->session->userdata('tickets_search_string');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $search_string = '';
@@ -168,10 +169,10 @@ class Tickets extends CI_Controller
 
             // ORDER
             if ($this->input->post("order_type")) {
-                $filter_session_data['order_type'] = $order_type;
+                $filter_session_data['tickets_order_type'] = $order_type;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $order_type = $this->session->userdata('order_type');
+                $order_type = $this->session->userdata('tickets_order_type');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $order_type = 'Desc';
@@ -182,10 +183,10 @@ class Tickets extends CI_Controller
 
             // DATE type
             if ($this->input->post("date")) {
-                $filter_session_data['date'] = $date;
+                $filter_session_data['tickets_date'] = $date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $date = $this->session->userdata('date');
+                $date = $this->session->userdata('tickets_date');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $date = 'date_priemka';
@@ -196,10 +197,10 @@ class Tickets extends CI_Controller
 
             // START_DATE
             if ($this->input->post("start_date")) {
-                $filter_session_data['start_date'] = $start_date;
+                $filter_session_data['tickets_start_date'] = $start_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $start_date = $this->session->userdata('start_date');
+                $start_date = $this->session->userdata('tickets_start_date');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $start_date = '';
@@ -209,10 +210,10 @@ class Tickets extends CI_Controller
 
             // END_DATE
             if ($this->input->post("end_date")) {
-                $filter_session_data['end_date'] = $end_date;
+                $filter_session_data['tickets_end_date'] = $end_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $end_date = $this->session->userdata('end_date');
+                $end_date = $this->session->userdata('tickets_end_date');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $end_date = date("Y-m-d");
@@ -222,10 +223,10 @@ class Tickets extends CI_Controller
 
             // ID_MECHANIC
             if ($this->input->post("id_mechanic")) {
-                $filter_session_data['id_mechanic'] = $id_mechanic;
+                $filter_session_data['tickets_id_mechanic'] = $id_mechanic;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_mechanic = $this->session->userdata('id_mechanic');
+                $id_mechanic = $this->session->userdata('tickets_id_mechanic');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_mechanic = '';
@@ -236,11 +237,11 @@ class Tickets extends CI_Controller
 
             // ID_APARAT
             if ($this->input->post("id_aparat")) {
-                $filter_session_data['id_aparat'] = $id_aparat;
+                $filter_session_data['tickets_id_aparat'] = $id_aparat;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
                 if ($this->session->userdata('id_aparat')) {
-                        $id_aparat = $this->session->userdata('id_aparat');
+                        $id_aparat = $this->session->userdata('tickets_id_aparat');
                 }else{
                     $id_aparat = '';
                 }
@@ -255,11 +256,11 @@ class Tickets extends CI_Controller
 
             // ID_PROIZVOD
             if ($this->input->post("id_proizvod")) {
-                $filter_session_data['id_proizvod'] = $id_proizvod;
+                $filter_session_data['tickets_id_proizvod'] = $id_proizvod;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                if ($this->session->userdata('id_proizvod')) {
-                        $id_proizvod = $this->session->userdata('id_proizvod');
+                if ($this->session->userdata('tickets_id_proizvod')) {
+                        $id_proizvod = $this->session->userdata('tickets_id_proizvod');
                 }else{
                     $id_proizvod ='';
                 }
@@ -274,11 +275,11 @@ class Tickets extends CI_Controller
 
             // ID_SOST
             if ($this->input->post("id_sost")) {
-                $filter_session_data['id_sost'] = $id_sost;
+                $filter_session_data['tickets_id_sost'] = $id_sost;
             }
                     elseif ($this->uri->segment(2)) {
-                                if ($this->session->userdata('id_sost')) {
-                                    $id_sost = $this->session->userdata('id_sost');
+                                if ($this->session->userdata('tickets_id_sost')) {
+                                    $id_sost = $this->session->userdata('tickets_id_sost');
                                 }else{
                                     $id_sost = '';
                                 }
@@ -296,8 +297,8 @@ class Tickets extends CI_Controller
             if ($this->input->post("id_kvitancy")) {
                 $search_string = '';
                 $data['search_string_selected']= '';
-                $filter_session_data['search_string']= '';
-                $filter_session_data['id_kvitancy'] = $id_kvitancy;
+                $filter_session_data['tickets_search_string']= '';
+                $filter_session_data['tickets_id_kvitancy'] = $id_kvitancy;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
                 //$id_kvitancy = $this->session->userdata('id_kvitancy');
@@ -314,7 +315,7 @@ class Tickets extends CI_Controller
                 $filter_session_data['id_remonta'] = $id_remonta;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_remonta = $this->session->userdata('id_remonta');
+                $id_remonta = $this->session->userdata('tickets_id_remonta');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_remonta = '';
@@ -324,10 +325,10 @@ class Tickets extends CI_Controller
 
             // ID_resp
             if ($this->input->post("id_responsible")) {
-                $filter_session_data['id_responsible'] = $id_responsible;
+                $filter_session_data['tickets_id_responsible'] = $id_responsible;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_responsible = $this->session->userdata('id_responsible');
+                $id_responsible = $this->session->userdata('tickets_id_responsible');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_responsible = '';
@@ -337,14 +338,14 @@ class Tickets extends CI_Controller
 
             // ID_sc
            if ($this->uri->segment(2)) {
-                $id_sc = $this->session->userdata('id_sc');
+                $id_sc = $this->session->userdata('tickets_id_sc');
             }
             $data['id_sc_selected'] = $id_sc;
             // end ID_SC
 
             // ID_where
            if ($this->uri->segment(2)) {
-                $id_where = $this->session->userdata('id_where');
+                $id_where = $this->session->userdata('tickets_id_where');
             }
             $data['id_where_selected'] = $id_where;
             // end ID_where
@@ -578,7 +579,7 @@ class Tickets extends CI_Controller
             $config['total_rows'] = $data['count_kvitancys'];
 
 
-
+        //var_dump($this->session->userdata);die;
         } // !end--------------------------POST------------------------------------- //
 
 

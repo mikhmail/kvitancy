@@ -50,7 +50,7 @@ class Stat extends CI_Controller
 
 
         //pagination settings
-        $config['per_page'] = 20;
+        $config['per_page'] = 10;
         $config['base_url'] = base_url() . 'stat/';
         $config['use_page_numbers'] = TRUE;
         //$config['num_links'] = 10;
@@ -103,21 +103,21 @@ class Stat extends CI_Controller
             if ($this->input->post()) {
 
                 $filter_session_data = array(
-                    'search_string' => '',
-                    'order' => '',
-                    'order_type' => '',
-                    'limit_start' => '',
-                    'limit_end' => '',
-                    'date' => '',
-                    'start_date' => '',
-                    'end_date' => '',
-                    'id_mechanic' => '',
-                    'id_aparat' => '',
-                    'id_proizvod' => '',
-                    'id_sost' => '',
-                    'id_sc' => '',
-                    'id_kvitancy' => '',
-                    'id_remonta' => ''
+                    'stat_search_string' => '',
+                    'stat_order' => '',
+                    'stat_order_type' => '',
+                    'stat_limit_start' => '',
+                    'stat_limit_end' => '',
+                    'stat_date' => '',
+                    'stat_start_date' => '',
+                    'stat_end_date' => '',
+                    'stat_id_mechanic' => '',
+                    'stat_id_aparat' => '',
+                    'stat_id_proizvod' => '',
+                    'stat_id_sost' => '',
+                    'stat_id_sc' => '',
+                    'stat_id_kvitancy' => '',
+                    'stat_id_remonta' => ''
 
                 );
             }
@@ -148,10 +148,10 @@ class Stat extends CI_Controller
 
             // SEARCH
             if ($this->input->post("search_string")) {
-                $filter_session_data['search_string'] = $search_string;
+                $filter_session_data['stat_search_string'] = $search_string;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $search_string = $this->session->userdata('search_string');
+                $search_string = $this->session->userdata('stat_search_string');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $search_string = '';
@@ -162,10 +162,10 @@ class Stat extends CI_Controller
 
             // ORDER
             if ($this->input->post("order_type")) {
-                $filter_session_data['order_type'] = $order_type;
+                $filter_session_data['stat_order_type'] = $order_type;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $order_type = $this->session->userdata('order_type');
+                $order_type = $this->session->userdata('stat_order_type');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $order_type = 'Asc';
@@ -176,10 +176,10 @@ class Stat extends CI_Controller
 
             // DATE type
             if ($this->input->post("date")) {
-                $filter_session_data['date'] = $date;
+                $filter_session_data['stat_date'] = $date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $date = $this->session->userdata('date');
+                $date = $this->session->userdata('stat_date');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $date = 'priemka';
@@ -190,10 +190,10 @@ class Stat extends CI_Controller
 
             // START_DATE
             if ($this->input->post("start_date")) {
-                $filter_session_data['start_date'] = $start_date;
+                $filter_session_data['stat_start_date'] = $start_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $start_date = $this->session->userdata('start_date');
+                $start_date = $this->session->userdata('stat_start_date');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $start_date = '';
@@ -203,10 +203,10 @@ class Stat extends CI_Controller
 
             // END_DATE
             if ($this->input->post("end_date")) {
-                $filter_session_data['end_date'] = $end_date;
+                $filter_session_data['stat_end_date'] = $end_date;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $end_date = $this->session->userdata('end_date');
+                $end_date = $this->session->userdata('stat_end_date');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $end_date = date("Y-m-d");
@@ -216,10 +216,10 @@ class Stat extends CI_Controller
 
             // ID_MECHANIC
             if ($this->input->post("id_mechanic")) {
-                $filter_session_data['id_mechanic'] = $id_mechanic;
+                $filter_session_data['stat_id_mechanic'] = $id_mechanic;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_mechanic = $this->session->userdata('id_mechanic');
+                $id_mechanic = $this->session->userdata('stat_id_mechanic');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_mechanic = '';
@@ -230,11 +230,11 @@ class Stat extends CI_Controller
 
             // ID_APARAT
             if ($this->input->post("id_aparat")) {
-                $filter_session_data['id_aparat'] = $id_aparat;
+                $filter_session_data['stat_id_aparat'] = $id_aparat;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                if ($this->session->userdata('id_aparat')) {
-                    $id_aparat = $this->session->userdata('id_aparat');
+                if ($this->session->userdata('stat_id_aparat')) {
+                    $id_aparat = $this->session->userdata('stat_id_aparat');
                 }else{
                     $id_aparat = '';
                 }
@@ -249,11 +249,11 @@ class Stat extends CI_Controller
 
             // ID_PROIZVOD
             if ($this->input->post("id_proizvod")) {
-                $filter_session_data['id_proizvod'] = $id_proizvod;
+                $filter_session_data['stat_id_proizvod'] = $id_proizvod;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                if ($this->session->userdata('id_proizvod')) {
-                    $id_proizvod = $this->session->userdata('id_proizvod');
+                if ($this->session->userdata('stat_id_proizvod')) {
+                    $id_proizvod = $this->session->userdata('stat_id_proizvod');
                 }else{
                     $id_proizvod ='';
                 }
@@ -268,11 +268,11 @@ class Stat extends CI_Controller
 
             // ID_SOST
             if ($this->input->post("id_sost")) {
-                $filter_session_data['id_sost'] = $id_sost;
+                $filter_session_data['stat_id_sost'] = $id_sost;
             }
             elseif ($this->uri->segment(2)) {
-                if ($this->session->userdata('id_sost')) {
-                    $id_sost = $this->session->userdata('id_sost');
+                if ($this->session->userdata('stat_id_sost')) {
+                    $id_sost = $this->session->userdata('stat_id_sost');
                 }else{
                     $id_sost = '';
                 }
@@ -286,7 +286,7 @@ class Stat extends CI_Controller
 
             // ID_KVITANCY
             if ($this->input->post("id_kvitancy")) {
-                $filter_session_data['id_kvitancy'] = $id_kvitancy;
+                $filter_session_data['stat_id_kvitancy'] = $id_kvitancy;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
                 //$id_kvitancy = $this->session->userdata('id_kvitancy');
@@ -300,10 +300,10 @@ class Stat extends CI_Controller
 
             // ID_REMONTA
             if ($this->input->post("id_remonta")) {
-                $filter_session_data['id_remonta'] = $id_remonta;
+                $filter_session_data['stat_id_remonta'] = $id_remonta;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_remonta = $this->session->userdata('id_remonta');
+                $id_remonta = $this->session->userdata('stat_id_remonta');
             } else {
                 //if we have nothing inside session, so it's the default "Asc"
                 $id_remonta = '';
@@ -334,10 +334,10 @@ class Stat extends CI_Controller
             }
 
             if ($id_sc) {
-                $filter_session_data['id_sc'] = $id_sc;
+                $filter_session_data['stat_id_sc'] = $id_sc;
             } //we have something stored in the session?
             elseif ($this->uri->segment(2)) {
-                $id_sc = $this->session->userdata('id_sc');
+                $id_sc = $this->session->userdata('stat_id_sc');
             } else {  $id_sc = ''; }
 
             $data['id_sc_selected'] = $id_sc;
@@ -433,21 +433,21 @@ class Stat extends CI_Controller
         else {
 
             $filter_session_data = array(
-                'search_string' => '',
-                'order' => 'id_kvitancy',
-                'order_type' => 'ASC',
-                'limit_start' => '',
-                'limit_end' => '',
-                'date' => 'date_priemka',
-                'start_date' => date('Y') . '-'. date('m') . '-01',
-                'end_date' => date("Y-m-d"),
-                'id_mechanic' => '',
-                'id_aparat' => '',
-                'id_proizvod' => '',
-                'id_sost' => '',
-                'id_sc' => '',
-                'id_kvitancy' => '',
-                'id_remonta' => ''
+                'stat_search_string' => '',
+                'stat_order' => 'id_kvitancy',
+                'stat_order_type' => 'ASC',
+                'stat_limit_start' => '',
+                'stat_limit_end' => '',
+                'stat_date' => 'date_priemka',
+                'stat_start_date' => date('Y') . '-'. date('m') . '-01',
+                'stat_end_date' => date("Y-m-d"),
+                'stat_id_mechanic' => '',
+                'stat_id_aparat' => '',
+                'stat_id_proizvod' => '',
+                'stat_id_sost' => '',
+                'stat_id_sc' => '',
+                'stat_id_kvitancy' => '',
+                'stat_id_remonta' => ''
 
             );
 
