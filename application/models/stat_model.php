@@ -305,8 +305,13 @@ service.rab_sc
 
                 case 2: // мастер получает % от чистой прибилы заказа
                     $percent = $this->stat_model->get_percent($row['id_kvitancy']);
+                    $store = $this->stat_model->get_store($row['id_kvitancy']);
+                    $sum_store = 0;
+                    foreach ($store as $str){
+                        $sum_store += $str["cost"];
+                    }
                     foreach ($percent as $percents){
-                        $work_summ += ($percents["full_cost"]*$percents["percent"])/100;
+                        $work_summ += (($percents["full_cost"]-$sum_store)*$percents["percent"])/100;
                     }
                     break;
 

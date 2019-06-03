@@ -423,7 +423,7 @@ class Percent extends CI_Controller
 
             $data['summ'] = $this->stat_model->get_summ($summa);
             $data['store'] = $this->stat_model->get_all_store($summa);
-            //$data['works'] = $this->stat_model->get_all_works($summa);
+            $data['works'] = $this->stat_model->get_all_works($summa);
 
 
             $config['total_rows'] = $data['count_kvitancys'];
@@ -582,7 +582,7 @@ class Percent extends CI_Controller
 
             $data['summ'] = $this->stat_model->get_percent_summ($summa);
             //$data['store'] = $this->stat_model->get_all_store($summa);
-            //$data['works'] = $this->stat_model->get_all_works($summa);
+            $data['works'] = $this->stat_model->get_all_works($summa);
 
 
         } //end else if POST

@@ -166,8 +166,7 @@ if(count($count_kvitancys)>=1) {?>
 
 <div class="row-fluid">
 
-    <legend>Найдено <strong><?=$count_kvitancys?></strong> квитанций на сумму : <strong><?echo $summ;?></strong>
-        
+    <legend>Найдено <strong><?=$count_kvitancys?></strong> квитанций. Выполнено работ на сумму : <strong><?echo $works;?>.</strong>
 
         <div class="pagination pull-right">
             <?=$this->pagination->create_links()?>

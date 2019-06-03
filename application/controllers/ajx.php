@@ -287,7 +287,7 @@ class Ajx extends CI_Controller {
 								   'update_time' => date("d-m-Y, H:i:s"),
 								   'update_user' => $this->session->userdata['user_id'],
                                    'id_where' => $this->input->post('id_sc'),
-                                    'id_responsible' => $this->session->userdata['user_id']
+                                   'id_responsible' => ''
 
 
                     );

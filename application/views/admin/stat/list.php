@@ -206,9 +206,9 @@ if(count($count_kvitancys)>=1) {?>
                 <th class="span2">В ремонте/Дата выдачи</th>
                 <th class="span2">Сервис</th>
                 <th class="span2">Запчасти</th>
-                <th class="span2">Работы</th>
                 <th class="span2">Приход</th>
                 <th class="span3">Прибыль</th>
+                <th class="span2">Работы</th>
             </tr>
         </table>
     </td>
@@ -265,27 +265,7 @@ if(count($count_kvitancys)>=1) {?>
                         <?}?>
                     </td>
 
-                    <?if (isset($work[0]['full_cost'])){?>
-                    <td class="span2">
-                        <? if ($work[0]['full_cost'] !=0.00) {?>
 
-                           <? foreach ($work as $works){?>
-                               <?=$works["user_name"]?>: (<?=$works["full_cost"]?>×<?=$works["percent"]?>%)/100 =  <strong><?=($works["full_cost"]*$works["percent"])/100;$sum_work += ($works["full_cost"]*$works["percent"])/100;?></strong></li>
-                            <?}?>
-
-                           <?}?>
-                    </td>
-                    <?}else{?>
-                    <td class="span2">
-                        <? if(count($work)>0) {?>
-                        <ul>
-                           <? foreach ($work as $works){?>
-                                <li><?=$works["name"]?>: <strong><?=$works["cost"];$sum_work += $works["cost"];?></strong> by <?=$works["user_name"]?>
-                            <?}?>
-                        </ul>
-                           <?}?>
-                    </td>
-                    <?}?>
                     <td class="span2">
                         <? if(count($cash) >0) {?>
                             <ul>
@@ -303,6 +283,28 @@ if(count($count_kvitancys)>=1) {?>
                         Приход [<b><?=$pro_cash?></b>] - Запчасти[<b><?=$sum_store?></b>] - Работы[<b><?=$sum_work?></b>] = <?if($pr <0) { ?><span style="color: red;"><b><?=$pr;?></b></span><?}else{echo $pr;}?>
                     <?}?>
                     </td>
+
+                    <?if (isset($work[0]['full_cost'])){?>
+                    <td class="span2">
+                        <? if ($work[0]['full_cost'] !=0.00) {?>
+
+                           <? foreach ($work as $works){?>
+                               <?=$works["user_name"]?>: (<?=$pr?>×<?=$works["percent"]?>%)/100 =  <strong><?=($pr*$works["percent"])/100;$sum_work += ($pr*$works["percent"])/100;?></strong></li>
+                            <?}?>
+
+                           <?}?>
+                    </td>
+                    <?}else{?>
+                    <td class="span2">
+                        <? if(count($work)>0) {?>
+                        <ul>
+                           <? foreach ($work as $works){?>
+                                <li><?=$works["name"]?>: <strong><?=$works["cost"];$sum_work += $works["cost"];?></strong> by <?=$works["user_name"]?>
+                            <?}?>
+                        </ul>
+                           <?}?>
+                    </td>
+                    <?}?>
 
 
                 </tr>
