@@ -75,6 +75,8 @@
 				<th class="yellow header headerSortDown">user_id</th>
 				
 				<th class="yellow header headerSortDown">№ квитанции</th>
+                <th class="yellow header headerSortDown">Аппарат</th>
+
 				
 				<th class="yellow header headerSortDown">Управление</th>
 				
@@ -85,19 +87,14 @@
             <tbody>
               <?php
               foreach($manufacturers as $row)
-              {
+              {      //var_dump($row);die;
                 echo '<tr>';
 				echo '<td>'.$row['id_comment'].'</td>';
-                
                 echo '<td>'.$row['date'].'</td>';
                 echo '<td>'.$row['comment'].'</td>';
 				echo '<td>'.$row['first_name'].'</td>';
-				
 				echo '<td>'.$row['id_kvitancy'].'</td>';
-				
-				
-				
-				
+                echo '<td>'.$row['name_proizvod'].' '.$row['model'].'</td>';
                 echo '<td class="span3">
                   
                   <a href="'.site_url("admin").'/comments/delete/'.$row['id_comment'].'" class="btn btn-danger">Удалить</a>

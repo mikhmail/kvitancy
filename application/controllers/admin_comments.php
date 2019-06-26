@@ -52,13 +52,16 @@ class Admin_comments extends CI_Controller {
         $order_type = $this->input->post('order_type'); 
 
         //pagination settings
+        $page = $this->uri->segment(3);
+
         $config['per_page'] = 20;
+        $config['base_url'] = base_url() . 'admin/comments/';
+        $config['use_page_numbers'] = TRUE;
+        $config['display_pages'] = TRUE;
+        $config['uri_segment'] = 2;
         $config['first_url'] = '1';
-        $config['base_url'] = base_url().'admin/comments';
-        $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 20;
-        $config['use_page_numbers'] = TRUE;
-        $config['num_links'] = 4;
+        $config['num_links'] = 2;
+        //$config['display_pages'] = TRUE;
 
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';
@@ -69,11 +72,11 @@ class Admin_comments extends CI_Controller {
         $config['num_tag_open']  = '<li>';
         $config['num_tag_close'] = '</li>';
 
-        $config['first_link']      = 'First';
+        //$config['first_link']      = 'First';
         $config['first_tag_open']  = '<li>';
         $config['first_tag_close'] = '</li>';
 
-        $config['last_link']      = 'Last';
+        //$config['last_link']      = 'Last';
         $config['last_tag_open']  = '<li>';
         $config['last_tag_close'] = '</li>';
 
@@ -85,8 +88,6 @@ class Admin_comments extends CI_Controller {
         $config['prev_tag_open']  = '<li>';
         $config['prev_tag_close'] = '</li>';
 
-        //limit end
-        $page = $this->uri->segment(3);
 
         //math to get the initial record to be select in the database
         $limit_end = ($page * $config['per_page']) - $config['per_page'];

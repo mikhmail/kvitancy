@@ -55,6 +55,10 @@ class Comments_model extends CI_Model {
 		
 		
 		$this->db->join('membership', 'comments.id_user = membership.id');
+        $this->db->join('kvitancy', 'comments.id_kvitancy = kvitancy.id_kvitancy');
+        $this->db->join('proizvoditel', 'kvitancy.id_proizvod = proizvoditel.id_proizvod');
+
+
 		
 		
 		if($search_string){
