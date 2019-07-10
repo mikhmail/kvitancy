@@ -52,16 +52,14 @@ class Admin_comments extends CI_Controller {
         $order_type = $this->input->post('order_type'); 
 
         //pagination settings
-        $page = $this->uri->segment(3);
+        $page = $this->uri->segment(count($this->uri->segment_array()));
 
         $config['per_page'] = 20;
         $config['base_url'] = base_url() . 'admin/comments/';
         $config['use_page_numbers'] = TRUE;
         $config['display_pages'] = TRUE;
-        $config['uri_segment'] = 2;
         $config['first_url'] = '1';
-        $config['num_links'] = 2;
-        //$config['display_pages'] = TRUE;
+        $config['num_links'] = 4;
 
         $config['full_tag_open'] = '<ul>';
         $config['full_tag_close'] = '</ul>';

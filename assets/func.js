@@ -992,7 +992,7 @@ function fill_user(thisValue) {
 			var parts=new Array();
 			var response = thisValue;
 			
-			parts = response.split('-');
+			parts = response.split('&');
 
 			$('#user_id').val(parts[0]);
 			$('#fam').val(parts[1]);

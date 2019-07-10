@@ -84,7 +84,7 @@ class Stat extends CI_Controller
         $config['display_pages'] = TRUE;
 
         //limit end
-        $page = $this->uri->segment(2);
+        $page = $this->uri->segment(count($this->uri->segment_array()));
 
 
         //math to get the initial record to be select in the database

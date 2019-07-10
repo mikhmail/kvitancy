@@ -73,7 +73,7 @@ class Works extends CI_Controller {
         $config['uri_segment'] = 2;
 
         //limit end
-        $page = $this->uri->segment(2);
+        $page = $this->uri->segment(count($this->uri->segment_array()));
 
         //math to get the initial record to be select in the database
         $limit_end = ($page * $config['per_page']) - $config['per_page'];

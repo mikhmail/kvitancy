@@ -45,7 +45,7 @@ class Tickets extends CI_Controller
 
 
 
-        $page = $this->uri->segment(2);
+        $page = $this->uri->segment(count($this->uri->segment_array()));
         //pagination settings
         //$config['per_page'] = 20;
         $config['per_page'] = $this->kvitancy_model-> get_tickets_per_page();

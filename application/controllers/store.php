@@ -69,7 +69,7 @@ class Store extends CI_Controller {
         $config['prev_tag_open']  = '<li>';
         $config['prev_tag_close'] = '</li>';
 
-        $config['uri_segment'] = 2;
+        $page = $this->uri->segment(count($this->uri->segment_array()));
 
         //limit end
         $page = $this->uri->segment(2);
