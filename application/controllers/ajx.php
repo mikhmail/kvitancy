@@ -563,7 +563,7 @@ function search_user () {
 			{
                 $adres = str_replace(array('"', '&quot;'), '', $row9["adres"]);
 		
-    $div .= '<li style=\'padding:8px 0 0 0; cursor:pointer; height:14px; font-size:12px;\' onclick=\'fill_user("'.$row9["user_id"].'&'.$row9["fam"].'&'.$row9["imya"].'&'.$row9["otch"].'&'.$row9["mail"].'&'.$adres.'&'.$row9["phone"].'")\'>
+    $div .= '<li style=\'padding:8px 0 0 0; cursor:pointer; height:14px; font-size:12px;\' onclick=\'fill_user("'.$row9["user_id"].'&'.$row9["fam"].'&'.$row9["imya"].'&'.$row9["otch"].'&'.$adres.'&'.$row9["phone"].'")\'>
 					&nbsp;'.$row9["fam"].' '.$row9["imya"].' '.$row9["otch"].', <span style="color:blue;">тел.'.$row9["phone"].'</span>, <span style="color:green;">'.$row9["adres"].'</span>&nbsp;</li>';
          
 			}

@@ -998,9 +998,8 @@ function fill_user(thisValue) {
 			$('#fam').val(parts[1]);
 			$('#imya').val(parts[2]);
 			$('#otch').val(parts[3]);
-			$('#mail').val(parts[4]);
-			$('#adres').val(parts[5]);
-			$('#phone').val(parts[6]);
+			$('#adres').val(parts[4]);
+			$('#phone').val(parts[5]);
 			
 			$("#search_user").val('');
 			setTimeout("$('#user_box').hide();", 200);
