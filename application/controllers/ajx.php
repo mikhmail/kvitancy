@@ -6,11 +6,11 @@ class Ajx extends CI_Controller {
 	{
 		parent::__construct();
 
-        /*
+        
         if(!$this->session->userdata('is_logged_in')){
             redirect('admin/login');
         }
-        */
+        
         
 		$this->load->model('kvitancy_model');
         $this->load->model('users_model');

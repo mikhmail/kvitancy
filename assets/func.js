@@ -830,11 +830,11 @@ $('input[id^=save_price_]').click(function(){
             })
                 .done(function(data) {
                     //alert (data);
-                    if (data == 0) {
-                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
+                    if (data == 1) {
+                        alert('Добавлено!');
 
                     } else {
-                        alert('Добавлено!');
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
                     }
                 });
         }
@@ -934,16 +934,17 @@ $('input[id^=save_price_]').click(function(){
             })
                 .done(function(data) {
                     //alert (data);
-                    if (data == 0) {
-                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
+                    if (data == 1) {
+                        alert('Добавлено!');
+						location.reload();
 
                     } else {
-                        alert('Добавлено!');
+                        alert('Произошла ошибка во время запроса. Попробуйте еще раз.');
                         location.reload();
                     }
                 });
         }else{
-            alert('Надо ввести значения!');
+            alert('Надо ввести значениe!');
         }
 
     });
