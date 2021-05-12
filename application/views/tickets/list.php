@@ -242,10 +242,11 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
     if(count($aparats) >= 1) {
         /* Сортировка масива по аппаратам */
-
-        foreach ($aparats as $a=>$row) { //arr63
+       // боковая панель
+       /* foreach ($aparats as $a=>$row) { //arr63
             $row_global1[$row["aparat_name"]][] = $row;
         }
+        */
 
         /* Сортировка масива по состояниям */
 
@@ -299,6 +300,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
 
 
     <div class="row-fluid">
+        <!--  // отключил боковую панель
     <div class="span2">
         <ul class="nav nav-tabs nav-stacked">
             <?foreach ($row_global1 as $aparat_name => $value) {
@@ -309,9 +311,9 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                 <?}?>
         </ul>
     </div>
+         -->
 
-
-    <div class="span10">
+    <div class="span12">
 
 
 
@@ -662,7 +664,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     <div class="parts_list">
                                                     </div>
                                                 </div>
-                                                <input maxlength="1" size="1" type="input" value="1" min=1 max=1 name="store_count_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Количество" class="span2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                                <input type="text" maxlength="1" size="1" value="1" min=1 max=1 name="store_count_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Количество" class="span2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                                 <select name="store_id_sost_<?=$row['id_kvitancy']?>" class="span2">
                                                     <option value="" selected>-выбрать-</option>
                                                     <option value="1">Новый</option>
