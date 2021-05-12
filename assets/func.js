@@ -127,8 +127,8 @@ var id = this.name;
         var id_sost = $('select[name=store_id_sost_'+id_kvitancy+'] option:selected').val();
         var cost = $.trim($(' input[name=store_cost_'+id_kvitancy+'] ').attr('value'));
         var price = $.trim($(' input[name=store_price_'+id_kvitancy+'] ').attr('value'));
-        var count = $.trim($(' input[name=store_count_'+id_kvitancy+'] ').attr('value'));
-
+        //var count = $.trim($(' input[name=store_count_'+id_kvitancy+'] ').attr('value'));
+		var count = 1;
 
         $(this).parent().parent().find("input,select,textarea").each(function () {
             if ( ! $(this).val() ) { alert ('Надо выбрать значение "'+$(this).attr("placeholder")+'".'); $(this).focus(); exit; }

@@ -662,7 +662,7 @@ foreach ($row_global_sost as $name_sost => $row_sost) {?>
                                                     <div class="parts_list">
                                                     </div>
                                                 </div>
-                                                <input maxlength="2" size="2" type="number" min=1 name="store_count_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Количество" class="span2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
+                                                <input maxlength="1" size="1" type="input" value="1" min=1 max=1 name="store_count_<?=$row['id_kvitancy']?>" autocomplete="off" placeholder="Количество" class="span2" oninput="this.value = this.value.replace(/[^0-9.]/g, ''); this.value = this.value.replace(/(\..*)\./g, '$1');">
                                                 <select name="store_id_sost_<?=$row['id_kvitancy']?>" class="span2">
                                                     <option value="" selected>-выбрать-</option>
                                                     <option value="1">Новый</option>
